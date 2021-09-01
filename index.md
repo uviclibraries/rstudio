@@ -3,7 +3,7 @@ layout: default
 title: Introduction 
 nav_order: 1
 ---
-<img src="WORKSHOP-LOGO-HERE.png" alt="image description" style="float:right;width:180px;"> 
+<img src="WORKSHOP-LOGO-HERE.png" style="float:right;width:180px;" alt="image description" > 
 
 # WORKSHOP TITLE HERE (Use Regular Case Like this)
 
