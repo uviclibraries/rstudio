@@ -6,5 +6,5 @@ parent: Workshop Activities
 ---
 # ggplot2 & Data Visualization
 
-[APPENDIX: ggplot2 Cheatsheet](ggplot2-cheatsheet.html){: .btn .btn-blue }<br>
+[APPENDIX: ggplot2 Cheatsheet](https://drive.google.com/file/d/1PuMBZwAutnBjJ8xVCeLgElZwcC1UIhrz/view){: .btn .btn-grey }<br>
 [NEXT STEPS: Earn a Workshop Badge](informal-credentials.html){: .btn .btn-blue }
