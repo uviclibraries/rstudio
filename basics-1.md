@@ -6,4 +6,4 @@ parent: Workshop Activities
 ---
 # SKIP THIS EXERCISE IF YOU ALREADY COMPLETED EXERCISE 0:  Data types and Basic commands
 
-[NEXT STEP: Tidy Verse and Data Manipulation](tidy-verse-data.html){: .btn .btn-blue }
+[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }
