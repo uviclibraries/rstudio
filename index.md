@@ -3,7 +3,7 @@ layout: default
 title: Introduction 
 nav_order: 1
 ---
-<img src="rstudio-logo.png" style="float:right;width:180px" alt="rstudio logo"> 
+<img src="images/rstudio-logo.png" style="float:right;width:180px;" alt="rstudio logo"> 
 
 # WORKSHOP TITLE HERE (Use Regular Case Like this)
 
