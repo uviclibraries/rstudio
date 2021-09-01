@@ -19,9 +19,9 @@ This workshop is primarily hands-on practice with RStudio in order to learn to u
         - [R-Studio Desktop Download](bit.ly/dsc-rstudio-down){:target="_blank"}
 - [Introduction to R & RStudio](youtu.be/riONFzJdXcs)(5 min){:target="_blank"}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-- Bookmark or print this Reference table of useful R commands + examples (4 min): goo.gl/AE2Sv9 
-- Optional - R Tutorial for beginners: tutorialspoint.com/r/r_tutorial.pdf 
-   - R in Action companion website: statmethods.net/index.html
+- [Bookmark or print this Reference table of useful R commands + examples](goo.gl/AE2Sv9){:target="_blank"}(4 min)
+- Optional - [R Tutorial for beginners](tutorialspoint.com/r/r_tutorial.pdf){:target="_blank"}
+   - [R in Action companion website](statmethods.net/index.html){:target="_blank"}
 - [Pre-Class Preparation Quiz](goo.gl/forms/9i0Y76OAkYPIqKFn2){:target="_blank"}{: .btn .btn-purple }
 
 [NEXT STEP: Introduction to Hands-On Activities](activities-intro.html){: .btn .btn-blue }
