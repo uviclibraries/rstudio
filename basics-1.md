@@ -17,7 +17,7 @@ If you and your group have any questions or get stuck as you work through this i
     - In the console window (left), type **getwd()** to display the current working directory.
     - This directory should contain all the datasets you plan on using.
     - Set the working directory to your preferred location using. For e.g.: **setwd("c:/Users/rmccue/Download")**
-- Type: **help(mean)** to get help about the mean function & see use case examples.
+- Type: **help(mean)** to get help about the mean function & see use case examples.<br>
 ![Demonstration of Step 1](images/rstudio-basics-02.gif)
 2. **Data types and basic commands**
 - To start with, click the ‘File’ on the menu and then create a new R script.
@@ -45,7 +45,7 @@ If you and your group have any questions or get stuck as you work through this i
 - List the variable “**experience**” in the console: **income$experience**
 - Attach your data frame in the console (so you don’t have to type the name of the dataset when calling the variables contained in the dataset):
     - **attach(income)**
-  ![Demonstration of Importing data](images/rstudio-basics-07.gif)  
+    - ![Demonstration of Importing data](images/rstudio-basics-07.gif)  
 - List all the values for the variable “**experience**” by typing directly into the console: 
     - **experience**
 ! [Demonstration of step 3](images/rstudio-basics-08.gif)
