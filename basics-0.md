@@ -30,17 +30,16 @@ If you have any questions or get stuck as you work through this in-class exercis
     - Type print **(goat.weight)** to print the contents of the vector in the console (bottom left window).
     - Copy, paste and run this command: **goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")**
     - Type or copy & paste, **length(goat.name)** and then run in order to count the number of goat names in the vector.<br>
-![Adding length(goat.name)](images/rstudio-06.gif)
+![Adding length(goat.name)](images/rstudio-06.gif)<br>
 - Variables (text and numeric):
     - Type **name1='gabbie'** then run.
     - Type **v1<-6** then run.
     - Type **v2<-4** then run.
     - Type **print(v1+v2)** and then run. The result in the console on the bottom left will be 10 of course.<br>
-    ![adding variables above](images/rstudio-07.gif)
+    ![adding variables above](images/rstudio-07.gif)<br>
 - Logical or boolean values: 
     - Type goats.mini=TRUE and goats.large=F . T is short for TRUE and F is short for FALSE. These variables should also appear in the top right window.<br>
     ![logical or boolean values](images/rstudio-08.gif)<br>
-
 - Display all objects you have created by typing the following into the bottom left console window and pressing enter: **ls()** (Please note that “**l**” is a letter)<br>
 ![adding ls()](images/rstudio-09.gif)
 - Save your script by clicking on the top menu bar: **File -> Save**
