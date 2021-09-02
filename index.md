@@ -3,7 +3,7 @@ layout: default
 title: Introduction 
 nav_order: 1
 ---
-<img src="images/rstudio-logo.png" style="float:right;width:220px;" alt="rstudio logo"> 
+<img src="images/rstudio-22.png" style="float:right;width:220px;" alt="rstudio logo"> 
 
 # Introduction to RStudio
 
