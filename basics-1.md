@@ -46,7 +46,7 @@ If you and your group have any questions or get stuck as you work through this i
 - Attach your data frame in the console (so you don’t have to type the name of the dataset when calling the variables contained in the dataset):
     - **attach(income)**
     - ![Demonstration of Importing data](images/rstudio-basics-07.gif)  
-- List all the values for the variable “**experience**” by typing directly into the console: 
+    - List all the values for the variable “**experience**” by typing directly into the console: 
     - **experience**
 ! [Demonstration of step 3](images/rstudio-basics-08.gif)
 - Calculate the descriptive statistics for the income dataset in the console: **summary(income)**
