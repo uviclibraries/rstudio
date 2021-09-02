@@ -13,7 +13,7 @@ If you have any questions or get stuck as you work through this in-class exercis
     - [Mac R download](https://cran.r-project.org/bin/macosx/){:target="_blank"}
     - [Windows R download](https://cran.r-project.org/bin/windows/base/){:target="_blank"}
     - [R-Studio Desktop (Mac & Windows)](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}
-![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
+- ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
 - Open RStudio and get familiar with the interface by finding 4 windows
 - In the console in the bottom left window type: help(mean) and then press enter on your keyboard. 
     - This will provide you with information about the mean function in RStudio. The help information will be displayed in the bottom right window.<br>
