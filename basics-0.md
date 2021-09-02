@@ -21,7 +21,7 @@ If you have any questions or get stuck as you work through this in-class exercis
 2. **Data types and entering data**
 - Create a new RScript by selecting the **File** menu then **New File** and then **R script**.
 ![create a new Rscript file](images/rstudio-03.gif)
-- **2.1: Vectors (lists of numbers or text)**: 
+- **Vectors (lists of numbers or text)**: 
     - In the Code Editor or script window (top left), enter miniature goat weight data into a vector by typing: **goat.weight <- c(14.6, 17.2, 14.8, 13.3, 16.4)** 
     - Press **cmd + enter** on a Mac, or **control + enter** on Windows to execute the line.
     ![Adding goat data](images/rstudio-04.gif)
@@ -30,23 +30,23 @@ If you have any questions or get stuck as you work through this in-class exercis
     - Type print **(goat.weight)** to print the contents of the vector in the console (bottom left window).
     - Copy, paste and run this command: **goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")**
     - Type or copy & paste, **length(goat.name)** and then run in order to count the number of goat names in the vector.<br>
-![Adding length(goat.name)](images/rstudio-06.gif)<br>
+    - ![Adding length(goat.name)](images/rstudio-06.gif)<br>
 - **2.2 Variables (text and numeric)**:
     - Type **name1='gabbie'** then run.
     - Type **v1<-6** then run.
     - Type **v2<-4** then run.
     - Type **print(v1+v2)** and then run. The result in the console on the bottom left will be 10 of course.<br>
-    ![adding variables above](images/rstudio-07.gif)<br>
+    - ![adding variables above](images/rstudio-07.gif)<br>
 - **2.3: Logical or boolean values**: 
     - Type goats.mini=TRUE and goats.large=F . T is short for TRUE and F is short for FALSE. These variables should also appear in the top right window.<br>
-    ![logical or boolean values](images/rstudio-08.gif)<br>
+    - ![logical or boolean values](images/rstudio-08.gif)<br>
 - Display all objects you have created by typing the following into the bottom left console window and pressing enter: **ls()** (Please note that “**l**” is a letter)<br>
-![adding ls()](images/rstudio-09.gif)<br>
+- ![adding ls()](images/rstudio-09.gif)<br>
 - Save your script by clicking on the top menu bar: **File -> Save**
 - Remove the “name1” object by typing in the console: **rm(name1)**<br>
-![removing name1](images/rstudio-10.gif)<br>
+- ![removing name1](images/rstudio-10.gif)<br>
 - Remove all variables and objects by typing the following in the console: **rm(list=ls())**<br>
-![removing variables](images/rstudio-11.gif)<br>
+- ![removing variables](images/rstudio-11.gif)<br>
 
 3. **Descriptive Statistics**
 - Input data with this command: **goat.weight<-c(22, 27, 19, 25, 12, 22, 18)**
