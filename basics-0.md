@@ -64,8 +64,8 @@ If you have any questions or get stuck as you work through this in-class exercis
 
 5. **Read or Import an Excel spreadsheet into R-Studio** 
 ![Import Tab](images/rstudio-15.png)
-- [Download and save the following Excel spreadsheet](https://bit.ly/dsc-rstudio-excel-1){:target="_blank"}<br>
-Note: Please remember where the income.xls file is saved (usually in a “downloads” or “desktop” folder).
+- [Download and save the following Excel spreadsheet](docs/income.xlsx){:target="_blank"}<br>
+Note: Please remember where the income.xlsx file is saved (usually in a “downloads” or “desktop” folder).
 - Import the dataset by clicking **File -> Import dataset -> From Excel** and click **Yes** to install the “**readxl**” package.
 - Click Browse to find the excel file. Select the **income.xlsx** file, and then **Open**. Now click **Import**.
 ![Browse and import menu and buttons](images/rstudio-16.png)
