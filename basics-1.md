@@ -33,8 +33,8 @@ If you and your group have any questions or get stuck as you work through this i
 - Remove all the objects by typing the following in the console: **rm(list=ls())**
 ![Demonstration of matrix data](images/rstudio-basics-04.gif)
 3. **Read or Import an Excel data file into R-Studio**
-- Open [this web page](https://goo.gl/68W45s){:target="_blank"}
-- Note: Click “No, thanks. Continue to review” at the bottom if you don’t have a dropbox account. Next click on the “Download” button in the top right of the web page, and then “Direct download”. Please take note of where the income.csv file is saved (usually in a “downloads” or “desktop” folder).
+- [Download this Excel file](docs/income.xlsx){:target="_blank"}
+- Please take note of where the income.csv file is saved (usually in a “downloads” or “desktop” folder).
 - Import the dataset by clicking “File -> Import dataset -> From Excel” and click “Yes” to install the “readxl” package
 ![Image of Import menu](images/rstudio-basics-05.png)
 - Click “Browse” to find the excel file and click “Import”
