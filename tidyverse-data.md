@@ -12,7 +12,7 @@ If you and your group have any questions or get stuck as you work through this i
 - Type **install.packages("tidyverse")** to install this package.
 - Type **library(tidyverse)** to load it. You only need to install a package once, but you need to reload it every time you start a new session.
 
-2. [Download the data here](http://bit.ly/2wfjTx3){:target="_blank"}. Note that you will use **histopaths.csv** to finish your task below.
+2. [Download various data here](http://bit.ly/2wfjTx3){:target="_blank"}. Note that you will use this file: [**histopaths.csv**](docs/histopaths.csv) to finish your task below.
 
 3. Go to [this online tutorial](http://bit.ly/2TVOLMO){:target="_blank"} of manipulating data with Tidyverse
 - Read through **Section 1: Get our workspace ready** and finish the following in your R Studio
