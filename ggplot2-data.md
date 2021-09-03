@@ -8,7 +8,7 @@ parent: Workshop Activities
 # ggplot2 & Data Visualization
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
-1. [Download this data](http://bit.ly/2wfjTx3){:target="_blank"} Note that you will use **flavors_of_cacao.csv** to finish your task below.
+1. [Download this data](http://bit.ly/2wfjTx3){:target="_blank"} Note that you will use this file: [**flavors_of_cacao.csv**](flavors_of_cacao.csv) to finish your task below.
 
 2. Go to [this online tutorial](http://bit.ly/2wjPo95){:target="_blank"} of **Visualizing data with ggplot2**
 
