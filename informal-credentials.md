@@ -13,9 +13,9 @@ DSC electronic badges are [cryptographically signed](https://badgecheck.io/){:ta
 
 DSC badges are awarded at the request of workshop participants after a DSC staff member has verified that they have successfully completed one or more of the workshop hands-on workshop activities. You can see a list of all the badges offered by the DSC on our [Badgr page](https://badgr.com/public/issuers/HI5nEIsFQKiFDSGJWrYNxQ/badges){:target="_blank"}.
 
-### UPDATE: Earn an Informal Credential or Badge for Taguette
+### Earn an Informal Credential or Badge for RStudio
 
-If you’d like to earn a DSC badge for this workshop, please complete Activities 0 (or 1), 2, & 3 and then email pictures of the charts at the end of activity each to: [dscommons@uvic.ca](mailto:dscommons@uvic.ca){:target="_blank"}
+If you’d like to earn a DSC badge for this workshop, please complete one of the "Getting Started" activies plus activities 4, & 5 and then email pictures of the charts at the end of each activity each to: [dscommons@uvic.ca](mailto:dscommons@uvic.ca){:target="_blank"}
 
 
 ### Learn how you can share your DSC Badge
