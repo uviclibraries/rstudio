@@ -13,8 +13,7 @@ nav_order: 1
 
 ## Why RStudio? 
 
-[Rstudio](https://TOOL-URL-HERE.org/){:target="_blank"} Desribe the tool and how it can be used. This is an example of the description for Taguette:
-
+[Rstudio](https://TOOL-URL-HERE.org/){:target="_blank"} "RStudio is a free, open source software program for statistical analysis. Its interface is organized so that the you can clearly view graphs, data tables, R code, and output all at the same time. It also offers an Import-Wizard-like feature that allows users to import CSV, Excel, SPSS (*.sav), and other file types into RStudio without having to write the code to do so." - [Kent State University Libraries](https://libguides.library.kent.edu/statconsulting/r){:target="_blank"}
 
 ## Learning objectives:
 Target: New R Users
