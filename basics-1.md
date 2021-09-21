@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3-Getting Started for Math & Engineering
+title: 2b-Getting Started for Math & Engineering
 nav_order: 4
 parent: Workshop Activities
 ---
