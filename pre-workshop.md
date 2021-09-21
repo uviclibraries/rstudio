@@ -17,7 +17,7 @@ This workshop is primarily hands-on practice with RStudio in order to learn to u
         - [Windows R download](https://cran.r-project.org/bin/windows/base/){:target="_blank"}
         - [R-Studio Desktop Download](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}
 - [Introduction to R & RStudio](youtu.be/riONFzJdXcs){:target="_blank"} (5 min)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 - [Bookmark or print this Reference table of useful R commands + examples](https://sites.calvin.edu/scofield/courses/m143/materials/RcmdsFromClass.pdf){:target="_blank"} (4 min)
 - Optional - [R Tutorial for beginners](http://www.tutorialspoint.com/r/r_tutorial.pdf){:target="_blank"}
    - [R in Action companion website](https://www.statmethods.net/index.html){:target="_blank"}
