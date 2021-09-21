@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 5-Data Visualization
+title: 4-Data Visualization
 nav_order: 6
 parent: Workshop Activities
 ---
