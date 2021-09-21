@@ -19,7 +19,7 @@ nav_order: 1
 Target: New R Users
 
 Participants will be able to do the following by the end of this workshop:
-1. Instal and setup R & RStudio
+1. Install and setup R & RStudio on your computer
 2. Generate descriptive statistics for a data set
 3. Manipulate data with the _Tidyverse_ plugin for RStudio
 4. Create basic chats and plots (scatter, bar and line plots) with the _ggplot2_ plugin
