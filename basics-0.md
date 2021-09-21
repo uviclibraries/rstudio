@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2-Getting Started for Mere Mortals
+title: 2a-Getting Started for Mere Mortals
 nav_order: 3
 parent: Workshop Activities
 ---
