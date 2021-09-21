@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 4-Tidyverse & Data Manipulation
+title: 4-Data Manipulation
 nav_order: 5
 parent: Workshop Activities
 ---
 <img src="images/tidyverse-01.png" style="float:right;width:180px;" alt="rstudio logo"> 
-# Tidyverse & Data Manipulation
+# Data Manipulation with Tidyverse
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. Installing Packages: One of the most fascinating things about R is that it has an active community developing a lot of packages everyday, which makes R powerful. A package is a compilation of functions (datasets, code, documentations and tests) external to R that provide it with additional capabilities.  
