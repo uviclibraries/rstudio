@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 5-ggplot2 & Data Visualization
+title: 5-Data Visualization
 nav_order: 6
 parent: Workshop Activities
 ---
 <img src="images/ggplot-01.png" style="float:right;width:180px;" alt="rstudio logo"> 
-# ggplot2 & Data Visualization
+# Data Visualization with ggplot2
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. [Download this data](http://bit.ly/2wfjTx3){:target="_blank"} Note that you will use this file: [**flavors_of_cacao.csv**](flavors_of_cacao.csv) to finish your task below.
