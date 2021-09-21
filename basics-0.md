@@ -5,7 +5,7 @@ nav_order: 3
 parent: Workshop Activities
 ---
 <img src="images/rstudio-22.png" style="float:right;width:220px;" alt="rstudio logo"> 
-# Data types, Basic commands & Charting
+# Getting Started for Mere Mortals - Data types, Basic commands & Charting
 If you have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. **Getting familiar with the RStudio Interface**
