@@ -6,13 +6,10 @@ parent: Workshop Activities
 ---
 <img src="images/rstudio-basics-01.png" style="float:right;width:180px;" alt="rstudio logo"> 
 # Getting Started for Math & Engineering - Data types and Basic commands
-## SKIP THIS EXERCISE IF YOU ALREADY COMPLETED EXERCISE 0
+
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. **Getting familiar with RStudio** 
-- If you haven’t already, download and install R & R-Studio: 
-    - [R](http://cran.stat.sfu.ca/)
-    - [R-Studio Desktop](https://www.rstudio.com/products/rstudio/download/)
 - Open RStudio and get familiar with the interface by finding 4 windows
     - In the console window (left), type **getwd()** to display the current working directory.
     - This directory should contain all the datasets you plan on using.
