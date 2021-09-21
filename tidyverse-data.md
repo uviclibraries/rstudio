@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 4-Data Manipulation
+title: 3-Data Manipulation
 nav_order: 5
 parent: Workshop Activities
 ---
