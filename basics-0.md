@@ -9,10 +9,6 @@ parent: Workshop Activities
 If you have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. **Getting familiar with the RStudio Interface**
-- If you haven’t already, install both R & R-Studio on your laptop: 
-    - [Mac R download](https://cran.r-project.org/bin/macosx/){:target="_blank"}
-    - [Windows R download](https://cran.r-project.org/bin/windows/base/){:target="_blank"}
-    - [R-Studio Desktop (Mac & Windows)](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}
     - ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
     - Open RStudio and get familiar with the interface by finding 4 windows
     - In the console in the bottom left window type: help(mean) and then press enter on your keyboard. 
