@@ -49,4 +49,4 @@ sort the musselData data frame so that the longest mussels are first (hint: vari
 - group by state_name and summarize the length of mussels by state
 - summarize length by the coastal_ecological_area
 
-[NEXT STEP: ggplot2 and data visualization](ggplot2-data.html){: .btn .btn-blue }
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn .btn-blue }
