@@ -16,7 +16,7 @@ If you and your group have any questions or get stuck as you work through this i
 
 3. Go to [this online tutorial](http://bit.ly/2TVOLMO){:target="_blank"} of manipulating data with Tidyverse
 - Read through **Section 1: Get our workspace ready** and finish the following in your R Studio
-- load in tidyverse <code>(library(tidyverse))</code>
+- load in tidyverse: <code>library(tidyverse)</code>
 - read in your dataset **histopaths.csv** as musselData (Click the **Files** tab in the lower right panel. Navigate to the **histopaths.csv** file, then click on this file, and click **Import Dataset**. In the pop-out window, change the dataset’s name to **musselData**, then click **Import**)
 - ![Demonstration of importing datasets](images/tidyverse-02.gif)
 - look at the first couple of rows of musselData - hint: <code>head()</code>
