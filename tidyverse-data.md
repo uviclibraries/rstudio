@@ -9,18 +9,18 @@ parent: Workshop Activities
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. Installing Packages: One of the most fascinating things about R is that it has an active community developing a lot of packages everyday, which makes R powerful. A package is a compilation of functions (datasets, code, documentations and tests) external to R that provide it with additional capabilities.  
-- Type **install.packages("tidyverse")** to install this package.
-- Type **library(tidyverse)** to load it. You only need to install a package once, but you need to reload it every time you start a new session.
+- Type <code>install.packages("tidyverse")</code> to install this package.
+- Type <code>library(tidyverse)</code> to load it. You only need to install a package once, but you need to reload it every time you start a new session.
 
 2. [Download various data here](http://bit.ly/2wfjTx3){:target="_blank"}. Note that you will use this file: [**histopaths.csv**](docs/histopaths.csv) to finish your task below.
 
 3. Go to [this online tutorial](http://bit.ly/2TVOLMO){:target="_blank"} of manipulating data with Tidyverse
 - Read through **Section 1: Get our workspace ready** and finish the following in your R Studio
-- load in tidyverse **(library(tidyverse))**
+- load in tidyverse <code>(library(tidyverse))</code>
 - read in your dataset **histopaths.csv** as musselData (Click the **Files** tab in the lower right panel. Navigate to the **histopaths.csv** file, then click on this file, and click **Import Dataset**. In the pop-out window, change the dataset’s name to **musselData**, then click **Import**)
 - ![Demonstration of importing datasets](images/tidyverse-02.gif)
-- look at the first couple of rows of musselData - hint: **head()**
-- get the dimensions of your dataset - hint: **dim()** 
+- look at the first couple of rows of musselData - hint: <code>head()</code>
+- get the dimensions of your dataset - hint: <code>dim()</code> 
 ![Demonstration of head and dim functions](images/tidyverse-basics-03.gif)
 3.2 Read through **Section 2: Piping** and finish the following in your R Studio (Please ask the instructor for assistance if you get stuck)
 - use pipes (%>%) to get a list of all the column names in musselData 
