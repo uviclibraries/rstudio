@@ -18,7 +18,7 @@ If you have any questions or get stuck as you work through this in-class exercis
 - Create a new RScript by selecting the **File** menu then **New File** and then **R script**.
 - ![create a new Rscript file](images/rstudio-03.gif)
 -  **Vectors (lists of numbers or text)**: 
-    - In the Code Editor or script window (top left), enter miniature goat weight data into a vector by typing: **goat.weight <- c(14.6, 17.2, 14.8, 13.3, 16.4)**
+    - In the Code Editor or script window (top left), enter miniature goat weight data into a vector by typing: <code>**goat.weight <- c(14.6, 17.2, 14.8, 13.3, 16.4)**</code>
     - Press **cmd + enter** on a Mac, or **control + enter** on Windows to execute the line.
     - ![Adding goat data](images/rstudio-04.gif)
     - Note that the command you just ran magically appeared in your console in the bottom left window, and the values from the goat.weight vector appeared in your top right window.<br>
@@ -44,7 +44,7 @@ If you have any questions or get stuck as you work through this in-class exercis
     - ![removing variables](images/rstudio-11.gif)<br>
 
 3. **Descriptive Statistics**
-- Input data with this command: **goat.weight<-c(22, 27, 19, 25, 12, 22, 18)**
+- Input data with this command: <code>**goat.weight<-c(22, 27, 19, 25, 12, 22, 18)**</code>
 - Mean: If you want to find the average or mean of goat.weight, you can enter the command **mean(goat.weight)** in the console window. This should return 20.71429
 - Median: Similarly for the median enter the command **median(goat.weight)**. Answer: 22
 - Summary: You can also use the summary command to generate several descriptive statistics at the same time: **summary(goat.weight)** 
@@ -54,7 +54,7 @@ If you have any questions or get stuck as you work through this in-class exercis
 - Histograms can be created using the hist() function. This function takes in a vector of values for which the histogram is plotted.
 - Enter **hist(goat.weight)** in the command line. The histogram will appear to the right.
 - We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are main to give the title, **xlab** and **ylab** to provide labels for the axes. 
-- Enter **hist(goat.weight,main='Histogram of Goat Weight',xlab='Weight')**<br>
+- Enter <code>**hist(goat.weight,main='Histogram of Goat Weight',xlab='Weight')**</code><br>
 ![Histogram example](images/rstudio-13.png)
 ![Demonstration of step 4](images/rstudio-14.gif)
 
@@ -75,7 +75,7 @@ Note: Please remember where the income.xlsx file is saved (usually in a “downl
 - Enter **hist(income$experience)** in the command line. The histogram will appear to the right.
 - You can see there is a histogram plot coming out in the plot window. We can see that there are 7 cells with equally spaced breaks. In this case, the height of a cell is equal to the number of observations falling in that cell.
 - We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are **main** to give the title, **xlab** and **ylab** to provide labels for the axes. 
-- Enter **hist(income$experience,main='Histogram of Experience',xlab='Experience')**<br>
+- Enter <code>**hist(income$experience,main='Histogram of Experience',xlab='Experience')**</code><br>
 ![Histogram example](images/rstudio-20.png)
 ![Demonstration of step 6](images/rstudio-21.gif)
 
