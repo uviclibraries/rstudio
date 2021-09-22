@@ -24,7 +24,7 @@ If you have any questions or get stuck as you work through this in-class exercis
     - Note that the command you just ran magically appeared in your console in the bottom left window, and the values from the goat.weight vector appeared in your top right window.<br>
     -  ![bottom left console with text](images/rstudio-05.png)
     -  Type print **(goat.weight)** to print the contents of the vector in the console (bottom left window).
-    -  Copy, paste and run this command: **goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")**
+    -  Copy, paste and run this command: <blockquote>**goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")**</blockquote>
     -  Type or copy & paste, **length(goat.name)** and then run in order to count the number of goat names in the vector.<br>
     -  ![Adding length(goat.name)](images/rstudio-06.gif)<br>
 - **Variables (text and numeric)**: 
