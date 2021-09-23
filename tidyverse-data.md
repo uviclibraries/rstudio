@@ -20,8 +20,9 @@ If you and your group have any questions or get stuck as you work through this i
 - read in your dataset **histopaths.csv** as musselData (Click the **Files** tab in the lower right panel. Navigate to the **histopaths.csv** file, then click on this file, and click **Import Dataset**. In the pop-out window, change the dataset’s name to **musselData**, then click **Import**)
 - ![Demonstration of importing datasets](images/tidyverse-02.gif)
 - look at the first couple of rows of musselData - hint: <code>head()</code>
-- get the dimensions of your dataset - hint: <code>dim()</code> 
-![Demonstration of head and dim functions](images/tidyverse-03.gif)
+- get the dimensions of your dataset - hint: <code>dim()</code>        
+![Demonstration of head and dim functions](images/tidyverse-03.gif)        
+
 3.2 Read through **Section 2: Piping** and finish the following in your R Studio (Please ask the instructor for assistance if you get stuck)
 - use pipes (%>%) to get a list of all the column names in musselData 
 - sort them alphabetically 
