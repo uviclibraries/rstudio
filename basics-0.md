@@ -23,7 +23,7 @@ If you have any questions or get stuck as you work through this in-class exercis
     - ![Adding goat data](images/rstudio-04.gif)
     - Note that the command you just ran magically appeared in your console in the bottom left window, and the values from the goat.weight vector appeared in your top right window.<br>
     -  ![bottom left console with text](images/rstudio-05.png)
-    -  Type print <code>(goat.weight)</code> to print the contents of the vector in the console (bottom left window).
+    -  Type print <code>(goat.weight)</code> to print the "contents of the vector" in the console (bottom left window).
     -  Copy, paste and run this command: <code>goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")</code>
     -  Type or copy & paste, <code>length(goat.name)</code> and then run in order to count the number of goat names in the vector.<br>
     -  ![Adding length(goat.name)](images/rstudio-06.gif)<br>
