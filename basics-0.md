@@ -46,7 +46,7 @@ If you have any questions or get stuck as you work through this in-class exercis
 3. **Descriptive Statistics**
 - Input data with this command: <code>goat.weight<-c(22, 27, 19, 25, 12, 22, 18)</code>
 - Mean: If you want to find the average or mean of goat.weight, you can enter the command <code>mean(goat.weight)</code> in the console window. This should return 20.71429
-- Median: Similarly for the median enter the command <code>median(goat.weight*</code>. Answer: 22
+- Median: Similarly for the median enter the command <code>median(goat.weight)</code>. Answer: 22
 - Summary: You can also use the summary command to generate several descriptive statistics at the same time: <code>summary(goat.weight)</code> 
 - Standard deviation: enter: <code>sd(goat.weight)</code>  Answer: 4.956958
 ![Demonstration of Step 3](images/rstudio-12.gif)
