@@ -19,7 +19,7 @@ This workshop is primarily hands-on practice with RStudio in order to learn to u
 ### [Introduction to R & RStudio](youtu.be/riONFzJdXcs){:target="_blank"} (5 min)<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### [R-Studio Layout Explanation](https://youtu.be/FIrsOBy5k58){:target="_blank"} (5 min)<br>
-<iframe width="560" height="315" src="https://youtu.be/FIrsOBy5k58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FIrsOBy5k58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 - [Bookmark or print this Reference table of useful R commands + examples](https://sites.calvin.edu/scofield/courses/m143/materials/RcmdsFromClass.pdf){:target="_blank"} (4 min)
 - Optional - [R Tutorial for beginners](http://www.tutorialspoint.com/r/r_tutorial.pdf){:target="_blank"}
 - Optional - [R in Action companion website](https://www.statmethods.net/index.html){:target="_blank"}
