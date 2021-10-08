@@ -37,7 +37,7 @@ If you and your group have any questions or get stuck as you work through this i
 - filter all the rows from musselData where sex is "Male" and state_name is "Mississippi"
 
 3.5  Read through **Section 5: Creating new variables with mutate** and finish the following 
-- add a new variable called **large_mussels** that is TRUE if a mussel is over 10 oz.
+- add a new variable called **large_mussels** that is TRUE if a mussel is over 10 oz. (hint: wet_weight > 10)
 - add a new variable parasites that is TRUE if a mussel has more than 1 unidentified_organism in it and a wet_weight of less than 0.5 oz
 
 3.6  Read through **Section 6: Sorting data with arrange** and finish the following 
