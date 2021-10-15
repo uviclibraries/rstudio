@@ -8,8 +8,7 @@ parent: Workshop Activities
 # Data Visualization with ggplot2
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
-1. In this activity we work with the datafile [**flavors_of_cacao.csv**](docs/flavors_of_cacao.csv). Download the file by clicking on `Raw`, then **File > Save As**.      
-<p align="center">
+1. In this activity we work with the datafile [**flavors_of_cacao.csv**](docs/flavors_of_cacao.csv). Download the file
 <img src="images/ggplot-1-raw-download.png" width="300"/>
 </p>
 
