@@ -16,7 +16,7 @@ If you and your group have any questions or get stuck as you work through this i
 2. Open the [**Visualizing Data with ggplot2 Tutorial**](http://bit.ly/2wjPo95){:target="_blank"}
 
 2.1 Read through the tutorial to the **Making scatter plots** section and come back to finish the following in RStudio:
-- If you do not have packages installed, run **install.package("ggthemes")** and **install.package("janitor")**
+- If you do not have packages installed, run **install.packages("ggthemes")** and **install.packages("janitor")**
 - Set up your environment by running:      
 ![data](images/ggplot-03.png)       
 - Make a scatter plot of the cocoa percentage (cocoa_percent) and the rating a chocolate bar received (rating). Some code was written below to remove the percentage signs from the column cocoa_percent and to make sure the data type of each column is correct.     
