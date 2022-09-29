@@ -11,7 +11,7 @@ If you have any questions or get stuck as you work through this in-class exercis
 1. **Getting familiar with the RStudio Interface**
     - ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
     - Open RStudio and get familiar with the interface by finding 4 windows
-    - In the console in the bottom left window type: help(mean) and then press enter on your keyboard. 
+    - In the console in the bottom left window type: <code>help(mean)</code> and then press enter on your keyboard. 
     - This will provide you with information about the mean function in RStudio. The help information will be displayed in the bottom right window.<br>
 ![console help(mean)](images/rstudio-02.gif)
 2. **Data types and entering data**
