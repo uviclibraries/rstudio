@@ -3,6 +3,7 @@ layout: default
 title: 2b-Getting Started for Math & Engineering
 nav_order: 4
 parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 <img src="images/rstudio-basics-01.png" style="float:right;width:180px;" alt="rstudio logo"> 
 # Getting Started for Math & Engineering - Data types and Basic commands
@@ -15,20 +16,36 @@ If you and your group have any questions or get stuck as you work through this i
     - This directory should contain all the datasets you plan on using.
     - Set the working directory to your preferred location using. For e.g.: <code>setwd("c:/Users/rmccue/Download")</code>
 - Type: <code>help(mean)</code> to get help about the mean function & see use case examples.<br>
-![Demonstration of Step 1](images/rstudio-basics-02.gif)
+
+<button onclick="toggle('gif1')">Show/Hide Animation</button>
+<div id="gif1">
+      <img src="images/rstudio-basics-02.gif"> <br>
+     </div>
+
+
 2. **Data types and basic commands**
 - To start with, click the ‘File’ on the menu and then create a new R script.
 - Variables: “ <- ”(read as get) and “ =” can be used to assign a value to a variable. Type <code>v1<-1</code>  and <code>v2=2</code>  in the **script window** and press **cmd + enter** for MacOS or **control +** enter for Windows to execute the line. 
 - Characters: Type <code>c1='c'</code>  and <code>c2='good'</code>.
 - Logical or boolean values: Type <code>b1=TRUE</code> and <code>b2=T</code>. T is short for TRUE and F is short for FALSE.
 - Vectors: Type <code>x1=c(1,2,3)</code> and <code>x2=1:3</code> ( c stands for combine / concatenate). Try the following steps in the picture to explore other ways of building vectors.
-- ![Adding above values, characters, logical values, vectors](images/rstudio-basics-03.gif)
+
+<button onclick="toggle('gif2')">Show/Hide Animation</button>
+<div id="gif2">
+      <img src="images/rstudio-basics-03.gif"> <br>
+     </div>
+
 - Matrix: Type <code>m1=matrix(data = c(1,2,3,4,5,6), nrow=2)</code> and <code>m2=matrix(data = c(1,2,3,4,5,6)</code>, <code>ncol=2, byrow=TRUE)</code>. Byrow is set to FALSE by default which means the matrix is filled by columns. Double click on **m1** and **m2** in **Environment window** to see their values. Try the following steps in the picture to explore how to access elements in a matrix.
 - Display all objects created (by assigning values) by typing the following into the **console window**: <code>ls()</code> (Please note that “l” is the letter)
 - Save your script by clicking on the top menu bar: “File” -> “Save”
 - Remove the “m1” object by typing in the console: <code>rm(m1)</code>
 - Remove all the objects by typing the following in the console: <code>rm(list=ls())</code>
-![Demonstration of matrix data](images/rstudio-basics-04.gif)
+
+<button onclick="toggle('gif3')">Show/Hide Animation</button>
+<div id="gif3">
+      <img src="images/rstudio-basics-04.gif"> <br>
+     </div>
+
 3. **Read or Import an Excel data file into R-Studio**
 - [Download this Excel file](docs/income.xlsx){:target="_blank"}
 - Please take note of where the income.csv file is saved (usually in a “downloads” or “desktop” folder).
@@ -42,9 +59,32 @@ If you and your group have any questions or get stuck as you work through this i
 - List the variable “**experience**” in the console: <code>income$experience</code>
 - Attach your data frame in the console (so you don’t have to type the name of the dataset when calling the variables contained in the dataset):
     - <code>attach(income)</code>
-    - ![Demonstration of Importing data](images/rstudio-basics-07.gif)  
+
+    <button onclick="toggle('gif4')">Show/Hide Animation</button>
+<div id="gif4">
+      <img src="images/rstudio-basics-07.gif"> <br>
+     </div>
+
     - List all the values for the variable “**experience**” by typing directly into the console: <code>**experience**</code>
-! [Demonstration of step 3](images/rstudio-basics-08.gif)
+
+<button onclick="toggle('gif5')">Show/Hide Animation</button>
+<div id="gif5">
+      <img src="images/rstudio-basics-08.gif"> <br>
+     </div>
+
 - Calculate the descriptive statistics for the income dataset in the console: <code>summary(income)</code>
+
+<script>  
+
+    function toggle(input) {
+        var x = document.getElementById(input);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
 
 [NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }

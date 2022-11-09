@@ -3,6 +3,7 @@ layout: default
 title: 4-Data Visualization
 nav_order: 6
 parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 <img src="images/ggplot-01.png" style="float:right;width:180px;" alt="rstudio logo"> 
 # Data Visualization with ggplot2
@@ -40,6 +41,19 @@ If you and your group have any questions or get stuck as you work through this i
       + Pick two different themes from the ggthemes package and apply them to your chart. One chart with a theme applied to it and another chart with a different theme applied to it.         
 
 Reference: [Racheal’s R Tutorial, Kaggle](https://www.kaggle.com/rtatman/rachael-s-r-tutorials){:target="_blank"}
+
+
+<script>  
+
+    function toggle(input) {
+        var x = document.getElementById(input);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 
 [APPENDIX: ggplot2 Cheatsheet](https://drive.google.com/file/d/1PuMBZwAutnBjJ8xVCeLgElZwcC1UIhrz/view){: .btn .btn-purple }<br>
 [NEXT STEPS: Earn a Workshop Badge](informal-credentials.html){: .btn .btn-blue }
