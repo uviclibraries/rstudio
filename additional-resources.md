@@ -5,8 +5,11 @@ nav_order: 10
 ---
 # Additional Resources & Acknowledgements
 
-## WORKSHOP NAME HERE Resources
-
+## RStudio Resources
+-   [w3 schools](https://www.w3schools.com/r/)
+-   [kaggle](www.kaggle.com)
+-   [R for data science by Hadley Wickham](https://search.library.uvic.ca/permalink/01VIC_INST/12198k2/alma9957587042407291)
+-   And good old fashioned google
 
 ## Acknowledgements
 

@@ -17,11 +17,10 @@ If you and your group have any questions or get stuck as you work through this i
     - Set the working directory to your preferred location using. For e.g.: <code>setwd("c:/Users/rmccue/Download")</code>
 - Type: <code>help(mean)</code> to get help about the mean function & see use case examples.<br>
 
-<button onclick="toggle('gif1')">Show/Hide Animation</button>
-<div id="gif1">
-      <img src="images/rstudio-basics-02.gif"> <br>
+    <button onclick="toggle('gif1')">Show/Hide Animation</button>
+    <div id="gif1">
+    <img src="images/rstudio-basics-02.gif"> <br>
      </div>
-
 
 2. **Data types and basic commands**
 - To start with, click the ‘File’ on the menu and then create a new R script.
@@ -30,10 +29,10 @@ If you and your group have any questions or get stuck as you work through this i
 - Logical or boolean values: Type <code>b1=TRUE</code> and <code>b2=T</code>. T is short for TRUE and F is short for FALSE.
 - Vectors: Type <code>x1=c(1,2,3)</code> and <code>x2=1:3</code> ( c stands for combine / concatenate). Try the following steps in the picture to explore other ways of building vectors.
 
-<button onclick="toggle('gif2')">Show/Hide Animation</button>
-<div id="gif2">
-      <img src="images/rstudio-basics-03.gif"> <br>
-     </div>
+    <button onclick="toggle('gif2')">Show/Hide Animation</button>
+    <div id="gif2">
+    <img src="images/rstudio-basics-03.gif"> <br>
+    </div>
 
 - Matrix: Type <code>m1=matrix(data = c(1,2,3,4,5,6), nrow=2)</code> and <code>m2=matrix(data = c(1,2,3,4,5,6)</code>, <code>ncol=2, byrow=TRUE)</code>. Byrow is set to FALSE by default which means the matrix is filled by columns. Double click on **m1** and **m2** in **Environment window** to see their values. Try the following steps in the picture to explore how to access elements in a matrix.
 - Display all objects created (by assigning values) by typing the following into the **console window**: <code>ls()</code> (Please note that “l” is the letter)
@@ -41,18 +40,18 @@ If you and your group have any questions or get stuck as you work through this i
 - Remove the “m1” object by typing in the console: <code>rm(m1)</code>
 - Remove all the objects by typing the following in the console: <code>rm(list=ls())</code>
 
-<button onclick="toggle('gif3')">Show/Hide Animation</button>
-<div id="gif3">
-      <img src="images/rstudio-basics-04.gif"> <br>
-     </div>
+    <button onclick="toggle('gif3')">Show/Hide Animation</button>
+    <div id="gif3">
+    <img src="images/rstudio-basics-04.gif"> <br>
+    </div>
 
 3. **Read or Import an Excel data file into R-Studio**
 - [Download this Excel file](docs/income.xlsx){:target="_blank"}
 - Please take note of where the income.csv file is saved (usually in a “downloads” or “desktop” folder).
 - Import the dataset by clicking “File -> Import dataset -> From Excel” and click “Yes” to install the “readxl” package
-![Image of Import menu](images/rstudio-basics-05.png)
+    ![Image of Import menu](images/rstudio-basics-05.png)
 - Click “Browse” to find the excel file and click “Import”
-- ![Browse and Import menu](images/rstudio-basics-06.png)
+    ![Browse and Import menu](images/rstudio-basics-06.png)
 - List the whole dataset in the console: **income** because income is the name of the dataset you imported.
 - List the objects contained in your workspace in the console: <code>ls()</code>
 - List the variables contained in the data frame in the console: <code>names(income)</code>
@@ -61,16 +60,16 @@ If you and your group have any questions or get stuck as you work through this i
     - <code>attach(income)</code>
 
     <button onclick="toggle('gif4')">Show/Hide Animation</button>
-<div id="gif4">
-      <img src="images/rstudio-basics-07.gif"> <br>
-     </div>
+    <div id="gif4">
+    <img src="images/rstudio-basics-07.gif"> <br>
+    </div>
 
-    - List all the values for the variable “**experience**” by typing directly into the console: <code>**experience**</code>
+- List all the values for the variable “**experience**” by typing directly into the console: <code>**experience**</code>
 
-<button onclick="toggle('gif5')">Show/Hide Animation</button>
-<div id="gif5">
-      <img src="images/rstudio-basics-08.gif"> <br>
-     </div>
+    <button onclick="toggle('gif5')">Show/Hide Animation</button>
+    <div id="gif5">
+    <img src="images/rstudio-basics-08.gif"> <br>
+    </div>
 
 - Calculate the descriptive statistics for the income dataset in the console: <code>summary(income)</code>
 

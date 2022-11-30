@@ -55,5 +55,5 @@ Reference: [Racheal’s R Tutorial, Kaggle](https://www.kaggle.com/rtatman/racha
     }
 </script>
 
-[APPENDIX: ggplot2 Cheatsheet](https://drive.google.com/file/d/1PuMBZwAutnBjJ8xVCeLgElZwcC1UIhrz/view){: .btn .btn-purple }<br>
+[APPENDIX: ggplot2 Cheatsheet](https://drive.google.com/file/d/1PuMBZwAutnBjJ8xVCeLgElZwcC1UIhrz/view){: .btn .btn-purple }{:target="_blank"}<br>
 [NEXT STEPS: Earn a Workshop Badge](informal-credentials.html){: .btn .btn-blue }

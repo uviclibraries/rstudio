@@ -10,142 +10,140 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 If you have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance.  Have fun!
 
 1. **Getting familiar with the RStudio Interface**
-    - ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
+        ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
     - Open RStudio and get familiar with the interface by finding 4 windows
     - In the console in the bottom left window type: <code>help(mean)</code> and then press enter on your keyboard. 
     - This will provide you with information about the mean function in RStudio. The help information will be displayed in the bottom right window.<br>
 
     <button onclick="toggle('gif1')">Show/Hide Animation</button>
-<div id="gif1">
-      <img src="images/rstudio-02.gif"> <br>
-     </div> 
-
+    <div id="gif1">
+    <img src="images/rstudio-02.gif"> <br>
+    </div> 
 
 2. **Data types and entering data**
-- Create a new RScript by selecting the **File** menu then **New File** and then **R script**.
+    - Create a new RScript by selecting the **File** menu then **New File** and then **R script**.
 
-<button onclick="toggle('gif2')">Show/Hide Animation</button>
-<div id="gif2">
-      <img src="images/rstudio-03.gif"> <br>
-     </div> 
+    <button onclick="toggle('gif2')">Show/Hide Animation</button>
+    <div id="gif2">
+    <img src="images/rstudio-03.gif"> <br>
+    </div> 
 
 
--  **Vectors (lists of numbers or text)**: 
+ -  **Vectors (lists of numbers or text)**: 
     - In the Code Editor or script window (top left), enter miniature goat weight data into a vector by typing: <code>goat.weight <- c(14.6, 17.2, 14.8, 13.3, 16.4)</code>
     - Press **cmd + enter** on a Mac, or **control + enter** on Windows to execute the line.
 
     <button onclick="toggle('gif3')">Show/Hide Animation</button>
-<div id="gif3">
-      <img src="images/rstudio-04.gif"> <br>
-     </div> 
+    <div id="gif3">
+    <img src="images/rstudio-04.gif"> <br>
+    </div> 
 
+    - Note that the command you just ran magically appeared in your console in the bottom left window, and the values from the goat.weight vector appeared in your top right window.<br>
 
-- Note that the command you just ran magically appeared in your console in the bottom left window, and the values from the goat.weight vector appeared in your top right window.<br>
--  ![bottom left console with text](images/rstudio-05.png)
+    ![bottom left console with text](images/rstudio-05.png)
+
     -  Type <code>print(goat.weight)</code> to print the contents of the vector in the console (bottom left window).
     -  Copy, paste and run this command: <code>goat.name <- c("baby", "gabbie", "pickles", "cookie", "sparkle")</code>
     -  Type or copy & paste, <code>length(goat.name)</code> and then run in order to count the number of goat names in the vector.<br>
 
- <button onclick="toggle('gif4')">Show/Hide Animation</button>
-<div id="gif4">
-      <img src="images/rstudio-06.gif"> <br>
-     </div> 
+    <button onclick="toggle('gif4')">Show/Hide Animation</button>
+    <div id="gif4">
+    <img src="images/rstudio-06.gif"> <br>
+    </div> 
 
-- **Variables (text and numeric)**: 
+ - **Variables (text and numeric)**: 
     -  Type <code>name1='gabbie'</code> then run.
     -  Type <code>v1<-6</code> then run.
     -  Type <code>v2<-4</code> then run.
     -  Type <code>print(v1+v2)</code> and then run. The result in the console on the bottom left will be 10 of course.<br>
 
     <button onclick="toggle('gif5')">Show/Hide Animation</button>
-<div id="gif5">
-      <img src="images/rstudio-07.gif"> <br>
-     </div> 
+    <div id="gif5">
+    <img src="images/rstudio-07.gif"> <br>
+    </div> 
 
 
-- **Logical or boolean values**: 
+ - **Logical or boolean values**: 
     - Type <code>goats.mini=TRUE</code> and <code>goats.large=F</code> . T is short for TRUE and F is short for FALSE. These variables should also appear in the top right window.<br>
 
     <button onclick="toggle('gif6')">Show/Hide Animation</button>
-<div id="gif6">
-      <img src="images/rstudio-08.gif"> <br>
-     </div> 
+    <div id="gif6">
+    <img src="images/rstudio-08.gif"> <br>
+    </div> 
 
-- Display all objects you have created by typing the following into the bottom left console window and pressing enter: <code>ls()</code> (Please note that “**l**” is a letter)  <br>
+ - Display all objects you have created by typing the following into the bottom left console window and pressing enter: <code>ls()</code> (Please note that “**l**” is a letter)  <br>
 
-<button onclick="toggle('gif7')">Show/Hide Animation</button>
-<div id="gif7">
-      <img src="images/rstudio-09.gif"> <br>
-     </div>
+    <button onclick="toggle('gif7')">Show/Hide Animation</button>
+    <div id="gif7">
+    <img src="images/rstudio-09.gif"> <br>
+    </div>
 
-- Save your script by clicking on the top menu bar: **File -> Save**
+ - Save your script by clicking on the top menu bar: **File -> Save**
     - Remove the “name1” object by typing in the console: <code>rm(name1)</code><br>
 
-<button onclick="toggle('gif8')">Show/Hide Animation</button>
-<div id="gif8">
-      <img src="images/rstudio-10.gif"> <br>
-     </div>
+    <button onclick="toggle('gif8')">Show/Hide Animation</button>
+    <div id="gif8">
+    <img src="images/rstudio-10.gif"> <br>
+    </div>
 
-<button onclick="toggle('gif9')">Show/Hide Animation</button>
-<div id="gif9">
-      <img src="images/rstudio-11.gif"> <br>
-     </div>
-
+    <button onclick="toggle('gif9')">Show/Hide Animation</button>
+    <div id="gif9">
+    <img src="images/rstudio-11.gif"> <br>
+    </div>
 
 3. **Descriptive Statistics**
-- Input data with this command: <code>goat.weight<-c(22, 27, 19, 25, 12, 22, 18)</code>
-- Mean: If you want to find the average or mean of goat.weight, you can enter the command <code>mean(goat.weight)</code> in the console window. This should return 20.71429
-- Median: Similarly for the median enter the command <code>median(goat.weight)</code>. Answer: 22
-- Summary: You can also use the summary command to generate several descriptive statistics at the same time: <code>summary(goat.weight)</code> 
-- Standard deviation: enter: <code>sd(goat.weight)</code>  Answer: 4.956958
+ - Input data with this command: <code>goat.weight<-c(22, 27, 19, 25, 12, 22, 18)</code>
+ - Mean: If you want to find the average or mean of goat.weight, you can enter the command <code>mean(goat.weight)</code> in the console window. This should return 20.71429
+ - Median: Similarly for the median enter the command <code>median(goat.weight)</code>. Answer: 22
+ - Summary: You can also use the summary command to generate several descriptive statistics at the same time: <code>summary(goat.weight)</code> 
+ - Standard deviation: enter: <code>sd(goat.weight)</code>  Answer: 4.956958
 
-<button onclick="toggle('gif10')">Show/Hide Animation</button>
-<div id="gif10">
-      <img src="images/rstudio-12.gif"> <br>
-     </div>
+    <button onclick="toggle('gif10')">Show/Hide Animation</button>
+    <div id="gif10">
+    <img src="images/rstudio-12.gif"> <br>
+    </div>
 
 4. **Histogram Plot for goat data**
-- Histograms can be created using the hist() function. This function takes in a vector of values for which the histogram is plotted.
-- Enter <code>hist(goat.weight)</code> in the command line. The histogram will appear to the right.
-- We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are main to give the title, **xlab** and **ylab** to provide labels for the axes. 
-- Enter <code>hist(goat.weight,main='Histogram of Goat Weight',xlab='Weight')</code><br>
-![Histogram example](images/rstudio-13.png)
+ - Histograms can be created using the hist() function. This function takes in a vector of values for which the histogram is plotted.
+ - Enter <code>hist(goat.weight)</code> in the command line. The histogram will appear to the right.
+ - We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are main to give the title, **xlab** and **ylab** to provide labels for the axes. 
+ - Enter <code>hist(goat.weight,main='Histogram of Goat Weight',xlab='Weight')</code><br>
+    ![Histogram example](images/rstudio-13.png)
 
-<button onclick="toggle('gif11')">Show/Hide Animation</button>
-<div id="gif11">
-      <img src="images/rstudio-14.gif"> <br>
-     </div>
-
+    <button onclick="toggle('gif11')">Show/Hide Animation</button>
+    <div id="gif11">
+    <img src="images/rstudio-14.gif"> <br>
+    </div>
 
 5. **Read or Import an Excel spreadsheet into R-Studio** 
-![Import Tab](images/rstudio-15.png)
-- [Download and save the following Excel spreadsheet](docs/income.xlsx){:target="_blank"}<br>
-Note: Please remember where the income.xlsx file is saved (usually in a “downloads” or “desktop” folder).
-- Import the dataset by clicking **File -> Import dataset -> From Excel** and click **Yes** to install the “**readxl**” package.
-- Click Browse to find the excel file. Select the **income.xlsx** file, and then **Open**. Now click **Import**.
-![Browse and import menu and buttons](images/rstudio-16.png)
-- List the whole dataset in the console by typing: <code>income</code> 
-![Income list](images/rstudio-17.png)
-- Calculate the descriptive statistics for the income dataset by typing in the console: <code>summary(income)</code>
-![Income summary list](images/rstudio-18.png)
+    ![Import Tab](images/rstudio-15.png)
+ - [Download and save the following Excel spreadsheet](docs/income.xlsx){:target="_blank"}
+    - _Note: Please remember where the income.xlsx file is saved (usually in a “downloads” or “desktop” folder)._
+ - Import the dataset by clicking **File -> Import dataset -> From Excel** and click **Yes** to install the “**readxl**” package.
+ - Click Browse to find the excel file. Select the **income.xlsx** file, and then **Open**. Now click **Import**.
+    ![Browse and import menu and buttons](images/rstudio-16.png)
+ - List the whole dataset in the console by typing: <code>income</code> 
+    ![Income list](images/rstudio-17.png)
+ - Calculate the descriptive statistics for the income dataset by typing in the console: <code>summary(income)</code>
+    ![Income summary list](images/rstudio-18.png)
 
-<button onclick="toggle('gif12')">Show/Hide Animation</button>
-<div id="gif12">
-      <img src="images/rstudio-19.gif"> <br>
-     </div>
+    <button onclick="toggle('gif12')">Show/Hide Animation</button>
+    <div id="gif12">
+    <img src="images/rstudio-19.gif"> <br>
+    </div>
 
 6. **Histogram plot**
-- Histograms can be created using the hist() function. This function takes in a vector of values for which the histogram is plotted.
-- Enter <code>hist(income$experience)</code> in the command line. The histogram will appear to the right.
-- You can see there is a histogram plot coming out in the plot window. We can see that there are 7 cells with equally spaced breaks. In this case, the height of a cell is equal to the number of observations falling in that cell.
-- We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are **main** to give the title, **xlab** and **ylab** to provide labels for the axes. 
-- Enter <code>hist(income$experience,main='Histogram of Experience',xlab='Experience')</code><br>
-![Histogram example](images/rstudio-20.png)
+ - Histograms can be created using the hist() function. This function takes in a vector of values for which the histogram is plotted.
+ - Enter <code>hist(income$experience)</code> in the command line. The histogram will appear to the right.
+ - You can see there is a histogram plot coming out in the plot window. We can see that there are 7 cells with equally spaced breaks. In this case, the height of a cell is equal to the number of observations falling in that cell.
+ - We can also pass in additional parameters to control the way our plot looks. Some of the frequently used ones are **main** to give the title, **xlab** and **ylab** to provide labels for the axes. 
+ - Enter <code>hist(income$experience,main='Histogram of Experience',xlab='Experience')</code><br>
+    ![Histogram example](images/rstudio-20.png)
 
-<button onclick="toggle('gif13')">Show/Hide Animation</button>
-<div id="gif13">
-      <img src="images/rstudio-21.gif"> <br>
-     </div>
+    <button onclick="toggle('gif13')">Show/Hide Animation</button>
+    <div id="gif13">
+    <img src="images/rstudio-21.gif"> <br>
+    </div>
 
 
 <script>  
