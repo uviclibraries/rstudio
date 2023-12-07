@@ -49,17 +49,17 @@ If you and your group have any questions or get stuck as you work through this i
 - filter all the rows from musselData where coastal_ecological_area is "Lake Michigan"
 - filter all the rows from musselData where sex is "Male" and state_name is "Mississippi"
 
-3.5  Read through **Section 5: Creating new variables with mutate** and finish the following 
+3.5  Read through **[Section 5: Creating new variables with mutate](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse?scriptVersionId=2959506&cellId=43){:target="_blank"}** and finish the following 
 - add a new variable called **large_mussels** that is TRUE if a mussel is over 10 oz. (hint: wet_weight > 10)
 - add a new variable parasites that is TRUE if a mussel has more than 1 unidentified_organism in it and a wet_weight of less than 0.5 oz
 
-3.6  Read through **Section 6: Sorting data with arrange** and finish the following 
+3.6  Read through **[Section 6: Sorting data with arrange](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse?scriptVersionId=2959506&cellId=53){:target="_blank"}** and finish the following 
 sort the musselData data frame so that the longest mussels are first (hint: variable "length") 
 
-3.7  Read through **[Section 7: Summarizing variables with summarize](){:target="_blank"}** and finish the following 
+3.7  Read through **[Section 7: Summarizing variables with summarize](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse?scriptVersionId=2959506&cellId=66){:target="_blank"}** and finish the following 
 - use summarize() to create a single data frame with the mean and median length
 
-3.8  Read through **Section 8: Analyzing groups with group_by** and finish the following 
+3.8  Read through **[Section 8: Analyzing groups with group_by](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse?scriptVersionId=2959506&cellId=71){:target="_blank"}** and finish the following 
 - group by state_name and summarize the length of mussels by state
 - summarize length by the coastal_ecological_area
 
