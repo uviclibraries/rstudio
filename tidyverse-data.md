@@ -56,7 +56,7 @@ If you and your group have any questions or get stuck as you work through this i
 3.6  Read through **Section 6: Sorting data with arrange** and finish the following 
 sort the musselData data frame so that the longest mussels are first (hint: variable "length") 
 
-3.7  Read through **Section 7: Summarizing variables with summarize** and finish the following 
+3.7  Read through **[Section 7: Summarizing variables with summarize](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse){:target="_blank"}** and finish the following 
 - use summarize() to create a single data frame with the mean and median length
 
 3.8  Read through **Section 8: Analyzing groups with group_by** and finish the following 
