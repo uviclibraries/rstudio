@@ -8,14 +8,18 @@ This workshop is primarily hands-on practice with RStudio in order to learn to u
 
 ### Download & Install R and then RStudio:
 - **Mac Installation**:
-  - [Mac installation video](https://youtu.be/dRkAvBz9Ibc){:target="_blank"} (3 min)
+  - Watch the R Language Installation Guide for MacOS (3 min video) [(link to installation video)](https://youtu.be/dRkAvBz9Ibc){:target="_blank"} (3 min)
     <iframe width="560" height="315" src="https://www.youtube.com/embed/dRkAvBz9Ibc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  - [Mac R download](https://cran.r-project.org/bin/macosx/){:target="_blank"}
-  - [Desktop Download](https://www.rstudio.com/products/rstudio/download/){:target="_blank"} 
+  1. [Download R Language for macOS (link to R language download)](https://cran.r-project.org/bin/macosx/){:target="_blank"}
+  2. [Download RStudio IDE for macOS (link to RStudio download)](https://www.rstudio.com/products/rstudio/download/){:target="_blank"} 
 - **Windows Installation**:
-  - [Windows 10 installation video](https://youtu.be/HqrqRMnK4XA){:target="_blank"} (3 min)  
-  - [Windows R download](https://cran.r-project.org/bin/windows/base/){:target="_blank"}
-  - [R-Studio Desktop Download](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+  - Watch the R Language Installation Guide for Windows 10 (3 min video) [link to installation video](https://youtu.be/HqrqRMnK4XA){:target="_blank"} (3 min)
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HqrqRMnK4XA?si=aYO8bgqj4RoikSPn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  1. Download R Programming Language for Windows [(link to R language download)](https://cran.r-project.org/bin/windows/base/){:target="_blank"}
+  2. Download RStudio IDE for Windows [(link to RStudio download)](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}
+<br>
+
 ### [Introduction to R & RStudio](youtu.be/riONFzJdXcs){:target="_blank"} (5 min)<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### [R-Studio Layout Explanation](https://youtu.be/FIrsOBy5k58){:target="_blank"} (5 min)<br>
