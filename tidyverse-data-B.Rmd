@@ -578,21 +578,15 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 ### 4.4 Select specific rows based on a condition
 
-*Note:* Selecting specific rows is also known as "filtering," 
-
-  - uses the `filter()` function.
-
-While we may only want to handle some information about all of the item
-in our data set, we may in turn want to select some items in our data set
-fulfilling certain criteria. 
-
-  - E.g. if you have a data set of names, you might want to select all names that begin with ‘A’.
-
-To select items (rows, *not* columns), we use the `filter()`</code>` function.
+While we may only want to handle certain items (rows) in our dataset based on certain criteria.     - This is called "filtering" 
+      - We can filter for different purposes, like processing statistical operations, making charts and so on.
+      - We can even create new data objects, which can make future analyses easier.
 
 <br>
 
 #### [Task 4.4.1:]{.underline} Filter all the rows from your purchase data where `Quantity` is greater than 10.
+
+To select items (rows, *not* columns), we use the `filter()` function.
 
 
 <details><summary>Check Your Code</summary>
