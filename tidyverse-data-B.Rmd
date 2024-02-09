@@ -136,7 +136,7 @@ library(tidyverse)
 
 
 **CHLOE UPLOAD THIS FILE AND REPLACE BIT LINK
-Download [here](http://bit.ly/2wfjTx3){:target="\_blank"}. Note that you
+Download [here](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target="\_blank"}. Note that you
 will use this file: [**Global_Superstore_Orders_2016.csv**](docs/Global_Superstore_Orders_2016.csv) to finish
 your task below.
 
@@ -725,6 +725,9 @@ Add a new variable `Discounted_US` that is TRUE if the purchase is made in the U
 <details><summary>Check Your Code</summary>
 ```{r} 
 purchaseData <- purchaseData %>% mutate(Discounted_US = (Country == "United States" & Discount > 0))
+#We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Discounted_US' column)
+#request a summary of the values in the table $ column name
+summary(purchaseData$Discounted_US)
 ```
 </details>
 
@@ -741,23 +744,23 @@ The `arrange()` function enables you to order your data frame according to the v
 When using `arrange()`, you specify the column name that you wish to organize by. 
 
   - In this case, it will arrange the data based on the combined count of men and women 
+  
     - a new variable that we recently formulated using `mutate()`
 
 <br>
-#### [Task 4.6.1:]{.underline} Sort the purchaseData data frame so that the longest mussels are first.
 
+#### [Task 4.6.1:]{.underline} Update the purchaseData by where the objects are sorted by price (low to high).
+
+- Parameter of `arrange()` is Sales
 
 <details><summary>Check Your Code</summary>
 ```{r}
-#purchaseData %>% filter(sex == "Male" & state_name == "Mississippi")
+purchaseData <- purchaseData %>% arrange(Sales) %>% head(5)
 ```
 </details>
-
-*Hint:* <code>variable `length`</code>
-
+*Hint:* Do not wrap the column name in quotations.
 
 ### 4.7 Summarizing variables with summarize
-
 
 <br>
 
@@ -767,6 +770,8 @@ When using `arrange()`, you specify the column name that you wish to organize by
 <details><summary>Check Your Code</summary>
 ```{r}
 purchaseDataSummary <- summarize(purchaseData)
+
+purchaseDataSummary
 ```
 </details>
 

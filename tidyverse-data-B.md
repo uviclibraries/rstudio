@@ -127,8 +127,8 @@ it every time you start a new session.
   <img src="images/messy_purchase_orders.png" alt="purchase orders photo" style="float:right;width:180px;"/>
 
 \*\*CHLOE UPLOAD THIS FILE AND REPLACE BIT LINK Download
-[here](http://bit.ly/2wfjTx3){:target=“\_blank”}. Note that you will use
-this file:
+[here](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target=“\_blank”}.
+Note that you will use this file:
 [**Global_Superstore_Orders_2016.csv**](docs/Global_Superstore_Orders_2016.csv)
 to finish your task below.
 
@@ -998,7 +998,13 @@ Check Your Code
 
 ``` r
 purchaseData <- purchaseData %>% mutate(Discounted_US = (Country == "United States" & Discount > 0))
+#We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Discounted_US' column)
+#request a summary of the values in the table $ column name
+summary(purchaseData$Discounted_US)
 ```
+
+    ##    Mode   FALSE    TRUE 
+    ## logical   46094    5196
 
 </details>
 
@@ -1019,10 +1025,14 @@ organize by.
 
 - In this case, it will arrange the data based on the combined count of
   men and women
+
   - a new variable that we recently formulated using `mutate()`
 
-<br> \#### <u>Task 4.6.1:</u> Sort the purchaseData data frame so that
-the longest mussels are first.
+<br>
+
+#### <u>Task 4.6.1:</u> Update the purchaseData by where the objects are sorted by price (low to high).
+
+- Parameter of `arrange()` is Sales
 
 <details>
 <summary>
@@ -1030,12 +1040,12 @@ Check Your Code
 </summary>
 
 ``` r
-#purchaseData %>% filter(sex == "Male" & state_name == "Mississippi")
+purchaseData <- purchaseData %>% arrange(Sales) %>% head(5)
 ```
 
 </details>
 
-*Hint:* <code>variable `length`</code>
+*Hint:* Do not wrap the column name in quotations.
 
 ### 4.7 Summarizing variables with summarize
 
@@ -1050,7 +1060,11 @@ Check Your Code
 
 ``` r
 purchaseDataSummary <- summarize(purchaseData)
+
+purchaseDataSummary
 ```
+
+    ## data frame with 0 columns and 1 row
 
 </details>
 
