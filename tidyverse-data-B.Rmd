@@ -178,8 +178,8 @@ open the file explorer and you can search from your entire computer.
 
 <details><summary>Show gif of import dataset</summary>
 ![](images/tidyverse-02.gif)
-</summary>
 
+</details>
 
 [Option b:]{.underline}
 
@@ -482,16 +482,15 @@ To do this, we need to look at Operators.
 
 ### 4.3 Selecting specific columns
 
-The commands in this section (4.3) will not create data objects as we
-won't be using them later on. 
+    The commands in this section (4.3) will not create data objects as we won't be using them later on. 
 
-- End each command in this section with `%>% head(5)`
+        - End each command in this section with `%>% head(5)`
   
-  - Not ending functions that extract full columns of data will display a LOT. 
+        - Not ending functions that extract full columns of data will display a LOT. 
   
-  - This will make things easier for you. 
+        - This will make things easier for you. 
 
----
+
 
 To get a specific column, use piping and the `select()` function on your
 data set. 
@@ -575,6 +574,7 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 
 <br>
+
 ### 4.4 Select specific rows based on a condition
 
 *Note:* Selecting specific rows is also known as "filtering," 
@@ -619,12 +619,14 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 <br>
 
-#### [Task 4.4.3:]{.underline} Filter all the rows from purchaseData where `Sub_Category` is "Phones" and `Order_Priority` is "Critical".
+#### [Task 4.4.3:]{.underline} Create a new dataframe with all the rows from purchaseData where `Country` is "United States" and `Discount` is greater than 0.
 
+  - Name this dataframe: `discountedUSPurchases`
 <details>
 <summary>Check Your Code</summary>
 ```{r}
-purchaseData %>% filter(Sub_Category == "Phones" & Order_Priority == "Critical")%>% head(5)
+discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
+discountedUSPurchases %>% head(5)
 ```
 </details>
 
@@ -718,9 +720,9 @@ purchaseData %>% head(5)
 
 Add a new variable `Discounted_US` that is TRUE if the purchase is made in the United States and has been discounted
   
-  - Filter for United States orders using the "Country" column
+  - Filter for United States orders using the `Country` column
   
-  - Filter for discounted orders by selecting all objects where the values in the "Discount" column are greater than 0.
+  - Filter for discounted orders by selecting all objects where the values in the `Discount` column are greater than 0.
 
 <details><summary>Check Your Code</summary>
 ```{r} 
@@ -751,7 +753,7 @@ When using `arrange()`, you specify the column name that you wish to organize by
 
 #### [Task 4.6.1:]{.underline} Update the purchaseData by where the objects are sorted by price (low to high).
 
-- Parameter of `arrange()` is Sales
+- Parameter of `arrange()` is `Sales`
 
 <details><summary>Check Your Code</summary>
 ```{r}
@@ -764,32 +766,57 @@ purchaseData <- purchaseData %>% arrange(Sales) %>% head(5)
 
 <br>
 
-#### [Task 4.7.1:]{.underline} Use the `summary()` function to create a single data frame with the mean and median length.
+#### [Task 4.7.1:]{.underline} Use the `summary()` function to create a single data frame with the mean Sales value and median discount amount 
 
+**ADD TO BASICS 0** The `summarise()` function takes unlimited parameters, where each parameter is a statistical function.
 
 <details><summary>Check Your Code</summary>
 ```{r}
-purchaseDataSummary <- summarize(purchaseData)
-
-purchaseDataSummary
+#Only purchases made in the US with discounts
+discountedUSPurchases %>% 
+   #average sale price and average discount
+   summarize(meanSales = mean(Sales), meanDiscount = mean(Discount))%>%
+      view() %>% head(5) #view the first 5 cities (ordered alphabetically)
 ```
 </details>
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 
+**END HERE**
 
 ### 4.8 Analyzing groups with group_by
 
-#### [Task 4.8.1:]{.underline} Group by `state_name` and summarize the length of mussels by `state`.
+#### [Task 4.8.1:]{.underline} Create a dataframe of US Cities and their average profit for each 
+  - You will use the `discountedUSPurchases` dataframe to create this new dataframe
 
+  - Name the new datafram `USCityProfits`
 
-#### [Task 4.8.2:</ins> Summarize length by `coastal_ecological_area`.
+  - You will use `group_by()` with `City`, where each row will be a city
 
-<details><summary>Check Your Code</summary>
+  - You will use `summarise()` function to get the summary statistics for each city
+
+  - The statistic you will be summarizing is `mean()` (average) of the `Profit` value
+  
+- The table will be sorted by city, alphabetically
+  - Sort the table by `Profit` using the `arrange()` function.
+
+- Also view the 5 most profitable cities and the 5 least profitable cities
+  
+  - Use `tail()` to get the last 5 rows of a dataframe
+
 ```{r}
-#purchaseData %>% filter(sex == "Male" & state_name == "Mississippi")
+#Only purchases made in the US with discounts
+USCityProfits <- discountedUSPurchases %>% 
+      group_by(City) %>% # group by city purchase was made in
+      summarize(meanProfit = mean(Profit)) # average profit for each city
+
+USCityProfits <- USCityProfits %>% arrange(meanProfit)
+  
+USCityProfits %>% head(5) #least profitable
+USCityProfits %>% tail(5) #most profitable
 ```
-</details>
+
+
 
 <script>  
 

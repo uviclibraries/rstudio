@@ -11,6 +11,8 @@ DSC Chloe Farr
     - [4.1 Before Piping](#41-before-piping)
     - [4.2 Piping](#42-piping)
     - [4.3 Selecting specific columns](#43-selecting-specific-columns)
+    - [4.4 Select specific rows based on a
+      condition](#44-select-specific-rows-based-on-a-condition)
     - [4.5 Creating new variables with
       mutate](#45-creating-new-variables-with-mutate)
     - [4.6 Sorting data with arrange](#46-sorting-data-with-arrange)
@@ -172,8 +174,10 @@ the file explorer and you can search from your entire computer.
 <summary>
 Show gif of import dataset
 </summary>
+
 ![](images/tidyverse-02.gif)
-</summary>
+
+</details>
 
 <u>Option b:</u>
 
@@ -525,17 +529,13 @@ statements. <br>
 
 ### 4.3 Selecting specific columns
 
-The commands in this section (4.3) will not create data objects as we
-won’t be using them later on.
+    The commands in this section (4.3) will not create data objects as we won't be using them later on. 
 
-- End each command in this section with `%>% head(5)`
+        - End each command in this section with `%>% head(5)`
 
-  - Not ending functions that extract full columns of data will display
-    a LOT.
+        - Not ending functions that extract full columns of data will display a LOT. 
 
-  - This will make things easier for you.
-
-------------------------------------------------------------------------
+        - This will make things easier for you. 
 
 To get a specific column, use piping and the `select()` function on your
 data set.
@@ -680,7 +680,9 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 </details>
 
-<br> \### 4.4 Select specific rows based on a condition
+<br>
+
+### 4.4 Select specific rows based on a condition
 
 *Note:* Selecting specific rows is also known as “filtering,”
 
@@ -803,47 +805,49 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 <br>
 
-#### <u>Task 4.4.3:</u> Filter all the rows from purchaseData where `Sub_Category` is “Phones” and `Order_Priority` is “Critical”.
+#### <u>Task 4.4.3:</u> Create a new dataframe with all the rows from purchaseData where `Country` is “United States” and `Discount` is greater than 0.
 
-<details>
-<summary>
-Check Your Code
-</summary>
+- Name this dataframe: `discountedUSPurchases`
+  <details>
+  <summary>
+  Check Your Code
+  </summary>
 
 ``` r
-purchaseData %>% filter(Sub_Category == "Phones" & Order_Priority == "Critical")%>% head(5)
+discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
+discountedUSPurchases %>% head(5)
 ```
 
-    ##   Row_ID                Order_ID Order_Date  Ship_Date    Ship_Mode Customer_ID
-    ## 1  22732  IN-2014-JM156557-41818 2014-06-28 2014-07-01 Second Class   JM-156557
-    ## 2  45794 SA-2012-MM7260110-41269 2012-12-26 2012-12-28 Second Class  MM-7260110
-    ## 3   1570 US-2015-NP1832582-42216 2015-07-31 2015-08-01  First Class  NP-1832582
-    ## 4    220 US-2012-RR1952536-41270 2012-12-27 2012-12-29 Second Class  RR-1952536
-    ## 5  10549 IT-2014-KC1667548-41882 2014-08-31 2014-09-03  First Class  KC-1667548
-    ##     Customer_Name   Segment Postal_Code          City           State
-    ## 1     Jim Mitchum Corporate          NA        Sydney New South Wales
-    ## 2 Magdelene Morse  Consumer          NA         Jizan           Jizan
-    ## 3    Naresj Patel  Consumer          NA        Juárez       Chihuahua
-    ## 4       Rick Reed Corporate          NA Santo Domingo   Santo Domingo
-    ## 5 Kimberly Carter Corporate          NA         Celle    Lower Saxony
-    ##              Country          Region       Market  Product_ID   Category
-    ## 1          Australia         Oceania Asia Pacific TEC-PH-5842 Technology
-    ## 2       Saudi Arabia    Western Asia Asia Pacific TEC-PH-3807 Technology
-    ## 3             Mexico Central America        LATAM TEC-PH-5268 Technology
-    ## 4 Dominican Republic       Caribbean        LATAM TEC-PH-5841 Technology
-    ## 5            Germany  Western Europe       Europe TEC-PH-3130 Technology
-    ##   Sub_Category                        Product_Name   Sales Quantity Discount
-    ## 1       Phones Samsung Smart Phone, with Caller ID 2862.68        5      0.1
-    ## 2       Phones   Cisco Smart Phone, with Caller ID 2616.96        4      0.0
-    ## 3       Phones     Motorola Smart Phone, Full Size 1713.84        4      0.0
-    ## 4       Phones           Samsung Smart Phone, VoIP 1696.64        5      0.2
-    ## 5       Phones    Apple Audio Dock, with Caller ID 1502.01        9      0.0
-    ##    Profit Shipping_Cost Order_Priority
-    ## 1  763.28        897.35       Critical
-    ## 2 1151.40        832.41       Critical
-    ## 3  445.52        728.97       Critical
-    ## 4 -148.46        704.06       Critical
-    ## 5  225.18        600.21       Critical
+    ##   Row_ID                 Order_ID Order_Date  Ship_Date      Ship_Mode
+    ## 1  36258 CA-2012-AB10015140-40974 2012-03-06 2012-03-07    First Class
+    ## 2  39519 CA-2012-AB10015140-40958 2012-02-19 2012-02-25 Standard Class
+    ## 3  40977 CA-2013-AH10030140-41635 2013-12-27 2013-12-31 Standard Class
+    ## 4  36651 CA-2012-AH10030140-41041 2012-05-12 2012-05-18 Standard Class
+    ## 5  37425 US-2012-AH10030140-41206 2012-10-24 2012-10-27    First Class
+    ##    Customer_ID Customer_Name   Segment Postal_Code          City      State
+    ## 1 AB-100151404 Aaron Bergman  Consumer       98103       Seattle Washington
+    ## 2 AB-100151402 Aaron Bergman  Consumer       76017     Arlington      Texas
+    ## 3 AH-100301404 Aaron Hawkins Corporate       94122 San Francisco California
+    ## 4 AH-100301404 Aaron Hawkins Corporate       90004   Los Angeles California
+    ## 5 AH-100301404 Aaron Hawkins Corporate       94109 San Francisco California
+    ##         Country     Region Market  Product_ID        Category Sub_Category
+    ## 1 United States Western US   USCA FUR-CH-4421       Furniture       Chairs
+    ## 2 United States Central US   USCA OFF-ST-3078 Office Supplies      Storage
+    ## 3 United States Western US   USCA TEC-PH-4389      Technology       Phones
+    ## 4 United States Western US   USCA FUR-CH-4840       Furniture       Chairs
+    ## 5 United States Western US   USCA OFF-BI-4372 Office Supplies      Binders
+    ##                                    Product_Name  Sales Quantity Discount Profit
+    ## 1    Global Push Button Manager's Chair, Indigo  48.71        1      0.2   5.48
+    ## 2                            Akro Stacking Bins  12.62        2      0.2  -2.52
+    ## 3                          Geemarc AmpliPOWER60 668.16        9      0.2  75.17
+    ## 4 Iceberg Nesting Folding Chair, 19w x 6d x 43h 279.46        6      0.2  20.96
+    ## 5                       GBC VeloBind Cover Sets  49.41        4      0.2  18.53
+    ##   Shipping_Cost Order_Priority
+    ## 1         11.13           High
+    ## 2          1.97            Low
+    ## 3         45.74         Medium
+    ## 4         11.69         Medium
+    ## 5          2.84           High
 
 </details>
 
@@ -986,10 +990,10 @@ purchaseData %>% head(5)
 Add a new variable `Discounted_US` that is TRUE if the purchase is made
 in the United States and has been discounted
 
-- Filter for United States orders using the “Country” column
+- Filter for United States orders using the `Country` column
 
 - Filter for discounted orders by selecting all objects where the values
-  in the “Discount” column are greater than 0.
+  in the `Discount` column are greater than 0.
 
 <details>
 <summary>
@@ -1032,7 +1036,7 @@ organize by.
 
 #### <u>Task 4.6.1:</u> Update the purchaseData by where the objects are sorted by price (low to high).
 
-- Parameter of `arrange()` is Sales
+- Parameter of `arrange()` is `Sales`
 
 <details>
 <summary>
@@ -1051,7 +1055,10 @@ purchaseData <- purchaseData %>% arrange(Sales) %>% head(5)
 
 <br>
 
-#### <u>Task 4.7.1:</u> Use the `summary()` function to create a single data frame with the mean and median length.
+#### <u>Task 4.7.1:</u> Use the `summary()` function to create a single data frame with the mean Sales value and median discount amount
+
+**ADD TO BASICS 0** The `summarise()` function takes unlimited
+parameters, where each parameter is a statistical function.
 
 <details>
 <summary>
@@ -1059,33 +1066,81 @@ Check Your Code
 </summary>
 
 ``` r
-purchaseDataSummary <- summarize(purchaseData)
-
-purchaseDataSummary
+#Only purchases made in the US with discounts
+discountedUSPurchases %>% 
+   #average sale price and average discount
+   summarize(meanSales = mean(Sales), meanDiscount = mean(Discount))%>%
+      view() %>% head(5) #view the first 5 cities (ordered alphabetically)
 ```
 
-    ## data frame with 0 columns and 1 row
+    ##   meanSales meanDiscount
+    ## 1  232.7353    0.3004407
 
 </details>
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 
+**END HERE**
+
 ### 4.8 Analyzing groups with group_by
 
-#### <u>Task 4.8.1:</u> Group by `state_name` and summarize the length of mussels by `state`.
+#### <u>Task 4.8.1:</u> Create a dataframe of US Cities and their average profit for each
 
-#### \[Task 4.8.2:</ins> Summarize length by `coastal_ecological_area`.
+- You will use the `discountedUSPurchases` dataframe to create this new
+  dataframe
 
-<details>
-<summary>
-Check Your Code
-</summary>
+- Name the new datafram `USCityProfits`
+
+- You will use `group_by()` with `City`, where each row will be a city
+
+- You will use `summarise()` function to get the summary statistics for
+  each city
+
+- The statistic you will be summarizing is `mean()` (average) of the
+  `Profit` value
+
+- The table will be sorted by city, alphabetically
+
+  - Sort the table by `Profit` using the `arrange()` function.
+
+- Also view the 5 most profitable cities and the 5 least profitable
+  cities
+
+  - Use `tail()` to get the last 5 rows of a dataframe
 
 ``` r
-#purchaseData %>% filter(sex == "Male" & state_name == "Mississippi")
+#Only purchases made in the US with discounts
+USCityProfits <- discountedUSPurchases %>% 
+      group_by(City) %>% # group by city purchase was made in
+      summarize(meanProfit = mean(Profit)) # average profit for each city
+
+USCityProfits <- USCityProfits %>% arrange(meanProfit)
+  
+USCityProfits %>% head(5) #least profitable
 ```
 
-</details>
+    ## # A tibble: 5 × 2
+    ##   City       meanProfit
+    ##   <chr>           <dbl>
+    ## 1 Burlington      -536.
+    ## 2 Bethlehem       -201.
+    ## 3 Champaign       -182.
+    ## 4 Oswego          -179.
+    ## 5 Round Rock      -169.
+
+``` r
+USCityProfits %>% tail(5) #most profitable
+```
+
+    ## # A tibble: 5 × 2
+    ##   City             meanProfit
+    ##   <chr>                 <dbl>
+    ## 1 Buffalo                214.
+    ## 2 Sacramento             250.
+    ## 3 Burbank                416.
+    ## 4 North Las Vegas        550.
+    ## 5 Huntington Beach       840.
+
 <script>  
 &#10;    function toggle(input) {
         var x = document.getElementById(input);
