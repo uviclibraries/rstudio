@@ -1070,11 +1070,8 @@ Check Your Code
 discountedUSPurchases %>% 
    #average sale price and average discount
    summarize(meanSales = mean(Sales), meanDiscount = mean(Discount))%>%
-      view() %>% head(5) #view the first 5 cities (ordered alphabetically)
+      view() 
 ```
-
-    ##   meanSales meanDiscount
-    ## 1  232.7353    0.3004407
 
 </details>
 
@@ -1083,6 +1080,10 @@ discountedUSPurchases %>%
 **END HERE**
 
 ### 4.8 Analyzing groups with group_by
+
+Let’s say we wanted to know how profitable each US city is. We can get
+the average profit, but grouped by US city. From this, we can sort by
+profit to see what the most and least profitable cities are.
 
 #### <u>Task 4.8.1:</u> Create a dataframe of US Cities and their average profit for each
 
