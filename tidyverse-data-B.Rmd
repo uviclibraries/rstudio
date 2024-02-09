@@ -3,14 +3,14 @@ title: "3-Data Manipulation"
 author: "DSC Chloe Farr"
 date: "2024-01-18"
 output:
+  github_document:
+    toc: true
+    toc_depth: 3
+  pdf_document: default
   html_document:
     toc: true
     toc_depth: '3'
     df_print: paged
-  pdf_document: default
-  github_document:
-    toc: true
-    toc_depth: 3
 customjs: "http://code.jquery.com/jquery-1.4.2.min.js"
 layout: default
 nav_order: 5

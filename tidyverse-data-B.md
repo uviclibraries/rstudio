@@ -149,10 +149,8 @@ represents a specific type of data pertaining to the orders <br>
 
 #### <u>Task 3.1:</u> Read in your data set.
 
-data set file name: `Global_Superstore_Orders_2016.csv` (unless you
-changed the file name after downloading) through either of the following
-to ways:  
-Name your variable: `purchaseData`
+Data set file name: `Global_Superstore_Orders_2016.csv` through either
+of the following to ways:
 
 To import:
 
@@ -181,11 +179,12 @@ Show gif of import dataset
 
 <u>Option b:</u>
 
-    Load your data in via the console using the `read.csv()` function.
+Load your data in via the console using the `read.csv()` function.
 
-    -   The parameter this function takes is the filepath to your data,
-        followed by the file name.
-        -   i.e. *[your/file/path/filename.extension]*
+- The parameter this function takes is the filepath to your data,
+  followed by the file name.
+  - i.e. *\[your/file/path/filename.extension\]*
+- Rename your dataset to `purchaseData`
 
 <details>
 <summary>
@@ -290,8 +289,8 @@ the column names alphabetically, you could either enter: - two separate
 commands creating two data objects - utilize piping to create one data
 object for your target object.
 
-In pipes, you can choose to have a newline (shift+enter on a mac) after
-the %\>% symbol or leave it all on one line. <br>
+In pipes, you can choose to have a newline (shift+enter) after the %\>%
+symbol or leave it all on one line. <br>
 
 ### 4.1 Before Piping
 
@@ -383,14 +382,16 @@ another function.
 
 - e.g., `function1(function2(parameter))`
 
-<br> \#### <u>Task 4.1.3:</u> In this task, use nesting to create 1
-variable containing a sorted vector of the column names.
+<br>
+
+#### <u>Task 4.1.3:</u> In this task, use nesting to create 1 variable containing a sorted vector of the column names.
 
 - Name this variable: `alphabeticalColumnNames` <br>
-  <details>
-  <summary>
-  Check Your Code
-  </summary>
+
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #names(purchaseData) creates a vector object of the column names from our purchase data
@@ -421,11 +422,6 @@ sequentially, separated by the pipe symbol `%>%`.
   newVariable \<- criteria1() %\>% criteria2()
 
 - Previewing our data with 2 criteria: criteria1() %\>% criteria2()
-
-  - E.g., If we want to only see the first few column names (not ordered
-    alphabetically), we can do this by:<br>
-
-    `names(datasetName) %\>% head(numberOfColumnsToView)`
 
 <br>
 
@@ -462,6 +458,7 @@ purchaseDataNamesPeek
 If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
 variable. <br>
+
 <details>
 <summary>
 Show code for previewing with piping
@@ -477,26 +474,26 @@ names(purchaseData) %>% head(5)
 
 ------------------------------------------------------------------------
 
-Now, we may want to add more conditions to our commands, like:
+When we work with data, it can be useful to work with smaller sections
+of data.
 
-- Previewing only the column names that begin with `Product`
+In the remainder of activity 4, we will look at ways to select subsets
+of our data to make it easier to work with.
 
-  - We will find this from the result of `head()` that gives us a vector
-    containing column names
+- we will use piping to filter productData
 
-- Previewing only the purchases from Tampa Bay
+- based on different conditions, such as:
 
-  - This information is stored in the `general_location` column (vector)
+  - Previewing only the column names that begin with `Product`
 
-- Previewing only the purchases that are corporate orders
+  - Previewing only the purchases from Tampa Bay
 
-  - This information is stored in the `Segment` column (vector)
+  - Previewing only the purchases that are corporate orders
 
-- Previewing only the purchases from Tampa that aren’t critical priority
+  - Previewing only the purchases from Tampa that aren’t critical
+    priority
 
-  - This information is stored in the `Order_Priority` column (vector)
-
-To do this, we need to look at Operators.
+Before we begin to filter, we need to look at Operators.
 
 **Definition - “Operators”:** Special symbols or keywords used to
 perform operations on arguments - logical operators specifically
@@ -529,22 +526,24 @@ statements. <br>
 
 ### 4.3 Selecting specific columns
 
-    The commands in this section (4.3) will not create data objects as we won't be using them later on. 
+The commands in this section (4.3) will not create data objects as we
+won’t be using them later on.
 
-        - End each command in this section with `%>% head(5)`
+**- End each command in this section with `%>% head(5)`**
 
-        - Not ending functions that extract full columns of data will display a LOT. 
+- Not ending functions that extract full columns of data will display a
+  LOT.
 
-        - This will make things easier for you. 
+- This will make things easier for you.
+
+<br>
+
+#### <u>Task 4.3.1:</u> Preview the values in the Row ID column
 
 To get a specific column, use piping and the `select()` function on your
 data set.
 
 - The parameter is the name of the column you want to access.
-
-<br>
-
-#### <u>Task 4.3.1:</u> Preview the values in the Row ID column
 
 - Column name: `Row_ID`
 
@@ -626,6 +625,8 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 <br>
 
+#### <u>Task 4.3.3:</u> Select all the columns from our cleaned purchase data that start with “Product”.
+
 We can also select a set of columns
 
 - for example those whose names begin with a common string of
@@ -634,17 +635,16 @@ We can also select a set of columns
 - This will return a subset of our table, not necessarily a single
   vector
 
-#### <u>Task 4.3.3:</u> Select all the columns from our cleaned purchase data that start with “Product” using the `starts_with()` function.
-
-In our dataset, multiple column names begin with “Product”.
-
-- Use that as the criteria for `starts_with()`.
+In our dataset, multiple column names begin with “Product”. We want to
+see only the data in columns whose names begin with “Product.”
 
 <br>
 
-Here’s how it’s done: - Use piping on your purchaseData
+Here’s how it’s done:
 
-    - `purchaseData %>%`
+- Use piping on your purchaseData
+
+  - `purchaseData %>%`
 
 - Use the `select()` function to select the columns
 
@@ -700,10 +700,7 @@ function.
 
 <br>
 
-#### <u>Task 4.4.1:</u>
-
-Filter all the rows from your purchase data where `Quantity` is greater
-than 10.
+#### <u>Task 4.4.1:</u> Filter all the rows from your purchase data where `Quantity` is greater than 10.
 
 <details>
 <summary>
@@ -808,10 +805,11 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 #### <u>Task 4.4.3:</u> Create a new dataframe with all the rows from purchaseData where `Country` is “United States” and `Discount` is greater than 0.
 
 - Name this dataframe: `discountedUSPurchases`
-  <details>
-  <summary>
-  Check Your Code
-  </summary>
+
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
@@ -1018,6 +1016,14 @@ summary(purchaseData$Discounted_US)
 
 ### 4.6 Sorting data with arrange
 
+Being able to arrange data by ordering values numerically or
+alphabeticaly is particularly handy for swiftly identifying which
+measurements recorded the highest or lowest values.
+
+<br>
+
+#### <u>Task 4.6.1:</u> Update the purchaseData by where the objects are sorted by price (low to high).
+
 The `arrange()` function enables you to order your data frame according
 to the values of a specific variable.
 
@@ -1031,10 +1037,6 @@ organize by.
   men and women
 
   - a new variable that we recently formulated using `mutate()`
-
-<br>
-
-#### <u>Task 4.6.1:</u> Update the purchaseData by where the objects are sorted by price (low to high).
 
 - Parameter of `arrange()` is `Sales`
 
@@ -1057,8 +1059,9 @@ purchaseData <- purchaseData %>% arrange(Sales) %>% head(5)
 
 #### <u>Task 4.7.1:</u> Use the `summary()` function to create a single data frame with the mean Sales value and median discount amount
 
-**ADD TO BASICS 0** The `summarise()` function takes unlimited
-parameters, where each parameter is a statistical function.
+<u>\*\*Note for Chloe: ADD TO BASICS 0 The `summarise()` function takes
+unlimited parameters, where each parameter is a statistical
+function.</u>
 
 <details>
 <summary>
@@ -1076,8 +1079,6 @@ discountedUSPurchases %>%
 </details>
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
-
-**END HERE**
 
 ### 4.8 Analyzing groups with group_by
 
@@ -1108,6 +1109,11 @@ profit to see what the most and least profitable cities are.
   cities
 
   - Use `tail()` to get the last 5 rows of a dataframe
+
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #Only purchases made in the US with discounts
