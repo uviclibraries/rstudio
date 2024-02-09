@@ -639,31 +639,23 @@ discountedUSPurchases %>% head(5)
 <br>
 
 
-### 4.5  Creating new variables with mutate
+### 4.5  Modify a dataframe with 'mutate'
 
 "Mutation" involves creating or altering columns in a data frame, 
 
-  - typically using the `mutate()` function
+  - using the `mutate()` function
     
     - e.g. If you have a column with a range of numbers, but you want to be able to quickly work with the data only over or under a specific value, like any orders under $10, you can create a "Cheap" column and the values would be TRUE or FALSE.
   
   - adds new variables or modifies existing ones.
 
 
-#### [Task 4.5.1:]{.underline} Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase's shipping cost is greater than 100 dollars.
-
-  - Name the variable: `High_Shipping`
-  
-  - The column name for weight is called `High_Shipping`
-  
-  - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
-
 <br>
 [Here's how we'll do it:]{.underline}
 
   - Assign the mutation (modification) to an existing variable 
   
-    - `existing_variable_name <-`
+    - `existing_dataframe_name <-`
     
   - Identify the existing variable name of the object you want to mutate
   
@@ -693,7 +685,23 @@ discountedUSPurchases %>% head(5)
         
           - aka. The result will be everything in the data that is "Low"
     
+<details><summary><Check your code></summary>
+```{r}
+purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
+
+#view your dataframe
+purchaseData %>% head(5)
+```
+</details>
 <br>
+
+#### [Task 4.5.2:]{.underline} Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase's shipping cost is greater than 100 dollars.
+
+  - Name the new column: `High_Shipping`
+  
+  - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
+
+
 
 <details><summary>Check Your Code</summary>
 ```{r}
@@ -709,7 +717,7 @@ purchaseData %>% head(5)
 
 <br>
 
-#### [Task 4.5.2:]{.underline} Add a new column based on TWO conditions
+#### [Task 4.5.3:]{.underline} Add a new column based on TWO conditions
 
 Add a new variable `Discounted_US` that is TRUE if the purchase is made in the United States and has been discounted
   

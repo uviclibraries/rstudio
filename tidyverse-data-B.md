@@ -13,8 +13,8 @@ DSC Chloe Farr
     - [4.3 Selecting specific columns](#43-selecting-specific-columns)
     - [4.4 Select specific rows based on a
       condition](#44-select-specific-rows-based-on-a-condition)
-    - [4.5 Creating new variables with
-      mutate](#45-creating-new-variables-with-mutate)
+    - [4.5 Modify a dataframe with
+      ‘mutate’](#45-modify-a-dataframe-with-mutate)
     - [4.6 Sorting data with arrange](#46-sorting-data-with-arrange)
     - [4.7 Summarizing variables with
       summarize](#47-summarizing-variables-with-summarize)
@@ -858,11 +858,11 @@ multiple cases like filtering my two variables
 
 - e.g. values of the `Sub_Category` and `Order_Priority` columns. <br>
 
-### 4.5 Creating new variables with mutate
+### 4.5 Modify a dataframe with ‘mutate’
 
 “Mutation” involves creating or altering columns in a data frame,
 
-- typically using the `mutate()` function
+- using the `mutate()` function
 
   - e.g. If you have a column with a range of numbers, but you want to
     be able to quickly work with the data only over or under a specific
@@ -871,19 +871,11 @@ multiple cases like filtering my two variables
 
 - adds new variables or modifies existing ones.
 
-#### <u>Task 4.5.1:</u> Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase’s shipping cost is greater than 100 dollars.
-
-- Name the variable: `High_Shipping`
-
-- The column name for weight is called `High_Shipping`
-
-- The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
-
 <br> <u>Here’s how we’ll do it:</u>
 
 - Assign the mutation (modification) to an existing variable
 
-  - `existing_variable_name <-`
+  - `existing_dataframe_name <-`
 
 - Identify the existing variable name of the object you want to mutate
 
@@ -918,7 +910,58 @@ multiple cases like filtering my two variables
 
         - aka. The result will be everything in the data that is “Low”
 
+<details>
+<summary>
+<Check your code>
+</summary>
+
+``` r
+purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
+
+#view your dataframe
+purchaseData %>% head(5)
+```
+
+    ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
+    ## 1  40098 CA-2014-AB10015140-41954 2014-11-11 2014-11-13  First Class
+    ## 2  26341   IN-2014-JR162107-41675 2014-02-05 2014-02-07 Second Class
+    ## 3  25330   IN-2014-CR127307-41929 2014-10-17 2014-10-18  First Class
+    ## 4  13524  ES-2014-KM1637548-41667 2014-01-28 2014-01-30  First Class
+    ## 5  47221  SG-2014-RH9495111-41948 2014-11-05 2014-11-06     Same Day
+    ##    Customer_ID    Customer_Name     Segment Postal_Code          City
+    ## 1 AB-100151402    Aaron Bergman    Consumer       73120 Oklahoma City
+    ## 2    JR-162107    Justin Ritter   Corporate          NA    Wollongong
+    ## 3    CR-127307     Craig Reiter    Consumer          NA      Brisbane
+    ## 4   KM-1637548 Katherine Murray Home Office          NA        Berlin
+    ## 5   RH-9495111      Rick Hansen    Consumer          NA         Dakar
+    ##             State       Country         Region       Market  Product_ID
+    ## 1        Oklahoma United States     Central US         USCA TEC-PH-5816
+    ## 2 New South Wales     Australia        Oceania Asia Pacific FUR-CH-5379
+    ## 3      Queensland     Australia        Oceania Asia Pacific TEC-PH-5356
+    ## 4          Berlin       Germany Western Europe       Europe TEC-PH-5267
+    ## 5           Dakar       Senegal Western Africa       Africa TEC-CO-6011
+    ##     Category Sub_Category                              Product_Name   Sales
+    ## 1 Technology       Phones                          Samsung Convoy 3  221.98
+    ## 2  Furniture       Chairs Novimex Executive Leather Armchair, Black 3709.40
+    ## 3 Technology       Phones         Nokia Smart Phone, with Caller ID 5175.17
+    ## 4 Technology       Phones            Motorola Smart Phone, Cordless 2892.51
+    ## 5 Technology      Copiers            Sharp Wireless Fax, High-Speed 2832.96
+    ##   Quantity Discount  Profit Shipping_Cost Order_Priority Low_Priority
+    ## 1        2      0.0   62.15         40.77           High        FALSE
+    ## 2        9      0.1 -288.77        923.63       Critical        FALSE
+    ## 3        9      0.1  919.97        915.49         Medium        FALSE
+    ## 4        5      0.1  -96.54        910.16         Medium        FALSE
+    ## 5        8      0.0  311.52        903.04       Critical        FALSE
+
+</details>
+
 <br>
+
+#### <u>Task 4.5.2:</u> Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase’s shipping cost is greater than 100 dollars.
+
+- Name the new column: `High_Shipping`
+
+- The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
 <details>
 <summary>
@@ -956,12 +999,18 @@ purchaseData %>% head(5)
     ## 3 Technology       Phones         Nokia Smart Phone, with Caller ID 5175.17
     ## 4 Technology       Phones            Motorola Smart Phone, Cordless 2892.51
     ## 5 Technology      Copiers            Sharp Wireless Fax, High-Speed 2832.96
-    ##   Quantity Discount  Profit Shipping_Cost Order_Priority High_Shipping
-    ## 1        2      0.0   62.15         40.77           High         FALSE
-    ## 2        9      0.1 -288.77        923.63       Critical          TRUE
-    ## 3        9      0.1  919.97        915.49         Medium          TRUE
-    ## 4        5      0.1  -96.54        910.16         Medium          TRUE
-    ## 5        8      0.0  311.52        903.04       Critical          TRUE
+    ##   Quantity Discount  Profit Shipping_Cost Order_Priority Low_Priority
+    ## 1        2      0.0   62.15         40.77           High        FALSE
+    ## 2        9      0.1 -288.77        923.63       Critical        FALSE
+    ## 3        9      0.1  919.97        915.49         Medium        FALSE
+    ## 4        5      0.1  -96.54        910.16         Medium        FALSE
+    ## 5        8      0.0  311.52        903.04       Critical        FALSE
+    ##   High_Shipping
+    ## 1         FALSE
+    ## 2          TRUE
+    ## 3          TRUE
+    ## 4          TRUE
+    ## 5          TRUE
 
 </details>
 
@@ -969,7 +1018,7 @@ purchaseData %>% head(5)
 
 <br>
 
-#### <u>Task 4.5.2:</u> Add a new column based on TWO conditions
+#### <u>Task 4.5.3:</u> Add a new column based on TWO conditions
 
 Add a new variable `Discounted_US` that is TRUE if the purchase is made
 in the United States and has been discounted
