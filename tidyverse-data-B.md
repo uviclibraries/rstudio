@@ -629,14 +629,13 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 We can also select a set of columns
 
-- for example those whose names begin with a common string of
-  characters.
+- e.g. columns whose names begin with a common string of characters.
 
 - This will return a subset of our table, not necessarily a single
   vector
 
 In our dataset, multiple column names begin with “Product”. We want to
-see only the data in columns whose names begin with “Product.”
+see only the data of columns whose names begin with “Product.”
 
 <br>
 
@@ -685,10 +684,15 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 ### 4.4 Select specific rows based on a condition
 
 While we may only want to handle certain items (rows) in our dataset
-based on certain criteria. - This is called “filtering” - We can filter
-for different purposes, like processing statistical operations, making
-charts and so on. - We can even create new data objects, which can make
-future analyses easier.
+based on certain criteria.
+
+- This is called “filtering”
+
+- We can filter for different purposes, like processing statistical
+  operations, making charts and so on.
+
+- We can even create new data objects, which can make future analyses
+  easier.
 
 <br>
 
@@ -800,6 +804,9 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 - Name this dataframe: `discountedUSPurchases`
 
+**- Do not add ” %\>% head(5)” to the command when creating a new
+dataframe**
+
 <details>
 <summary>
 Check Your Code
@@ -807,6 +814,9 @@ Check Your Code
 
 ``` r
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
+
+
+#view your dataframe
 discountedUSPurchases %>% head(5)
 ```
 
@@ -854,9 +864,22 @@ multiple cases like filtering my two variables
 
 - typically using the `mutate()` function
 
+  - e.g. If you have a column with a range of numbers, but you want to
+    be able to quickly work with the data only over or under a specific
+    value, like any orders under \$10, you can create a “Cheap” column
+    and the values would be TRUE or FALSE.
+
 - adds new variables or modifies existing ones.
 
-To add a value to our dataset, we will:
+#### <u>Task 4.5.1:</u> Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase’s shipping cost is greater than 100 dollars.
+
+- Name the variable: `High_Shipping`
+
+- The column name for weight is called `High_Shipping`
+
+- The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
+
+<br> <u>Here’s how we’ll do it:</u>
 
 - Assign the mutation (modification) to an existing variable
 
@@ -895,34 +918,7 @@ To add a value to our dataset, we will:
 
         - aka. The result will be everything in the data that is “Low”
 
-In this case, the entire function ends up being
-
-``` r
-purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
-
-#We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Low_Priority' column)
-#request a summary of the values in the table $ column name
-summary(purchaseData$Low_Priority)
-```
-
-    ##    Mode   FALSE    TRUE 
-    ## logical   48866    2424
-
-We will now be using piping to create new variables in our dataset with
-modified and additional information (i.e., new columns).
-
-Here we again begin the command with the name of our new variable
-followed by the assignment operator `<-`.
-
 <br>
-
-#### <u>Task 4.5.1:</u> Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase’s shipping cost is greater than 100 dollars.
-
-- Name the variable: `High_Shipping`
-
-- The column name for weight is called `High_Shipping`
-
-- The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
 <details>
 <summary>
@@ -931,6 +927,8 @@ Check Your Code
 
 ``` r
 purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
+
+#view your dataframe
 purchaseData %>% head(5)
 ```
 
@@ -958,18 +956,12 @@ purchaseData %>% head(5)
     ## 3 Technology       Phones         Nokia Smart Phone, with Caller ID 5175.17
     ## 4 Technology       Phones            Motorola Smart Phone, Cordless 2892.51
     ## 5 Technology      Copiers            Sharp Wireless Fax, High-Speed 2832.96
-    ##   Quantity Discount  Profit Shipping_Cost Order_Priority Low_Priority
-    ## 1        2      0.0   62.15         40.77           High        FALSE
-    ## 2        9      0.1 -288.77        923.63       Critical        FALSE
-    ## 3        9      0.1  919.97        915.49         Medium        FALSE
-    ## 4        5      0.1  -96.54        910.16         Medium        FALSE
-    ## 5        8      0.0  311.52        903.04       Critical        FALSE
-    ##   High_Shipping
-    ## 1         FALSE
-    ## 2          TRUE
-    ## 3          TRUE
-    ## 4          TRUE
-    ## 5          TRUE
+    ##   Quantity Discount  Profit Shipping_Cost Order_Priority High_Shipping
+    ## 1        2      0.0   62.15         40.77           High         FALSE
+    ## 2        9      0.1 -288.77        923.63       Critical          TRUE
+    ## 3        9      0.1  919.97        915.49         Medium          TRUE
+    ## 4        5      0.1  -96.54        910.16         Medium          TRUE
+    ## 5        8      0.0  311.52        903.04       Critical          TRUE
 
 </details>
 

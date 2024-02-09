@@ -539,12 +539,12 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 We can also select a set of columns 
   
-  - for example those whose names begin with a common string of characters. 
+  - e.g. columns whose names begin with a common string of characters. 
   
   - This will return a subset of our table, not necessarily a single vector
   
   
-In our dataset, multiple column names begin with "Product". We want to see only the data in columns whose names begin with "Product."
+In our dataset, multiple column names begin with "Product". We want to see only the data of columns whose names begin with "Product."
 
 <br>
 
@@ -578,9 +578,13 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 ### 4.4 Select specific rows based on a condition
 
-While we may only want to handle certain items (rows) in our dataset based on certain criteria.     - This is called "filtering" 
-      - We can filter for different purposes, like processing statistical operations, making charts and so on.
-      - We can even create new data objects, which can make future analyses easier.
+While we may only want to handle certain items (rows) in our dataset based on certain criteria.
+
+  - This is called "filtering" 
+
+  - We can filter for different purposes, like processing statistical operations, making charts and so on.
+      
+  - We can even create new data objects, which can make future analyses easier.
 
 <br>
 
@@ -616,10 +620,15 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
   - Name this dataframe: `discountedUSPurchases`
   
+  **- Do not add " %>% head(5)" to the command when creating a new dataframe**
+  
 <details>
 <summary>Check Your Code</summary>
 ```{r}
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
+
+
+#view your dataframe
 discountedUSPurchases %>% head(5)
 ```
 </details>
@@ -635,10 +644,22 @@ discountedUSPurchases %>% head(5)
 "Mutation" involves creating or altering columns in a data frame, 
 
   - typically using the `mutate()` function
+    
+    - e.g. If you have a column with a range of numbers, but you want to be able to quickly work with the data only over or under a specific value, like any orders under $10, you can create a "Cheap" column and the values would be TRUE or FALSE.
   
   - adds new variables or modifies existing ones.
 
-To add a value to our dataset, we will:
+
+#### [Task 4.5.1:]{.underline} Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase's shipping cost is greater than 100 dollars.
+
+  - Name the variable: `High_Shipping`
+  
+  - The column name for weight is called `High_Shipping`
+  
+  - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
+
+<br>
+[Here's how we'll do it:]{.underline}
 
   - Assign the mutation (modification) to an existing variable 
   
@@ -672,35 +693,13 @@ To add a value to our dataset, we will:
         
           - aka. The result will be everything in the data that is "Low"
     
-In this case, the entire function ends up being
-```{r}
-purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
-
-#We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Low_Priority' column)
-#request a summary of the values in the table $ column name
-summary(purchaseData$Low_Priority)
-```
-  
-
-We will now be using piping to create new variables in our dataset with modified and additional information (i.e., new columns). 
-
-Here we again begin the command with the name of our new variable followed by the assignment operator `<-`. 
-
-
 <br>
-
-#### [Task 4.5.1:]{.underline} Add a new boolean (TRUE/FALSE) variable (column) to the dataset that says whether a purchase's shipping cost is greater than 100 dollars.
-
-  - Name the variable: `High_Shipping`
-  
-  - The column name for weight is called `High_Shipping`
-  
-  - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
-
 
 <details><summary>Check Your Code</summary>
 ```{r}
 purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
+
+#view your dataframe
 purchaseData %>% head(5)
 ```
 </details>
