@@ -206,11 +206,10 @@ the data set.
 We can preview the data set using the `head()` function. This will
 display the first number of rows.
 
-    Parameters 
+Parameters
 
-    - data set name 
-
-    - number of rows to display
+- data set name
+- number of rows to display
 
 <br>
 
@@ -261,10 +260,9 @@ Now, we’ve imported our data and previewed the first 10 rows of our
 purchase data, but how big is the data set?
 
 - How many rows?
-
 - How many columns?
 
-  Parameter: dataset name
+Parameter: dataset name
 
 Get the dimensions of the purchase dataset. <br>
 <details>
@@ -284,10 +282,11 @@ dim(purchaseData)
 <br> \## 4. Introducing Piping
 
 `%>%` This symbol is known as a “pipe,” and it’s used for feeding the
-result of one function directly into the next function. - e.g., To sort
-the column names alphabetically, you could either enter: - two separate
-commands creating two data objects - utilize piping to create one data
-object for your target object.
+result of one function directly into the next function.
+
+- e.g., To sort the column names alphabetically, you could either enter:
+  - two separate commands creating two data objects
+  - utilize piping to create one data object for your target object.
 
 In pipes, you can choose to have a newline (shift+enter) after the %\>%
 symbol or leave it all on one line. <br>
@@ -344,7 +343,6 @@ high to low) using the `sort()` function.
 First, let’s look at each of these functions on their own.
 
 - Name this object ‘alphaPurchaseDataColumnNames’
-
 - Parameter: the vector of column names
 
 <br>
@@ -367,14 +365,12 @@ separate variables containing the column names:
 
 - `purchaseDataColumnNames`: Ordered as they would be if the file were
   opened in excel
-
 - `alphaPurchaseDataColumnNames`: Ordered alphabetically (sorted)
 
 <br> However, if we don’t care about the list of column names *unless*
 they are sorted alphabetically:
 
 - we can achieve that using only 1 command,
-
   - creating only 1 variable with “nesting”.
 
 <br> **Definition - Nesting:** Use one function as a parameter of
@@ -401,13 +397,10 @@ alphabeticalColumnNames <- sort(names(purchaseData))
 
 </details>
 
-<br> *Hint*:
-
-- the parameter of `names()` is the `sort()` function.
-
-- the parameter of `sort()` is the dataset <br> As you might imagine,
-  nesting could result in very long commands that would be hard to
-  interpret.
+<br> *Hints*: the parameter of `names()` is the `sort()` function, and
+the parameter of `sort()` is the dataset <br> As you might imagine,
+nesting could result in very long commands that would be hard to
+interpret.
 
 There is a cleaner way to do this than nesting: Piping!
 
@@ -428,7 +421,6 @@ sequentially, separated by the pipe symbol `%>%`.
 #### <u>Task 4.2.1:</u> In this task, use piping to create 1 variable containing the first 5 column names.
 
 - Do not use objects you have created so far, except `purchaseData`
-
 - Name your new variable: `purchaseDataNamesPeek` <br>
 
 <details>
@@ -480,16 +472,11 @@ of data.
 In the remainder of activity 4, we will look at ways to select subsets
 of our data to make it easier to work with.
 
-- we will use piping to filter productData
-
-- based on different conditions, such as:
-
+- We will use piping to filter productData based on different
+  conditions, such as:
   - Previewing only the column names that begin with `Product`
-
   - Previewing only the purchases from Tampa Bay
-
   - Previewing only the purchases that are corporate orders
-
   - Previewing only the purchases from Tampa that aren’t critical
     priority
 
@@ -503,23 +490,14 @@ statements. <br>
 **Operators**
 
 - Logical operators
-
   - \< means “less than”
-
   - \<= means “less than or equal to”
-
   - \> means “greater than”
-
   - \>= means “greater than or equal to”
-
   - == means “exactly equal to”
-
   - != means “not equal to”
-
 - Connecting logical statements:
-
   - x \| y means “x or y”
-
   - x & y means “x and y”
 
 ------------------------------------------------------------------------
@@ -577,7 +555,6 @@ function passing in the column name as the parameter.
 with specific text, we do the inverse,
 
 - again using the `select()` function
-
 - the parameter has a `-` before the string value we want to exclude.
 
 <br>
@@ -629,7 +606,7 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 We can also select a set of columns
 
-- e.g. columns whose names begin with a common string of characters.
+- e.g., columns whose names begin with a common string of characters.
 
 - This will return a subset of our table, not necessarily a single
   vector
@@ -854,21 +831,18 @@ discountedUSPurchases %>% head(5)
 </details>
 
 *Hint:* `&` is used for “and”, in cases where you want to manage
-multiple cases like filtering my two variables
-
-- e.g. values of the `Sub_Category` and `Order_Priority` columns. <br>
+multiple cases like filtering my two variables<br> - e.g., values of the
+`Sub_Category` and `Order_Priority` columns. <br>
 
 ### 4.5 Modify a dataframe with ‘mutate’
 
 “Mutation” involves creating or altering columns in a data frame,
 
 - using the `mutate()` function
-
-  - e.g. If you have a column with a range of numbers, but you want to
+  - e.g., If you have a column with a range of numbers, but you want to
     be able to quickly work with the data only over or under a specific
     value, like any orders under \$10, you can create a “Cheap” column
     and the values would be TRUE or FALSE.
-
 - adds new variables or modifies existing ones.
 
 <br> <u>Here’s how we’ll do it:</u>
@@ -961,7 +935,6 @@ purchaseData %>% head(5)
 #### <u>Task 4.5.2:</u> Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase’s shipping cost is greater than 100 dollars.
 
 - Name the new column: `High_Shipping`
-
 - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
 <details>
@@ -1025,7 +998,6 @@ Add a new variable `Discounted_US` that is TRUE if the purchase is made
 in the United States and has been discounted
 
 - Filter for United States orders using the `Country` column
-
 - Filter for discounted orders by selecting all objects where the values
   in the `Discount` column are greater than 0.
 
@@ -1071,9 +1043,7 @@ When using `arrange()`, you specify the column name that you wish to
 organize by.
 
 - In this case, it will arrange the data based on the sales value
-
   - a new variable that we recently formulated using `mutate()`
-
 - Parameter of `arrange()` is `Sales`
 
 <details>
@@ -1142,7 +1112,6 @@ like totals, averages, medians, and so on.
 parameter will appear as a column.
 
 - parameter 1: `columnName = mean(column)`
-
 - another parameter: `columnName2 = mean(another column)`
 
 Preview the mean sales values and mean discount values in the discounted
@@ -1178,14 +1147,10 @@ profit to see what the most and least profitable cities are.
 
 - You will use the `discountedUSPurchases` dataframe to create this new
   dataframe
-
 - Name the new dataframe `USCityProfits`
-
 - You will use `group_by()` with `City`, where each row will be a city
-
 - You will use `summarise()` function to get the summary statistics for
   each city
-
 - The statistic you will be summarizing total `Profit` values on
   purchases made in the US where the items have been discounted.
 
