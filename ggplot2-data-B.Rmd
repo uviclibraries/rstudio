@@ -281,7 +281,9 @@ With the code above, you now have:
 - A vector `commonBeanTypes` list of the common bean types, which will be used as the categories for the x-axis.
 
 
-#### [Task 2.2.1:]{.underline} Create a basic bar chart illustrating the frequency that chocolate bars are being made in different countries.
+#### [Task 2.2.1:]{.underline} Create a basic bar chart 
+
+Your chart will illustrate the frequency that chocolate bars are being made in different countries.
 
 - Country bar was made in: `broad_bean_origin`
 

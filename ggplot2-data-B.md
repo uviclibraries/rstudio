@@ -23,9 +23,12 @@ chart.
 
 <br>
 
-<u>Task 1.1:</u> Install and load the ‘ggthemes’ and ‘janitor’ packages.
+#### <u>Task 1.1:</u> Install and load the ‘ggthemes’ and ‘janitor’ packages.
 
-Package name: tidyverse
+- Package names:
+  - tidyverse
+  - ggthemes
+  - janitor
 
 <details>
 <summary>
@@ -49,7 +52,9 @@ the library() parameter in `""` quotations
 > More about janitor
 > [here](https://www.rdocumentation.org/packages/janitor/versions/2.2.0){:target=“\_blank”}.
 
-<br> <u>Task 1.2:</u> Read and clean your data set.
+<br>
+
+#### <u>Task 1.2:</u> Read and clean your data set.
 
 - Data set file name: `flavors_of_cacao.csv` (unless you changed the
   filename after downloading)
@@ -91,7 +96,9 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
 
-<br> <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
+<br>
+
+#### <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
 
 <details>
 <summary>
@@ -121,13 +128,17 @@ chocolateData %>% head(5)
 
 ## 2. Creating Plots and Charts in ggplot2
 
+Here is some information about creating and formatting plots, common to
+all types we will look at in this activity. Don’t do anything yet!
+
 The command to begin plots and charts are very similar. Let’s first look
 at the commonalities. For all of them, we will use the `ggplot()`
-function and a geometry function. `ggplot()` parameters are: - The
-dataset used for the plot `data = datasetName` - The aesthetic mappings.
-This specifies which column values is assigned to the x axis, and which
-is assigned to the y axis. -
-`aes(x = columnForXAxis, y = columnForYAxis)`
+function and a geometry function. `ggplot()` parameters are:
+
+- The dataset used for the plot `data = datasetName`
+- The aesthetic mappings. This specifies which column values is assigned
+  to the x axis, and which is assigned to the y axis.
+  - `aes(x = columnForXAxis, y = columnForYAxis)`
 
 The geometry function is attached to the ggplot() function with
 `+ geom_` and is completed by the type of plot or chart. - scatter plot
@@ -141,7 +152,9 @@ quadrant of your workspace).
 
 First things first, we need to quickly clean up our dataframe for
 scatter plots. Copy and paste the following code into your console, and
-execute. <br>
+execute to imort and prepare our data.
+
+<br>
 
 ``` r
 #remove the percentage signs from the column cocoa_percent by converting the values to numbers
@@ -176,8 +189,7 @@ the variables assigned to the x and y axes for that observation.
 
 <img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
 
-<u>Task 2.1.1:</u> Make a scatter plot of the cocoa percentage and the
-rating a chocolate bar received.
+#### <u>Task 2.1.1:</u> Make a scatter plot of the cocoa percentage and the rating a chocolate bar received.
 
 - Using chocolate data : `chocolateData`
 - X-axis = Cocoa percentage: `cocoa_percent`
@@ -196,13 +208,16 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 </details>
 
-<br> **Definition - Fitted line:** (aka. a ‘line of best fit’) is a line
+<br> Before we add details to our plot, we need to learn about the
+different components. Again, wait until the next task to do anything.
+
+**Definition - Fitted line:** (aka. a ‘line of best fit’) is a line
 representing some function of x and y that has the best fit (or the
 smallest overall error) for the observed data. <br>
 
-Function for adding a smooth line to a plot:
-`geom_smooth(method = "")` - method type specifies the type of smoothing
-to be used
+Function for adding a smooth line to a plot: `geom_smooth(method = "")`
+
+- method type specifies the type of smoothing to be used
 
 <details>
 <summary>
@@ -236,14 +251,18 @@ might skew the results of a standard linear model.
 
 - Fitted line: `method = "lm"` <br>
 
-<u>Task 2.1.2:</u> Make another scatter plot of the cocoa percentage and
-the rating a chocolate bar received, with the following: - A “line of
-best fit” - Informative x and y axis labels - A title
+#### <u>Task 2.1.2:</u> Make another scatter plot of the cocoa percentage and the rating a chocolate bar received, with the following:
 
-- Using chocolate data : `chocolateData`
-- X-axis = Cocoa percentage: `cocoa_percent`
-- Y-axis = Rating a chocolate bar received: `rating`
-- Line of best fit: `geom_smooth(method = "lm")`
+- A “line of best fit”
+
+- Informative x and y axis labels
+
+- A title
+
+  - Using chocolate data : `chocolateData`
+  - X-axis = Cocoa percentage: `cocoa_percent`
+  - Y-axis = Rating a chocolate bar received: `rating`
+  - Line of best fit: `geom_smooth(method = "lm")`
 
 <details>
 <summary>
@@ -261,12 +280,14 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 </details>
 
-We’re also going to add labels and custom colors using the `labs()`
-function and custom colors. \| Labels
-`+ labs(title = "", x = "", y = " ")`
+<br>
 
-<u>Task 2.1.3:</u> Add descriptive axis labels and a title to your
-scatter plot.
+#### <u>Task 2.1.3:</u> Add descriptive axis labels and a title to your scatter plot.
+
+We’re also going to add labels and custom colors using the `labs()`
+function and custom colors.
+
+- Labels `+ labs(title = "", x = "", y = " ")`
 
 <details>
 <summary>
@@ -326,10 +347,6 @@ to those categories), and the categories the data will be separated by
 
 The first 5 rows of the bars made of common beans:
 
-``` r
-chocolateData_commonBeans %>% head(5)
-```
-
     ## # A tibble: 5 × 10
     ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
     ##   <chr>                  <chr>                   <dbl>       <dbl>         <dbl>
@@ -344,10 +361,6 @@ chocolateData_commonBeans %>% head(5)
 
 The bars will represent the following categories:
 
-``` r
-commonBeanTypes
-```
-
     ## # A tibble: 4 × 2
     ##   bean_type_simplified     n
     ##   <fct>                <int>
@@ -356,14 +369,19 @@ commonBeanTypes
     ## 3 Forastero              195
     ## 4 Trinitario             436
 
-With the code above, you now have - A dataset
-`chocolateData_commonBeans`: containing the chocolate bars made with the
-most common beans - A vector `commonBeanTypes` list of the common bean
-types, which will be used as the categories for the x-axis.
+With the code above, you now have:
 
-To make the bar plot, <u>Task 2.2.1:</u> Create a basic bar chart
-illustrating the frequency that chocolate bars are being made in
-different countries. \| Country bar was made in: `broad_bean_origin`
+- A dataset `chocolateData_commonBeans`: containing the chocolate bars
+  made with the most common beans
+- A vector `commonBeanTypes` list of the common bean types, which will
+  be used as the categories for the x-axis.
+
+#### <u>Task 2.2.1:</u> Create a basic bar chart
+
+Your chart will illustrate the frequency that chocolate bars are being
+made in different countries.
+
+- Country bar was made in: `broad_bean_origin`
 
 <details>
 <summary>
@@ -390,9 +408,9 @@ comparison.
 We can facet a bar chart in a few different ways.
 
 Where the previous bar chart has one piece of information in each bar,
-we will now add two. \| Instead of `aes(x=)` representing just the
+we will now add two. - Instead of `aes(x=)` representing just the
 categories that each bar will represent, we will add a `fill=` parameter
-for the subgroups of each column.
+for the subgroups of each column. -
 `ggplot(data, aes(x = category, fill = subgroup))`
 
 We will then add
