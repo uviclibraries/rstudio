@@ -74,7 +74,7 @@ the library() parameter in `""` quotations
 Check Your Code
 </summary>
 
-``` r
+```
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
   clean_names() %>% #Clean the column header names
@@ -111,7 +111,7 @@ file.
 Check Your Code
 </summary>
 
-``` r
+```
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
 ```
@@ -162,7 +162,7 @@ execute to imort and prepare our data.
 
 <br>
 
-``` r
+```
 #remove the percentage signs from the column cocoa_percent by converting the values to numbers
 chocolateData$cocoa_percent <- parse_number(chocolateData$cocoa_percent)
 
@@ -180,7 +180,7 @@ chocolateData <- type_convert(chocolateData)
     ##   broad_bean_origin = col_character()
     ## )
 
-``` r
+```
 #You can ignore the Column Specification comment in the output. It indicates the column specification, which describes the data types of various columns after conversion, and shows that several columns have been confirmed as character columns.
 ```
 
@@ -206,7 +206,7 @@ the variables assigned to the x and y axes for that observation.
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
@@ -276,7 +276,7 @@ might skew the results of a standard linear model.
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
   geom_smooth(method = "lm")
@@ -301,7 +301,7 @@ function and custom colors.
 Check Your Code
 </summary>
 
-``` r
+```
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -325,7 +325,7 @@ execute.
 
 <br>
 
-``` r
+```
 chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
 
 chocolateData$bean_type_simplified <- gsub('[[:punct:]]', '', chocolateData$bean_type_simplified)
@@ -400,7 +400,7 @@ made in different countries.
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
 
@@ -431,7 +431,7 @@ To add a second dimension,
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
 ```
@@ -477,7 +477,7 @@ Using piping, create a new variable, `meanRatingByYear`
 Check Your Code
 </summary>
 
-``` r
+```
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
 
@@ -510,7 +510,7 @@ After the geom type, add:
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line()+  scale_x_continuous(
     breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
@@ -538,7 +538,7 @@ modifications.
 Check Your Code
 </summary>
 
-``` r
+```
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line() +
   scale_x_continuous(
