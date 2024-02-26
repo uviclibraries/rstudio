@@ -42,10 +42,12 @@ chart.
 Check Your Code
 </summary>
 
-  ## install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
-  ## install.packages("janitor")
-  ## library(ggthemes) #Do not wrap library() parameter string in quotes
-  ## library(janitor)
+~~~
+install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
+install.packages("janitor")
+library(ggthemes) #Do not wrap library() parameter string in quotes
+library(janitor)
+~~~
 
 </details>
 
