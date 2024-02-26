@@ -558,16 +558,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
-<script>
-function toggle(input) {
-  var x = document.getElementById(input);
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
-  }
-}
-</script>
+
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
 NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
