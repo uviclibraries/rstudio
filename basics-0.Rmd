@@ -1,7 +1,7 @@
 ---
-title: "2a-Getting Started for Mere Mortals"
-nav_order: 3
-date: '2024-01-18'
+title: "2-Data Types, Basic Commands and Charting"
+#author: DSC / Chloë Farr
+#date: '2024-01-18'
 output:
   github_document:
     toc: true
@@ -13,11 +13,12 @@ output:
     df_print: paged
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
-nav_order: 4
+nav_order: 3
 parent: Workshop Activities
 editor_options: 
   markdown: 
     wrap: 72
+keep_md: true  # Retain YAML front matter in output Markdown
 ---
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
@@ -943,7 +944,7 @@ object that can hold different types of data types.
 A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it's spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
 
 ```{r  load-data, echo=FALSE, results='hide'}
-income <- read_excel("/Users/chloefarr/Documents/GitHub/dsc-r-workshop/income.xlsx")
+income <- read_excel("/Users/chloefarr/Documents/GitHub/rstudio/docs/income.xlsx")
 ```
 
 To see the data in our data frame, simply enter the name of the data
@@ -1083,4 +1084,4 @@ function toggle(input) {
 </style>
 ```
 
-[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data-B.html){: .btn .btn-blue }
+[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }
