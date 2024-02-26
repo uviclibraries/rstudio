@@ -17,6 +17,10 @@ nav_order: 4
 parent: Workshop Activities
 ---
 
+
+<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
+<br>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 #uncomment the install.packages if you haven't installed and loaded the 'readxl' package

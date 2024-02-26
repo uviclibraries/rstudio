@@ -20,6 +20,10 @@ editor_options:
     wrap: 72
 ---
 
+
+<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
+<br>
+
 ```{r setup, include=FALSE}
 #This block is only for whoever is editing in in R and knitting it to an html file. It is not part of the workshop instructions. 
 
@@ -131,14 +135,11 @@ library(tidyverse)
 
 #### [Task 2.1:]{.underline} Download data about purchase orders 
 - We will use this data for the tasks in this activity.
+
 <img src="images/messy_purchase_orders.png" alt="purchase orders photo" style="float:right;width:180px;"/>
 
 
-
-**CHLOE UPLOAD THIS FILE AND REPLACE BIT LINK
-Download [here](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target="\_blank"}. Note that you
-will use this file: [**Global_Superstore_Orders_2016.csv**](docs/Global_Superstore_Orders_2016.csv) to finish
-your task below.
+Download [this](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target="\_blank"} file and use it to do the tasks in this activity.
 
 *Note:* Activities 3 and 4 draw from Kaggle's [Manipulating Data with
 the
@@ -265,12 +266,13 @@ dim(purchaseData)
 
 </details>
 <br>
+
 ## 4. Introducing Piping
 
 `%>%` This symbol is known as a "pipe," and it's used for feeding the
 result of one function directly into the next function. 
 
-  - e.g., To sort the column names alphabetically, you could either enter:
+  - E.g., To sort the column names alphabetically, you could either enter:
     - two separate commands creating two data objects
     - utilize piping to create one data object for your target object. 
 
@@ -301,7 +303,7 @@ it alphabetically?
 
 To get a list of our column names we can use the `names()` function.
 
-  - in this case, results in a vector, because all of the column names are strings of characters
+  - In this case, results in a vector, because all of the column names are strings of characters
 
     Name this object 'purchaseDataColumnNames'
     
@@ -514,9 +516,9 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 #### [Task 4.3.3:]{.underline} Select all the columns from our cleaned purchase data that start with "Product".
 
-We can also select a set of columns 
+We can also select a set of columns. 
   
-  - e.g., columns whose names begin with a common string of characters. 
+  - E.g., columns whose names begin with a common string of characters. 
   
   - This will return a subset of our table, not necessarily a single vector
   
@@ -557,7 +559,7 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 While we may only want to handle certain items (rows) in our dataset based on certain criteria.
 
-  - This is called "filtering" 
+  - This is called "filtering." 
 
   - We can filter for different purposes, like processing statistical operations, making charts and so on.
       
@@ -647,7 +649,7 @@ discountedUSPurchases %>% head(5)
         - `==` means "the left value is equal to the right value"
           - aka. The result will be everything in the data that is "Low"
     
-<details><summary><Check your code></summary>
+<details><summary>Check your code</summary>
 ```{r}
 purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
 
@@ -758,6 +760,16 @@ discountedUSPurchases %>%
 
 #To retrieve this data later, assign this command to a new variable.
 ```
+
+```{r echo=FALSE}
+# Only purchases made in the US with discounts
+discountedUSPurchasesSummarize <- discountedUSPurchases %>% 
+   # Average sale price and average discount
+   summarise(meanSales = mean(Sales), meanDiscount = mean(Discount))
+
+# Print the result
+print(discountedUSPurchasesSummarize)
+```
 </details>
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
@@ -776,7 +788,7 @@ Let's say we wanted to know how profitable each US city is. We can get the avera
   - You will use `summarise()` function to get the summary statistics for each city
   - The statistic you will be summarizing total `Profit` values on purchases made in the US where the items have been discounted.
   
-  **Don't create a new variable using `head(5)`**
+  **! Don't add `head(5)` when creating a new variable.**
 
 <details><summary>Check Your Code</summary>
 ```{r}
