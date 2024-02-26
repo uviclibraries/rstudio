@@ -37,10 +37,7 @@ chart.
   - ggthemes
   - janitor
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ~~~
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
@@ -48,8 +45,6 @@ install.packages("janitor")
 library(ggthemes) #Do not wrap library() parameter string in quotes
 library(janitor)
 ~~~
-
-</details>
 
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
 the library() parameter in `""` quotations
@@ -70,10 +65,7 @@ the library() parameter in `""` quotations
   parameter is chocolateData (leave parentheses blank if piping)
 - Remove first (empty) row using `filter(ref != "REF")` <br>
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
@@ -98,7 +90,6 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
-</details>
 
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
