@@ -42,12 +42,11 @@ chart.
 Check Your Code
 </summary>
 
-```
-install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
-install.packages("janitor")
-library(ggthemes) #Do not wrap library() parameter string in quotes
-library(janitor)
-```
+  ## install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
+  ## install.packages("janitor")
+  ## library(ggthemes) #Do not wrap library() parameter string in quotes
+  ## library(janitor)
+
 </details>
 
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
@@ -557,7 +556,6 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 <br> Output:
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
-
 
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
