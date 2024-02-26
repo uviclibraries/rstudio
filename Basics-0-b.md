@@ -1,6 +1,6 @@
 2a-Getting Started for Mere Mortals
 ================
-DSC Chloe Farr
+<!--Author: DSC / Chloë Farr-->
 2024-01-18
 
 - [1. Getting familiar with the RStudio
