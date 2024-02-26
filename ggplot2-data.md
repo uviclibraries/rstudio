@@ -42,12 +42,12 @@ chart.
 Check Your Code
 </summary>
 
-'''
+```
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
 install.packages("janitor")
 library(ggthemes) #Do not wrap library() parameter string in quotes
 library(janitor)
-'''
+```
 </details>
 
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
