@@ -1,6 +1,6 @@
 ---
 title: "2a-Getting Started for Mere Mortals"
-author: "DSC Chloe Farr"
+nav_order: 3
 date: '2024-01-18'
 output:
   github_document:
@@ -1013,9 +1013,7 @@ the name identifying a single set of values within that data frame.
   - e.g. 'eyeColour' might be the column name in a dataframe named
         'cats'.
 
-#### [Task 4.2.1:]{.underline}
-
-Display the vector of data relating to 'experience' in a histogram. 
+#### [Task 4.2.1:]{.underline} Display the vector of data relating to 'experience' in a histogram. 
 
 - X-label: 'Experience' 
 - Title: 'Histogram of Experience' <br>

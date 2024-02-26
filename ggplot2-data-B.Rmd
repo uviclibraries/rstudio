@@ -1,6 +1,6 @@
 ---
 title: "4-Data Visualization with ggplot2"
-author: "DSC Chloe Farr"
+nav_order: 5
 date: "2024-01-18"
 output:
   github_document:
@@ -166,12 +166,17 @@ Let's apply the ggplot command above to create a scatter plot.
 - Y-axis = Rating a chocolate bar received: `rating`
 
 <details><summary>Check Your Code</summary>
-```{r}
+```{r eval=FALSE}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 </details>
-
+<br>
+Output
+```{r echo=FALSE}
+ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
+    geom_point() # then add a layer of points
+```
 <br>
 Before we add details to our plot, we need to learn about the different components. Again, wait until the next task to do anything.
 
@@ -228,7 +233,7 @@ We're also going to add labels and custom colors using the `labs()` function and
 - Labels `+ labs(title = "", x = "", y = " ")`
 
 <details><summary>Check Your Code</summary>
-```{r}
+```{r eval=false}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -236,6 +241,16 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
 </details>
+
+<br>
+Output:
+```{r echo=False}
+#you can use the following labels or make your own.
+ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
+  geom_point() + # then add a layer of points
+  geom_smooth(method = "lm") + 
+  labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
+```
 
 ### 2.2. Bar Charts
 First things first, we need to quickly clean up our dataframe for bar charts. Copy and paste the following code into your console, and execute.
@@ -292,12 +307,17 @@ Your chart will illustrate the frequency that chocolate bars are being made in d
 - Country bar was made in: `broad_bean_origin`
 
 <details><summary>Check Your Code</summary>
-```{r}
+```{r eval=FALSE}
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
 </details>
 *Hint:* geom type = "bar"
+<br> 
 
+Output:
+```{r echo=FALSE}
+ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
+```
 <br>
 
 **Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
@@ -319,3 +339,8 @@ We will then add
 ```{r}
 #need to find a column with few enough unique values to show a good visual
 ```
+
+<script> function toggle(input) { var x = document.getElementById(input); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script>
+
+APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target="_blank"}
+NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }

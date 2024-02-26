@@ -1,6 +1,5 @@
 3-Data Manipulation
 ================
-DSC Chloe Farr
 2024-01-18
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
@@ -21,6 +20,9 @@ DSC Chloe Farr
       summarize](#47-summarizing-variables-with-summarize)
     - [4.8 Analyzing groups with
       group_by](#48-analyzing-groups-with-group_by)
+
+<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
+<br>
 
 <style type="text/css">
 div.html-widget {
@@ -1144,7 +1146,7 @@ profit to see what the most and least profitable cities are.
 - The statistic you will be summarizing total `Profit` values on
   purchases made in the US where the items have been discounted.
 
-**Don’t create a new variable using `head(5)`**
+**! Don’t add `head(5)` when creating a new variable.**
 
 <details>
 <summary>
@@ -1239,5 +1241,5 @@ USCityProfits %>% tail(5)
     }
 </script>
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data-B.md){: .btn
 .btn-blue }

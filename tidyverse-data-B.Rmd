@@ -1,6 +1,6 @@
 ---
 title: "3-Data Manipulation"
-author: "DSC Chloe Farr"
+nav_order: 4
 date: "2024-01-18"
 output:
   github_document:
@@ -848,4 +848,4 @@ USCityProfits %>% tail(5)
     }
 </script>
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn .btn-blue }
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data-B.html){: .btn .btn-blue }
