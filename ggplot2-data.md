@@ -98,10 +98,7 @@ file.
 
 #### <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 #preview first 5 lines of chocolateData
@@ -119,8 +116,6 @@ chocolateData %>% head(5)
     ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
     ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
       broad_bean_origin <chr>
-
-</details>
 
 <br>
 
@@ -193,17 +188,13 @@ the variables assigned to the x and y axes for that observation.
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
-</details>
 
 <br> Output
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> <br>
@@ -218,10 +209,7 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 
 - method type specifies the type of smoothing to be used
 
-<details>
-<summary>
-Expand for more geom_smooth method types
-</summary>
+Expand for more geom_smooth method types:
 
 *Linear Model (“lm”):* fits a linear regression model, suitable for
 linear relationships.
@@ -245,7 +233,7 @@ for fitting complex, flexible models to data.
 *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
-</details
+
 <br>
 
 - Fitted line: `method = "lm"` <br>
@@ -263,10 +251,7 @@ might skew the results of a standard linear model.
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
@@ -277,7 +262,6 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     ## `geom_smooth()` using formula = 'y ~ x'
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
-</details>
 
 <br>
 
