@@ -81,9 +81,7 @@ library(janitor)
 - Remove first (empty) row using `filter(ref != "REF")`
 <br>
 
-<details>
-
-<summary>Check Your Code</summary>
+<details><summary>Check Your Code</summary>
 ```{r echo=TRUE, eval=FALSE}
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
@@ -257,6 +255,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ### 2.2. Bar Charts
 
 First things first, we need to quickly clean up our dataframe for bar charts. Copy and paste the following code into your console, and execute.
+
 <br>
 ```{r}
 
@@ -323,7 +322,7 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 ```
 <br>
 
-#### [Task 2.2.1:]{.underline} Create a stacked bar chart 
+#### [Task 2.2.2:]{.underline} Create a stacked bar chart 
 
 A stacked bar chart shows two dimensions (variables) of data. Each bar will represent one variable, and each bar will be chopped into sections which represent a second variable.
 
@@ -345,6 +344,7 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 
 <br> 
 Output:
+
 ```{r echo=FALSE}
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
@@ -378,6 +378,109 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 
 ### 2.3. Line Charts
 
+#### [Task 2.2.3:]{.underline} Create a variable with the mean chocolate rating by year.
+
+Using piping, create a new variable, `meanRatingByYear`
+
+- base data: `chocolateData`
+- group_by: `review_date`
+- use `summarise()`
+  - the parameter is `rating=mean(rating)`
+
+<details><summary>Check Your Code</summary>
+```{r eval=FALSE}
+meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
+```
+</details>
+
+Your output will be: 
+```{r echo=FALSE}
+meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
+```
+
+
+
+Then convert "review_date to Date class by entering
+```{r}
+meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
+```
+
+#### [Task 2.2.3:]{.underline} Create a line chart using the mean chocolate rating by year.
+
+Here we'll make a line chart to show how the mean rating of chocolate has changed by year. 
+
+- Your base data will be the mean rating table you just created
+- the x axis value will be the review date
+- the y axis will be the rating
+- the geom type is `line`, with no parameter
+
+After the geom type, add: 
+
+`ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))`
+
+<details><summary>Check Your Code</summary>
+```{r eval=FALSE}
+ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
+  geom_line()+  scale_x_continuous(
+    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
+    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+  )
+```
+</details>
+
+<br> 
+Output:
+
+```{r echo=FALSE}
+ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
+  geom_line()+  scale_x_continuous(
+    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
+    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+  )
+```
+<br>
+
+#### [Task 2.2.4:]{.underline} Style your line chart.
+
+Using the same chart you just made, add some stylistic features and modifications.
+
+- rename the x label to "Review Date"
+- rename the y label to "Rating"
+- Add a title using `ggtitle()` : "Change in Rating Over Time
+
+
+<details><summary>Check Your Code</summary>
+```{r eval=FALSE}
+ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
+  geom_line() +
+  scale_x_continuous(
+    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
+    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+  ) +
+  labs(
+    x = "Review Date", 
+    y = "Rating", 
+    title = "Change in Rating Over Time"
+  ) 
+```
+</details>
+
+<br> 
+Output:
+
+```{r echo=FALSE}
+ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
+  geom_line() +
+  scale_x_continuous(
+    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
+    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+  ) +
+  labs(
+    x = "Review Date", 
+    y = "Rating", 
+    title = "Change in Rating Over Time"
+  ) 
+```
 
 ```{r, results='asis', echo=FALSE}
 htmltools::HTML("
@@ -393,6 +496,8 @@ function toggle(input) {
 </script>
 ")
 ```
+
+
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target="_blank"}
 NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
