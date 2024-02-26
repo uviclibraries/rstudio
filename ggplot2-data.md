@@ -1,10 +1,11 @@
 ---
 layout: default
-title: 4-Data Visualization with ggplot2 TEST
+title: 4-Data Visualization with ggplot2
 nav_order: 5
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
+
 - [1. Getting Ready](#1-getting-ready)
 - [2. Creating Plots and Charts in
   ggplot2](#2-creating-plots-and-charts-in-ggplot2)
