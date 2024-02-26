@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: default
 title: 2a-Getting Started for Mere Mortals
@@ -144,6 +145,12 @@ If you have any questions or get stuck as you work through this in-class exercis
     <div id="gif13">
     <img src="images/rstudio-21.gif"> <br>
     </div>
+=======
+2a-Getting Started for Mere Mortals
+================
+<!--Author: DSC / Chloë Farr-->
+2024-01-18
+>>>>>>> 68214a8e9801ddabae516c7526fae838c342093d
 
 
 <script>  

@@ -1163,5 +1163,5 @@ hist(income$experience, breaks=3)
 }
 </style>
 
-[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data-B.html){:
-.btn .btn-blue }
+[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn
+.btn-blue }

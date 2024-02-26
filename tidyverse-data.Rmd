@@ -836,16 +836,28 @@ USCityProfits %>% tail(5)
 </details>
 <br>
 
+```{=html}
 <script>  
 
-    function toggle(input) {
-        var x = document.getElementById(input);
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+function toggle(input) {
+    var x = document.getElementById(input);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
     }
+}
 </script>
+```
+```{=html}
+<style>
+   details {
+    background-color: lightgray; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+</style>
+```
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data-B.html){: .btn .btn-blue }
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn .btn-blue }

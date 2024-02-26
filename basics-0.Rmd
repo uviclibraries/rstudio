@@ -1046,9 +1046,8 @@ of observations falling in that cell.
 
 > Additional: If you preferred having 4 intervals (i.e., 'bins'), use can set that using the `breaks=''` parameter.
 
-<details>
 
-<summary>Check Your Code for custom number of intervals</summary>
+<details><summary>Check Your Code for custom number of intervals</summary>
 
 ```{r}
 #breaks is equal to the number of intervals
