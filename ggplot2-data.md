@@ -116,7 +116,7 @@ Check Your Code
 chocolateData %>% head(5)
 ```
 
-    ## # A tibble: 5 × 9
+     A tibble: 5 × 9
     ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
     ##   <chr>                  <chr>                   <dbl>       <dbl> <chr>        
     ## 1 A. Morin               Agua Grande              1876        2016 63%          
@@ -124,9 +124,9 @@ chocolateData %>% head(5)
     ## 3 A. Morin               Atsane                   1676        2015 70%          
     ## 4 A. Morin               Akata                    1680        2015 70%          
     ## 5 A. Morin               Quilla                   1704        2015 70%          
-    ## # ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
-    ## # ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
-    ## #   broad_bean_origin <chr>
+    ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
+    ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
+      broad_bean_origin <chr>
 
 </details>
 
