@@ -272,10 +272,7 @@ function and custom colors.
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 #you can use the following labels or make your own.
@@ -284,8 +281,6 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_smooth(method = "lm") + 
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
-
-</details>
 
 <br> Output:
 
@@ -371,16 +366,11 @@ made in different countries.
 
 - Country bar was made in: `broad_bean_origin`
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
-
-</details>
 
 *Hint:* geom type = “bar” <br>
 
@@ -402,17 +392,12 @@ To add a second dimension,
 
 <br>
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
 ```
-
-</details>
 
 <br> Output:
 
@@ -430,10 +415,10 @@ A faceted bar chart is like a grid of mini bar charts, each showing a different 
 &#10;-`geom_bar()` creates a stacked bar chart with proportions
   - 'fill' means that each proportion of the bar will total to 100%
   &#10;<details><summary>Check Your Code</summary>
-&#10;```r
+&#10;```
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar(position = "fill") + facet_wrap(~facet_variable)
 ```
-</details>
+
 *Hint:* geom type = "bar"
 <br> -->
 
@@ -448,22 +433,17 @@ Using piping, create a new variable, `meanRatingByYear`
 - use `summarise()`
   - the parameter is `rating=mean(rating)`
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
 
-</details>
-
 Your output will be:
 
 Then convert “review_date to Date class by entering
 
-``` r
+```
 meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
 ```
 
@@ -479,12 +459,11 @@ has changed by year.
 
 After the geom type, add:
 
-`ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))`
+```
+ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))
+```
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
@@ -493,8 +472,6 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
   )
 ```
-
-</details>
 
 <br> Output:
 
@@ -509,10 +486,7 @@ modifications.
 - rename the y label to “Rating”
 - Add a title using `ggtitle()` : “Change in Rating Over Time
 
-<details>
-<summary>
-Check Your Code
-</summary>
+Check Your Code:
 
 ```
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
@@ -527,8 +501,6 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     title = "Change in Rating Over Time"
   ) 
 ```
-
-</details>
 
 <br> Output:
 
