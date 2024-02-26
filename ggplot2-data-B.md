@@ -1,13 +1,14 @@
 4-Data Visualization with ggplot2
 ================
-DSC Chloe Farr
-2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
 - [2. Creating Plots and Charts in
   ggplot2](#2-creating-plots-and-charts-in-ggplot2)
   - [2.1. Scatter Plots](#21-scatter-plots)
   - [2.2. Bar Charts](#22-bar-charts)
+
+<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
+<br>
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
@@ -205,11 +206,12 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 </details>
 
-<br> Before we add details to our plot, we need to learn about the
-different components. Again, wait until the next task to do anything.
+<br> Output
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> <br>
+Before we add details to our plot, we need to learn about the different
+components. Again, wait until the next task to do anything.
 
 **Definition - Fitted line:** (aka. a ‘line of best fit’) is a line
 representing some function of x and y that has the best fit (or the
@@ -277,7 +279,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 </details>
 
 <br>
@@ -302,10 +304,13 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
 
+</details>
+
+<br> Output:
+
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
-</details>
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ### 2.2. Bar Charts
 
@@ -392,12 +397,12 @@ Check Your Code
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 </details>
 
-*Hint:* geom type = “bar”
+*Hint:* geom type = “bar” <br>
 
-<br>
+Output:
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-15-1.png)<!-- --> <br>
 
 **Definition - facets:** A way of breaking apart a plot of a specific
 data frame so that each level of a the target factor is shown in a
@@ -422,3 +427,17 @@ means that each proportion of the bar will total to 100%
 ``` r
 #need to find a column with few enough unique values to show a good visual
 ```
+
+<script>
+function toggle(input) {
+  var x = document.getElementById(input);
+  if (x.style.display === 'none') {
+    x.style.display = 'block';
+  } else {
+    x.style.display = 'none';
+  }
+}
+</script>
+
+APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
+NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }

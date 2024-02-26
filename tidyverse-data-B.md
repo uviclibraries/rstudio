@@ -1241,5 +1241,5 @@ USCityProfits %>% tail(5)
     }
 </script>
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data-B.md){: .btn
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data-B.html){: .btn
 .btn-blue }

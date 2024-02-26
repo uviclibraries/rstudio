@@ -1,7 +1,7 @@
 ---
 title: "4-Data Visualization with ggplot2"
-nav_order: 5
-date: "2024-01-18"
+#author: DSC / Chloë Farr
+#date: "2024-01-18"
 output:
   github_document:
     toc: true
@@ -13,8 +13,9 @@ output:
     df_print: paged
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
-nav_order: 4
+nav_order: 5
 parent: Workshop Activities
+keep_md: true  # Retain YAML front matter in output Markdown
 ---
 
 
@@ -94,7 +95,7 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 ```
 
 ```{r load-data, echo=FALSE, results='hide'}
-chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.csv")%>%
+chocolateData <- read_csv("/Users/chloefarr/Documents/GitHub/rstudio/docs/flavors_of_cacao.csv")%>%
   clean_names() %>% #Clean the column header names
   filter(ref != "REF")
 
@@ -138,6 +139,7 @@ The geometry function is attached to the ggplot() function with ` + geom_` and i
 Plots will appear in the "Plot" tab (probably in the bottom right hand quadrant of your workspace).
 
 ### 2.1. Scatter Plots
+
 First things first, we need to quickly clean up our dataframe for scatter plots. Copy and paste the following code into your console, and execute to imort and prepare our data.
 
 <br>
@@ -233,7 +235,7 @@ We're also going to add labels and custom colors using the `labs()` function and
 - Labels `+ labs(title = "", x = "", y = " ")`
 
 <details><summary>Check Your Code</summary>
-```{r eval=false}
+```{r eval=FALSE}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -244,7 +246,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 <br>
 Output:
-```{r echo=False}
+```{r echo=FALSE}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -253,6 +255,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ```
 
 ### 2.2. Bar Charts
+
 First things first, we need to quickly clean up our dataframe for bar charts. Copy and paste the following code into your console, and execute.
 <br>
 ```{r}
@@ -320,7 +323,36 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 ```
 <br>
 
-**Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
+#### [Task 2.2.1:]{.underline} Create a stacked bar chart 
+
+A stacked bar chart shows two dimensions (variables) of data. Each bar will represent one variable, and each bar will be chopped into sections which represent a second variable.
+
+To add a second dimension, 
+
+- following the same command as the bar chart above, modify it by:
+  - adding the parameter `fill=~factor2name` to `aes()`, where 'factor2name' is the second variable's column name.
+  - setting the parameter of `geom_bar()` to `position="stack"`
+  
+  
+<br>
+
+<details><summary>Check Your Code</summary>
+```{r eval=FALSE}
+ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
+  geom_bar(position = "stack")
+```
+</details>
+
+<br> 
+Output:
+```{r echo=FALSE}
+ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
+  geom_bar(position = "stack")
+```
+<br>
+
+
+<!--**Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
 <br>
 A faceted bar chart is like a grid of mini bar charts, each showing a different slice of the data side by side for comparison. 
 
@@ -336,11 +368,31 @@ We will then add
 -`geom_bar()` creates a stacked bar chart with proportions
   - 'fill' means that each proportion of the bar will total to 100%
   
-```{r}
-#need to find a column with few enough unique values to show a good visual
+<details><summary>Check Your Code</summary>
+```{r eval=FALSE}
+ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar(position = "fill") + facet_wrap(~facet_variable)
 ```
+</details>
+*Hint:* geom type = "bar"
+<br> -->
 
-<script> function toggle(input) { var x = document.getElementById(input); if (x.style.display === "none") { x.style.display = "block"; } else { x.style.display = "none"; } } </script>
+### 2.3. Line Charts
+
+
+```{r, results='asis', echo=FALSE}
+htmltools::HTML("
+<script>
+function toggle(input) {
+  var x = document.getElementById(input);
+  if (x.style.display === 'none') {
+    x.style.display = 'block';
+  } else {
+    x.style.display = 'none';
+  }
+}
+</script>
+")
+```
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target="_blank"}
 NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
