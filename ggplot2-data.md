@@ -74,7 +74,7 @@ the library() parameter in `""` quotations
 Check Your Code
 </summary>
 
-'''
+```
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
   clean_names() %>% #Clean the column header names
@@ -82,7 +82,7 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 
 #If you get a column specification error, add `, show_col_types = FALSE` as to a parameter read_csv()
 #e.g. chocolateData <- read_csv("Desktop/flavors_of_cacao.csv", show_col_types = FALSE)
-'''
+```
 
     ## Rows: 1795 Columns: 9
     ## ── Column specification ────────────────────────────────────────────────────────
