@@ -1,6 +1,6 @@
 4-Data Visualization with ggplot2
 ================
-DSC Chloe Farr
+<!--Author: DSC / Chloe Farr-->
 2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
