@@ -1,5 +1,10 @@
-3-Data Manipulation
-================
+---
+layout: default
+title: 3-Data Manipulation
+nav_order: 4
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
   - [1. Getting Ready for Tidyverse : Installing
