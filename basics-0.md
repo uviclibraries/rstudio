@@ -195,10 +195,10 @@ on vectors.
 Show Example
 </summary>
 
-```` r
+```r
 #Get additional information about "vectors" (a data type), 
 help("vector") # then type 'enter' or 'return'
-````
+```
 
 <br> `help("vector")` will provide you with information about the mean
 function in RStudio. - The help information will be displayed in the
