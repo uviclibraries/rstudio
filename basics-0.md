@@ -216,17 +216,7 @@ Console following your command.
 Show Example
 </summary>
   
-<button onclick="toggle(&#39;gif1&#39;)">
-
-Show/Hide Animation
-
-</button>
-
-<div id="gif1">
-
 <img src="images/rstudio-02.gif"/> <br>
-
-</div>
 
 </details>
 
@@ -342,8 +332,10 @@ pig1.first_name <- "Bart"
 
 #### <u>Task 2.1.2:</u> Create a variable for a Bart’s last name. `Bart's last name is 'Smith'.`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -353,6 +345,8 @@ pig1.last_name <- "Smith"
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -364,8 +358,10 @@ the full name in the console <br>
 The `paste()` function combines two strings and inserts a space between
 them. `paste()` takes two arguments, like `paste(string1, string2)`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -380,6 +376,8 @@ pig1.full_name
     ## [1] "Bart Smith"
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
