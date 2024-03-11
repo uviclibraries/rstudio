@@ -194,7 +194,7 @@ on vectors.
 
 <details>
 <summary markdown="span">
-Show Example
+Show Code
 </summary>
 
 ```r
@@ -202,12 +202,20 @@ Show Example
 help("vector") # then type 'enter' or 'return'
 ```
 
+</details>
+
+{::options parse_block_html="false" /}
+
 <br> `help("vector")` will provide you with information about the mean
 function in RStudio. - The help information will be displayed in the
 Console following your command.
 
 <br>
-
+<details>
+<summary>
+Show Example
+</summary>
+  
 <button onclick="toggle(&#39;gif1&#39;)">
 
 Show/Hide Animation
@@ -221,7 +229,6 @@ Show/Hide Animation
 </div>
 
 </details>
-{::options parse_block_html="false" /}
 
 <br>
 
