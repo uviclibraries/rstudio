@@ -67,7 +67,7 @@ the library() parameter in `""` quotations
 
 Check Your Code:
 
-```
+```r
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
   clean_names() %>% #Clean the column header names
@@ -100,7 +100,7 @@ file.
 
 Check Your Code:
 
-```
+```r
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
 ```
