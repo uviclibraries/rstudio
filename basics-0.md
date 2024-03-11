@@ -317,8 +317,7 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 {::options parse_block_html="true" /}
 
-<details>
-<summary>Check Your Code</summary>
+<details><summary>Check Your Code</summary>
     
 ```r
 pig1.first_name <- "Bart"
