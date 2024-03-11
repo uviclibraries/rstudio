@@ -190,8 +190,10 @@ on vectors.
 
 <br>
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Show Example
 </summary>
 
@@ -219,6 +221,7 @@ Show/Hide Animation
 </div>
 
 </details>
+{::options parse_block_html="false" /}
 
 <br>
 
