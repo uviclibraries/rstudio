@@ -316,14 +316,11 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
 
 <details>
-<summary>
-Check Your Code
-</summary>
-  
-```js
-#assign the first name 'Bart' to the first pig (pig1)
-pig1.first_name <- "Bart"
-```
+  <summary>Check Your Code</summary>
+    
+  ```r
+  pig1.first_name <- "Bart"
+  ```
 
 </details>
 
