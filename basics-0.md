@@ -314,16 +314,14 @@ Whenever you enter a string parameter, the string will more likely than
 not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
+{::options parse_block_html="true" /}
 
 <details><summary>Check Your Code</summary>
 
-{::options parse_block_html="true" /}
-
 ```r
 pig1.first_name <- "Bart"
-```
-
 </details>
+```
 
 <br>
 
