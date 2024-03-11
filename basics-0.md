@@ -314,7 +314,8 @@ Whenever you enter a string parameter, the string will more likely than
 not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
-{::options parse_block_html="true" /}  # Sets parse_block_html option to true
+
+{::options parse_block_html="true" /}
 
 <details><summary>Check Your Code</summary>
 
@@ -323,7 +324,8 @@ pig1.first_name <- "Bart"
 ```
 
 </details>
-{::options parse_block_html="false" /}  # Sets parse_block_html option to false
+
+{::options parse_block_html="false" /}
 
 
 <br>
