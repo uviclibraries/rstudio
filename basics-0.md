@@ -391,8 +391,10 @@ how much he’s grown in height.
 
 #### <u>Task 2.1.4:</u> Create a variable for Bart’s height as a piglet: 10
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary  markdown="span">
 Check Your Code
 </summary>
 
@@ -403,12 +405,16 @@ pig1.heightA <- 10
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <br>
 
 #### <u>Task 2.1.5:</u> Create a variable for Bart’s height now: 22.3
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -419,14 +425,18 @@ pig1.heightB <- 22.3
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <br>
 
 #### <u>Task 2.1.6:</u>
 
 Now create a variable expressing the amount he’s grown.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -443,6 +453,8 @@ pig1.heightGain
     ## [1] 12.3
 
 </details>
+
+{::options parse_block_html="false" /}
 
 *Hint:* “Expressing” indicates that the value will require an
 expression, in this case, a mathematical operation.
@@ -473,8 +485,10 @@ We can denote if Bart is small or large with a boolean value.
 
 #### <u>Task 2.1.7:</u> Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -485,6 +499,8 @@ pig1.large <- TRUE
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 *Hint:* Boolean values are either ‘TRUE’ or ‘FALSE’ (case sensitive).
 
@@ -528,8 +544,10 @@ vectors.
 
 `Goat weights: 13.3, 17.2, 14.8, 14.6, 12.4`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -540,6 +558,8 @@ goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -557,8 +577,10 @@ If at any point you want to view the value of a variable, use the
 `print()` function with the name of the variable name and type ‘enter’
 or ‘return’ to execute.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -570,12 +592,16 @@ print(goat.weights)
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <br>
 
 #### <u>Task 2.2.3:</u> Display the weight of the second goat in the vector.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -586,6 +612,8 @@ goat.weights[2]
     ## [1] 17.2
 
 </details>
+
+{::options parse_block_html="false" /}
 
 *Hint:* `data_object_name[indexNumber]`
 
@@ -608,8 +636,10 @@ name values of miniature goats. Name your variable ‘goat.name’
 > single quotes, but must be consistent - Good: “text” - Good: ‘text’ -
 > Bad: ’text”
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -618,6 +648,8 @@ goat.name <- c("baby", "pickes", "cookie", "sparkle", "gabbie")
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -634,8 +666,10 @@ lines of code or within functions. However, in the console, R
 automatically displays the output of expressions upon execution of the
 command.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -646,6 +680,8 @@ length(goat.name)
     ## [1] 5
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -722,8 +758,10 @@ variable ‘pigs.weight’
 
 `Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -732,6 +770,8 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -745,8 +785,10 @@ the sum by the number of items in the set.
 Write and execute a command that outputs the mean value of the pigs’
 weights.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -759,6 +801,8 @@ mean(pigs.weight)
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <br>
 
 #### <u>Task 3.1.3:</u>
@@ -769,8 +813,10 @@ weights
 **Median:** The middle value in a sorted set (e.g. lowest - highest).
 `median()`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -781,6 +827,8 @@ median(pigs.weight)
     ## [1] 22
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br> The output tells you the weight of the pig that falls between the
 lighter half and the heavier half of the pigs. <br>
@@ -801,8 +849,10 @@ average weight.
   the average, indicating uniformity in size.
 - A large standard deviation suggests a wide range of weights. <br>
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -814,6 +864,8 @@ sd(pigs.weight)
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <br>
 
 #### <u>Task 3.1.5:</u>
@@ -823,8 +875,10 @@ Display a summary of values pertaining to the pigs’ weights
 We can execute a **‘summary’** to generate several descriptive
 statistics at the same time. `summary()`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -836,6 +890,8 @@ summary(pigs.weight)
     ##   12.00   18.50   22.00   20.71   23.50   27.00
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -859,8 +915,10 @@ Create a histogram for the pigs’ weights using the histogram function
 
 - Parameter: vector of pig weights
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code and see the Histogram
 </summary>
 
@@ -875,6 +933,8 @@ hist(pigs.weight)
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -912,8 +972,10 @@ Multiple parameters: `function_name(parameter1, parameter2)`
 - E.g.,
   `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code and see the Histogram
 </summary>
 
@@ -934,6 +996,8 @@ hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 The histogram will appear in the Plots tab (bottom right quadrant if you
 haven’t modified your RStudio layout).
@@ -1025,8 +1089,10 @@ likely be a list, which can contain values of different types.
 To see the data in our data frame, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Show code
 </summary>
 
@@ -1035,6 +1101,8 @@ income
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1072,8 +1140,10 @@ and 4 variables (columns)
 
 #### <u>Task 4.1.3:</u> Display a summary of statistics for the `income` data.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -1090,6 +1160,8 @@ summary(income)
     ##  Max.   :10.00                      Max.   :121000   Max.   :13.00
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1113,8 +1185,10 @@ the name identifying a single set of values within that data frame.
 - X-label: ‘Experience’
 - Title: ‘Histogram of Experience’ <br>
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary markdown="span">
 Check Your Code
 </summary>
 
@@ -1124,6 +1198,8 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 ```
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1141,8 +1217,10 @@ of observations falling in that cell.
 > Additional: If you preferred having 4 intervals (i.e., ‘bins’), use
 > can set that using the `breaks=''` parameter.
 
+{::options parse_block_html="true" /}
+
 <details>
-<summary>
+<summary  markdown="span">
 Check Your Code for custom number of intervals
 </summary>
 
@@ -1155,6 +1233,8 @@ hist(income$experience, breaks=3)
 ![](basics-0_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 </details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
