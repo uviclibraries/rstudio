@@ -65,8 +65,10 @@ the library() parameter in `""` quotations
   parameter is chocolateData (leave parentheses blank if piping)
 - Remove first (empty) row using `filter(ref != "REF")` <br>
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
+<details><summary markdown="span">Check Your Code</summary>
+  
 ```r
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
@@ -90,6 +92,9 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
+</details>
+
+{::options parse_block_html="false" /}
 
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
@@ -98,8 +103,10 @@ file.
 
 #### <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
+<details><summary markdown="span">Check Your Code</summary>
+  
 ```r
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
@@ -116,6 +123,10 @@ chocolateData %>% head(5)
     ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
     ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
       broad_bean_origin <chr>
+      
+</details>
+
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -147,9 +158,11 @@ First things first, we need to quickly clean up our dataframe for
 scatter plots. Copy and paste the following code into your console, and
 execute to imort and prepare our data.
 
-<br>
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 #remove the percentage signs from the column cocoa_percent by converting the values to numbers
 chocolateData$cocoa_percent <- parse_number(chocolateData$cocoa_percent)
 
@@ -171,6 +184,10 @@ chocolateData <- type_convert(chocolateData)
 #You can ignore the Column Specification comment in the output. It indicates the column specification, which describes the data types of various columns after conversion, and shows that several columns have been confirmed as character columns.
 ```
 
+</details>
+
+{::options parse_block_html="false" /}
+
 <br>
 
 Let’s apply the ggplot command above to create a scatter plot. <br>
@@ -188,15 +205,21 @@ the variables assigned to the x and y axes for that observation.
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
+</details>
+
+{::options parse_block_html="false" /}
 
 <br> Output
+
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> <br>
 Before we add details to our plot, we need to learn about the different
 components. Again, wait until the next task to do anything.
@@ -251,15 +274,22 @@ might skew the results of a standard linear model.
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
   geom_smooth(method = "lm")
 ```
 
-    ## `geom_smooth()` using formula = 'y ~ x'
+</details>
+
+{::options parse_block_html="false" /}
+
+
+<!--`geom_smooth()` using formula = 'y ~ x'-->
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
@@ -272,9 +302,11 @@ function and custom colors.
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -282,9 +314,13 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
 
+</details>
+
+{::options parse_block_html="false" /}
+
 <br> Output:
 
-    ## `geom_smooth()` using formula = 'y ~ x'
+<!--`geom_smooth()` using formula = 'y ~ x'-->
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
@@ -294,9 +330,11 @@ First things first, we need to quickly clean up our dataframe for bar
 charts. Copy and paste the following code into your console, and
 execute.
 
-<br>
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
 
 chocolateData$bean_type_simplified <- gsub('[[:punct:]]', '', chocolateData$bean_type_simplified)
@@ -319,7 +357,10 @@ chocolateData_commonBeans <- chocolateData %>%
   filter(bean_type_simplified %in% commonBeanTypes$bean_type_simplified)
 ```
 
-<br>
+</details>
+
+{::options parse_block_html="false" /}
+
 
 A bar chart illustrates *categories* along the x axis and the count of
 observations from each category on the y axis.
@@ -366,15 +407,22 @@ made in different countries.
 
 - Country bar was made in: `broad_bean_origin`
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
+
+</details>
+
+{::options parse_block_html="false" /}
 
 *Hint:* geom type = “bar” <br>
 
 Output:
+
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-15-1.png)<!-- --> <br>
 
 #### <u>Task 2.2.2:</u> Create a stacked bar chart
@@ -390,14 +438,18 @@ To add a second dimension,
     ‘factor2name’ is the second variable’s column name.
   - setting the parameter of `geom_bar()` to `position="stack"`
 
-<br>
+{::options parse_block_html="true" /}
 
-Check Your Code:
-
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
 ```
+
+</details>
+
+{::options parse_block_html="false" /}
 
 <br> Output:
 
@@ -419,6 +471,10 @@ A faceted bar chart is like a grid of mini bar charts, each showing a different 
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar(position = "fill") + facet_wrap(~facet_variable)
 ```
 
+</details>
+
+{::options parse_block_html="false" /}
+
 *Hint:* geom type = "bar"
 <br> -->
 
@@ -433,11 +489,17 @@ Using piping, create a new variable, `meanRatingByYear`
 - use `summarise()`
   - the parameter is `rating=mean(rating)`
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
+
+</details>
+
+{::options parse_block_html="false" /}
 
 Your output will be:
 
@@ -463,15 +525,20 @@ After the geom type, add:
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))
 ```
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line()+  scale_x_continuous(
     breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
     labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
   )
 ```
+</details>
+
+{::options parse_block_html="false" /}
 
 <br> Output:
 
@@ -486,9 +553,11 @@ modifications.
 - rename the y label to “Rating”
 - Add a title using `ggtitle()` : “Change in Rating Over Time
 
-Check Your Code:
+{::options parse_block_html="true" /}
 
-```
+<details><summary markdown="span">Check Your Code</summary>
+  
+```r
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line() +
   scale_x_continuous(
@@ -501,6 +570,9 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     title = "Change in Rating Over Time"
   ) 
 ```
+</details>
+
+{::options parse_block_html="false" /}
 
 <br> Output:
 
