@@ -86,10 +86,9 @@ your workflow.
 - *Presentation:* You can use RStudio to create presentations. The
   presentations can be viewed in this tab.
 
-> We won’t be covering this<br> See more at the RStudio [Viewer
-> Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}<br>
-> To learn how, click
-> [here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}
+  - We won’t be covering presentations.
+  - See more at the RStudio [Viewer Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}<br>
+  - To learn how, click [here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}
 
 <https://rmarkdown.rstudio.com/lesson-11.html>
 
@@ -112,8 +111,7 @@ your workflow.
 - *Tutorial:* Used to run tutorials that will help you learn and master
   the R programming language.
 
-  - See more at the RStudio [Tutorial
-    Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
+  - See more at the RStudio [Tutorial Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
 
 <br>
 
@@ -126,15 +124,28 @@ by identifying the 4 windows and switching between the tabs.
 
 ### Working in the Code Editor
 
-Use the code editor if you want to develop more complex, reusable, and
-maintainable code that can be saved in a script and executed later.
+The code editor is used to create reusable code.
 
-- We won’t be working in the code editor at this level.
+- It is useful if you want to:
 
-- It will be introduced at the beginning of the Intermediate level
-  workshop. <br>
+  - Save your work to continue working another time
+  - Share your work with someone else
+  - Write more complex, reusable, and maintainable code
+ 
+For this workshop, **Except for Task 1.2** you will use the Code Editor. This way you can continue working afterwards, and send your code in to receive your badge.
+
+- To execute a command in the code editor, press **cmd + enter** on a Mac, or **control + enter** on Windows
 
 ### Working in the Console
+
+The code editor is used to execute code immediately. 
+
+It can be useful for:
+
+- Using the `help()` function (see task 1.2)
+- Testing code
+
+Also, whenever you run your R script from the Code Editor, all functions and outputs will be mirrored in the Console. 
 
 Each new line of code (aka. command line) begins with the angle bracket
 `>` also known as the ‘prompt’ symbol. <br>
@@ -177,18 +188,13 @@ your keyboard.
 - E.g., when you load in a package (we will discuss packages more in
   Activity 3). <br>
 
-For all tasks in this workshop, enter your commands in the Console
-(bottom left) (top tabs say ‘console’, ‘terminal’, and ‘background
-jobs’).<br>
-
-<br>
 
 #### <u>Task 1.2:</u> Try getting help!
 
-To do this, you’ll run the `help()` function. - Try getting information
-on vectors.
+To do this, you’ll run the `help()` function in the Console. 
 
-<br>
+- Try getting information on vectors.
+
 
 {::options parse_block_html="true" /}
 
@@ -206,8 +212,11 @@ help("vector") # then type 'enter' or 'return'
 
 {::options parse_block_html="false" /}
 
-<br> `help("vector")` will provide you with information about the mean
-function in RStudio. - The help information will be displayed in the
+
+The `help("vector")` will provide you with information about the mean
+function in RStudio. 
+
+- The help information will be displayed in the
 Console following your command.
 
 <br>
@@ -228,14 +237,22 @@ Show Example
 <br>
 
 ------------------------------------------------------------------------
+Before you begin to write your code in the Code Editor, save your Script. 
 
-As you work through these activities, remember to save your workspace. -
-Save your workspace by clicking on the top menu bar:
+  - File
+  - Save As
+  - Navigate to your desktop
+  - Name your file "RStudio_Introduction.R"
+  - Click "Save"
+    
 
-- File
-- Save
+As you work through these activities, remember to save your R script.
 
-You won’t be asked to enter a name when saving.
+- Save your workspace by clicking on the top menu bar:
+
+  - File
+  - Save
+  - Note: After you've done "Save As" once, you only need to "Save" thereafter, unless you want to create a duplicate.
 
 ------------------------------------------------------------------------
 
@@ -243,7 +260,7 @@ You won’t be asked to enter a name when saving.
 
 ## 2. Creating and Manipulating Vectors and Basic Variables
 
-Remember: Write all of your code in the **Console** tab.
+Remember: Write all of your code in the **Code Editor** tab.
 
 <!--add infographic about the trajectory of this section (broad to narrow)-->
 
@@ -315,6 +332,9 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
 
+- Enter the command in the Code Editor
+- Press **cmd + enter** on a Mac, or **control + enter** on Windows to execute the line
+  
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Check Your Code</summary>
@@ -352,8 +372,8 @@ pig1.last_name <- "Smith"
 
 #### <u>Task 2.1.3:</u>
 
-Create a variable that equals Bart’s first and last name, then display
-the full name in the console <br>
+Create a variable that equals Bart’s first and last name, then click "Run"
+on the right hand side of the main menu of the Code Editor tab <br>
 
 The `paste()` function combines two strings and inserts a space between
 them. `paste()` takes two arguments, like `paste(string1, string2)`
@@ -385,7 +405,6 @@ Now we’ll look at basic operations with **numeric and integer
 variables**. First we’ll create height information for Bart and find out
 how much he’s grown in height.
 
-<br>
 
 <img src="images/rstudio-basics-Bart.png" alt="Bart as a piglet and adult" style="width:420px;"/>
 
@@ -474,8 +493,8 @@ Reminder! Save your work
 
 ------------------------------------------------------------------------
 
-> Additional: To remove data objects from your environment, execute the
-> ‘remove’ function in the console: `rm()`.<br> e.g., `rm(full_name)`
+> Additional: To remove data objects from your environment, use the
+> ‘remove’ function: `rm()`.<br> e.g., `rm(pig1.full_name)`
 
 <br> **Time for logical or boolean values!**
 
@@ -662,8 +681,9 @@ function.
 
 Note: In a script (code editor), you often need to use the print()
 function explicitly to see the output, especially when running multiple
-lines of code or within functions. However, in the console, R
-automatically displays the output of expressions upon execution of the
+lines of code or within functions. 
+
+However, in the console, R automatically displays the output of expressions upon execution of the
 command.
 
 {::options parse_block_html="true" /}
@@ -1007,7 +1027,8 @@ haven’t modified your RStudio layout).
 ## 4. Importing Data
 
 So far, we’ve create our own objects by manually entering all of the
-data in the console. In this section, we’ll learn how to create objects
+data in the Code Editor. 
+In this section, we’ll learn how to create objects
 by importing (aka ‘reading’) data (compiled outside of R) into R and
 visualise it with a histogram.
 
@@ -1061,8 +1082,6 @@ buttons</figcaption>
 <figcaption aria-hidden="true">Import excel data window</figcaption>
 </figure>
 
-<!-- remove summary command from screenshot-->
-
 <br>
 
 What you just imported is now stored as a ‘data frame’ object whose name
@@ -1086,8 +1105,10 @@ it’s spayed/neutered (boolean). Because rows may contain values of
 different types, one row would most likely not be a vector. It would
 likely be a list, which can contain values of different types.
 
-To see the data in our data frame, simply enter the name of the data
+To view the data in our data frame one time, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
+
+- By not writing it into your script, you prevent seeing extra data every time you run the script.
 
 {::options parse_block_html="true" /}
 
