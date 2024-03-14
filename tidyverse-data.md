@@ -75,9 +75,7 @@ install.packages("tidyverse") #then, as always, type 'enter' or 'return' to subm
 
 {::options parse_block_html="false" /}
 
-*Hint:* wrap the package name in `""` quotations, as it is a string
-
-type.
+*Hint:* wrap the package name in `""` quotations, as it is a string type.
 
 *Note:* The installation may take a while, sometimes up to 10-15
 minutes. When it’s complete, the right angle bracket `>` will appear at
@@ -106,7 +104,6 @@ an unquoted name that it interprets as a package name.
 
 </details>
 
-<br>
 
 #### <u>Task 1.2:</u> Load the ‘tidyverse’ library.
 
@@ -215,7 +212,6 @@ Parameters
 - data set name
 - number of rows to display
 
-<br>
 
 #### <u>Task 3.2:</u> Look at the first 5 rows of our purchase data.
 
@@ -235,7 +231,6 @@ head(purchaseData, 5)
 
 *Hint:* `head(*datasetName*, *numberOfRows*)`
 
-<br>
 
 The following will be the output (only showing 6 columns for display
 purposes. Your output will be much wider!):
@@ -285,7 +280,6 @@ dim(purchaseData)
 
 {::options parse_block_html="false" /}
 
-<br>
 
 ## 4. Introducing Piping
 
@@ -318,7 +312,6 @@ it alphabetically?
 - There are 2 ways that we can do this without the tidyverse package
   based on what we’ve already learned.
 
-<br>
 
 #### <u>Task 4.1.1:</u> Create an object containing the list of column names from our purchase data.
 
@@ -329,7 +322,6 @@ To get a list of our column names we can use the `names()` function.
 
   Name this object ‘purchaseDataColumnNames’
 
-<br>
 
 {::options parse_block_html="true" /}
 
@@ -343,7 +335,6 @@ purchaseDataColumnNames <- names(purchaseData)
 
 {::options parse_block_html="false" /}
 
-<br>
 
 #### <u>Task 4.1.2:</u> Create an object containing the list of column names from our purchase data that is sorted alphabetically.
 
@@ -355,7 +346,6 @@ First, let’s look at each of these functions on their own.
 - Name this object ‘alphaPurchaseDataColumnNames’
 - Parameter: the vector of column names
 
-<br>
 
 {::options parse_block_html="true" /}
 
@@ -563,7 +553,6 @@ purchaseData %>% select(Row_ID) %>% head(5)
 *Hint:* Begin with the name of the data set, followed by your select
 function passing in the column name as the parameter.
 
-<br>
 
 #### <u>Task 4.3.2:</u> Select all the columns from your purchase data that do *not* start with “Postal_Code”.
 
@@ -573,7 +562,7 @@ with specific text, we do the inverse,
 - again using the `select()` function
 - the parameter has a `-` before the string value we want to exclude.
 
-<br>
+
 
 {::options parse_block_html="true" /}
 
@@ -618,7 +607,7 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 {::options parse_block_html="false" /}
 
-<br>
+
 
 #### <u>Task 4.3.3:</u> Select all the columns from our cleaned purchase data that start with “Product”.
 
@@ -632,7 +621,7 @@ We can also select a set of columns.
 In our dataset, multiple column names begin with “Product”. We want to
 see only the data of columns whose names begin with “Product.”
 
-<br>
+
 
 Here’s how it’s done:
 
@@ -653,7 +642,7 @@ Here’s how it’s done:
 - The parameter for `starts_with()` is the value of the beginning of all
   columns you want to select.
 
-<br>
+
 
 {::options parse_block_html="true" /}
 
@@ -675,7 +664,7 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 {::options parse_block_html="false" /}
 
-<br>
+
 
 ### 4.4 Select specific rows based on a condition
 
@@ -690,7 +679,7 @@ based on certain criteria.
 - We can even create new data objects, which can make future analyses
   easier.
 
-<br>
+
 
 #### <u>Task 4.4.1:</u> Filter all the rows from your purchase data where `Quantity` is greater than 10.
 
@@ -747,7 +736,7 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 *Hint:* `>` is the ‘greater than’ operator.
 
-<br>
+
 
 #### <u>Task 4.4.2:</u> Filter all the rows from your purchase data where `City` is “Sydney”.
 
@@ -796,7 +785,7 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 *Hint:* `==` is used for “equal to”
 
-<br>
+
 
 #### <u>Task 4.4.3:</u> Create a new dataframe with all the rows from purchaseData where `Country` is “United States” and `Discount` is greater than 0.
 
@@ -938,7 +927,7 @@ purchaseData %>% head(5)
 
 {::options parse_block_html="false" /}
 
-<br>
+
 
 #### <u>Task 4.5.2:</u> Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase’s shipping cost is greater than 100 dollars.
 
@@ -999,7 +988,7 @@ purchaseData %>% head(5)
 
 *Hint:* `Shipping_Cost > 100`
 
-<br>
+
 
 #### <u>Task 4.5.3:</u> Add a new column based on TWO conditions
 
@@ -1030,7 +1019,7 @@ summary(purchaseData$Discounted_US)
 
 *Hint:* `logicalStatement & logicalStatement`
 
-<br>
+
 
 ### 4.6 Sorting data with `arrange()`
 
@@ -1038,8 +1027,8 @@ Being able to arrange data by ordering values numerically or
 alphabeticaly is particularly handy for swiftly identifying which
 measurements recorded the highest or lowest values.
 
-**`sort()` will not work on a dataframe** **CHLOE: ADD SOME SORT OF
-GRAPHIC** <br>
+**`sort()` will not work on a dataframe** **CHLOE: ADD SOME SORT OF GRAPHIC** 
+
 
 #### <u>Task 4.6.1:</u> Update the purchaseData to sort objects by price (low to high).
 
@@ -1112,7 +1101,7 @@ purchaseData %>% head(5)
 
 ### 4.7 Summarizing variables with summarize
 
-<br>
+
 
 #### <u>Task 4.7.1:</u> Use the `summarise()` function to synthesize information in a data frame with the mean Sales value and median discount amount
 
@@ -1186,14 +1175,14 @@ USCityProfits <- discountedUSPurchases %>%
 
 {::options parse_block_html="false" /}
 
-<br>
+
 
 The table will be sorted by city, alphabetically
 
 - Sort the table by `Profit` using the `arrange()` function. to order it
   by the lowest profitable city to the highest profitable city
 
-<br>
+
 
 {::options parse_block_html="true" /}
 
