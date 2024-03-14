@@ -36,15 +36,21 @@ chart.
   - tidyverse
   - ggthemes
   - janitor
+  - 
+{::options parse_block_html="true" /}
 
-Check Your Code:
+<details><summary markdown="span">Check Your Code</summary>
 
-~~~
+```r
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
 install.packages("janitor")
 library(ggthemes) #Do not wrap library() parameter string in quotes
 library(janitor)
-~~~
+```
+
+</details>
+
+{::options parse_block_html="false" /}
 
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
 the library() parameter in `""` quotations
@@ -99,7 +105,6 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
 
-<br>
 
 #### <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
 
@@ -128,7 +133,6 @@ chocolateData %>% head(5)
 
 {::options parse_block_html="false" /}
 
-<br>
 
 ## 2. Creating Plots and Charts in ggplot2
 
@@ -188,7 +192,6 @@ chocolateData <- type_convert(chocolateData)
 
 {::options parse_block_html="false" /}
 
-<br>
 
 Let’s apply the ggplot command above to create a scatter plot. <br>
 
@@ -257,9 +260,8 @@ for fitting complex, flexible models to data.
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
 
-<br>
-
 - Fitted line: `method = "lm"` <br>
+
 
 #### <u>Task 2.1.2:</u> Make another scatter plot of the cocoa percentage and the rating a chocolate bar received, with the following:
 
@@ -288,6 +290,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 {::options parse_block_html="false" /}
 
+<br> Output:
 
 <!--`geom_smooth()` using formula = 'y ~ x'-->
 
@@ -385,9 +388,6 @@ The first 5 rows of the bars made of common beans:
 
 The bars will represent the following categories:
 
-    ## # A tibble: 4 × 2
-    ##   bean_type_simplified     n
-    ##   <fct>                <int>
     ## 1 Blend                   41
     ## 2 Criollo                213
     ## 3 Forastero              195
@@ -489,6 +489,7 @@ Using piping, create a new variable, `meanRatingByYear`
 - use `summarise()`
   - the parameter is `rating=mean(rating)`
 
+
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Check Your Code</summary>
@@ -501,13 +502,13 @@ meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=m
 
 {::options parse_block_html="false" /}
 
-Your output will be:
 
-Then convert “review_date to Date class by entering
+Then convert “review_date" to Date class by entering
 
 ```
 meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
 ```
+
 
 #### <u>Task 2.2.3:</u> Create a line chart using the mean chocolate rating by year.
 
@@ -574,10 +575,22 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 {::options parse_block_html="false" /}
 
-<br> Output:
+
+Output:
 
 ![](ggplot2-data_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
+<script>  
 
-APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
-NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
+    function toggle(input) {
+        var x = document.getElementById(input);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+[APPENDIX: ggplot2 Cheatsheet](https://drive.google.com/file/d/1PuMBZwAutnBjJ8xVCeLgElZwcC1UIhrz/view){: .btn .btn-purple }{:target="_blank"}<br>
+[NEXT STEPS: Earn a Workshop Badge](informal-credentials.html){: .btn .btn-blue }
