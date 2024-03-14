@@ -173,15 +173,12 @@ on the far right hand side of the files panel, across from the Home
 button, immediately above the ‘Modified’ column header. This will open
 the file explorer and you can search from your entire computer.
 
-{::options parse_block_html="true" /}
 
 <details><summary>Show gif of import dataset</summary>
 
 ![](images/tidyverse-02.gif)
 
 </details>
-
-{::options parse_block_html="false" /}
 
 <u>Option b:</u>
 
