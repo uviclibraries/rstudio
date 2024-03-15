@@ -64,7 +64,7 @@ the library() parameter in `""` quotations
 
 #### <u>Task 1.2:</u> Read and clean your data set.
 
-- Download your dataset: `flavors_of_cacao.csv` [here](flavors_of_cacao.csv){:target=“\_blank”}
+- Download your dataset: `flavors_of_cacao.csv` [here](flavors_of_cacao.csv){:target=“\_blank”} and save to your Desktop
 - Data set file name: `flavors_of_cacao.csv` (unless you changed the
   filename after downloading)
 - Name your variable: `chocolateData`
