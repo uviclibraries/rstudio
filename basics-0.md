@@ -320,7 +320,7 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 <details><summary markdown="span">Check your code</summary>
 
-```r
+``` r
 #assign the first name 'Bart' to the first pig (pig1)
 pig1.first_name <- "Bart"
 ```
