@@ -1,3 +1,11 @@
+---
+layout: default
+title: 2-Data Types, Basic Commands and Charting
+nav_order: 3
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+
 2-Data Types, Basic Commands and Charting
 ================
 
@@ -19,15 +27,6 @@
   - [4.2 Visualize Income with a Histogram
     plot](#42-visualize-income-with-a-histogram-plot)
 
-``` markdown
----
-layout: default
-title: 2-Data Types, Basic Commands and Charting
-nav_order: 3
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>

@@ -1,3 +1,12 @@
+
+---
+layout: default
+title: 2-Data Types, Basic Commands and Charting
+nav_order: 3
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+
 ---
 title: "2-Data Types, Basic Commands and Charting"
 #author: DSC / Chloë Farr
@@ -20,15 +29,7 @@ editor_options:
     wrap: 72
 keep_md: true  # Retain YAML front matter in output Markdown
 ---
-```markdown
----
-layout: default
-title: 2-Data Types, Basic Commands and Charting
-nav_order: 3
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
+
 
 
 ```{r setup, include=FALSE}
