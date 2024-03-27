@@ -1,10 +1,5 @@
----
-layout: default
-title: 2-Data Types, Basic Commands and Charting
-nav_order: 3
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
+2-Data Types, Basic Commands and Charting
+================
 
 - [1. Getting familiar with the RStudio
   Interface](#1-getting-familiar-with-the-rstudio-interface)
@@ -86,9 +81,10 @@ your workflow.
 - *Presentation:* You can use RStudio to create presentations. The
   presentations can be viewed in this tab.
 
-  - We won’t be covering presentations.
-  - See more at the RStudio [Viewer Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}<br>
-  - To learn how, click [here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}
+> We won’t be covering this<br> See more at the RStudio [Viewer
+> Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}<br>
+> To learn how, click
+> [here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}
 
 <https://rmarkdown.rstudio.com/lesson-11.html>
 
@@ -111,7 +107,8 @@ your workflow.
 - *Tutorial:* Used to run tutorials that will help you learn and master
   the R programming language.
 
-  - See more at the RStudio [Tutorial Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
+  - See more at the RStudio [Tutorial
+    Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
 
 <br>
 
@@ -124,28 +121,15 @@ by identifying the 4 windows and switching between the tabs.
 
 ### Working in the Code Editor
 
-The code editor is used to create reusable code.
+Use the code editor if you want to develop more complex, reusable, and
+maintainable code that can be saved in a script and executed later.
 
-- It is useful if you want to:
+- We won’t be working in the code editor at this level.
 
-  - Save your work to continue working another time
-  - Share your work with someone else
-  - Write more complex, reusable, and maintainable code
- 
-For this workshop, **Except for Task 1.2** you will use the Code Editor. This way you can continue working afterwards, and send your code in to receive your badge.
-
-- To execute a command in the code editor, press **cmd + enter** on a Mac, or **control + enter** on Windows
+- It will be introduced at the beginning of the Intermediate level
+  workshop. <br>
 
 ### Working in the Console
-
-The code editor is used to execute code immediately. 
-
-It can be useful for:
-
-- Using the `help()` function (see task 1.2)
-- Testing code
-
-Also, whenever you run your R script from the Code Editor, all functions and outputs will be mirrored in the Console. 
 
 Each new line of code (aka. command line) begins with the angle bracket
 `>` also known as the ‘prompt’ symbol. <br>
@@ -188,44 +172,46 @@ your keyboard.
 - E.g., when you load in a package (we will discuss packages more in
   Activity 3). <br>
 
+For all tasks in this workshop, enter your commands in the Console
+(bottom left) (top tabs say ‘console’, ‘terminal’, and ‘background
+jobs’).<br>
+
+<br>
 
 #### <u>Task 1.2:</u> Try getting help!
 
-To do this, you’ll run the `help()` function in the Console. 
+To do this, you’ll run the `help()` function. - Try getting information
+on vectors.
 
-- Try getting information on vectors.
+<br>
 
-
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Show Code
+<summary>
+Check Your Code for custom number of intervals
 </summary>
 
-```r
+``` r
 #Get additional information about "vectors" (a data type), 
 help("vector") # then type 'enter' or 'return'
 ```
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
-
-The `help("vector")` will provide you with information about the mean
-function in RStudio. 
-
-- The help information will be displayed in the
+<br> `help("vector")` will provide you with information about the mean
+function in RStudio. - The help information will be displayed in the
 Console following your command.
 
 <br>
-<details>
-<summary>
-Show Example
-</summary>
-  
+
+<div id="gif1">
+
 <img src="images/rstudio-02.gif"/> <br>
+
+</div>
 
 </details>
 
@@ -237,22 +223,14 @@ Show Example
 <br>
 
 ------------------------------------------------------------------------
-Before you begin to write your code in the Code Editor, save your Script. 
 
-  - File
-  - Save As
-  - Navigate to your desktop
-  - Name your file "RStudio_Introduction.R"
-  - Click "Save"
-    
+As you work through these activities, remember to save your workspace. -
+Save your workspace by clicking on the top menu bar:
 
-As you work through these activities, remember to save your R script.
+- File
+- Save
 
-- Save your workspace by clicking on the top menu bar:
-
-  - File
-  - Save
-  - Note: After you've done "Save As" once, you only need to "Save" thereafter, unless you want to create a duplicate.
+You won’t be asked to enter a name when saving.
 
 ------------------------------------------------------------------------
 
@@ -260,7 +238,7 @@ As you work through these activities, remember to save your R script.
 
 ## 2. Creating and Manipulating Vectors and Basic Variables
 
-Remember: Write all of your code in the **Code Editor** tab.
+Remember: Write all of your code in the **Console** tab.
 
 <!--add infographic about the trajectory of this section (broad to narrow)-->
 
@@ -332,31 +310,29 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
 
-- Enter the command in the Code Editor
-- Press **cmd + enter** on a Mac, or **control + enter** on Windows to execute the line
-  
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
-<details><summary markdown="span">Check Your Code</summary>
+<details>
+<summary>
+Check your code
+</summary>
 
-```r
+``` r
+#assign the first name 'Bart' to the first pig (pig1)
 pig1.first_name <- "Bart"
 ```
 
 </details>
 
-{::options parse_block_html="false" /}
-
-
-<br>
+{::options parse_block_html=“false” /} <br>
 
 #### <u>Task 2.1.2:</u> Create a variable for a Bart’s last name. `Bart's last name is 'Smith'.`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -366,23 +342,23 @@ pig1.last_name <- "Smith"
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
 #### <u>Task 2.1.3:</u>
 
-Create a variable that equals Bart’s first and last name, then click "Run"
-on the right hand side of the main menu of the Code Editor tab <br>
+Create a variable that equals Bart’s first and last name, then display
+the full name in the console <br>
 
 The `paste()` function combines two strings and inserts a space between
 them. `paste()` takes two arguments, like `paste(string1, string2)`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -397,24 +373,23 @@ pig1.full_name
 
 </details>
 
-{::options parse_block_html="false" /}
-
-<br>
+{::options parse_block_html=“false” /} <br>
 
 Now we’ll look at basic operations with **numeric and integer
 variables**. First we’ll create height information for Bart and find out
 how much he’s grown in height.
 
+<br>
 
 <img src="images/rstudio-basics-Bart.png" alt="Bart as a piglet and adult" style="width:420px;"/>
 
 #### <u>Task 2.1.4:</u> Create a variable for Bart’s height as a piglet: 10
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary  markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -424,17 +399,17 @@ pig1.heightA <- 10
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
 #### <u>Task 2.1.5:</u> Create a variable for Bart’s height now: 22.3
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -444,7 +419,7 @@ pig1.heightB <- 22.3
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -452,11 +427,11 @@ pig1.heightB <- 22.3
 
 Now create a variable expressing the amount he’s grown.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -473,7 +448,7 @@ pig1.heightGain
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 *Hint:* “Expressing” indicates that the value will require an
 expression, in this case, a mathematical operation.
@@ -493,8 +468,8 @@ Reminder! Save your work
 
 ------------------------------------------------------------------------
 
-> Additional: To remove data objects from your environment, use the
-> ‘remove’ function: `rm()`.<br> e.g., `rm(pig1.full_name)`
+> Additional: To remove data objects from your environment, execute the
+> ‘remove’ function in the console: `rm()`.<br> e.g., `rm(full_name)`
 
 <br> **Time for logical or boolean values!**
 
@@ -504,11 +479,11 @@ We can denote if Bart is small or large with a boolean value.
 
 #### <u>Task 2.1.7:</u> Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -519,7 +494,7 @@ pig1.large <- TRUE
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 *Hint:* Boolean values are either ‘TRUE’ or ‘FALSE’ (case sensitive).
 
@@ -563,11 +538,11 @@ vectors.
 
 `Goat weights: 13.3, 17.2, 14.8, 14.6, 12.4`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -578,7 +553,7 @@ goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -596,11 +571,11 @@ If at any point you want to view the value of a variable, use the
 `print()` function with the name of the variable name and type ‘enter’
 or ‘return’ to execute.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -611,17 +586,17 @@ print(goat.weights)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
 #### <u>Task 2.2.3:</u> Display the weight of the second goat in the vector.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -632,7 +607,7 @@ goat.weights[2]
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 *Hint:* `data_object_name[indexNumber]`
 
@@ -655,11 +630,11 @@ name values of miniature goats. Name your variable ‘goat.name’
 > single quotes, but must be consistent - Good: “text” - Good: ‘text’ -
 > Bad: ’text”
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -668,7 +643,7 @@ goat.name <- c("baby", "pickes", "cookie", "sparkle", "gabbie")
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -681,16 +656,15 @@ function.
 
 Note: In a script (code editor), you often need to use the print()
 function explicitly to see the output, especially when running multiple
-lines of code or within functions. 
-
-However, in the console, R automatically displays the output of expressions upon execution of the
+lines of code or within functions. However, in the console, R
+automatically displays the output of expressions upon execution of the
 command.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -701,7 +675,7 @@ length(goat.name)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -778,11 +752,11 @@ variable ‘pigs.weight’
 
 `Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -791,7 +765,7 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -805,11 +779,11 @@ the sum by the number of items in the set.
 Write and execute a command that outputs the mean value of the pigs’
 weights.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -821,7 +795,7 @@ mean(pigs.weight)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -833,11 +807,11 @@ weights
 **Median:** The middle value in a sorted set (e.g. lowest - highest).
 `median()`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -848,7 +822,7 @@ median(pigs.weight)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br> The output tells you the weight of the pig that falls between the
 lighter half and the heavier half of the pigs. <br>
@@ -869,11 +843,11 @@ average weight.
   the average, indicating uniformity in size.
 - A large standard deviation suggests a wide range of weights. <br>
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -884,7 +858,7 @@ sd(pigs.weight)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -895,11 +869,11 @@ Display a summary of values pertaining to the pigs’ weights
 We can execute a **‘summary’** to generate several descriptive
 statistics at the same time. `summary()`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -911,7 +885,7 @@ summary(pigs.weight)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -935,18 +909,18 @@ Create a histogram for the pigs’ weights using the histogram function
 
 - Parameter: vector of pig weights
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code and see the Histogram
+<summary>
+Check your code and see the histogram
 </summary>
 
 ``` r
 hist(pigs.weight)
 ```
 
-![](basics-0_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](basics-0_files/figure-gfm/unnamed-chunk-56-1.png)<!-- -->
 
 ``` r
 # The histogram will appear in the Plot tab.
@@ -954,7 +928,7 @@ hist(pigs.weight)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -992,11 +966,11 @@ Multiple parameters: `function_name(parameter1, parameter2)`
 - E.g.,
   `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code and see the Histogram
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -1009,7 +983,7 @@ Check Your Code and see the Histogram
 hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 ```
 
-![](basics-0_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](basics-0_files/figure-gfm/unnamed-chunk-59-1.png)<!-- -->
 
 ``` r
 # The histogram will appear in the Plot tab.
@@ -1017,7 +991,7 @@ hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 The histogram will appear in the Plots tab (bottom right quadrant if you
 haven’t modified your RStudio layout).
@@ -1027,8 +1001,7 @@ haven’t modified your RStudio layout).
 ## 4. Importing Data
 
 So far, we’ve create our own objects by manually entering all of the
-data in the Code Editor. 
-In this section, we’ll learn how to create objects
+data in the console. In this section, we’ll learn how to create objects
 by importing (aka ‘reading’) data (compiled outside of R) into R and
 visualise it with a histogram.
 
@@ -1082,6 +1055,8 @@ buttons</figcaption>
 <figcaption aria-hidden="true">Import excel data window</figcaption>
 </figure>
 
+<!-- remove summary command from screenshot-->
+
 <br>
 
 What you just imported is now stored as a ‘data frame’ object whose name
@@ -1105,16 +1080,14 @@ it’s spayed/neutered (boolean). Because rows may contain values of
 different types, one row would most likely not be a vector. It would
 likely be a list, which can contain values of different types.
 
-To view the data in our data frame one time, simply enter the name of the data
+To see the data in our data frame, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
 
-- By not writing it into your script, you prevent seeing extra data every time you run the script.
-
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Show code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -1123,7 +1096,7 @@ income
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -1161,11 +1134,11 @@ and 4 variables (columns)
 
 #### <u>Task 4.1.3:</u> Display a summary of statistics for the `income` data.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -1182,7 +1155,7 @@ summary(income)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
@@ -1206,11 +1179,11 @@ the name identifying a single set of values within that data frame.
 - X-label: ‘Experience’
 - Title: ‘Histogram of Experience’ <br>
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary markdown="span">
-Check Your Code
+<summary>
+Check your code
 </summary>
 
 ``` r
@@ -1220,13 +1193,13 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
 The following will be the output:
 
-![](basics-0_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](basics-0_files/figure-gfm/unnamed-chunk-71-1.png)<!-- -->
 
 We can see in the histogram that there are 7 intervals with equally
 spaced breaks. In this case, the height of a cell is equal to the number
@@ -1238,10 +1211,10 @@ of observations falling in that cell.
 > Additional: If you preferred having 4 intervals (i.e., ‘bins’), use
 > can set that using the `breaks=''` parameter.
 
-{::options parse_block_html="true" /}
+{::options parse_block_html=“true” /}
 
 <details>
-<summary  markdown="span">
+<summary>
 Check Your Code for custom number of intervals
 </summary>
 
@@ -1251,11 +1224,11 @@ Check Your Code for custom number of intervals
 hist(income$experience, breaks=3)
 ```
 
-![](basics-0_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](basics-0_files/figure-gfm/unnamed-chunk-73-1.png)<!-- -->
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html=“false” /}
 
 <br>
 
