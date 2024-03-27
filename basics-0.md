@@ -197,12 +197,9 @@ on vectors.
 
 {::options parse_block_html=“true” /}
 
-<details>
-<summary>
-Check Your Code for custom number of intervals
-</summary>
+<details><summary>Check Your Code for custom number of intervals</summary>
 
-``` r
+```{r}
 #Get additional information about "vectors" (a data type), 
 help("vector") # then type 'enter' or 'return'
 ```
