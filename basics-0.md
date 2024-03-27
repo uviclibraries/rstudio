@@ -196,7 +196,7 @@ on vectors.
 
 {::options parse_block_html=“true” /}
 
-<details><summary>Check Your Code for custom number of intervals</summary>
+<details><summary markdown="span">Check Your Code for custom number of intervals</summary>
 
 ```{r}
 #Get additional information about "vectors" (a data type), 
