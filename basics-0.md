@@ -19,6 +19,16 @@
   - [4.2 Visualize Income with a Histogram
     plot](#42-visualize-income-with-a-histogram-plot)
 
+``` markdown
+#move me to the top after pushing to github, and remove this comment
+---
+layout: default
+title: 2-Data Types, Basic Commands and Charting
+nav_order: 3
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
@@ -186,18 +196,20 @@ on vectors.
 
 <br>
 
-{::options parse_block_html=“true” /}
+{::options parse_block_html="true" /}
+<details>
+<summary>
+Check Your Code for custom number of intervals
+</summary>
 
-<details><summary>Check Your Code for custom number of intervals</summary>
-
-```{r}
+``` r
 #Get additional information about "vectors" (a data type), 
 help("vector") # then type 'enter' or 'return'
 ```
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br> `help("vector")` will provide you with information about the mean
 function in RStudio. - The help information will be displayed in the
@@ -308,8 +320,7 @@ not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 #### <u>Task 2.1.1:</u> Create a variable for a pig’s first name. `The first pig's first name is 'Bart'.`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -322,12 +333,11 @@ pig1.first_name <- "Bart"
 
 </details>
 
-{::options parse_block_html=“false” /} <br>
+{::options parse_block_html="false" /} <br>
 
 #### <u>Task 2.1.2:</u> Create a variable for a Bart’s last name. `Bart's last name is 'Smith'.`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -340,7 +350,7 @@ pig1.last_name <- "Smith"
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -352,8 +362,7 @@ the full name in the console <br>
 The `paste()` function combines two strings and inserts a space between
 them. `paste()` takes two arguments, like `paste(string1, string2)`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -371,7 +380,7 @@ pig1.full_name
 
 </details>
 
-{::options parse_block_html=“false” /} <br>
+{::options parse_block_html="false" /} <br>
 
 Now we’ll look at basic operations with **numeric and integer
 variables**. First we’ll create height information for Bart and find out
@@ -383,8 +392,7 @@ how much he’s grown in height.
 
 #### <u>Task 2.1.4:</u> Create a variable for Bart’s height as a piglet: 10
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -397,14 +405,13 @@ pig1.heightA <- 10
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
 #### <u>Task 2.1.5:</u> Create a variable for Bart’s height now: 22.3
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -417,7 +424,7 @@ pig1.heightB <- 22.3
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -425,8 +432,7 @@ pig1.heightB <- 22.3
 
 Now create a variable expressing the amount he’s grown.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -446,7 +452,7 @@ pig1.heightGain
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 *Hint:* “Expressing” indicates that the value will require an
 expression, in this case, a mathematical operation.
@@ -477,8 +483,7 @@ We can denote if Bart is small or large with a boolean value.
 
 #### <u>Task 2.1.7:</u> Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -492,7 +497,7 @@ pig1.large <- TRUE
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 *Hint:* Boolean values are either ‘TRUE’ or ‘FALSE’ (case sensitive).
 
@@ -536,8 +541,7 @@ vectors.
 
 `Goat weights: 13.3, 17.2, 14.8, 14.6, 12.4`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -551,7 +555,7 @@ goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -569,8 +573,7 @@ If at any point you want to view the value of a variable, use the
 `print()` function with the name of the variable name and type ‘enter’
 or ‘return’ to execute.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -584,14 +587,13 @@ print(goat.weights)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
 #### <u>Task 2.2.3:</u> Display the weight of the second goat in the vector.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -605,7 +607,7 @@ goat.weights[2]
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 *Hint:* `data_object_name[indexNumber]`
 
@@ -628,8 +630,7 @@ name values of miniature goats. Name your variable ‘goat.name’
 > single quotes, but must be consistent - Good: “text” - Good: ‘text’ -
 > Bad: ’text”
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -641,7 +642,7 @@ goat.name <- c("baby", "pickes", "cookie", "sparkle", "gabbie")
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -658,8 +659,7 @@ lines of code or within functions. However, in the console, R
 automatically displays the output of expressions upon execution of the
 command.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -673,7 +673,7 @@ length(goat.name)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -750,8 +750,7 @@ variable ‘pigs.weight’
 
 `Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -763,7 +762,7 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -777,8 +776,7 @@ the sum by the number of items in the set.
 Write and execute a command that outputs the mean value of the pigs’
 weights.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -793,7 +791,7 @@ mean(pigs.weight)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -805,8 +803,7 @@ weights
 **Median:** The middle value in a sorted set (e.g. lowest - highest).
 `median()`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -820,7 +817,7 @@ median(pigs.weight)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br> The output tells you the weight of the pig that falls between the
 lighter half and the heavier half of the pigs. <br>
@@ -841,8 +838,7 @@ average weight.
   the average, indicating uniformity in size.
 - A large standard deviation suggests a wide range of weights. <br>
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -856,7 +852,7 @@ sd(pigs.weight)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -867,8 +863,7 @@ Display a summary of values pertaining to the pigs’ weights
 We can execute a **‘summary’** to generate several descriptive
 statistics at the same time. `summary()`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -883,7 +878,7 @@ summary(pigs.weight)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -907,8 +902,7 @@ Create a histogram for the pigs’ weights using the histogram function
 
 - Parameter: vector of pig weights
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code and see the histogram
@@ -926,7 +920,7 @@ hist(pigs.weight)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -964,8 +958,7 @@ Multiple parameters: `function_name(parameter1, parameter2)`
 - E.g.,
   `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -989,7 +982,7 @@ hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 The histogram will appear in the Plots tab (bottom right quadrant if you
 haven’t modified your RStudio layout).
@@ -1081,8 +1074,7 @@ likely be a list, which can contain values of different types.
 To see the data in our data frame, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -1094,7 +1086,7 @@ income
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1132,8 +1124,7 @@ and 4 variables (columns)
 
 #### <u>Task 4.1.3:</u> Display a summary of statistics for the `income` data.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -1153,7 +1144,7 @@ summary(income)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1177,8 +1168,7 @@ the name identifying a single set of values within that data frame.
 - X-label: ‘Experience’
 - Title: ‘Histogram of Experience’ <br>
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check your code
@@ -1191,7 +1181,7 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
@@ -1209,8 +1199,7 @@ of observations falling in that cell.
 > Additional: If you preferred having 4 intervals (i.e., ‘bins’), use
 > can set that using the `breaks=''` parameter.
 
-{::options parse_block_html=“true” /}
-
+{::options parse_block_html="true" /}
 <details>
 <summary>
 Check Your Code for custom number of intervals
@@ -1226,7 +1215,7 @@ hist(income$experience, breaks=3)
 
 </details>
 
-{::options parse_block_html=“false” /}
+{::options parse_block_html="false" /}
 
 <br>
 
