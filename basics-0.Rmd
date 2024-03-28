@@ -33,7 +33,7 @@ library(readxl)
 
 startCodeDetailsBlock <- function(summaryText = "Check Your Code") {
   cat(sprintf(
-    "{::options parse_block_html=&quot;true&quot; /}\n<details><summary markdown=\"span\">%s</summary>\n",
+    "{::options parse_block_html=&quot;true&quot; /}<details><summary markdown=&quot;span&quot>%s</summary>",
     summaryText
   ))
 }
