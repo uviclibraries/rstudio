@@ -32,14 +32,15 @@ library(readxl)
 
 
 startCodeDetailsBlock <- function(summaryText = "Check Your Code") {
-  cat(sprintf(
-    "{::options parse_block_html=&quot;true&quot; /}<details><summary markdown=&quot;span&quot>%s</summary>",
-    summaryText
-  ))
+  # Use cat to directly output the string without quotes and avoid unintended newlines
+  cat(
+      "{::options parse_block_html=&apos;true&apos; /}<details><summary markdown='span'>",summaryText,"</summary>"
+    )
 }
 
+
 endCodeDetailsBlock <- function() {
-  cat("\n</details>{::options parse_block_html=&quot;false&quot; /}")
+  cat("</details>{::options parse_block_html=&apos;false&apos;/}")
 }
 ```
 
