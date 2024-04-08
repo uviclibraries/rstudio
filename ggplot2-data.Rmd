@@ -31,6 +31,18 @@ library(tidyverse)
 library(ggthemes)
 library(janitor)
 library(stringr)
+
+startCodeDetailsBlock <- function(summaryText = "Check Your Code") {
+  # Use cat to directly output the string without quotes and avoid unintended newlines
+  cat(
+      "{::options parse_block_html=&apos;true&apos; /}<details><summary markdown='span'>",summaryText,"</summary>"
+    )
+}
+
+
+endCodeDetailsBlock <- function() {
+  cat("</details>{::options parse_block_html=&apos;false&apos;/}")
+}
 ```
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -38,6 +50,19 @@ isNamespaceLoaded("dplyr")
 isNamespaceLoaded("magrittr")
 isNamespaceLoaded("tidyverse")
 ```
+
+
+```markdown
+#move me to the top after pushing to github, and remove this comment
+---
+layout: default
+title: 4-Data Visualization with ggplot2
+nav_order: 5
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+```
+
 If you and your group have any questions or get stuck as you work through this in-class exercise, please ask the instructor for assistance. Have fun!
 
 The `ggplot2` package is a popular system for creating data visualizations like plots, charts, graphs, etc.
@@ -55,15 +80,19 @@ In this activity, you will make a scatter plot, bar chart, and a line chart.
   - ggthemes
   - janitor
 
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
 install.packages("janitor")
 library(ggthemes) #Do not wrap library() parameter string in quotes
 library(janitor)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
 <br>
 *Hint:* wrap the package name in `""` quotations<br>
 - Do not wrap the library() parameter in `""` quotations
@@ -81,7 +110,9 @@ library(janitor)
 - Remove first (empty) row using `filter(ref != "REF")`
 <br>
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r echo=TRUE, eval=FALSE}
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
@@ -93,27 +124,32 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 ```
 
 ```{r load-data, echo=FALSE, results='hide'}
-chocolateData <- read_csv("/Users/chloefarr/Documents/GitHub/rstudio/docs/flavors_of_cacao.csv")%>%
+chocolateData <- read_csv("docs/flavors_of_cacao.csv")%>%
   clean_names() %>% #Clean the column header names
   filter(ref != "REF")
 
 #If you get a column specification error, add `, show_col_types = FALSE` as to a parameter read_csv()
 #e.g. chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.csv", show_col_types = FALSE)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv file.
 
 <br>
 
 #### [Task 1.3:]{.underline} Preview the first 5 rows of your chocolate data.
 
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r}
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 <br>
 
 
@@ -165,12 +201,16 @@ Let's apply the ggplot command above to create a scatter plot.
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 <br>
 Output
 ```{r echo=FALSE}
@@ -216,13 +256,17 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
   geom_smooth(method = "lm")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 <br>
 
 
@@ -232,7 +276,9 @@ We're also going to add labels and custom colors using the `labs()` function and
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
@@ -240,7 +286,9 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_smooth(method = "lm") + 
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br>
 Output:
@@ -308,11 +356,15 @@ Your chart will illustrate the frequency that chocolate bars are being made in d
 
 - Country bar was made in: `broad_bean_origin`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* geom type = "bar"
 <br> 
 
@@ -335,12 +387,16 @@ To add a second dimension,
   
 <br>
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br> 
 Output:
@@ -387,11 +443,15 @@ Using piping, create a new variable, `meanRatingByYear`
 - use `summarise()`
   - the parameter is `rating=mean(rating)`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 Your output will be: 
 ```{r echo=FALSE}
@@ -418,7 +478,9 @@ After the geom type, add:
 
 `ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line()+  scale_x_continuous(
@@ -426,7 +488,9 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
   )
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br> 
 Output:
@@ -449,7 +513,9 @@ Using the same chart you just made, add some stylistic features and modification
 - Add a title using `ggtitle()` : "Change in Rating Over Time
 
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check Your Code")
+```
 ```{r eval=FALSE}
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line() +
@@ -463,7 +529,9 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     title = "Change in Rating Over Time"
   ) 
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br> 
 Output:

@@ -1,10 +1,5 @@
----
-layout: default
-title: 3-Data Manipulation
-nav_order: 4
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
+3-Data Manipulation
+================
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
   - [1. Getting Ready for Tidyverse : Installing
@@ -39,6 +34,16 @@ div.html-widget {
 }
 </style>
 
+``` markdown
+---
+layout: default
+title: 3-Data Manipulation
+nav_order: 4
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+```
+
 <img src="images/tidyverse-01.png" alt="rstudio logo" style="float:right;width:180px;"/>
 
 # Data Manipulation with Tidyverse
@@ -63,9 +68,11 @@ function.
 
 Package name: tidyverse
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 install.packages("tidyverse") #then, as always, type 'enter' or 'return' to submit the command for execution
@@ -73,9 +80,11 @@ install.packages("tidyverse") #then, as always, type 'enter' or 'return' to subm
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
-*Hint:* wrap the package name in `""` quotations, as it is a string type.
+*Hint:* wrap the package name in `""` quotations, as it is a string
+
+type.
 
 *Note:* The installation may take a while, sometimes up to 10-15
 minutes. When it’s complete, the right angle bracket `>` will appear at
@@ -84,7 +93,11 @@ the last line of your console.
 After we install a package, we have to load it, using the `library()`
 function. Do not wrap the package name in quotes when using `library()`
 
-<details><summary>Why no quotations for library()?</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Why no quotations for library()?
+</summary>
 
 When you install a package in R using **`install.packages()`**, the
 package name must be a character string, hence the quotes. This is
@@ -101,15 +114,19 @@ interprets as the name of a package to load.
 In summary, the quotes are needed for **`install.packages()`** because
 it expects a character string, while **`library()`** is designed to take
 an unquoted name that it interprets as a package name.
-
 </details>
 
+{::options parse_block_html='false'/}
+
+<br>
 
 #### <u>Task 1.2:</u> Load the ‘tidyverse’ library.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 library(tidyverse)
@@ -117,7 +134,7 @@ library(tidyverse)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Note:* You only need to install a package once, but you need to reload
 it every time you start a new session.
@@ -170,8 +187,10 @@ on the far right hand side of the files panel, across from the Home
 button, immediately above the ‘Modified’ column header. This will open
 the file explorer and you can search from your entire computer.
 
-
-<details><summary>Show gif of import dataset</summary>
+<details>
+<summary>
+Show gif of import dataset
+</summary>
 
 ![](images/tidyverse-02.gif)
 
@@ -186,9 +205,11 @@ Load your data in via the console using the `read.csv()` function.
   - i.e. *\[your/file/path/filename.extension\]*
 - Rename your dataset to `purchaseData`
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
@@ -197,7 +218,7 @@ purchaseData <- read.csv("Desktop/Global_Superstore_Orders_2016.csv")
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 <br> For larger data sets, it’s better to preview than view our data.
 This data set has quite a few columns and rows! Let’s take a look at the
@@ -212,12 +233,15 @@ Parameters
 - data set name
 - number of rows to display
 
+<br>
 
 #### <u>Task 3.2:</u> Look at the first 5 rows of our purchase data.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 # name of data set name: "purchaseData"
@@ -227,10 +251,11 @@ head(purchaseData, 5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* `head(*datasetName*, *numberOfRows*)`
 
+<br>
 
 The following will be the output (only showing 6 columns for display
 purposes. Your output will be much wider!):
@@ -263,11 +288,12 @@ purchase data, but how big is the data set?
 
 Parameter: dataset name
 
-Get the dimensions of the purchase dataset. <br>
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+Get the dimensions of the purchase dataset. <br> {::options
+parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 ## name of data set name: "purchaseData"
@@ -278,8 +304,9 @@ dim(purchaseData)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
+<br>
 
 ## 4. Introducing Piping
 
@@ -312,6 +339,7 @@ it alphabetically?
 - There are 2 ways that we can do this without the tidyverse package
   based on what we’ve already learned.
 
+<br>
 
 #### <u>Task 4.1.1:</u> Create an object containing the list of column names from our purchase data.
 
@@ -322,10 +350,11 @@ To get a list of our column names we can use the `names()` function.
 
   Name this object ‘purchaseDataColumnNames’
 
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseDataColumnNames <- names(purchaseData)
@@ -333,8 +362,9 @@ purchaseDataColumnNames <- names(purchaseData)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
+<br>
 
 #### <u>Task 4.1.2:</u> Create an object containing the list of column names from our purchase data that is sorted alphabetically.
 
@@ -346,10 +376,11 @@ First, let’s look at each of these functions on their own.
 - Name this object ‘alphaPurchaseDataColumnNames’
 - Parameter: the vector of column names
 
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
@@ -357,7 +388,7 @@ alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* You already created the vector containing the list of column
 names from our purchase data! <br>
@@ -386,9 +417,11 @@ another function.
 
 - Name this variable: `alphabeticalColumnNames` <br>
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #names(purchaseData) creates a vector object of the column names from our purchase data
@@ -398,7 +431,7 @@ alphabeticalColumnNames <- sort(names(purchaseData))
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 <br> *Hints*: the parameter of `names()` is the `sort()` function, and
 the parameter of `sort()` is the dataset <br> As you might imagine,
@@ -426,9 +459,11 @@ sequentially, separated by the pipe symbol `%>%`.
 - Do not use objects you have created so far, except `purchaseData`
 - Name your new variable: `purchaseDataNamesPeek` <br>
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 # 'purchaseDataNamesPeek <-' creates a new variable
@@ -446,18 +481,18 @@ purchaseDataNamesPeek
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 <br> *Hint*: the parameter of `names()` is the `head()` function. <br>
 <br>
 
 If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
-variable. <br>
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+variable. <br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Show code for previewing with piping
+</summary>
 
 ``` r
 names(purchaseData) %>% head(5)
@@ -467,7 +502,7 @@ names(purchaseData) %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 ------------------------------------------------------------------------
 
@@ -530,9 +565,11 @@ data set.
 
 - Column name: `Row_ID`
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #data set %>% select the column titled `Row ID` and view the first 5 items.
@@ -548,11 +585,12 @@ purchaseData %>% select(Row_ID) %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* Begin with the name of the data set, followed by your select
 function passing in the column name as the parameter.
 
+<br>
 
 #### <u>Task 4.3.2:</u> Select all the columns from your purchase data that do *not* start with “Postal_Code”.
 
@@ -562,11 +600,11 @@ with specific text, we do the inverse,
 - again using the `select()` function
 - the parameter has a `-` before the string value we want to exclude.
 
-
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData %>% select(-Postal_Code) %>% head(5)
@@ -605,9 +643,7 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
-
-
+{::options parse_block_html='false'/} <br>
 
 #### <u>Task 4.3.3:</u> Select all the columns from our cleaned purchase data that start with “Product”.
 
@@ -621,7 +657,7 @@ We can also select a set of columns.
 In our dataset, multiple column names begin with “Product”. We want to
 see only the data of columns whose names begin with “Product.”
 
-
+<br>
 
 Here’s how it’s done:
 
@@ -642,11 +678,13 @@ Here’s how it’s done:
 - The parameter for `starts_with()` is the value of the beginning of all
   columns you want to select.
 
+<br>
 
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #selecting all columns (and their values) from purchaseData whose names begin with "Product"
@@ -662,9 +700,9 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
-
+<br>
 
 ### 4.4 Select specific rows based on a condition
 
@@ -679,15 +717,17 @@ based on certain criteria.
 - We can even create new data objects, which can make future analyses
   easier.
 
-
+<br>
 
 #### <u>Task 4.4.1:</u> Filter all the rows from your purchase data where `Quantity` is greater than 10.
 
 To select items (rows, *not* columns), we use the `filter()` function.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData %>% filter(Quantity > 10) %>% head(5)
@@ -732,17 +772,20 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* `>` is the ‘greater than’ operator.
 
-
+<br>
 
 #### <u>Task 4.4.2:</u> Filter all the rows from your purchase data where `City` is “Sydney”.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<details>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData %>% filter(City == "Sydney") %>% head(5)
@@ -781,11 +824,11 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* `==` is used for “equal to”
 
-
+<br>
 
 #### <u>Task 4.4.3:</u> Create a new dataframe with all the rows from purchaseData where `Country` is “United States” and `Discount` is greater than 0.
 
@@ -794,9 +837,11 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 **- Do not add ” %\>% head(5)” to the command when creating a new
 dataframe**
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
@@ -839,11 +884,10 @@ discountedUSPurchases %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
-
-*Hint:* `&` is used for “and”, in cases where you want to manage
-multiple cases like filtering my two variables<br> - e.g., values of the
-`Sub_Category` and `Order_Priority` columns. <br>
+{::options parse_block_html='false'/} *Hint:* `&` is used for “and”, in
+cases where you want to manage multiple cases like filtering my two
+variables<br> - e.g., values of the `Sub_Category` and `Order_Priority`
+columns. <br>
 
 ### 4.5 Modify a dataframe with ‘mutate’
 
@@ -881,9 +925,11 @@ multiple cases like filtering my two variables<br> - e.g., values of the
       - `==` means “the left value is equal to the right value”
         - aka. The result will be everything in the data that is “Low”
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
@@ -925,18 +971,18 @@ purchaseData %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
-
-
+{::options parse_block_html='false'/} <br>
 
 #### <u>Task 4.5.2:</u> Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase’s shipping cost is greater than 100 dollars.
 
 - Name the new column: `High_Shipping`
 - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
@@ -984,11 +1030,11 @@ purchaseData %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* `Shipping_Cost > 100`
 
-
+<br>
 
 #### <u>Task 4.5.3:</u> Add a new column based on TWO conditions
 
@@ -999,9 +1045,11 @@ in the United States and has been discounted
 - Filter for discounted orders by selecting all objects where the values
   in the `Discount` column are greater than 0.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData <- purchaseData %>% mutate(Discounted_US = (Country == "United States" & Discount > 0))
@@ -1015,11 +1063,11 @@ summary(purchaseData$Discounted_US)
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* `logicalStatement & logicalStatement`
 
-
+<br>
 
 ### 4.6 Sorting data with `arrange()`
 
@@ -1027,8 +1075,8 @@ Being able to arrange data by ordering values numerically or
 alphabeticaly is particularly handy for swiftly identifying which
 measurements recorded the highest or lowest values.
 
-**`sort()` will not work on a dataframe** **CHLOE: ADD SOME SORT OF GRAPHIC** 
-
+**`sort()` will not work on a dataframe** **CHLOE: ADD SOME SORT OF
+GRAPHIC** <br>
 
 #### <u>Task 4.6.1:</u> Update the purchaseData to sort objects by price (low to high).
 
@@ -1045,9 +1093,11 @@ organize by.
   - a new variable that we recently formulated using `mutate()`
 - Parameter of `arrange()` is `Sales`
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 purchaseData <- purchaseData %>% arrange(Sales)
@@ -1095,13 +1145,12 @@ purchaseData %>% head(5)
 
 </details>
 
-{::options parse_block_html="false" /}
-
-*Hint:* Do not wrap the column name in quotations.
+{::options parse_block_html='false'/} *Hint:* Do not wrap the column
+name in quotations.
 
 ### 4.7 Summarizing variables with summarize
 
-
+<br>
 
 #### <u>Task 4.7.1:</u> Use the `summarise()` function to synthesize information in a data frame with the mean Sales value and median discount amount
 
@@ -1117,9 +1166,11 @@ parameter will appear as a column.
 Preview the mean sales values and mean discount values in the discounted
 US purchases data.
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #Only purchases made in the US with discounts
@@ -1137,7 +1188,7 @@ discountedUSPurchases %>%
 
 </details>
 
-{::options parse_block_html="false" /}
+{::options parse_block_html='false'/}
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 
@@ -1160,9 +1211,11 @@ profit to see what the most and least profitable cities are.
 
 **! Don’t add `head(5)` when creating a new variable.**
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 #Only purchases made in the US with discounts
@@ -1173,34 +1226,30 @@ USCityProfits <- discountedUSPurchases %>%
 
 </details>
 
-{::options parse_block_html="false" /}
-
-
+{::options parse_block_html='false'/} <br>
 
 The table will be sorted by city, alphabetically
 
 - Sort the table by `Profit` using the `arrange()` function. to order it
   by the lowest profitable city to the highest profitable city
 
-
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+<br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 USCityProfits <- USCityProfits %>% arrange(totalProfit)
 ```
 
 </details>
-
-{::options parse_block_html="false" /}
-
-<br> View the 5 least profitable cities <br>
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='false'/} <br> View the 5 least profitable
+cities <br> {::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 USCityProfits <- USCityProfits %>% arrange(sum(totalProfit))
@@ -1219,15 +1268,13 @@ USCityProfits %>% head(5)
     ## 5 Chicago           -6655.
 
 </details>
-
-{::options parse_block_html="false" /}
-
-<br> View the 5 most profitable cities - Use `tail()` to get the last 5
-rows of a dataframe <br>
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Check Your Code</summary>
+{::options parse_block_html='false'/} <br> View the 5 most profitable
+cities - Use `tail()` to get the last 5 rows of a dataframe <br>
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code
+</summary>
 
 ``` r
 USCityProfits <- USCityProfits %>% arrange(totalProfit)
@@ -1247,9 +1294,7 @@ USCityProfits %>% tail(5)
 
 </details>
 
-{::options parse_block_html="false" /}
-
-<br>
+{::options parse_block_html='false'/} <br>
 
 <script>  
 &#10;function toggle(input) {
