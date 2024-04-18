@@ -107,6 +107,7 @@ install.packages("tidyverse") #then, as always, type 'enter' or 'return' to subm
 endCodeDetailsBlock()
 ```
 
+
 | *Hint:* wrap the package name in `""` quotations, as it is a string
 type.
 
@@ -251,13 +252,15 @@ display the first number of rows.
 <br>
 
 #### [Task 3.2:]{.underline} Look at the first 5 rows of our purchase data.
+
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
 ```{r eval=FALSE}
-# name of data set name: "purchaseData"
-# number of rows to display: 5
+#name of data set name: "purchaseData"
+#number of rows to display: 5
 head(purchaseData, 5)
 ```
 ```{r echo = F, results='asis'}
@@ -292,11 +295,12 @@ Now, we've imported our data and previewed the first 10 rows of our purchase dat
 
 Get the dimensions of the purchase dataset.
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
 ```{r}
-## name of data set name: "purchaseData"
+# name of data set name: "purchaseData"
 dim(purchaseData)
 ```
 ```{r echo = F, results='asis'}
@@ -346,6 +350,7 @@ To get a list of our column names we can use the `names()` function.
     Name this object 'purchaseDataColumnNames'
     
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -369,6 +374,7 @@ First, let's look at each of these functions on their own.
   - Parameter: the vector of column names
   
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -469,6 +475,7 @@ endCodeDetailsBlock()
 
 If you want to simply view what the first five column names are, but don't need to reference them later, you don't need to create a new variable.
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Show code for previewing with piping")
 ```
@@ -561,6 +568,7 @@ To select all of the columns from our data set that do *not* start with specific
   - the parameter has a `-` before the string value we want to exclude.
 
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -651,7 +659,7 @@ endCodeDetailsBlock()
 
 #### [Task 4.4.2:]{.underline} Filter all the rows from your purchase data where `City` is "Sydney".
 
-<details>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -685,6 +693,7 @@ discountedUSPurchases %>% head(5)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 *Hint:* `&` is used for "and", in cases where you want to manage multiple cases like filtering my two variables<br>
   - e.g., values of the `Sub_Category` and `Order_Priority` columns.
 <br>
@@ -735,6 +744,7 @@ purchaseData %>% head(5)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 
 #### [Task 4.5.2:]{.underline} Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase's shipping cost is greater than 100 dollars.
@@ -820,6 +830,7 @@ purchaseData %>% head(5)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 *Hint:* Do not wrap the column name in quotations.
 
 ### 4.7 Summarizing variables with summarize
@@ -896,6 +907,7 @@ USCityProfits <- discountedUSPurchases %>%
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 
 The table will be sorted by city, alphabetically
@@ -903,6 +915,7 @@ The table will be sorted by city, alphabetically
   - Sort the table by `Profit` using the `arrange()` function. to order it by the lowest profitable city to the highest profitable city
   
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -912,9 +925,11 @@ USCityProfits <- USCityProfits %>% arrange(totalProfit)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 View the 5 least profitable cities
 <br> 
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -928,10 +943,12 @@ USCityProfits %>% head(5)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 View the 5 most profitable cities
 - Use `tail()` to get the last 5 rows of a dataframe
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check Your Code")
 ```
@@ -944,6 +961,7 @@ USCityProfits %>% tail(5)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 
 ```{=html}
