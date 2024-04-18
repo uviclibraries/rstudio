@@ -1,10 +1,3 @@
----
-layout: default
-title: 4-Data Visualization with ggplot2
-nav_order: 5
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
 4-Data Visualization with ggplot2
 ================
 
@@ -17,6 +10,28 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
+
+<style type="text/css">
+div.html-widget {
+  overflow-x: auto;
+}
+&#10;table {
+  display: block;
+  max-width: none;
+  white-space: nowrap;
+}
+</style>
+
+``` markdown
+#move me to the top after pushing to github, and remove this comment
+---
+layout: default
+title: 4-Data Visualization with ggplot2
+nav_order: 5
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+```
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
@@ -217,10 +232,14 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 </details>
 
-{::options parse_block_html='false'/} <br> Output
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-15-1.png)<!-- --> <br>
-Before we add details to our plot, we need to learn about the different
-components. Again, wait until the next task to do anything.
+{::options parse_block_html='false'/}
+
+<br> Output
+
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+<br> Before we add details to our plot, we need to learn about the
+different components. Again, wait until the next task to do anything.
 
 **Definition - Fitted line:** (aka. a ‘line of best fit’) is a line
 representing some function of x and y that has the best fit (or the
@@ -257,7 +276,8 @@ for fitting complex, flexible models to data.
 *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
-</details
+</details>
+
 <br>
 
 - Fitted line: `method = "lm"` <br>
@@ -289,10 +309,12 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 </details>
 
-{::options parse_block_html='false'/} <br>
+{::options parse_block_html='false'/}
+
+<br>
 
 #### <u>Task 2.1.3:</u> Add descriptive axis labels and a title to your scatter plot.
 
@@ -323,7 +345,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ### 2.2. Bar Charts
 
@@ -414,10 +436,15 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 
 </details>
 
-{::options parse_block_html='false'/} *Hint:* geom type = “bar” <br>
+{::options parse_block_html='false'/}
+
+*Hint:* geom type = “bar” <br>
 
 Output:
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-29-1.png)<!-- --> <br>
+
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+
+<br>
 
 #### <u>Task 2.2.2:</u> Create a stacked bar chart
 
@@ -451,7 +478,9 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 
 <br> Output:
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-33-1.png)<!-- --> <br>
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
+
+<br>
 
 <!--**Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
 <br>
@@ -539,7 +568,9 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 <br> Output:
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-43-1.png)<!-- --> <br>
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
+
+<br>
 
 #### <u>Task 2.2.4:</u> Style your line chart.
 
@@ -576,18 +607,26 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 <br> Output:
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-47-1.png)<!-- -->
+![](ggplot2-data_files/figure-gfm/unnamed-chunk-48-1.png)<!-- -->
 
-<script>
-function toggle(input) {
-  var x = document.getElementById(input);
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
-  }
+<script>  
+&#10;function toggle(input) {
+    var x = document.getElementById(input);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 </script>
+<style>
+   details {
+    background-color: lightgray; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+</style>
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
 NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }

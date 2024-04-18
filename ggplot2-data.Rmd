@@ -43,6 +43,7 @@ startCodeDetailsBlock <- function(summaryText = "Check Your Code") {
 endCodeDetailsBlock <- function() {
   cat("</details>{::options parse_block_html=&apos;false&apos;/}")
 }
+
 ```
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -51,6 +52,18 @@ isNamespaceLoaded("magrittr")
 isNamespaceLoaded("tidyverse")
 ```
 
+
+```{css, echo=FALSE}
+div.html-widget {
+  overflow-x: auto;
+}
+
+table {
+  display: block;
+  max-width: none;
+  white-space: nowrap;
+}
+```
 
 ```markdown
 #move me to the top after pushing to github, and remove this comment
@@ -211,12 +224,15 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 Output
+
 ```{r echo=FALSE}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
+
 <br>
 Before we add details to our plot, we need to learn about the different components. Again, wait until the next task to do anything.
 
@@ -239,7 +255,8 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 *Splines ("splines"):* provide a way to smoothly interpolate between fixed points, creating a piecewise polynomial function. They are useful for fitting complex, flexible models to data.
 
 *Robust Linear Model ("rlm"):* Similar to linear models but less sensitive to outliers. It's useful when your data contains outliers that might skew the results of a standard linear model.
-</details
+</details>
+
 <br> 
 
 - Fitted line: `method = "lm"`
@@ -267,6 +284,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 
 
@@ -305,6 +323,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 First things first, we need to quickly clean up our dataframe for bar charts. Copy and paste the following code into your console, and execute.
 
 <br>
+
 ```{r}
 
 chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
@@ -328,6 +347,7 @@ commonBeanTypes <- chocolateData %>%
 chocolateData_commonBeans <- chocolateData %>%
   filter(bean_type_simplified %in% commonBeanTypes$bean_type_simplified)
 ```
+
 <br>
 
 A bar chart illustrates *categories* along the x axis and the count of observations from each category on the y axis.
@@ -335,11 +355,13 @@ A bar chart illustrates *categories* along the x axis and the count of observati
 To make a bar chart, you need the data (categories, and values relevate to those categories), and the categories the data will be separated by (each representing one bar).
 
 The first 5 rows of the bars made of common beans:
+
 ```{r, echo=FALSE}
 chocolateData_commonBeans %>% head(5)
 ```
 
 The bars will represent the following categories:
+
 ```{r, echo=FALSE}
 commonBeanTypes
 ```
@@ -365,13 +387,16 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 *Hint:* geom type = "bar"
 <br> 
 
 Output:
+
 ```{r echo=FALSE}
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
+
 <br>
 
 #### [Task 2.2.2:]{.underline} Create a stacked bar chart 
@@ -405,6 +430,7 @@ Output:
 ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
   geom_bar(position = "stack")
 ```
+
 <br>
 
 
@@ -454,6 +480,7 @@ endCodeDetailsBlock()
 ```
 
 Your output will be: 
+
 ```{r echo=FALSE}
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
@@ -502,6 +529,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
   )
 ```
+
 <br>
 
 #### [Task 2.2.4:]{.underline} Style your line chart.
@@ -550,22 +578,30 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   ) 
 ```
 
-```{r, results='asis', echo=FALSE}
-htmltools::HTML("
-<script>
+
+```{=html}
+<script>  
+
 function toggle(input) {
-  var x = document.getElementById(input);
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
-  }
+    var x = document.getElementById(input);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 </script>
-")
 ```
-
-
+```{=html}
+<style>
+   details {
+    background-color: lightgray; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+</style>
+```
 
 APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target="_blank"}
 NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
