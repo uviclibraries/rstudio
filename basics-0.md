@@ -1,3 +1,11 @@
+---
+layout: default
+title: 2-Data Types, Basic Commands and Charting
+nav_order: 3
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+
 2-Data Types, Basic Commands and Charting
 ================
 
@@ -18,17 +26,6 @@
   - [4.1 Importing Excel data into R](#41-importing-excel-data-into-r)
   - [4.2 Visualize Income with a Histogram
     plot](#42-visualize-income-with-a-histogram-plot)
-
-``` markdown
-#move me to the top after pushing to github, and remove this comment
----
-layout: default
-title: 2-Data Types, Basic Commands and Charting
-nav_order: 3
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>

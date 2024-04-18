@@ -1,3 +1,10 @@
+---
+layout: default
+title: 3-Data Manipulation
+nav_order: 4
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
 3-Data Manipulation
 ================
 
@@ -34,15 +41,6 @@ div.html-widget {
 }
 </style>
 
-``` markdown
----
-layout: default
-title: 3-Data Manipulation
-nav_order: 4
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 <img src="images/tidyverse-01.png" alt="rstudio logo" style="float:right;width:180px;"/>
 
