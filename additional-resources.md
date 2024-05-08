@@ -6,6 +6,7 @@ nav_order: 10
 # Additional Resources & Acknowledgements
 
 ## RStudio Resources
+-   [Extracting Reddit Data With RStudio](https://www.youtube.com/watch?v=Snm0Azfi_hc){:target="_blank"} (video)
 -   [Activity: Create Word Clouds from your Google Scholar Profile](https://rpubs.com/ZakWitkower/ResearchWordcloudEasy)
 -   [w3 schools](https://www.w3schools.com/r/)
 -   [kaggle](www.kaggle.com)
