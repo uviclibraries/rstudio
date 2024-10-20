@@ -120,6 +120,18 @@ your workflow.
 
 <br>
 
+#### <u>Task 1.0:</u> Create new Project
+
+In the top left corner of your screen, click the File dropdown menu, then "New Project"
+
+Select "New Directory" > "New Project"
+
+In the "Directory Name" field, enter "DSC_RIntro"
+
+Click "Browse" to choose where to store this project on your computer. 
+
+You do not need to save this periodically.
+
 #### <u>Task 1.1:</u> Open RStudio and get familiar with the interface
 
 by identifying the 4 windows and switching between the tabs.
@@ -231,13 +243,11 @@ Console following your command.
 
 ------------------------------------------------------------------------
 
-As you work through these activities, remember to save your workspace. -
-Save your workspace by clicking on the top menu bar:
+As you work through these activities, make sure to Save if you use are working in an R script 
+- Save your workspace by clicking on the top menu bar:
 
 - File
 - Save
-
-You won’t be asked to enter a name when saving.
 
 ------------------------------------------------------------------------
 
