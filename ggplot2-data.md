@@ -1,3 +1,11 @@
+---
+layout: default
+title: 4-Data Visualization with ggplot2
+nav_order: 5
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+
 4-Data Visualization with ggplot2
 ================
 
@@ -21,17 +29,6 @@ div.html-widget {
   white-space: nowrap;
 }
 </style>
-
-``` markdown
-#move me to the top after pushing to github, and remove this comment
----
-layout: default
-title: 4-Data Visualization with ggplot2
-nav_order: 5
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
