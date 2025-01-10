@@ -109,7 +109,7 @@ the R programming language.
 
 <br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 ⭐ <u>Task 1</u>
 
@@ -173,7 +173,7 @@ your keyboard.
 
 <br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 ⭐ <u>Task 2</u>
 
@@ -182,7 +182,7 @@ your keyboard.
 To do this, you’ll run the `help()` function. - Try getting information
 on vectors.
 
-<br>
+
 
 {::options parse_block_html='true' /}
 <details>
@@ -232,13 +232,12 @@ scripts, and share them with collaborators
 
 <br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 ⭐ <u>Task 3</u>
 
 **Create a new R script.**
 
-<br>
 
 1.  Click File \> New File \> R Script.
 2.  Save your script: A blank script opens in the code editor. Save it
@@ -371,7 +370,7 @@ so.
 
 <br><br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 ⭐ <u>Task 4</u>
 
@@ -400,8 +399,8 @@ We’ll get to different types of variables in the next activity.
 
 ------------------------------------------------------------------------
 
-&#128205 As you work through these activities, remember to save
-your script(s) regularly.
+📍 As you work through these activities, remember to save your script(s)
+regularly.
 
 - File
 - Save (or cmd+s on Mac, ctrl+s on Windows)
@@ -411,7 +410,7 @@ your script(s) regularly.
 <br> <br>
 
 <script>  
-&#10;function toggle(input) {
+function toggle(input) {
     var x = document.getElementById(input);
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -421,13 +420,13 @@ your script(s) regularly.
 }
 </script>
 <style>
-   details {
+details {
     background-color: lightgray; 
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
-&#10;  .boxed {
+.boxed {
       border: 1.5px solid #ccc;
       padding: 10px;
       margin: 10px 0;

@@ -3,14 +3,14 @@ title: "Navigating the RStudio Interface"
 #author: DSC / Chloë Farr
 #date: '2024-01-18'
 output:
-  github_document:
-    toc: true
-    toc_depth: 3 # levels of page headers to include in TOC at top of page
-  pdf_document: default
   html_document:
     toc: true
     toc_depth: '3' # levels of page headers to include in TOC at top of page
     df_print: paged
+  pdf_document: default
+  github_document:
+    toc: true
+    toc_depth: 3 # levels of page headers to include in TOC at top of page
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
 nav_order: 6 #order to display page on sidebar
@@ -131,7 +131,7 @@ You might prefer to use the console for immediate execution, or testing of small
 
 <br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 &#11088; [Task 1]{.underline} 
 
@@ -187,7 +187,7 @@ your keyboard.
 
 <br>
 
-<div class="boxed">
+<div class="boxed" markdown="1">
 
 &#11088; [Task 2]{.underline} 
 
@@ -236,9 +236,8 @@ Console following your command.
 
 The code editor is where you write and organize instructions in a script for R to follow. Think of it as a smart notepad that not only helps you learn and experiment but also allows you to save your work for later use. By writing code in the editor, you can easily reuse and adapt your scripts, and share them with collaborators
 
-<br> 
 
-<div class="boxed">
+<div class="boxed"  markdown="1">
 
 &#11088; [Task 3]{.underline} 
 
@@ -354,7 +353,7 @@ Carefully consider the consequences of removing variables before doing so.
 
 <br><br>
 
-<div class="boxed">
+<div class="boxed"  markdown="1">
 &#11088; [Task 4]{.underline} 
 
 **Test editing variables.**
@@ -379,7 +378,7 @@ We'll get to different types of variables in the next activity.
 
 ------------------------------------------------------------------------
 
-&#128205 As you work through these activities, remember to save your script(s) regularly.
+&#128205; As you work through these activities, remember to save your script(s) regularly.
 
 -   File
 -   Save (or cmd+s on Mac, ctrl+s on Windows)
@@ -392,7 +391,6 @@ We'll get to different types of variables in the next activity.
 ```{=html}
 
 <script>  
-
 function toggle(input) {
     var x = document.getElementById(input);
     if (x.style.display === "none") {
@@ -405,14 +403,13 @@ function toggle(input) {
 ```
 ```{=html}
 <style>
-   details {
+details {
     background-color: lightgray; 
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
-
-  .boxed {
+.boxed {
       border: 1.5px solid #ccc;
       padding: 10px;
       margin: 10px 0;
