@@ -1,3 +1,11 @@
+---
+layout: default
+title: Navigating the RStudio Interface
+nav_order: 6
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+
 Navigating the RStudio Interface
 ================
 
@@ -14,17 +22,6 @@ Navigating the RStudio Interface
     script:](#31-tips-for-writing-code-in-an-r-script)
   - [3.2 Running your code](#32-running-your-code)
   - [4 Deleting variables](#4-deleting-variables)
-
-``` markdown
-#move me to the top after pushing to github, and remove this comment
----
-layout: default
-title: Navigating the RStudio Interface
-nav_order: 6
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
