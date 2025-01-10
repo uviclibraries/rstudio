@@ -182,7 +182,7 @@ your keyboard.
 To do this, you’ll run the `help()` function. - Try getting information
 on vectors.
 
-
+<br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -230,14 +230,13 @@ learn and experiment but also allows you to save your work for later
 use. By writing code in the editor, you can easily reuse and adapt your
 scripts, and share them with collaborators
 
-<br>
-
 <div class="boxed" markdown="1">
 
 ⭐ <u>Task 3</u>
 
 **Create a new R script.**
 
+<br>
 
 1.  Click File \> New File \> R Script.
 2.  Save your script: A blank script opens in the code editor. Save it
