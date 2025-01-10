@@ -133,7 +133,7 @@ You might prefer to use the console for immediate execution, or testing of small
 
 <div class="boxed">
 
-#### :star: [Task 1]{.underline} 
+&#11088; [Task 1]{.underline} 
 
 **Open RStudio**
 
@@ -189,7 +189,7 @@ your keyboard.
 
 <div class="boxed">
 
-#### :star: [Task 2]{.underline} 
+&#11088; [Task 2]{.underline} 
 
 **Try getting help!** 
 
@@ -240,7 +240,7 @@ The code editor is where you write and organize instructions in a script for R t
 
 <div class="boxed">
 
-#### :star: [Task 3]{.underline} 
+&#11088; [Task 3]{.underline} 
 
 **Create a new R script.**
 
@@ -355,7 +355,7 @@ Carefully consider the consequences of removing variables before doing so.
 <br><br>
 
 <div class="boxed">
-#### :star: [Task 4]{.underline} 
+&#11088; [Task 4]{.underline} 
 
 **Test editing variables.**
 
@@ -379,7 +379,7 @@ We'll get to different types of variables in the next activity.
 
 ------------------------------------------------------------------------
 
-:round_pushpin: As you work through these activities, remember to save your script(s) regularly.
+&#128205 As you work through these activities, remember to save your script(s) regularly.
 
 -   File
 -   Save (or cmd+s on Mac, ctrl+s on Windows)

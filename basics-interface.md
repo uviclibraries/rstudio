@@ -111,7 +111,7 @@ the R programming language.
 
 <div class="boxed">
 
-#### :star: <u>Task 1</u>
+⭐ <u>Task 1</u>
 
 **Open RStudio**
 
@@ -175,7 +175,7 @@ your keyboard.
 
 <div class="boxed">
 
-#### :star: <u>Task 2</u>
+⭐ <u>Task 2</u>
 
 **Try getting help!**
 
@@ -234,7 +234,7 @@ scripts, and share them with collaborators
 
 <div class="boxed">
 
-#### :star: <u>Task 3</u>
+⭐ <u>Task 3</u>
 
 **Create a new R script.**
 
@@ -373,7 +373,7 @@ so.
 
 <div class="boxed">
 
-#### :star: <u>Task 4</u>
+⭐ <u>Task 4</u>
 
 **Test editing variables.**
 
@@ -400,7 +400,7 @@ We’ll get to different types of variables in the next activity.
 
 ------------------------------------------------------------------------
 
-:round_pushpin: As you work through these activities, remember to save
+&#128205 As you work through these activities, remember to save
 your script(s) regularly.
 
 - File
