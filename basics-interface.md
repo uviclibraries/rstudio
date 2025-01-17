@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Navigating the RStudio Interface
-nav_order: 6
+title: 2- Navigating the RStudio Interface
+nav_order: 3
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
