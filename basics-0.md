@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 2-Data Types, Basic Commands and Charting
-nav_order: 3
+title: 3-Data Types, Basic Commands and Charting
+nav_order: 4
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
