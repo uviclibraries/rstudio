@@ -6,7 +6,7 @@ parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 
-Navigating the RStudio Interface
+2-Navigating the RStudio Interface
 ================
 
 - [1 Getting familiar with the RStudio
@@ -21,7 +21,18 @@ Navigating the RStudio Interface
   - [3.1 Tips for writing code in an R
     script:](#31-tips-for-writing-code-in-an-r-script)
   - [3.2 Running your code](#32-running-your-code)
-  - [4 Deleting variables](#4-deleting-variables)
+  - [3.3 Deleting variables](#33-deleting-variables)
+
+``` markdown
+#move me to the top after pushing to github, and remove this comment
+---
+layout: default
+title: Navigating the RStudio Interface
+nav_order: 6
+parent: Workshop Activities
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+---
+```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
@@ -106,9 +117,9 @@ the R programming language.
 
 <br>
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-⭐ <u>Task 1</u>
+⭐ <u>Task 1-1</u>
 
 **Open RStudio**
 
@@ -170,9 +181,9 @@ your keyboard.
 
 <br>
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-⭐ <u>Task 2</u>
+⭐ <u>Task 2-1</u>
 
 **Try getting help!**
 
@@ -227,9 +238,9 @@ learn and experiment but also allows you to save your work for later
 use. By writing code in the editor, you can easily reuse and adapt your
 scripts, and share them with collaborators
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-⭐ <u>Task 3</u>
+⭐ <u>Task 3-1</u>
 
 **Create a new R script.**
 
@@ -242,7 +253,7 @@ scripts, and share them with collaborators
 - It is useful to store all related files in one folder, such as this
   script and any data you import/export here.
 
-3.  A blank script opens in the code editor. Start typing your code. As
+3.  A blank script opens in the code editor. Start typing your code as
     you would in the console.
 
 </div>
@@ -259,7 +270,8 @@ scripts, and share them with collaborators
   this is not a comment, and will cause an error
   ```
 
-- Use meaningful names
+- Use meaningful names (we will learn more about creating variables in
+  the following activity page.)
 
   ``` r
   # BAD naming
@@ -321,9 +333,8 @@ Run multiple lines of code:
   - If you run only Line 1, the value of `rectangle1.length` will
     change, but `rectangle1.width` and `rectangle1.area` will not
     change. <br>
-  - If you run only Line 2, the value of
-    rectangle1.width`will change, but`rectangle1.length`and`rectangle1.area\`
-    will not change.<br>
+  - If you run only Line 2, the value of `rectangle1.width` will change,
+    but `rectangle1.length` and `rectangle1.area` will not change.<br>
   - If you run only Line 3, no values will change.<br>
   - If you select lines 1, 2, and 3, all values will change.
 
@@ -338,7 +349,7 @@ Run the entire script:
 
 <br>
 
-### 4 Deleting variables
+### 3.3 Deleting variables
 
 Deleting the line of code that created a variable will not cause the
 variable to be removed.
@@ -366,9 +377,9 @@ so.
 
 <br><br>
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-⭐ <u>Task 4</u>
+⭐ <u>Task 3.3-1</u>
 
 **Test editing variables.**
 
@@ -422,7 +433,7 @@ details {
     margin: 5px;
     border-radius: 5px;
 }
-.boxed {
+.task-box {
       border: 1.5px solid #ccc;
       padding: 10px;
       margin: 10px 0;

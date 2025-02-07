@@ -26,7 +26,7 @@ keep_md: true  # Retain YAML front matter in output Markdown
 ```{r setup, include=FALSE}
 #this code block is to the benefit of anyone working with the rmd file and running it straight in R, rather than participating in the work
 knitr::opts_chunk$set(echo = TRUE)
-#uncomment the install.packages if you haven't installed and loaded the 'readxl' package
+# uncomment the install.packages if you haven't installed and loaded the 'readxl' package
 #install.packages("readxl")
 library(readxl)
 
@@ -47,217 +47,8 @@ endCodeDetailsBlock <- function() {
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-## 1. Getting familiar with the RStudio Interface
 
-![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
-<br> The RStudio interface is divided into several key areas, each
-serving a specific purpose. - One of the great features of RStudio is
-that you can customize the layout by reorganizing these windows to suit
-your workflow.
-
-> Hint: You can rearrange these windows and tabs to fit your personal preference by dragging them around the workspace.<!--chloe make a video on rearranging windows and resetting--> When you rearrange the panes in RStudio on your computer, the layout stays as you set it across future sessions.
-
-
-*Main components of the RStudio interface:*
-
-1.  *Code Editor:* This is where you write and edit your R scripts.
-
-    -   It features syntax highlighting, code completion, and other
-        helpful tools to make coding easier.
-
-2.  *Console:* The console is where R code is executed.
-
-    -   You can type commands directly into the console, and it displays
-        outputs, messages, and errors.
-
-    -   You might prefer to use the console for immediate execution, or
-        testing of small code snippets or commands.
-
-3.  *Files/Plots/Packages/Help Pane:*
-
--   *Files:* Browse, open, and manage files in your working directory.
-
--   *Plots:* View graphical outputs from your R code, such as plots and
-    graphs.
-
--   *Packages:* Install, update, and load R packages.
-
--   *Help:* Access R documentation and help files for:
-
-    -   functions and packages
-    -   example code
-    -   information about datasets built in to R
-    -   information about other general R-related topics.
-
--   *Viewer:* Used to view local web content. 
-
-    -   We won't be covering this
-    -   E.g., web graphics generated using packages like 
-      -   googleVis, 
-      -   htmlwidgets
-      -   rCharts
-      -   local web application created using Shiny, Rook, or OpenCPU.
-    -   See more at the RStudio [Viewer
-    Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target="\_blank"}
-
--   *Presentation:* You can use RStudio to create presentations. The presentations can be viewed in this tab.
-
-> We won't be covering this<br>
-> See more at the RStudio [Viewer
-    Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target="\_blank"}<br>
-> To learn how, click [here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target="\_blank"}
-
-https://rmarkdown.rstudio.com/lesson-11.html
-
-4.  *Environment/History Pane:*
-
--   *Environment:* Shows your current workspace, including:
-
-    -   defined variables
-    -   data frames
-    -   function objects.
-
--   *History:* Records all the commands you've run in the current and
-    previous sessions.
-
--   *Connections:* Used to manage and configure the integration of data
-    sources with your projects.
-
--   E.g., Oracle, SQL, Salesforce
-
--   *Tutorial:* Used to run tutorials that will help you learn and
-    master the R programming language.
-
-    -   See more at the RStudio [Tutorial
-    Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target="\_blank"}
-
-<br>
-
-#### [Task 1.1:]{.underline} Open RStudio and get familiar with the interface
-by identifying the 4 windows and switching between the tabs.
-
-       
-> Note: This task is just for you to get comfortable. There is no solution for this task.
-
-
-### Working in the Code Editor
-
-Use the code editor if you want to develop more complex, reusable, and
-maintainable code that can be saved in a script and executed later.
-
--   We won't be working in the code editor at this level.
-
--   It will be introduced at the beginning of the Intermediate level
-    workshop. <br>
-
-### Working in the Console
-
-Each new line of code (aka. command line) begins with the angle bracket
-`>` also known as the ‘prompt’ symbol. <br>
-
-You will type the commands into the Console after the most recent angle
-bracket `>`.
-
-*command line:* lines of code in your console.
-
-*‘prompt’ symbol* `>` : Each new command starts with this.
-
-*execute:* run your command by pressing the 'enter' or 'return' key on
-your keyboard.
-
--   When you are ready to execute ('run') the command, type ‘enter’ or
-    ‘return’ key on your keyboard.
--   The output to the command will appear below your command.
-
-*Things to be mindful of:*
-
--   You cannot execute a command until the previous command has been
-    completely executed.
-
--   If you don't see the prompt symbol, one of two things is happening:
-  -   R is still processing your previous command, and you must wait
-        for it to finish.
-  -   You might instead see the plus `+` symbol, which indicates that
-        you have entered an incomplete command.
-
--   If you see the `+` symbol, you must enter the remainder of the
-    command before entering a new one.
-
--   An error will occur if you write the `+` symbol into your command.
-
--   Sometimes the output can be extensive and show more information than
-    you expected
-
-  -   E.g., when you load in a package (we will discuss packages more
-        in Activity 3). <br>
-
-For all tasks in this workshop, enter your commands in the Console
-(bottom left) (top tabs say 'console', 'terminal', and 'background
-jobs').<br>
-
-<br>
-
-#### [Task 1.2:]{.underline} Try getting help! 
-To do this, you'll run the `help()` function. 
-- Try getting information on vectors.
-
-<br>
-
-```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check Your Code for custom number of intervals")
-```
-
-```{r}
-#Get additional information about "vectors" (a data type), 
-help("vector") # then type 'enter' or 'return'
-```
-
-```{r echo = F, results='asis'}
-endCodeDetailsBlock()
-```
-
-
-<br> `help("vector")` will provide you with information about the mean
-function in RStudio. - The help information will be displayed in the
-Console following your command.
-
-<br>
-
-
-::: {#gif1}
-<img src="images/rstudio-02.gif"/> <br>
-:::
-
-</details>
-
-<br>
-        
-> Note: You can get help on related content by selecting the dropdown list at the top of the Help tab. <!--screenshot-->
-
-<br>
-
-------------------------------------------------------------------------
-
-As you work through these activities, remember to save your workspace. -
-Save your workspace by clicking on the top menu bar:
-
--   File
--   Save
-
-You won't be asked to enter a name when saving.
-
-------------------------------------------------------------------------
-
-<br> <br>
-
-## 2. Creating and Manipulating Vectors and Basic Variables
-
-Remember: Write all of your code in the **Console** tab.
-
-<!--add infographic about the trajectory of this section (broad to narrow)-->
-
-       
-> Note: For the purposes of this workshop, 'variable' and 'data object' are used interchangeably.
+## 1. Creating and Manipulating Vectors and Basic Variables
 
 
 To create any data object: 
@@ -288,7 +79,7 @@ specific arguments, if required, to produce a result. <br>
 
 <br>
 
-### 2.1 Variables and Basic Data Types
+### 1.1 Variables and Basic Data Types
 
 Let's start by looking at types of variables.
 
@@ -317,7 +108,12 @@ Let's start by looking at types of variables.
 
 Whenever you enter a string parameter, the string will more likely than not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
-#### [Task 2.1.1:]{.underline} Create a variable for a pig's first name. `The first pig's first name is 'Bart'.`
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-1]{.underline} 
+
+**Create a variable.**
+
+Create a variable for a pig's first name. `The first pig's first name is 'Bart'.`
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -329,9 +125,16 @@ pig1.first_name <- "Bart"
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
+
 <br>
 
-#### [Task 2.1.2:]{.underline} Create a variable for a Bart's last name. `Bart's last name is 'Smith'.`
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-2]{.underline} 
+
+**Create a variable.**
+
+Create a variable for a Bart's last name. `Bart's last name is 'Smith'.`
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -343,10 +146,14 @@ pig1.last_name <- "Smith"
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
-#### [Task 2.1.3:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-3]{.underline} 
+
+**Create a variable.**
 
 Create a variable that equals Bart's first and last name, then display
 the full name in the console <br>
@@ -361,12 +168,14 @@ startCodeDetailsBlock(summaryText = "Check your code")
 #concatenate the first pig's (pig1) first ('Bart') and last name ('Smith')
 pig1.full_name <- paste(pig1.first_name, pig1.last_name)
 
-#after pig1.full_name has been created, print (display) Bart's full name...
+#after pig1.full_name has been created, print (display) Bart’s full name...
 pig1.full_name
 ```
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
+
 <br>
 
 Now we'll look at basic operations with **numeric and integer
@@ -377,22 +186,33 @@ how much he's grown in height.
 
 <img src="images/rstudio-basics-Bart.png" alt="Bart as a piglet and adult" style="width:420px;"/>
 
-#### [Task 2.1.4:]{.underline} Create a variable for Bart's height as a piglet: 10
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-4]{.underline} 
+
+**Create a variable.**
+
+Create a variable for Bart's height as a piglet: 10
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
 ```{r}
-#Assign the value of Bart's piglet height
+#Assign the value of Bart’s piglet height
 pig1.heightA <- 10
 ```
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
 
+</div>
 <br>
 
-#### [Task 2.1.5:]{.underline} Create a variable for Bart's height now: 22.3
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-5]{.underline} 
+
+**Create a variable.**
+
+Create a variable for Bart’s height now: 22.3
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -405,9 +225,13 @@ pig1.heightB <- 22.3
 endCodeDetailsBlock()
 ```
 
+</div>
 <br>
 
-#### [Task 2.1.6:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-6]{.underline} 
+
+**Create a variable.**
 
 Now create a variable expressing the amount he's grown.
 
@@ -430,32 +254,40 @@ endCodeDetailsBlock()
 *Hint:* "Expressing" indicates that the value will require an
 expression, in this case, a mathematical operation.
 
+</div>
+
 <br>
 
 `pig1.heightA` is an 'integer' data type (whole number)
 
-`pig1.heightB` is a 'numeric' data type (decmial number)
+`pig1.heightB` is a 'numeric' data type (decimal number)
 
 R can perform operations on different data types like getting the
 difference of a value.
 
 ------------------------------------------------------------------------
 
-Reminder! Save your work
+&#128205; As you work through these activities, remember to save your script(s) regularly.
 
 ------------------------------------------------------------------------
 
        
-> Additional: To remove data objects from your environment, execute the 'remove' function in the console: `rm()`.<br>
-> e.g., `rm(full_name)`
+To remove data objects from your environment, execute the 'remove' function in the console: `rm()`, e.g. `rm(full_name)`.
 
-<br> **Time for logical or boolean values!**
+<br> 
+
+**Time for logical or boolean values!**
 
 We can denote if Bart is small or large with a boolean value.
 
 <br>
 
-#### [Task 2.1.7:]{.underline} Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
+<div class="task-box" markdown="1">
+&#11088; [Task 1.1-7]{.underline} 
+
+**Create two variables.**
+
+Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -471,9 +303,11 @@ endCodeDetailsBlock()
 
 *Hint:* Boolean values are either 'TRUE' or 'FALSE' (case sensitive).
 
+</div>
+
 <br>
 
-### 2.2 Vectors
+### 1.2 Vectors
 
 A vector is a 1-dimensional list of items that are of the same data type
 (all text, all whole numbers, etc.)
@@ -508,9 +342,16 @@ vectors.
 
 <br>
 
-#### [Task 2.2.1:]{.underline} Make a vector for the following weight values of miniature goats. Name your variable 'goat.weights'
+<div class="task-box" markdown="1">
+&#11088; [Task 1.2-1]{.underline} 
+
+**Create a vector.**
+
+Make a vector for the following weight values of miniature goats. Name your variable 'goat.weights'
 
 | `Goat weights: 13.3, 17.2, 14.8, 14.6, 12.4`
+
+<br>
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -523,6 +364,7 @@ goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
@@ -534,7 +376,12 @@ window)
 
 <br>
 
-#### [Task 2.2.2:]{.underline} Show the contents of the vector containing the goat weights.
+<div class="task-box" markdown="1">
+&#11088; [Task 1.2-2]{.underline} 
+
+**View variables.**
+
+Show the contents of the vector containing the goat weights.
 
 If at any point you want to view the value of a variable, use the
 `print()` function with the name of the variable name and type 'enter'
@@ -549,10 +396,16 @@ print(goat.weights)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
-#### [Task 2.2.3:]{.underline} Display the weight of the second goat in the vector.
+<div class="task-box" markdown="1">
+&#11088; [Task 1.2-3]{.underline} 
+
+**View variables.**
+
+Display the weight of the second goat in the vector.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -566,6 +419,8 @@ endCodeDetailsBlock()
 
 *Hint:* `data_object_name[indexNumber]`
 
+</div>
+
 <br>
 
 You have just worked with numeric vectors. Now let's move to string
@@ -575,13 +430,20 @@ vectors.
 
 <br> 
 
-#### [Task 2.2.4:]{.underline} Make a vector for the following
-name values of miniature goats. Name your variable 'goat.name'
+<div class="task-box" markdown="1">
+&#11088; [Task 1.2-4]{.underline} 
 
-`Goat names: baby, pickles, cookie, sparkle, gabbie`
+**Create a new R script.**
+Make a vector for the following name values of miniature goats. 
+
+Name your variable `goat.name`
+
+Goat names: baby, pickles, cookie, sparkle, gabbie
 
        
-> Note: Text values must be wrapped in quotations. You can use double or single quotes, but must be consistent - Good: "text" - Good: 'text' - Bad: 'text"
+**Note:** Text values must be wrapped in quotations. You can use double or single quotes, but must be consistent - Good: `"text"` - Good: `'text'` - Bad: `'text"`
+
+<br>
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -592,7 +454,7 @@ goat.name <- c("baby", "pickes", "cookie", "sparkle", "gabbie")
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
-
+</div>
 <br>
 
 To get the length of a vector, we can use the <code>length()</code>
@@ -600,9 +462,14 @@ function.
 
 <br>
 
-#### [Task 2.2.5:]{.underline} Print (display) the length of the vector of miniature goat names.
+<div class="task-box" markdown="1">
+&#11088; [Task 1.2-4]{.underline} 
 
-Note: In a script (code editor), you often need to use the print() function explicitly to see the output, especially when running multiple lines of code or within functions. However, in the console, R automatically displays the output of expressions upon execution of the command.
+**View information about variables.**
+
+Print (display) the length of the vector of miniature goat names.
+
+*Note:* In a script (code editor), you often need to use the print() function explicitly to see the output, especially when running multiple lines of code or within functions. However, in the console, R automatically displays the output of expressions upon execution of the command.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -614,43 +481,43 @@ length(goat.name)
 endCodeDetailsBlock()
 ```
 
+</div>
+
 <br>
 
-#### (Additional Information) Lists
+#### Lists (Additional Information)
 
 A 'list' can hold items of different types (even vectors), while items
 in a 'vector' must all be the same type. <br>
 
 To make a list, we'll use the `list()` function.
 
-> Hint: Remember that all items in a vector must be the same type, but
-> can be different types if in a list.
+**Hint:** Remember that all items in a vector must be the same type, but can be different types if in a list.
 
-> Additional: If you want to create 2D lists, also known as a table, you
-will create a matrix using the `matrix()` function. 
+If you want to create 2D lists, also known as a table, you will create a matrix using the `matrix()` function. 
 <br>
->- For more on matrices, [check me
+- For more on matrices, [check me
 out](https://www.w3schools.com/r/r_matrices.asp){:target="\_blank"}. 
 <br>- Instead of creating our own matrices, we will be importing data later
 on.
 
 ------------------------------------------------------------------------
 
-Reminder! Save your work
+&#128205; As you work through these activities, remember to save your script(s) regularly.
 
 ------------------------------------------------------------------------
 
 <br>
 
-## 3. Descriptive Statistics
+## 2. Descriptive Statistics
 
 Statistics is: 
 
 - the science of collecting, analyzing, interpreting 
 
-- presenting data to uncover patterns and trends 
+- data to uncover patterns and trends, 
 
-- making informed decisions based on this data.
+- informed decisions based on this data.
 
 If you're unfamiliar with statistics, you can learn more about it from
 the [w3school Statistics
@@ -663,22 +530,24 @@ In this section, we'll be focusing on
 - More on presenting data will be covered in [Activity 4-Data Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target="\_blank"} 
 - Importing data
 
-### 3.1 Basic statistical measures
+### 2.1 Basic statistical measures
 
 The function names for the following three statistical measures (mean,
 median, standard deviation) are quite intuitive. 
 
-- It is just the name or abbreviation of the measure, 
+It is just the name or abbreviation of the statistical measure, where the argument is the object containing the set of values we are analyzing. 
 
-- where the argument is the object containing the set of values we are analyzing. 
-
-- Each function takes the vector as its argument.
+Each function takes the vector as its argument.
 
 These three functions are designed for sets of numerical and decimal
 values. If run on other types (string, aka text, and boolean, aka
 true/false), result will be `NA`.
 
-#### [Task 3.1.1:]{.underline}
+
+<div class="task-box" markdown="1">
+&#11088; [Task 2.1-1]{.underline} 
+
+**View information about variables.**
 
 For this task, we will use a new vector object containing weights for a
 set of pigs.
@@ -698,9 +567,14 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 endCodeDetailsBlock()
 ```
 
+</div>
+
 <br>
 
-#### [Task 3.1.2:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 2.1-2]{.underline} 
+
+**Get the mean (average) value.**
 
 **Mean:** the average value in a set.
 
@@ -720,10 +594,13 @@ mean(pigs.weight)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
-
+</div>
 <br>
 
-#### [Task 3.1.3:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 2.1-3]{.underline} 
+
+**Get median value.**
 
 Write and execute a command that outputs the median value of the pigs'
 weights
@@ -741,12 +618,17 @@ median(pigs.weight)
 endCodeDetailsBlock()
 ```
 
+</div>
+
 <br> The output tells you the weight of the pig that falls between the
 lighter half and the heavier half of the pigs. <br>
 
 <br>
 
-#### [Task 3.1.4:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 2.1-4]{.underline} 
+
+**Get median value.**
 
 **Standard deviation:** Describes how spread out the data is. `sd()`
 
@@ -771,10 +653,14 @@ sd(pigs.weight)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
-#### [Task 3.1.5:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 2.1-5]{.underline} 
+
+**Get summary of value statistics.**
 
 Display a summary of values pertaining to the pigs' weights
 
@@ -790,10 +676,11 @@ summary(pigs.weight)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
-### 3.2. Histogram Plot for Pig Weights
+### 2.2. Histogram Plot for Pig Weights
 
 **Histogram:** A graph used for understanding and analysing the
 distribution of values in a vector.
@@ -804,9 +691,15 @@ A histogram illustrates:
 - The variability of data 
 - The shape of variability
 
+The histogram will appear in the Plots tab (bottom right quadrant if you
+haven't modified your RStudio layout).
+
 <br>
 
-#### [Task 3.2.1:]{.underline}
+<div class="task-box" markdown="1">
+&#11088; [Task 2.2-1]{.underline} 
+
+**Create a histogram.**
 
 Create a histogram for the pigs' weights using the histogram function
 `hist()` 
@@ -825,10 +718,9 @@ hist(pigs.weight)
 endCodeDetailsBlock()
 ```
 
-<br>
+</div>
 
-[Task 3.2.2:]{.underline} Create a histogram for the pigs' weights, with
-axes labels.
+<br>
 
 We can also pass in additional parameters to control the way our plot
 looks.
@@ -844,7 +736,17 @@ Some of the frequently used parameters are:
 - `ylab` : The y-axis label
   - e.g., ylab = "The Y Label"
 
-<br>
+Multiple parameters are given to a function by putting them in parentheses separated by commas, `function_name(parameter1, parameter2)` 
+
+- E.g., `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
+
+<div class="task-box" markdown="1">
+&#11088; [Task 2.2-2]{.underline} 
+
+**Create a histogram.**
+
+Create a histogram for the pigs' weights, with
+axes labels.
 
 In your histogram for the pigs' weights, use:
 
@@ -853,14 +755,7 @@ In your histogram for the pigs' weights, use:
     -   This is a default value.
     -   You don't have to specify it unless you would like a different
         label.
--   Graph title: "Histogram of Pigs' Weights"
-
-*Hint:* Remember, a parameter is information that goes in the
-parenthesis of the function.
-
-Multiple parameters: `function_name(parameter1, parameter2)` 
-
-- E.g., `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
+-   Graph title: "Histogram of Pigs’ Weights"
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -879,20 +774,28 @@ hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
-
-The histogram will appear in the Plots tab (bottom right quadrant if you
-haven't modified your RStudio layout).
+</div>
 
 <br>
 
-## 4. Importing Data
+------------------------------------------------------------------------
+
+&#128205; As you work through these activities, remember to save your script(s) regularly.
+
+-   File
+-   Save (or cmd+s on Mac, ctrl+s on Windows)
+
+------------------------------------------------------------------------
+<br>
+
+## 3. Importing Data
 
 So far, we've create our own objects by manually entering all of the
 data in the console. In this section, we'll learn how to create objects
 by importing (aka 'reading') data (compiled outside of R) into R and
 visualise it with a histogram.
 
-### 4.1 Importing Excel data into R
+### 3.1 Importing Excel data into R
 
 R can handle multiple file types:
 
@@ -904,15 +807,24 @@ R can handle multiple file types:
 -   SPSS (another specialized statistics software)
 -   Data scraped from the web or via an API.
 
-#### [Task 4.1.1]{.underline} Download and save test data
+<div class="task-box" markdown="1">
+&#11088; [Task 3.1-1]{.underline} 
+
+**Import data.**
 
 Download and save [this Excel spreadsheet of Income
 data](docs/income.xlsx){:target="\_blank"}
 
 -   *Note:* Please remember where the income.xlsx file is saved (usually
     in a “downloads” or “desktop” folder).
+</div>
 
-#### [Task 4.1.2:]{.underline} Import the dataset of Income data
+<div class="task-box" markdown="1">
+&#11088; [Task 3.1-2]{.underline} 
+
+**Import data.**
+
+Import the dataset of Income data
 
 -   From the top menu bar, select...
   - File
@@ -928,13 +840,19 @@ data](docs/income.xlsx){:target="\_blank"}
   - Click "Import"
 -   If asked to install the `readxl` package, click **Yes**.
 
-> Note: Don't worry about making a mistake importing this data. You can always remove it using the `rm()` function.
+</div>
 
-![Browse and import menu and buttons](images/rstudio-15.png)
+Don't worry about making a mistake importing this data. You can always remove it using the `rm()` function.
 
-![Import excel data window](images/rstudio-17.png)
+Browse and import menu and buttons
+<br>
 
-<!-- remove summary command from screenshot-->
+<img src="images/rstudio-15.png" alt="Browse and import menu and buttons" style="width:600px;"/>
+
+<br>
+Import excel data window
+
+<img src="images/rstudio-17.png" alt="Import excel data window" style="width:600px;"/>
 
 <br>
 
@@ -944,15 +862,17 @@ is `income`.
 **Definition - Data frame:** essentially a table. It is 2-dimensional
 object that can hold different types of data types.
 
-        
-> Additional: Data frames contain information about a set of objects (e.g., cats).<br>
-> - The data frame will contain one or more columns and one or more rows.<br>
-  > -   One column contains related values (column 1 = age, column 2 = eye color).<br>
-> - Because the column contains the same type of information, it is equivalent to a vector. <br>
-  >   - i.e., the 'eye color' column will contain characters, not numbers.<br>
-> - One row denotes one object from the set. In a data frame of information about a set of cats, each row is information about one specific cats.
+<details><summary>More about Data frames</summary>     
+Data frames contain information about a set of objects (e.g., cats).<br>
+- The data frame will contain one or more columns and one or more rows.<br>
+  - One column contains related values (column 1 = age, column 2 = eye color).<br>
+  - Because the column contains the same type of information, it is equivalent to a vector. <br>
+  - i.e., the 'eye color' column will contain characters, not numbers.<br>
+  - One row denotes one object from the set. In a data frame of information about a set of cats, each row is information about one specific cats.
+</details>
 
 A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it's spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
+
 
 ```{r  load-data, echo=FALSE, results='hide'}
 income <- read_excel("docs/income.xlsx")
@@ -979,10 +899,9 @@ The following will be the output:
 income
 ```
 
-        
-> Note: We will explore other ways to view and preview content of our data frames in Activity 3.
+We will explore other ways to view and preview content of our data frames in Activity 3.
 
-> Note: `<char>` stands for "character" data type and `<dbl>` stands for "double-precision floating point numbers data" type. <br>
+**Note:** `<char>` stands for "character" data type and `<dbl>` stands for "double-precision floating point numbers data" type. <br>
 
 
 We can see now that our data frame `income` contains 10 objects (rows),
@@ -995,7 +914,12 @@ and 4 variables (columns)
   - income (dbl) 
   - experience (dbl) <br>
 
-#### [Task 4.1.3:]{.underline} Display a summary of statistics for the `income` data.
+<div class="task-box" markdown="1">
+&#11088; [Task 3.1-3]{.underline} 
+
+**Display summary statistics.**
+
+Display a summary of statistics for the `income` data.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -1006,10 +930,11 @@ summary(income)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+</div>
 
 <br>
 
-### 4.2 Visualize Income with a Histogram plot
+### 3.2 Visualize Income with a Histogram plot
 
 In 3.2 we made a histogram to visualize the distribution of the pig
 weights. Remember that the parameter that the histogram function takes
@@ -1025,7 +950,13 @@ the name identifying a single set of values within that data frame.
   - e.g. 'eyeColour' might be the column name in a dataframe named
         'cats'.
 
-#### [Task 4.2.1:]{.underline} Display the vector of data relating to 'experience' in a histogram. 
+
+<div class="task-box" markdown="1">
+&#11088; [Task 3.2-1]{.underline} 
+
+**Create a histogram.**
+
+Display the vector of data relating to 'experience' as a histogram. 
 
 - X-label: 'Experience' 
 - Title: 'Histogram of Experience' <br>
@@ -1041,6 +972,8 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 endCodeDetailsBlock()
 ```
 
+</div>
+
 <br>
 
 The following will be the output:
@@ -1055,7 +988,7 @@ of observations falling in that cell.
 
 - Why are there 7 intervals? R automatically chooses the number of intervals for you.
 
-> Additional: If you preferred having 4 intervals (i.e., 'bins'), use can set that using the `breaks=''` parameter.
+*Additional:* If you preferred having 4 intervals (i.e., 'bins'), use can set that using the `breaks=''` parameter.
 
 
 ```{r echo = F, results='asis'}
@@ -1073,8 +1006,8 @@ endCodeDetailsBlock()
 <br>
 
 ```{=html}
-<script>  
 
+<script>  
 function toggle(input) {
     var x = document.getElementById(input);
     if (x.style.display === "none") {
@@ -1087,13 +1020,22 @@ function toggle(input) {
 ```
 ```{=html}
 <style>
-   details {
+details {
     background-color: lightgray; 
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
+.task-box {
+      border: 1.5px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f5f2f6;
+  }
+  
 </style>
+<!--https://gist.github.com/rxaviers/7360908-->
 ```
 
 [NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }

@@ -131,9 +131,9 @@ You might prefer to use the console for immediate execution, or testing of small
 
 <br>
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-&#11088; [Task 1]{.underline} 
+&#11088; [Task 1-1]{.underline} 
 
 **Open RStudio**
 
@@ -187,9 +187,9 @@ your keyboard.
 
 <br>
 
-<div class="boxed" markdown="1">
+<div class="task-box" markdown="1">
 
-&#11088; [Task 2]{.underline} 
+&#11088; [Task 2-1]{.underline} 
 
 **Try getting help!** 
 
@@ -237,9 +237,8 @@ Console following your command.
 The code editor is where you write and organize instructions in a script for R to follow. Think of it as a smart notepad that not only helps you learn and experiment but also allows you to save your work for later use. By writing code in the editor, you can easily reuse and adapt your scripts, and share them with collaborators
 
 
-<div class="boxed" markdown="1">
-
-&#11088; [Task 3]{.underline} 
+<div class="task-box" markdown="1">
+&#11088; [Task 3-1]{.underline} 
 
 **Create a new R script.**
 
@@ -248,7 +247,7 @@ The code editor is where you write and organize instructions in a script for R t
 1. Click File > New File > R Script.
 2. Save your script: A blank script opens in the code editor. Save it by clicking `File` > `Save` (choose a name and location).
   - It is useful to store all related files in one folder, such as this script and any data you import/export here.
-3. A blank script opens in the code editor. Start typing your code. As you would in the console. 
+3. A blank script opens in the code editor. Start typing your code as you would in the console. 
 </div>
 
 ### 3.1 Tips for writing code in an R script:
@@ -262,7 +261,7 @@ The code editor is where you write and organize instructions in a script for R t
   this is not a comment, and will cause an error
   ```
 
-- Use meaningful names
+- Use meaningful names (we will learn more about creating variables in the following activity page.)
 
   ```{r, eval = FALSE}
   # BAD naming
@@ -316,7 +315,7 @@ Run multiple lines of code:
   rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
   ```
   - If you run only Line 1, the value of `rectangle1.length` will change, but `rectangle1.width` and `rectangle1.area` will not change. <br>
-  - If you run only Line 2, the value of rectangle1.width` will change, but `rectangle1.length` and `rectangle1.area` will not change.<br>
+  - If you run only Line 2, the value of `rectangle1.width` will change, but `rectangle1.length` and `rectangle1.area` will not change.<br>
   - If you run only Line 3, no values will change.<br>
   - If you select lines 1, 2, and 3, all values will change. 
     
@@ -330,7 +329,7 @@ Run the entire script:
 	
 <br>
 
-### 4 Deleting variables
+### 3.3 Deleting variables
 
 Deleting the line of code that created a variable will not cause the variable to be removed.
 
@@ -353,8 +352,8 @@ Carefully consider the consequences of removing variables before doing so.
 
 <br><br>
 
-<div class="boxed"  markdown="1">
-&#11088; [Task 4]{.underline} 
+<div class="task-box"  markdown="1">
+&#11088; [Task 3.3-1]{.underline} 
 
 **Test editing variables.**
 
@@ -409,7 +408,7 @@ details {
     margin: 5px;
     border-radius: 5px;
 }
-.boxed {
+.task-box {
       border: 1.5px solid #ccc;
       padding: 10px;
       margin: 10px 0;
