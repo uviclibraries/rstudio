@@ -5,7 +5,7 @@ nav_order: 5
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
-3-Data Manipulation
+4-Data Manipulation
 ================
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
