@@ -1,5 +1,5 @@
 ---
-title: "2-Data Types, Basic Commands and Charting"
+title: "3-Data Types, Basic Commands and Charting"
 #author: DSC / Chloë Farr
 #date: '2024-01-18'
 output:
@@ -434,6 +434,7 @@ vectors.
 &#11088; [Task 1.2-4]{.underline} 
 
 **Create a new R script.**
+
 Make a vector for the following name values of miniature goats. 
 
 Name your variable `goat.name`
@@ -463,7 +464,7 @@ function.
 <br>
 
 <div class="task-box" markdown="1">
-&#11088; [Task 1.2-4]{.underline} 
+&#11088; [Task 1.2-5]{.underline} 
 
 **View information about variables.**
 
@@ -788,222 +789,6 @@ endCodeDetailsBlock()
 ------------------------------------------------------------------------
 <br>
 
-## 3. Importing Data
-
-So far, we've create our own objects by manually entering all of the
-data in the console. In this section, we'll learn how to create objects
-by importing (aka 'reading') data (compiled outside of R) into R and
-visualise it with a histogram.
-
-### 3.1 Importing Excel data into R
-
-R can handle multiple file types:
-
--   .csv (comma separated values)
--   excel (.xls, .xlsx)
--   .txt (and .tsv - tab separated values)
--   .json (used for nested data structures)
-    -   These would likely be arrays of more than 2 dimensions.
--   SPSS (another specialized statistics software)
--   Data scraped from the web or via an API.
-
-<div class="task-box" markdown="1">
-&#11088; [Task 3.1-1]{.underline} 
-
-**Import data.**
-
-Download and save [this Excel spreadsheet of Income
-data](docs/income.xlsx){:target="\_blank"}
-
--   *Note:* Please remember where the income.xlsx file is saved (usually
-    in a “downloads” or “desktop” folder).
-</div>
-
-<div class="task-box" markdown="1">
-&#11088; [Task 3.1-2]{.underline} 
-
-**Import data.**
-
-Import the dataset of Income data
-
--   From the top menu bar, select...
-  - File
-  - Import dataset
-  - From Excel
--   In the 'Import Excel Data' window select your file by:
-  - Entering the file path to the income.xlsx file you just
-      downloaded.
-  - Selecting "Browse" on the right side of the path bar and
-      locating it in the browser.
-  - Under 'Import Options,' make sure 'Name' is the same text as you
-      wish for the variable to be named. Ours will be 'income'.
-  - Click "Import"
--   If asked to install the `readxl` package, click **Yes**.
-
-</div>
-
-Don't worry about making a mistake importing this data. You can always remove it using the `rm()` function.
-
-Browse and import menu and buttons
-<br>
-
-<img src="images/rstudio-15.png" alt="Browse and import menu and buttons" style="width:600px;"/>
-
-<br>
-Import excel data window
-
-<img src="images/rstudio-17.png" alt="Import excel data window" style="width:600px;"/>
-
-<br>
-
-What you just imported is now stored as a 'data frame' object whose name
-is `income`.
-
-**Definition - Data frame:** essentially a table. It is 2-dimensional
-object that can hold different types of data types.
-
-<details><summary>More about Data frames</summary>     
-Data frames contain information about a set of objects (e.g., cats).<br>
-- The data frame will contain one or more columns and one or more rows.<br>
-  - One column contains related values (column 1 = age, column 2 = eye color).<br>
-  - Because the column contains the same type of information, it is equivalent to a vector. <br>
-  - i.e., the 'eye color' column will contain characters, not numbers.<br>
-  - One row denotes one object from the set. In a data frame of information about a set of cats, each row is information about one specific cats.
-</details>
-
-A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it's spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
-
-
-```{r  load-data, echo=FALSE, results='hide'}
-income <- read_excel("docs/income.xlsx")
-```
-
-To see the data in our data frame, simply enter the name of the data
-frame in the console and type 'enter' or 'return'.
-
-```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check your code")
-```
-```{r eval=FALSE}
-income
-```
-```{r echo = F, results='asis'}
-endCodeDetailsBlock()
-```
-
-<br>
-
-The following will be the output:
-
-```{r echo=FALSE}
-income
-```
-
-We will explore other ways to view and preview content of our data frames in Activity 3.
-
-**Note:** `<char>` stands for "character" data type and `<dbl>` stands for "double-precision floating point numbers data" type. <br>
-
-
-We can see now that our data frame `income` contains 10 objects (rows),
-and 4 variables (columns) 
-
-- It can be inferred that this data relates to 10 people 
-- The values with each person are: 
-  - id (in lieu of a name) (dbl) 
-  - gender (char) 
-  - income (dbl) 
-  - experience (dbl) <br>
-
-<div class="task-box" markdown="1">
-&#11088; [Task 3.1-3]{.underline} 
-
-**Display summary statistics.**
-
-Display a summary of statistics for the `income` data.
-
-```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check your code")
-```
-```{r}
-summary(income)
-```
-```{r echo = F, results='asis'}
-endCodeDetailsBlock()
-```
-</div>
-
-<br>
-
-### 3.2 Visualize Income with a Histogram plot
-
-In 3.2 we made a histogram to visualize the distribution of the pig
-weights. Remember that the parameter that the histogram function takes
-is a vector.
-
-To extract a vector (column) from our data frame, we will pass in
-`dataframeName$columnName`, where the name of our data is separated by
-the name identifying a single set of values within that data frame.
-
--   Replace *dataframeName* with the name of your imported data
--   Replace *columnName* with the column name representing the
-    information you would like to analyse.
-  - e.g. 'eyeColour' might be the column name in a dataframe named
-        'cats'.
-
-
-<div class="task-box" markdown="1">
-&#11088; [Task 3.2-1]{.underline} 
-
-**Create a histogram.**
-
-Display the vector of data relating to 'experience' as a histogram. 
-
-- X-label: 'Experience' 
-- Title: 'Histogram of Experience' <br>
-
-```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check your code")
-```
-```{r eval=FALSE}
-#Remember, the generated histogram will appear in the Plot tab.
-hist(income$experience, main='Histogram of Experience',xlab='Experience')
-```
-```{r echo = F, results='asis'}
-endCodeDetailsBlock()
-```
-
-</div>
-
-<br>
-
-The following will be the output:
-
-```{r echo=FALSE}
-hist(income$experience, main='Histogram of Experience',xlab='Experience')
-```
-
-We can see in the histogram that there are 7 intervals with equally
-spaced breaks. In this case, the height of a cell is equal to the number
-of observations falling in that cell. 
-
-- Why are there 7 intervals? R automatically chooses the number of intervals for you.
-
-*Additional:* If you preferred having 4 intervals (i.e., 'bins'), use can set that using the `breaks=''` parameter.
-
-
-```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check Your Code for custom number of intervals")
-```
-```{r}
-#breaks is equal to the number of intervals
-#You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
-hist(income$experience, breaks=3)
-```
-```{r echo = F, results='asis'}
-endCodeDetailsBlock()
-```
-
-<br>
 
 ```{=html}
 
@@ -1038,4 +823,4 @@ details {
 <!--https://gist.github.com/rxaviers/7360908-->
 ```
 
-[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }
+[NEXT STEP: Importing Data](basics-importing-data.html){: .btn .btn-blue }
