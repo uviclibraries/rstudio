@@ -6,7 +6,7 @@ parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 
-4-Data Visualization with ggplot2
+5-Data Visualization with ggplot2
 ================
 
 - [1. Getting Ready](#1-getting-ready)
