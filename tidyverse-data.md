@@ -1,34 +1,33 @@
 ---
 layout: default
 title: 5-Data Manipulation
-nav_order: 5
+nav_order: 6
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 5-Data Manipulation
 ================
+DSC Chloe Farr
+2024-01-18
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
   - [1. Getting Ready for Tidyverse : Installing
     Packages](#1-getting-ready-for-tidyverse--installing-packages)
   - [2. Getting data](#2-getting-data)
-  - [3: Preparing our Workspace](#3-preparing-our-workspace)
+  - [3. Preparing our Workspace](#3-preparing-our-workspace)
   - [4. Introducing Piping](#4-introducing-piping)
     - [4.1 Before Piping](#41-before-piping)
     - [4.2 Piping](#42-piping)
     - [4.3 Selecting specific columns](#43-selecting-specific-columns)
     - [4.4 Select specific rows based on a
       condition](#44-select-specific-rows-based-on-a-condition)
-    - [4.5 Modify a dataframe with
-      ‘mutate’](#45-modify-a-dataframe-with-mutate)
+    - [4.5 Modify a data frame with
+      `mutate()`](#45-modify-a-data-frame-with-mutate)
     - [4.6 Sorting data with `arrange()`](#46-sorting-data-with-arrange)
     - [4.7 Summarizing variables with
-      summarize](#47-summarizing-variables-with-summarize)
+      `summarise()`](#47-summarizing-variables-with-summarise)
     - [4.8 Analyzing groups with
-      group_by](#48-analyzing-groups-with-group_by)
-
-<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
-<br>
+      `group_by()`](#48-analyzing-groups-with-group_by)
 
 <style type="text/css">
 div.html-widget {
@@ -40,7 +39,6 @@ div.html-widget {
   white-space: nowrap;
 }
 </style>
-
 
 <img src="images/tidyverse-01.png" alt="rstudio logo" style="float:right;width:180px;"/>
 
@@ -62,42 +60,52 @@ function.
 
 <br>
 
-#### <u>Task 1.1:</u> Install the tidyverse package.
+<div class="task-box">
+
+⭐ <u>Task 1-1</u>
+
+**Install the tidyverse package in the Console window.**
 
 Package name: tidyverse
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
 </summary>
 
 ``` r
-install.packages("tidyverse") #then, as always, type 'enter' or 'return' to submit the command for execution
+install.packages("tidyverse")
 ```
 
 </details>
 
-{::options parse_block_html='false'/}
-
-*Hint:* wrap the package name in `""` quotations, as it is a string
-
+*Hint:* wrap the package name in `""` quotations, because it is a string
 type.
+
+</div>
 
 *Note:* The installation may take a while, sometimes up to 10-15
 minutes. When it’s complete, the right angle bracket `>` will appear at
 the last line of your console.
 
-After we install a package, we have to load it, using the `library()`
-function. Do not wrap the package name in quotes when using `library()`
+**Confirm installation**
 
-{::options parse_block_html='true' /}
+To check if the package is installed, enter the following in the console
+
+``` r
+# Paste both lines into the console, and then run. 
+installed <- installed.packages()
+"tidyverse" %in% rownames(installed)
+```
+
+    ## [1] TRUE
+
 <details>
 <summary>
 Why no quotations for library()?
 </summary>
 
-When you install a package in R using **`install.packages()`**, the
+<br> When you install a package in R using **`install.packages()`**, the
 package name must be a character string, hence the quotes. This is
 because **`install.packages()`** is a function that takes a character
 vector as its argument, representing the names of the packages to be
@@ -112,153 +120,122 @@ interprets as the name of a package to load.
 In summary, the quotes are needed for **`install.packages()`** because
 it expects a character string, while **`library()`** is designed to take
 an unquoted name that it interprets as a package name.
-</details>
 
-{::options parse_block_html='false'/}
+</details>
 
 <br>
 
-#### <u>Task 1.2:</u> Load the ‘tidyverse’ library.
+**Load the ‘tidyverse’ library.**
 
-{::options parse_block_html='true' /}
+After we install a package, we have to load it using the `library()`
+function.
+
+- Do not wrap the package name in quotes when using `library()`.
+
+- :heavy_exclamation_mark: Put this command in your R script, not in the
+  console. Why? The package only needs to be *installed* once, but it
+  needs to be *loaded* any time you open your script.
+
+  - Packages also need to be reloaded every time the project is ‘knit’,
+    an action covered in the intermediate workshop.
+
 <details>
 <summary>
 Check Your Code
 </summary>
 
 ``` r
-library(tidyverse)
+library(tidyverse) #then, as always, type 'enter' or 'return' to submit the command for execution
 ```
 
 </details>
 
-{::options parse_block_html='false'/}
-
-*Note:* You only need to install a package once, but you need to reload
-it every time you start a new session.
+<br>
 
 ## 2. Getting data
 
-<br>
+<div class="task-box">
 
-#### <u>Task 2.1:</u> Download data about purchase orders
+⭐ <u>Task 2-1</u>
 
-- We will use this data for the tasks in this activity.
+**Download and import data**
+
+From [this
+link](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target=“\_blank”}
+download the following data we have prepared for you to use in this
+activity.
+
+Save the file in the same folder as your R script.
+
+Import the data as you learned in the previous activity.
+
+</div>
 
 <img src="images/messy_purchase_orders.png" alt="purchase orders photo" style="float:right;width:180px;"/>
 
-Download
-[this](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target=“\_blank”}
-file and use it to do the tasks in this activity.
+*If you have your own data, you may use that as well although it may not
+line up with the instructions in the activity.* <br>
 
 *Note:* Activities 3 and 4 draw from Kaggle’s [Manipulating Data with
 the
 Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse/notebook){:target=“\_blank”}.
 
-## 3: Preparing our Workspace
-
-**Before moving ahead,** ensure that you have installed and loaded the
-tidyverse package.
+## 3. Preparing our Workspace
 
 In this activity, we will be working with a table containing information
 about shipping orders Each row represents one order, and each column
 represents a specific type of data pertaining to the orders <br>
 
-#### <u>Task 3.1:</u> Read in your data set.
-
-Data set file name: `Global_Superstore_Orders_2016.csv` through either
-of the following to ways:
-
-To import:
-
-<u>Option a:</u>
-
-- Click the **Files** tab in the lower right panel
-- Navigate to the **Global_Superstore_Orders_2016s.csv** file
-- then click on this file
-- and click **Import data set**
-- In the pop-out window, change the data set’s name to **purchaseData**
-- then click **Import**.
-
-If your file isn’t visible in the main Files window, click the … button
-on the far right hand side of the files panel, across from the Home
-button, immediately above the ‘Modified’ column header. This will open
-the file explorer and you can search from your entire computer.
-
-<details>
-<summary>
-Show gif of import dataset
-</summary>
-
-![](images/tidyverse-02.gif)
-
-</details>
-
-<u>Option b:</u>
-
-Load your data in via the console using the `read.csv()` function.
-
-- The parameter this function takes is the filepath to your data,
-  followed by the file name.
-  - i.e. *\[your/file/path/filename.extension\]*
-- Rename your dataset to `purchaseData`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check Your Code
-</summary>
+- Rename your data set to `purchaseData`
 
 ``` r
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
-purchaseData <- read.csv("Desktop/Global_Superstore_Orders_2016.csv")
+purchaseData <- read.csv("docs/Global_Superstore_Orders_2016.csv")
 ```
 
-</details>
-
-{::options parse_block_html='false'/}
-
-<br> For larger data sets, it’s better to preview than view our data.
-This data set has quite a few columns and rows! Let’s take a look at the
-first few rows and get the dimensions (number of rows and columns) of
-the data set.
+<br> :heavy_exclamation_mark: For larger data sets, it’s better to
+*preview* than *view* our data. Purchase Data has quite a few columns
+and rows! Let’s take a look at the first few rows and get the dimensions
+(number of rows and columns) of the data set.
 
 We can preview the data set using the `head()` function. This will
 display the first number of rows.
 
-Parameters
+- Parameters (in order):
+  - data set name
+  - number of rows to display
 
-- data set name
-- number of rows to display
+*Note:* In cases where there are more columns that fit horizontally in
+the console, the results will wrap, as seen in the output of Task 3-1.
 
-<br>
+<div class="task-box">
 
-#### <u>Task 3.2:</u> Look at the first 5 rows of our purchase data.
+⭐ <u>Task 3-1</u>
 
-<br>
+**Look at the first 5 rows of our purchase data.**
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
 </summary>
 
 ``` r
-#name of data set name: "purchaseData"
-#number of rows to display: 5
+# name of data set name: "purchaseData"
+# number of rows to display: 5
 head(purchaseData, 5)
 ```
 
 </details>
 
-{::options parse_block_html='false'/}
+*Hint:* `head(*data setName*, *numberOfRows*)`
 
-*Hint:* `head(*datasetName*, *numberOfRows*)`
+</div>
 
 <br>
 
-The following will be the output (only showing 6 columns for display
-purposes. Your output will be much wider!):
+The following will be the output (For the purpose of readability, this
+only shows 6 columns. Your output will be much wider, and columns will
+continue to wrap below!):
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
     ## 1  40098 CA-2014-AB10015140-41954 2014-11-11 2014-11-13  First Class
@@ -273,12 +250,10 @@ purposes. Your output will be much wider!):
     ## 4   KM-1637548
     ## 5   RH-9495111
 
-<br>
-
-#### <u>Task 3.3:</u> Find out the dimensions of the table, i.e., number of rows and columns.
-
 We can find out the dimensions (rows and columns) using the`dim()`
 function.
+
+- Parameter: data set name
 
 Now, we’ve imported our data and previewed the first 10 rows of our
 purchase data, but how big is the data set?
@@ -286,18 +261,20 @@ purchase data, but how big is the data set?
 - How many rows?
 - How many columns?
 
-Parameter: dataset name
+<div class="task-box">
 
-Get the dimensions of the purchase dataset. <br>
+⭐ <u>Task 3-2</u>
 
-{::options parse_block_html='true' /}
+**Find out the dimensions of the data set**, i.e., number of rows and
+columns.
+
 <details>
 <summary>
 Check Your Code
 </summary>
 
 ``` r
-# name of data set name: "purchaseData"
+## name of data set name: "purchaseData"
 dim(purchaseData)
 ```
 
@@ -305,16 +282,20 @@ dim(purchaseData)
 
 </details>
 
-{::options parse_block_html='false'/}
+</div>
 
-<br>
+------------------------------------------------------------------------
+
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
 
 ## 4. Introducing Piping
 
 `%>%` This symbol is known as a “pipe,” and it’s used for feeding the
 result of one function directly into the next function.
 
-- E.g., To sort the column names alphabetically, you could either enter:
+- e.g., To sort the column names alphabetically, you could either enter:
   - two separate commands creating two data objects
   - utilize piping to create one data object for your target object.
 
@@ -342,18 +323,27 @@ it alphabetically?
 
 <br>
 
-#### <u>Task 4.1.1:</u> Create an object containing the list of column names from our purchase data.
+For the following activity, we’ll be using column names of our data
+frame.
 
-To get a list of our column names we can use the `names()` function.
+- To get a list of our column names we can use the `names()` function.
+  - parameter: data frame
+  - In this case, results appear in a vector rather than a list because
+    the column names are all the same data type (strings).
+  - *Note*: The `names()` function is only useful for data frames and
+    matrices for which we have column names.
 
-- In this case, results in a vector, because all of the column names are
-  strings of characters
+<div class="task-box">
 
-  Name this object ‘purchaseDataColumnNames’
+⭐ <u>Task 4.1-1</u>
 
-<br>
+**Create an object**
 
-{::options parse_block_html='true' /}
+Create an object containing the list of column names from our purchase
+data.\*\*
+
+- Name this object `purchaseDataColumnNames`
+
 <details>
 <summary>
 Check Your Code
@@ -365,23 +355,28 @@ purchaseDataColumnNames <- names(purchaseData)
 
 </details>
 
-{::options parse_block_html='false'/}
+</div>
 
 <br>
-
-#### <u>Task 4.1.2:</u> Create an object containing the list of column names from our purchase data that is sorted alphabetically.
 
 We can sort vectors into ascending and descending order (low to high or
 high to low) using the `sort()` function.
 
-First, let’s look at each of these functions on their own.
-
-- Name this object ‘alphaPurchaseDataColumnNames’
 - Parameter: the vector of column names
 
-<br>
+Let’s look at each of these functions on their own.
 
-{::options parse_block_html='true' /}
+<div class="task-box">
+
+⭐ <u>Task 4.1-2</u>
+
+**Create an object**
+
+Create an containing the list of column names from our purchase data
+that is sorted alphabetically.
+
+- Name this object `alphaPurchaseDataColumnNames`
+
 <details>
 <summary>
 Check Your Code
@@ -393,22 +388,22 @@ alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* You already created the vector containing the list of column
 names from our purchase data! <br>
 
-<br> In Tasks 4.1.1 and 4.1.2, we ran two commands resulting in two
+</div>
+
+<br> In Tasks 4.1-1 and 4.1-2, we ran two commands resulting in two
 separate variables containing the column names:
 
 - `purchaseDataColumnNames`: Ordered as they would be if the file were
   opened in excel
 - `alphaPurchaseDataColumnNames`: Ordered alphabetically (sorted)
 
-<br> However, if we don’t care about the list of column names *unless*
-they are sorted alphabetically:
+<br> However, if we only care about the list of column names if they are
+sorted alphabetically:
 
-- we can achieve that using only 1 command,
+- We can achieve that using only 1 command,
   - creating only 1 variable with “nesting”.
 
 <br> **Definition - Nesting:** Use one function as a parameter of
@@ -418,11 +413,17 @@ another function.
 
 <br>
 
-#### <u>Task 4.1.3:</u> In this task, use nesting to create 1 variable containing a sorted vector of the column names.
+<div class="task-box">
+
+⭐ <u>Task 4.1-3</u>
+
+**Create a variable through nested functions**
+
+**In this task, use nesting to create 1 variable containing a sorted
+vector of the column names.**
 
 - Name this variable: `alphabeticalColumnNames` <br>
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -436,12 +437,13 @@ alphabeticalColumnNames <- sort(names(purchaseData))
 
 </details>
 
-{::options parse_block_html='false'/}
-
 <br> *Hints*: the parameter of `names()` is the `sort()` function, and
-the parameter of `sort()` is the dataset <br> As you might imagine,
-nesting could result in very long commands that would be hard to
-interpret.
+the parameter of `sort()` is the data set.
+
+</div>
+
+<br> As you might imagine, nesting could result in very long commands
+that would be hard to interpret.
 
 There is a cleaner way to do this than nesting: Piping!
 
@@ -459,12 +461,18 @@ sequentially, separated by the pipe symbol `%>%`.
 
 <br>
 
-#### <u>Task 4.2.1:</u> In this task, use piping to create 1 variable containing the first 5 column names.
+<div class="task-box">
+
+⭐ <u>Task 4.2-1</u>
+
+**Create a variable through piping**
+
+In this task, use piping to create 1 variable containing the first 5
+column names.
 
 - Do not use objects you have created so far, except `purchaseData`
 - Name your new variable: `purchaseDataNamesPeek` <br>
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -486,30 +494,27 @@ purchaseDataNamesPeek
 
 </details>
 
-{::options parse_block_html='false'/}
+*Hint*: the parameter of `names()` is the `head()` function. <br>
 
-<br> *Hint*: the parameter of `names()` is the `head()` function. <br>
-<br>
+</div>
 
 If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
 variable. <br>
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Show code for previewing with piping
 </summary>
 
 ``` r
+# Do not begin the command with `newVariableName <-`
 names(purchaseData) %>% head(5)
 ```
 
     ## [1] "Row_ID"     "Order_ID"   "Order_Date" "Ship_Date"  "Ship_Mode"
 
 </details>
-
-{::options parse_block_html='false'/}
 
 ------------------------------------------------------------------------
 
@@ -549,6 +554,10 @@ statements. <br>
 
 ------------------------------------------------------------------------
 
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
+
 ### 4.3 Selecting specific columns
 
 The commands in this section (4.3) will not create data objects as we
@@ -561,18 +570,21 @@ won’t be using them later on.
 
 - This will make things easier for you.
 
-<br>
+- To get a specific column, use piping and the `select()` function on
+  your data set.
 
-#### <u>Task 4.3.1:</u> Preview the values in the Row ID column
+  - The parameter is the name of the column you want to access.
 
-To get a specific column, use piping and the `select()` function on your
-data set.
+<div class="task-box">
 
-- The parameter is the name of the column you want to access.
+⭐ <u>Task 4.3-1</u>
+
+**View a vector**
+
+Preview the values in the Row ID column.
 
 - Column name: `Row_ID`
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -592,24 +604,27 @@ purchaseData %>% select(Row_ID) %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* Begin with the name of the data set, followed by your select
 function passing in the column name as the parameter.
 
-<br>
+</div>
 
-#### <u>Task 4.3.2:</u> Select all the columns from your purchase data that do *not* start with “Postal_Code”.
+To select all of the columns from our data set that do *not* start with
+specific text, we do the inverse,
 
-<br> To select all of the columns from our data set that do *not* start
-with specific text, we do the inverse,
+- Again using the `select()` function
+- The parameter has a minus sign `-` before the string value we want to
+  exclude.
 
-- again using the `select()` function
-- the parameter has a `-` before the string value we want to exclude.
+<div class="task-box">
 
-<br>
+⭐ <u>Task 4.3-2</u>
 
-{::options parse_block_html='true' /}
+**Get a set of vectors from data frame**
+
+Select all the columns from your purchase data that do *not* start with
+“Postal_Code”.
+
 <details>
 <summary>
 Check Your Code
@@ -652,23 +667,18 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/} <br>
+</div>
 
-#### <u>Task 4.3.3:</u> Select all the columns from our cleaned purchase data that start with “Product”.
+:heavy_exclamation_mark:We can also select a *subset* of columns
 
-We can also select a set of columns.
-
-- E.g., columns whose names begin with a common string of characters.
+- e.g., columns whose names begin with a common string of characters.
 
 - This will return a subset of our table, not necessarily a single
   vector
 
-In our dataset, multiple column names begin with “Product”. We want to
-see only the data of columns whose names begin with “Product.”
-
-<br>
-
-Here’s how it’s done:
+In our data set, multiple column names begin with “Product”. We want to
+see only the data of columns whose names begin with “Product.” The
+following explains the process.
 
 - Use piping on your purchaseData
 
@@ -687,16 +697,24 @@ Here’s how it’s done:
 - The parameter for `starts_with()` is the value of the beginning of all
   columns you want to select.
 
-<br>
+<div class="task-box">
 
-{::options parse_block_html='true' /}
+⭐ <u>Task 4.3-3</u>
+
+**Get a set of vectors from data frame**
+
+Select all the columns from our cleaned purchase data that start with
+“Product”.
+
+Write the one-line command to achieve this with piping
+
 <details>
 <summary>
 Check Your Code
 </summary>
 
 ``` r
-#selecting all columns (and their values) from purchaseData whose names begin with "Product"
+# Selects all columns (and their values) from purchaseData whose names begin with "Product"
 purchaseData %>% select(starts_with("Product")) %>% head(5)
 ```
 
@@ -709,16 +727,14 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
-<br>
+</div>
 
 ### 4.4 Select specific rows based on a condition
 
-While we may only want to handle certain items (rows) in our dataset
+While we may only want to handle certain items (rows) in our data set
 based on certain criteria.
 
-- This is called “filtering.”
+- This is called “filtering”
 
 - We can filter for different purposes, like processing statistical
   operations, making charts and so on.
@@ -728,11 +744,20 @@ based on certain criteria.
 
 <br>
 
-#### <u>Task 4.4.1:</u> Filter all the rows from your purchase data where `Quantity` is greater than 10.
-
 To select items (rows, *not* columns), we use the `filter()` function.
 
-{::options parse_block_html='true' /}
+- The parameter for `filter()` is the name of the column holding the
+  values that are being filtered.
+
+<div class="task-box">
+
+⭐ <u>Task 4.4-1</u>
+
+**Filter conditionally**
+
+**Filter all the rows from your purchase data where `Quantity` is
+greater than 10.**
+
 <details>
 <summary>
 Check Your Code
@@ -781,15 +806,18 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* `>` is the ‘greater than’ operator.
 
-<br>
+</div>
 
-#### <u>Task 4.4.2:</u> Filter all the rows from your purchase data where `City` is “Sydney”.
+<div class="task-box">
 
-{::options parse_block_html='true' /}
+⭐ <u>Task 4.4-2</u>
+
+**Filter conditionally**
+
+Filter all the rows from your purchase data where `City` is “Sydney”.
+
 <details>
 <summary>
 Check Your Code
@@ -832,20 +860,24 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* `==` is used for “equal to”
 
-<br>
+</div>
 
-#### <u>Task 4.4.3:</u> Create a new dataframe with all the rows from purchaseData where `Country` is “United States” and `Discount` is greater than 0.
+<div class="task-box">
 
-- Name this dataframe: `discountedUSPurchases`
+⭐ <u>Task 4.4-3</u>
 
-**- Do not add ” %\>% head(5)” to the command when creating a new
-dataframe**
+**Create a data frame**
 
-{::options parse_block_html='true' /}
+Create a new data frame with all the rows from purchaseData where
+`Country` is “United States” and `Discount` is greater than 0.
+
+- Name this data frame: `discountedUSPurchases`
+
+- :heavy_exclamation_mark: Do not add ” %\>% head(5)” to the command
+  when <u>creating</u> a new data frame
+
 <details>
 <summary>
 Check Your Code
@@ -854,8 +886,7 @@ Check Your Code
 ``` r
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
 
-
-#view your dataframe
+#view your data frame
 discountedUSPurchases %>% head(5)
 ```
 
@@ -892,13 +923,19 @@ discountedUSPurchases %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* `&` is used for “and”, in cases where you want to manage
 multiple cases like filtering my two variables<br> - e.g., values of the
-`Sub_Category` and `Order_Priority` columns. <br>
+`Sub_Category` and `Order_Priority` columns.
 
-### 4.5 Modify a dataframe with ‘mutate’
+</div>
+
+------------------------------------------------------------------------
+
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
+
+### 4.5 Modify a data frame with `mutate()`
 
 “Mutation” involves creating or altering columns in a data frame,
 
@@ -912,7 +949,7 @@ multiple cases like filtering my two variables<br> - e.g., values of the
 <br> <u>Here’s how we’ll do it:</u>
 
 - Assign the mutation (modification) to an existing variable
-  - `existing_dataframe_name <-`
+  - `existing_data frame_name <-`
 - Identify the existing variable name of the object you want to mutate
   - `purchaseData`
 - Use a pipe to identify the action being performed on our existing
@@ -934,62 +971,47 @@ multiple cases like filtering my two variables<br> - e.g., values of the
       - `==` means “the left value is equal to the right value”
         - aka. The result will be everything in the data that is “Low”
 
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check Your Code
-</summary>
-
 ``` r
 purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
 
-#view your dataframe
-purchaseData %>% head(5)
+#view first 3 rows of your data frame
+purchaseData %>% head(3)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
     ## 1  40098 CA-2014-AB10015140-41954 2014-11-11 2014-11-13  First Class
     ## 2  26341   IN-2014-JR162107-41675 2014-02-05 2014-02-07 Second Class
     ## 3  25330   IN-2014-CR127307-41929 2014-10-17 2014-10-18  First Class
-    ## 4  13524  ES-2014-KM1637548-41667 2014-01-28 2014-01-30  First Class
-    ## 5  47221  SG-2014-RH9495111-41948 2014-11-05 2014-11-06     Same Day
-    ##    Customer_ID    Customer_Name     Segment Postal_Code          City
-    ## 1 AB-100151402    Aaron Bergman    Consumer       73120 Oklahoma City
-    ## 2    JR-162107    Justin Ritter   Corporate          NA    Wollongong
-    ## 3    CR-127307     Craig Reiter    Consumer          NA      Brisbane
-    ## 4   KM-1637548 Katherine Murray Home Office          NA        Berlin
-    ## 5   RH-9495111      Rick Hansen    Consumer          NA         Dakar
-    ##             State       Country         Region       Market  Product_ID
-    ## 1        Oklahoma United States     Central US         USCA TEC-PH-5816
-    ## 2 New South Wales     Australia        Oceania Asia Pacific FUR-CH-5379
-    ## 3      Queensland     Australia        Oceania Asia Pacific TEC-PH-5356
-    ## 4          Berlin       Germany Western Europe       Europe TEC-PH-5267
-    ## 5           Dakar       Senegal Western Africa       Africa TEC-CO-6011
-    ##     Category Sub_Category                              Product_Name   Sales
-    ## 1 Technology       Phones                          Samsung Convoy 3  221.98
-    ## 2  Furniture       Chairs Novimex Executive Leather Armchair, Black 3709.40
-    ## 3 Technology       Phones         Nokia Smart Phone, with Caller ID 5175.17
-    ## 4 Technology       Phones            Motorola Smart Phone, Cordless 2892.51
-    ## 5 Technology      Copiers            Sharp Wireless Fax, High-Speed 2832.96
-    ##   Quantity Discount  Profit Shipping_Cost Order_Priority Low_Priority
-    ## 1        2      0.0   62.15         40.77           High        FALSE
-    ## 2        9      0.1 -288.77        923.63       Critical        FALSE
-    ## 3        9      0.1  919.97        915.49         Medium        FALSE
-    ## 4        5      0.1  -96.54        910.16         Medium        FALSE
-    ## 5        8      0.0  311.52        903.04       Critical        FALSE
+    ##    Customer_ID Customer_Name   Segment Postal_Code          City
+    ## 1 AB-100151402 Aaron Bergman  Consumer       73120 Oklahoma City
+    ## 2    JR-162107 Justin Ritter Corporate          NA    Wollongong
+    ## 3    CR-127307  Craig Reiter  Consumer          NA      Brisbane
+    ##             State       Country     Region       Market  Product_ID   Category
+    ## 1        Oklahoma United States Central US         USCA TEC-PH-5816 Technology
+    ## 2 New South Wales     Australia    Oceania Asia Pacific FUR-CH-5379  Furniture
+    ## 3      Queensland     Australia    Oceania Asia Pacific TEC-PH-5356 Technology
+    ##   Sub_Category                              Product_Name   Sales Quantity
+    ## 1       Phones                          Samsung Convoy 3  221.98        2
+    ## 2       Chairs Novimex Executive Leather Armchair, Black 3709.40        9
+    ## 3       Phones         Nokia Smart Phone, with Caller ID 5175.17        9
+    ##   Discount  Profit Shipping_Cost Order_Priority Low_Priority
+    ## 1      0.0   62.15         40.77           High        FALSE
+    ## 2      0.1 -288.77        923.63       Critical        FALSE
+    ## 3      0.1  919.97        915.49         Medium        FALSE
 
-</details>
+<div class="task-box">
 
-{::options parse_block_html='false'/}
+⭐ <u>Task 4.5-1</u>
 
-<br>
+**Add a column to your dataframe**
 
-#### <u>Task 4.5.2:</u> Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the purchase data that identifies whether a purchase’s shipping cost is greater than 100 dollars.
+Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to
+the purchase data that identifies whether a purchase’s shipping cost is
+greater than 100 dollars.
 
 - Name the new column: `High_Shipping`
 - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -998,7 +1020,7 @@ Check Your Code
 ``` r
 purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
 
-#view your dataframe
+#view your data frame
 purchaseData %>% head(5)
 ```
 
@@ -1041,13 +1063,15 @@ purchaseData %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* `Shipping_Cost > 100`
 
-<br>
+</div>
 
-#### <u>Task 4.5.3:</u> Add a new column based on TWO conditions
+<div class="task-box">
+
+⭐ <u>Task 4.5-2</u>
+
+**Add a new column based on TWO conditions**
 
 Add a new variable `Discounted_US` that is TRUE if the purchase is made
 in the United States and has been discounted
@@ -1056,7 +1080,6 @@ in the United States and has been discounted
 - Filter for discounted orders by selecting all objects where the values
   in the `Discount` column are greater than 0.
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -1074,25 +1097,22 @@ summary(purchaseData$Discounted_US)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* `logicalStatement & logicalStatement`
 
-<br>
+</div>
 
 ### 4.6 Sorting data with `arrange()`
 
 Being able to arrange data by ordering values numerically or
-alphabeticaly is particularly handy for swiftly identifying which
+alphabetically is particularly handy for swiftly identifying which
 measurements recorded the highest or lowest values.
 
-**`sort()` will not work on a dataframe** **CHLOE: ADD SOME SORT OF
-GRAPHIC** <br>
-
-#### <u>Task 4.6.1:</u> Update the purchaseData to sort objects by price (low to high).
+<!--**CHLOE: ADD SOME SORT OF GRAPHIC**-->
 
 The `arrange()` function enables you to order your data frame according
 to the values of a specific variable.
+
+- Parameter of `arrange()` is `Sales`
 
 - This is particularly handy for swiftly identifying which measurements
   recorded the highest or lowest values.
@@ -1102,9 +1122,18 @@ organize by.
 
 - In this case, it will arrange the data based on the sales value
   - a new variable that we recently formulated using `mutate()`
-- Parameter of `arrange()` is `Sales`
 
-{::options parse_block_html='true' /}
+*hint*: You can also use the `sort()` function but it only takes a
+vector parameter, not a data frame.
+
+<div class="task-box">
+
+⭐ <u>Task 4.6-1</u>
+
+**Sort data frame**
+
+Update `purchaseData` to sort objects by price (low to high).
+
 <details>
 <summary>
 Check Your Code
@@ -1113,7 +1142,7 @@ Check Your Code
 ``` r
 purchaseData <- purchaseData %>% arrange(Sales)
 
-#view your dataframe
+#view your data frame
 purchaseData %>% head(5)
 ```
 
@@ -1156,29 +1185,30 @@ purchaseData %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 *Hint:* Do not wrap the column name in quotations.
 
-### 4.7 Summarizing variables with summarize
+</div>
 
-<br>
+### 4.7 Summarizing variables with `summarise()`
 
-#### <u>Task 4.7.1:</u> Use the `summarise()` function to synthesize information in a data frame with the mean Sales value and median discount amount
+The `summarise()` function synthesizes information into a data frame
+with information like totals, averages, medians, and so on.
 
-To summarise information in your data table, you can get information
-like totals, averages, medians, and so on.
+- `summarise()` takes an unlimited number of parameters, where each
+  parameter will appear as a column. <br>
 
-`summarise()` takes an unlimited number of parameters, where each
-parameter will appear as a column.
+<div class="task-box">
+
+⭐ <u>Task 4.7-1</u>
+
+**Preview statistics**
+
+Preview the mean sales values and mean discount values in the discounted
+US purchases data using the `summarise()` function.
 
 - parameter 1: `columnName = mean(column)`
 - another parameter: `columnName2 = mean(another column)`
 
-Preview the mean sales values and mean discount values in the discounted
-US purchases data.
-
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -1195,35 +1225,40 @@ discountedUSPurchases %>%
 #To retrieve this data later, assign this command to a new variable.
 ```
 
-    ##   meanSales meanDiscount
-    ## 1  232.7353    0.3004407
-
 </details>
-
-{::options parse_block_html='false'/}
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 
-### 4.8 Analyzing groups with group_by
+</div>
 
-Let’s say we wanted to know how profitable each US city is. We can get
-the average profit, but grouped by US city. From this, we can sort by
-profit to see what the most and least profitable cities are.
+### 4.8 Analyzing groups with `group_by()`
 
-#### <u>Task 4.8.1:</u> Create a dataframe of US Cities and their average profit for each
+Let’s say we wanted to know how profitable each US city is.
 
-- You will use the `discountedUSPurchases` dataframe to create this new
-  dataframe
-- Name the new dataframe `USCityProfits`
-- You will use `group_by()` with `City`, where each row will be a city
+We can get the average profit, but grouped by US city.
+
+From this, we can sort by profit to see what the most and least
+profitable cities are.
+
+<div class="task-box">
+
+⭐ <u>Task 4.8-1</u>
+
+**Create a data frame**
+
+Create a data frame of US Cities and their average profit for each.
+
+- You will use the `discountedUSPurchases` data frame to create this
+  *new* data frame.
+- Name the new data frame `USCityProfits`.
+- You will use `group_by()` with `City`, where each row will be a city.
 - You will use `summarise()` function to get the summary statistics for
-  each city
+  each city.
 - The statistic you will be summarizing total `Profit` values on
   purchases made in the US where the items have been discounted.
 
-**! Don’t add `head(5)` when creating a new variable.**
+**Do not create a new variable using `head(5)`**
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -1238,18 +1273,17 @@ USCityProfits <- discountedUSPurchases %>%
 
 </details>
 
-{::options parse_block_html='false'/}
-
-<br>
+</div>
 
 The table will be sorted by city, alphabetically
 
-- Sort the table by `Profit` using the `arrange()` function. to order it
-  by the lowest profitable city to the highest profitable city
+You can use the functions you just learned to review this new data
+frame.
+
+⭐ **Sort the table by `Profit` using the `arrange()` function to order
+it by the lowest profitable city to the highest profitable city.**
 
 <br>
-
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -1261,11 +1295,9 @@ USCityProfits <- USCityProfits %>% arrange(totalProfit)
 
 </details>
 
-{::options parse_block_html='false'/}
+<br>
 
-<br> View the 5 least profitable cities <br>
-
-{::options parse_block_html='true' /}
+⭐ **View the 5 least profitable cities.** <br>
 <details>
 <summary>
 Check Your Code
@@ -1274,7 +1306,7 @@ Check Your Code
 ``` r
 USCityProfits <- USCityProfits %>% arrange(sum(totalProfit))
   
-#least profitable
+# Least profitable are at the top of our data frame, since `arrange()` puts data in ascending order by default. 
 USCityProfits %>% head(5)
 ```
 
@@ -1289,12 +1321,10 @@ USCityProfits %>% head(5)
 
 </details>
 
-{::options parse_block_html='false'/}
+⭐ **View the 5 most profitable cities.**
 
-<br> View the 5 most profitable cities - Use `tail()` to get the last 5
-rows of a dataframe <br>
+Use `tail()` to get the last 5 rows of a data frame.
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -1303,7 +1333,7 @@ Check Your Code
 ``` r
 USCityProfits <- USCityProfits %>% arrange(totalProfit)
   
-#least profitable
+# Most profitable are at the end of our data frame
 USCityProfits %>% tail(5)
 ```
 
@@ -1318,12 +1348,14 @@ USCityProfits %>% tail(5)
 
 </details>
 
-{::options parse_block_html='false'/}
+------------------------------------------------------------------------
 
-<br>
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
 
 <script>  
-&#10;function toggle(input) {
+function toggle(input) {
     var x = document.getElementById(input);
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -1333,13 +1365,21 @@ USCityProfits %>% tail(5)
 }
 </script>
 <style>
-   details {
+details {
     background-color: lightgray; 
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
-</style>
+.task-box {
+      border: 1.5px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f5f2f6;
+  }
+  &#10;</style>
+<!--https://gist.github.com/rxaviers/7360908-->
 
 [NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn
 .btn-blue }
