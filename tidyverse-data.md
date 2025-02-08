@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 4-Data Manipulation
+title: 5-Data Manipulation
 nav_order: 5
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
-4-Data Manipulation
+5-Data Manipulation
 ================
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)

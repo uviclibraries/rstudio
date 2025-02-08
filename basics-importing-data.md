@@ -9,7 +9,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 4-Importing Data
 ================
 
-- [1 Importing Excel data into R](#1-importing-excel-data-into-r)
+- [1. Importing Excel data into R](#1-importing-excel-data-into-r)
 - [2 Visualize Income with a Histogram
   plot](#2-visualize-income-with-a-histogram-plot)
 
@@ -21,7 +21,7 @@ data in the console. In this section, we’ll learn how to create objects
 by importing (aka ‘reading’) data (compiled outside of R) into R and
 visualise it with a histogram.
 
-### 1 Importing Excel data into R
+## 1. Importing Excel data into R
 
 R can handle multiple file types:
 
@@ -35,9 +35,9 @@ R can handle multiple file types:
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3.1-1</u>
+⭐ <u>Task 1-1</u>
 
-**Import data.**
+**Download data.**
 
 Download and save [this Excel spreadsheet of Income
 data](docs/income.xlsx){:target=“\_blank”}
@@ -49,7 +49,7 @@ data](docs/income.xlsx){:target=“\_blank”}
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1</u>
+⭐ <u>Task 1-2</u>
 
 **Import data.**
 
@@ -162,7 +162,7 @@ and 4 variables (columns)
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3.1-3</u>
+⭐ <u>Task 1-3</u>
 
 **Display summary statistics.**
 
@@ -194,7 +194,7 @@ summary(income)
 
 <br>
 
-### 2 Visualize Income with a Histogram plot
+## 2 Visualize Income with a Histogram plot
 
 In 3.2 we made a histogram to visualize the distribution of the pig
 weights. Remember that the parameter that the histogram function takes
@@ -236,8 +236,6 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 {::options parse_block_html='false'/}
 
 </div>
-
-<br>
 
 The following will be the output:
 
