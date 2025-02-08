@@ -60,7 +60,7 @@ function.
 
 <br>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 1-1</u>
 
@@ -154,7 +154,7 @@ library(tidyverse) #then, as always, type 'enter' or 'return' to submit the comm
 
 ## 2. Getting data
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 2-1</u>
 
@@ -208,7 +208,7 @@ display the first number of rows.
 *Note:* In cases where there are more columns that fit horizontally in
 the console, the results will wrap, as seen in the output of Task 3-1.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 3-1</u>
 
@@ -261,7 +261,7 @@ purchase data, but how big is the data set?
 - How many rows?
 - How many columns?
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 3-2</u>
 
@@ -333,14 +333,14 @@ frame.
   - *Note*: The `names()` function is only useful for data frames and
     matrices for which we have column names.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.1-1</u>
 
 **Create an object**
 
 Create an object containing the list of column names from our purchase
-data.\*\*
+data.
 
 - Name this object `purchaseDataColumnNames`
 
@@ -366,7 +366,7 @@ high to low) using the `sort()` function.
 
 Let’s look at each of these functions on their own.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.1-2</u>
 
@@ -413,14 +413,14 @@ another function.
 
 <br>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.1-3</u>
 
 **Create a variable through nested functions**
 
-**In this task, use nesting to create 1 variable containing a sorted
-vector of the column names.**
+In this task, use nesting to create 1 variable containing a sorted
+vector of the column names.
 
 - Name this variable: `alphabeticalColumnNames` <br>
 
@@ -461,7 +461,7 @@ sequentially, separated by the pipe symbol `%>%`.
 
 <br>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.2-1</u>
 
@@ -575,7 +575,7 @@ won’t be using them later on.
 
   - The parameter is the name of the column you want to access.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.3-1</u>
 
@@ -616,7 +616,7 @@ specific text, we do the inverse,
 - The parameter has a minus sign `-` before the string value we want to
   exclude.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.3-2</u>
 
@@ -697,7 +697,7 @@ following explains the process.
 - The parameter for `starts_with()` is the value of the beginning of all
   columns you want to select.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.3-3</u>
 
@@ -749,14 +749,14 @@ To select items (rows, *not* columns), we use the `filter()` function.
 - The parameter for `filter()` is the name of the column holding the
   values that are being filtered.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.4-1</u>
 
 **Filter conditionally**
 
-**Filter all the rows from your purchase data where `Quantity` is
-greater than 10.**
+Filter all the rows from your purchase data where `Quantity` is greater
+than 10.
 
 <details>
 <summary>
@@ -810,7 +810,7 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 </div>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.4-2</u>
 
@@ -864,7 +864,7 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 </div>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.4-3</u>
 
@@ -999,7 +999,7 @@ purchaseData %>% head(3)
     ## 2      0.1 -288.77        923.63       Critical        FALSE
     ## 3      0.1  919.97        915.49         Medium        FALSE
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.5-1</u>
 
@@ -1067,7 +1067,7 @@ purchaseData %>% head(5)
 
 </div>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.5-2</u>
 
@@ -1126,7 +1126,7 @@ organize by.
 *hint*: You can also use the `sort()` function but it only takes a
 vector parameter, not a data frame.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.6-1</u>
 
@@ -1197,7 +1197,7 @@ with information like totals, averages, medians, and so on.
 - `summarise()` takes an unlimited number of parameters, where each
   parameter will appear as a column. <br>
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.7-1</u>
 
@@ -1240,7 +1240,7 @@ We can get the average profit, but grouped by US city.
 From this, we can sort by profit to see what the most and least
 profitable cities are.
 
-<div class="task-box">
+<div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.8-1</u>
 
