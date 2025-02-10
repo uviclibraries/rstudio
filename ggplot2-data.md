@@ -1,34 +1,19 @@
 ---
 layout: default
-title: 5-Data Visualization with ggplot2
-nav_order: 6
+title: 6-Data Visualization with ggplot2
+nav_order: 7
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
-
-5-Data Visualization with ggplot2
+6-Data Visualization with ggplot2
 ================
+DSC Chloe Farr
+2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
 - [2. Creating Plots and Charts in
   ggplot2](#2-creating-plots-and-charts-in-ggplot2)
   - [2.1. Scatter Plots](#21-scatter-plots)
-  - [2.2. Bar Charts](#22-bar-charts)
-  - [2.3. Line Charts](#23-line-charts)
-
-<img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
-<br>
-
-<style type="text/css">
-div.html-widget {
-  overflow-x: auto;
-}
-&#10;table {
-  display: block;
-  max-width: none;
-  white-space: nowrap;
-}
-</style>
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
@@ -42,16 +27,16 @@ chart.
 
 ## 1. Getting Ready
 
-<br>
+<div class="task-box" markdown="1">
 
-#### <u>Task 1.1:</u> Install and load the ‘ggthemes’ and ‘janitor’ packages.
+⭐ <u>Task 1-1</u>
+
+**Install and load the ‘ggthemes’ and ‘janitor’ packages.**
 
 - Package names:
-  - tidyverse
   - ggthemes
   - janitor
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
 Check Your Code
@@ -66,10 +51,12 @@ library(janitor)
 
 </details>
 
-{::options parse_block_html='false'/}
-
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
 the library() parameter in `""` quotations
+
+</div>
+
+Check that you still have Tidyverse loaded.
 
 > More about ggthemes
 > [here](https://exts.ggplot2.tidyverse.org/ggthemes.html){:target=“\_blank”}.
@@ -78,7 +65,11 @@ the library() parameter in `""` quotations
 
 <br>
 
-#### <u>Task 1.2:</u> Read and clean your data set.
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 1-2</u>
+
+**Read and clean your data set.**
 
 - Data set file name: `flavors_of_cacao.csv` (unless you changed the
   filename after downloading)
@@ -87,10 +78,9 @@ the library() parameter in `""` quotations
   parameter is chocolateData (leave parentheses blank if piping)
 - Remove first (empty) row using `filter(ref != "REF")` <br>
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -106,25 +96,32 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## Rows: 1795 Columns: 9
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr (6): Company, SpecificBeanOrigin_BarName, Cocoa_Percent, Company_Locatio...
-    ## dbl (3): REF, Review_Date, Rating
+    ## chr (6): Company 
+    ## (Maker-if known), Specific Bean Origin
+    ## or Bar Name, Cocoa
+    ## ...
+    ## dbl (3): REF, Review
+    ## Date, Rating
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 </details>
 
-{::options parse_block_html='false'/} *Hint:* See Activity 3, Task 3.1
-for instructions on importing a csv file.
+*Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
+file.
 
-<br>
+</div>
 
-#### <u>Task 1.3:</u> Preview the first 5 rows of your chocolate data.
+<div class="task-box" markdown="1">
 
-{::options parse_block_html='true' /}
+⭐ <u>Task 1-3</u>
+
+**Preview the first 5 rows of your chocolate data.**
+
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -133,19 +130,26 @@ chocolateData %>% head(5)
 ```
 
     ## # A tibble: 5 × 9
-    ##   company  specific_bean_origin_bar_name   ref review_date cocoa_percent
-    ##   <chr>    <chr>                         <dbl>       <dbl> <chr>        
-    ## 1 A. Morin Agua Grande                    1876        2016 63%          
-    ## 2 A. Morin Kpime                          1676        2015 70%          
-    ## 3 A. Morin Atsane                         1676        2015 70%          
-    ## 4 A. Morin Akata                          1680        2015 70%          
-    ## 5 A. Morin Quilla                         1704        2015 70%          
+    ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
+    ##   <chr>                  <chr>                   <dbl>       <dbl> <chr>        
+    ## 1 A. Morin               Agua Grande              1876        2016 63%          
+    ## 2 A. Morin               Kpime                    1676        2015 70%          
+    ## 3 A. Morin               Atsane                   1676        2015 70%          
+    ## 4 A. Morin               Akata                    1680        2015 70%          
+    ## 5 A. Morin               Quilla                   1704        2015 70%          
+    ## # ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
     ## # ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
     ## #   broad_bean_origin <chr>
 
 </details>
 
-{::options parse_block_html='false'/} <br>
+</div>
+
+------------------------------------------------------------------------
+
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
 
 ## 2. Creating Plots and Charts in ggplot2
 
@@ -171,9 +175,10 @@ quadrant of your workspace).
 
 ### 2.1. Scatter Plots
 
-First things first, we need to quickly clean up our dataframe for
-scatter plots. Copy and paste the following code into your console, and
-execute to imort and prepare our data.
+First things first, we need to quickly clean up our data frame for
+scatter plots.
+
+**Copy and paste the following code into your console and execute it.**
 
 <br>
 
@@ -188,8 +193,8 @@ chocolateData <- type_convert(chocolateData)
     ## 
     ## ── Column specification ────────────────────────────────────────────────────────
     ## cols(
-    ##   company = col_character(),
-    ##   specific_bean_origin_bar_name = col_character(),
+    ##   company_maker_if_known = col_character(),
+    ##   specific_bean_origin_or_bar_name = col_character(),
     ##   company_location = col_character(),
     ##   bean_type = col_character(),
     ##   broad_bean_origin = col_character()
@@ -210,16 +215,28 @@ the variables assigned to the x and y axes for that observation.
 
 <img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
 
-#### <u>Task 2.1.1:</u> Make a scatter plot of the cocoa percentage and the rating a chocolate bar received.
+<div class="boxed">
+
+------------------------------------------------------------------------
+
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-1</u>
+
+**Make a scatter plot of the cocoa percentage and the rating a chocolate
+bar received.**
 
 - Using chocolate data : `chocolateData`
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -227,13 +244,10 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 </details>
 
-{::options parse_block_html='false'/}
-
-<br> Output
-
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+</div>
 
 <br> Before we add details to our plot, we need to learn about the
 different components. Again, wait until the next task to do anything.
@@ -251,8 +265,8 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 Expand for more geom_smooth method types
 </summary>
 
-*Linear Model (“lm”):* fits a linear regression model, suitable for
-linear relationships.
+</br> *Linear Model (“lm”):* fits a linear regression model, suitable
+for linear relationships.
 
 *Locally Estimated Scatterplot Smoothing (“loess” or “lowess”)*: creates
 a smooth line through the plot by fitting simple models in a localized
@@ -273,13 +287,17 @@ for fitting complex, flexible models to data.
 *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
-</details>
-
+</details
 <br>
 
-- Fitted line: `method = "lm"` <br>
+- Fitted line: `method = "lm"`
 
-#### <u>Task 2.1.2:</u> Make another scatter plot of the cocoa percentage and the rating a chocolate bar received, with the following:
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-2</u>
+
+**Make another scatter plot of the cocoa percentage and the rating a
+chocolate bar received**, with the following:
 
 - A “line of best fit”
 
@@ -292,10 +310,9 @@ might skew the results of a standard linear model.
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -306,24 +323,25 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 </details>
 
-{::options parse_block_html='false'/}
+</div>
 
-<br>
+<div class="task-box" markdown="1">
 
-#### <u>Task 2.1.3:</u> Add descriptive axis labels and a title to your scatter plot.
+⭐ <u>Task 2.1-3</u>
+
+**Add descriptive axis labels and a title to your scatter plot.**
 
 We’re also going to add labels and custom colors using the `labs()`
 function and custom colors.
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
-{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -334,23 +352,18 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
 
-</details>
-
-{::options parse_block_html='false'/}
-
-<br> Output:
-
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+</details>
+
+</div>
 
 ### 2.2. Bar Charts
 
 First things first, we need to quickly clean up our dataframe for bar
 charts. Copy and paste the following code into your console, and
-execute.
-
-<br>
+execute. <br>
 
 ``` r
 chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
@@ -387,13 +400,14 @@ to those categories), and the categories the data will be separated by
 The first 5 rows of the bars made of common beans:
 
     ## # A tibble: 5 × 10
-    ##   company  specific_bean_origin_bar_name   ref review_date cocoa_percent
-    ##   <chr>    <chr>                         <dbl>       <dbl>         <dbl>
-    ## 1 A. Morin Carenero                       1315        2014            70
-    ## 2 A. Morin Sur del Lago                   1315        2014            70
-    ## 3 A. Morin Puerto Cabello                 1319        2014            70
-    ## 4 A. Morin Madagascar                     1011        2013            70
-    ## 5 A. Morin Chuao                          1015        2013            70
+    ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
+    ##   <chr>                  <chr>                   <dbl>       <dbl>         <dbl>
+    ## 1 A. Morin               Carenero                 1315        2014            70
+    ## 2 A. Morin               Sur del Lago             1315        2014            70
+    ## 3 A. Morin               Puerto Cabello           1319        2014            70
+    ## 4 A. Morin               Madagascar               1011        2013            70
+    ## 5 A. Morin               Chuao                    1015        2013            70
+    ## # ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
     ## # ℹ 5 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
     ## #   broad_bean_origin <chr>, bean_type_simplified <chr>
 
@@ -414,7 +428,11 @@ With the code above, you now have:
 - A vector `commonBeanTypes` list of the common bean types, which will
   be used as the categories for the x-axis.
 
-#### <u>Task 2.2.1:</u> Create a basic bar chart
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.2-1</u>
+
+**Create a basic bar chart.**
 
 Your chart will illustrate the frequency that chocolate bars are being
 made in different countries.
@@ -424,30 +442,33 @@ made in different countries.
 {::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
 
+Output:
+
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
 
-*Hint:* geom type = “bar” <br>
+*Hint:* geom type = “bar”
 
-Output:
-
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
-
-<br>
-
-#### <u>Task 2.2.2:</u> Create a stacked bar chart
+</div>
 
 A stacked bar chart shows two dimensions (variables) of data. Each bar
 will represent one variable, and each bar will be chopped into sections
 which represent a second variable.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.2-2</u>
+
+**Create a stacked bar chart.**
 
 To add a second dimension,
 
@@ -456,12 +477,10 @@ To add a second dimension,
     ‘factor2name’ is the second variable’s column name.
   - setting the parameter of `geom_bar()` to `position="stack"`
 
-<br>
-
 {::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check Your Code and Output
 </summary>
 
 ``` r
@@ -469,38 +488,49 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
   geom_bar(position = "stack")
 ```
 
+Output:
+
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
 
-<br> Output:
+</div>
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
+<br> **Definition - facets:** A way of breaking apart a plot of a
+specific data frame so that each level of a the target factor is shown
+in a separate, smaller chart. <br> A faceted bar chart is like a grid of
+mini bar charts, each showing a different slice of the data side by side
+for comparison.
 
-<br>
+We can facet a bar chart in a few different ways.
 
-<!--**Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
-<br>
-A faceted bar chart is like a grid of mini bar charts, each showing a different slice of the data side by side for comparison. 
-&#10;We can facet a bar chart in a few different ways. 
-&#10;Where the previous bar chart has one piece of information in each bar, we will now add two. 
- - Instead of `aes(x=)` representing just the categories that each bar will represent, we will add a `fill=` parameter for the subgroups of each column. 
+- Where the previous bar chart has one piece of information in each bar,
+  we will now add two.
+
+  - Instead of `aes(x=)` representing just the categories that each bar
+    will represent, we will add a `fill=` parameter for the subgroups of
+    each column.
   - `ggplot(data, aes(x = category, fill = subgroup))`
-&#10;We will then add 
-`+ geom_bar(position = "fill") + facet_wrap(~facet_variable)`
-&#10;-`geom_bar()` creates a stacked bar chart with proportions
-  - 'fill' means that each proportion of the bar will total to 100%
-  &#10;<details><summary>Check Your Code</summary>
-&#10;```r
+
+- We will then add
+  `+ geom_bar(position = "fill") + facet_wrap(~facet_variable)`
+
+- `geom_bar()` creates a stacked bar chart with proportions
+
+  - ‘fill’ means that each proportion of the bar will total to 100%
+
+``` r
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar(position = "fill") + facet_wrap(~facet_variable)
 ```
-</details>
-*Hint:* geom type = "bar"
-<br> -->
 
 ### 2.3. Line Charts
 
-#### <u>Task 2.2.3:</u> Create a variable with the mean chocolate rating by year.
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.3-1</u>
+
+**Create a variable with the mean chocolate rating by year.**
 
 Using piping, create a new variable, `meanRatingByYear`
 
@@ -519,19 +549,25 @@ Check Your Code
 meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
 ```
 
+Your output will be:
+
 </details>
 
 {::options parse_block_html='false'/}
 
-Your output will be:
-
-Then convert “review_date to Date class by entering
+Then convert “review_date” to Date class by entering
 
 ``` r
 meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
 ```
 
-#### <u>Task 2.2.3:</u> Create a line chart using the mean chocolate rating by year.
+</div>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.3-2</u>
+
+**Create a line chart using the mean chocolate rating by year.**
 
 Here we’ll make a line chart to show how the mean rating of chocolate
 has changed by year.
@@ -559,17 +595,20 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   )
 ```
 
+Output:
+
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
 
-<br> Output:
+</div>
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
+<div class="task-box" markdown="1">
 
-<br>
+⭐ <u>Task 2.3-3</u>
 
-#### <u>Task 2.2.4:</u> Style your line chart.
+**Style your line chart.**
 
 Using the same chart you just made, add some stylistic features and
 modifications.
@@ -598,16 +637,23 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   ) 
 ```
 
+<br> Output:
+
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
 
-<br> Output:
+</div>
 
-![](ggplot2-data_files/figure-gfm/unnamed-chunk-48-1.png)<!-- -->
+------------------------------------------------------------------------
+
+:round_pushpin: Reminder! Save your work
+
+------------------------------------------------------------------------
 
 <script>  
-&#10;function toggle(input) {
+function toggle(input) {
     var x = document.getElementById(input);
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -617,13 +663,20 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 }
 </script>
 <style>
-   details {
+details {
     background-color: lightgray; 
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
-</style>
+.task-box {
+      border: 1.5px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f5f2f6;
+  }
+  &#10;</style>
+<!--https://gist.github.com/rxaviers/7360908-->
 
-APPENDIX: ggplot2 Cheatsheet{: .btn .btn-purple }{:target=“\_blank”}
-NEXT STEPS: Earn a Workshop Badge{: .btn .btn-blue }
+</div>
