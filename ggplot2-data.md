@@ -11,9 +11,6 @@ DSC Chloe Farr
 2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
-- [2. Creating Plots and Charts in
-  ggplot2](#2-creating-plots-and-charts-in-ggplot2)
-  - [2.1. Scatter Plots](#21-scatter-plots)
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
@@ -37,9 +34,10 @@ chart.
   - ggthemes
   - janitor
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -50,6 +48,8 @@ library(janitor)
 ```
 
 </details>
+
+{::options parse_block_html='false'/}
 
 <br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
 the library() parameter in `""` quotations
@@ -79,8 +79,10 @@ Check that you still have Tidyverse loaded.
 - Remove first (empty) row using `filter(ref != "REF")` <br>
 
 <details>
+{::options parse_block_html='true' /}
+<details>
 <summary>
-Check Your Code and Output
+Check your code
 </summary>
 
 ``` r
@@ -107,10 +109,8 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 </details>
-
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
-
 </div>
 
 <div class="task-box" markdown="1">
@@ -119,9 +119,10 @@ file.
 
 **Preview the first 5 rows of your chocolate data.**
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code and Output
+Check your code
 </summary>
 
 ``` r
@@ -142,6 +143,8 @@ chocolateData %>% head(5)
     ## #   broad_bean_origin <chr>
 
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -215,8 +218,6 @@ the variables assigned to the x and y axes for that observation.
 
 <img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
 
-<div class="boxed">
-
 ------------------------------------------------------------------------
 
 :round_pushpin: Reminder! Save your work
@@ -244,7 +245,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 </details>
 
 </div>
@@ -310,9 +311,10 @@ chocolate bar received**, with the following:
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code and Output
+Check your code
 </summary>
 
 ``` r
@@ -323,8 +325,10 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -339,9 +343,10 @@ function and custom colors.
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code and Output
+Check your code
 </summary>
 
 ``` r
@@ -354,8 +359,10 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -451,7 +458,7 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -490,7 +497,7 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -597,7 +604,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -639,7 +646,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 <br> Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-41-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}

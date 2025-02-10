@@ -61,15 +61,18 @@ In this activity, you will make a scatter plot, bar chart, and a line chart.
   - ggthemes
   - janitor
 
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r eval=FALSE}
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
 install.packages("janitor")
 library(ggthemes) #Do not wrap library() parameter string in quotes
 library(janitor)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br>
 *Hint:* wrap the package name in `""` quotations<br>
@@ -96,7 +99,9 @@ Check that you still have Tidyverse loaded.
 
 <details>
 
-<summary>Check Your Code and Output</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r echo=TRUE, eval=FALSE}
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
@@ -124,13 +129,16 @@ chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.cs
 
 **Preview the first 5 rows of your chocolate data.**
 
-<details>
-<summary>Check Your Code and Output</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 
@@ -183,7 +191,6 @@ Let's apply the ggplot command above to create a scatter plot.
 
 <img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
 
-<div class="boxed">
 
 ------------------------------------------------------------------------
 
@@ -251,13 +258,17 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
 
-<details><summary>Check Your Code and Output</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
   geom_smooth(method = "lm")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 <div class="task-box" markdown="1">
@@ -269,7 +280,9 @@ We're also going to add labels and custom colors using the `labs()` function and
 
 - Labels `+ labs(title = "", x = "", y = " ")`
 
-<details><summary>Check Your Code and Output</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
@@ -277,7 +290,9 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_smooth(method = "lm") + 
   labs(title = "Rating of Chocolate Bar by Cocoa Percentage", x = "Chocolate Bar Rating", y = "Cocoa Percentage")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 ### 2.2. Bar Charts
