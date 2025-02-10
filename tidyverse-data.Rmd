@@ -142,7 +142,7 @@ After we install a package, we have to load it using the `library()` function.
 
 - Do not wrap the package name in quotes when using `library()`.
 
-- :heavy_exclamation_mark: Put this command in your R script, not in the console. Why? The package only needs to be *installed* once, but it needs to be *loaded* any time you open your script. 
+- &#10071; Put this command in your R script, not in the console. Why? The package only needs to be *installed* once, but it needs to be *loaded* any time you open your script. 
 
   - Packages also need to be reloaded every time the project is 'knit', an action covered in the intermediate workshop.
 
@@ -190,7 +190,8 @@ represents a specific type of data pertaining to the orders
 - Rename your data set to `purchaseData`
 
 ```{r echo=TRUE, eval=TRUE}
-#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
+#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a. 
+# replace "docs/" with the folder that the file is in. Please do not save the file to your Downloads folder and leave it there.
 purchaseData <- read.csv("docs/Global_Superstore_Orders_2016.csv")
 ```
 
@@ -199,7 +200,7 @@ purchaseData <- read.csv("/Users/chloefarr/Documents/GitHub/rstudio/docs/Global_
 ```
 
 <br>
-:heavy_exclamation_mark: For larger data sets, it's better to *preview* than *view* our data. Purchase Data has quite a few columns and rows! Let's take a look at the first few rows and get the dimensions (number of rows and columns) of the data set.
+&#10071; For larger data sets, it's better to *preview* than *view* our data. Purchase Data has quite a few columns and rows! Let's take a look at the first few rows and get the dimensions (number of rows and columns) of the data set.
 
 We can preview the data set using the `head()` function. This will
 display the first number of rows. 
@@ -266,7 +267,7 @@ endCodeDetailsBlock()
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+&#128205; Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -506,7 +507,7 @@ Before we begin to filter, we need to look at Operators.
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+&#128205; Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -573,7 +574,7 @@ endCodeDetailsBlock()
 </div>
 
 
-:heavy_exclamation_mark:We can also select a *subset* of columns 
+&#10071; We can also select a *subset* of columns 
   
   - e.g., columns whose names begin with a common string of characters. 
   
@@ -703,7 +704,7 @@ endCodeDetailsBlock()
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+&#128205; Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -975,7 +976,7 @@ endCodeDetailsBlock()
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+&#128205; Reminder! Save your work
 
 ------------------------------------------------------------------------
 ```{=html}

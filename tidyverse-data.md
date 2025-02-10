@@ -5,6 +5,7 @@ nav_order: 6
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
+
 5-Data Manipulation
 ================
 DSC Chloe Farr
@@ -133,9 +134,9 @@ function.
 
 - Do not wrap the package name in quotes when using `library()`.
 
-- :heavy_exclamation_mark: Put this command in your R script, not in the
-  console. Why? The package only needs to be *installed* once, but it
-  needs to be *loaded* any time you open your script.
+- ❗ Put this command in your R script, not in the console. Why? The
+  package only needs to be *installed* once, but it needs to be *loaded*
+  any time you open your script.
 
   - Packages also need to be reloaded every time the project is ‘knit’,
     an action covered in the intermediate workshop.
@@ -190,14 +191,15 @@ represents a specific type of data pertaining to the orders <br>
 - Rename your data set to `purchaseData`
 
 ``` r
-#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
+#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a. 
+# replace "docs/" with the folder that the file is in. Please do not save the file to your Downloads folder and leave it there.
 purchaseData <- read.csv("docs/Global_Superstore_Orders_2016.csv")
 ```
 
-<br> :heavy_exclamation_mark: For larger data sets, it’s better to
-*preview* than *view* our data. Purchase Data has quite a few columns
-and rows! Let’s take a look at the first few rows and get the dimensions
-(number of rows and columns) of the data set.
+<br> ❗ For larger data sets, it’s better to *preview* than *view* our
+data. Purchase Data has quite a few columns and rows! Let’s take a look
+at the first few rows and get the dimensions (number of rows and
+columns) of the data set.
 
 We can preview the data set using the `head()` function. This will
 display the first number of rows.
@@ -292,7 +294,7 @@ dim(purchaseData)
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -575,7 +577,7 @@ statements. <br>
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -696,7 +698,7 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 </div>
 
-:heavy_exclamation_mark:We can also select a *subset* of columns
+❗ We can also select a *subset* of columns
 
 - e.g., columns whose names begin with a common string of characters.
 
@@ -969,7 +971,7 @@ columns.
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -1413,7 +1415,7 @@ USCityProfits %>% tail(5)
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 

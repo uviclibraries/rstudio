@@ -116,8 +116,7 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 
 {::options parse_block_html='false'/}
 
-*Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
-file.
+*Hint:* See Activity 5 for instructions on importing a csv file.
 
 </div>
 
@@ -158,7 +157,7 @@ chocolateData %>% head(5)
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -228,7 +227,7 @@ the variables assigned to the x and y axes for that observation.
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
@@ -667,7 +666,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 ------------------------------------------------------------------------
 
-:round_pushpin: Reminder! Save your work
+📍 Reminder! Save your work
 
 ------------------------------------------------------------------------
 
