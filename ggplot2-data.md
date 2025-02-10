@@ -287,7 +287,7 @@ for fitting complex, flexible models to data.
 *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
-</details>
+</details
 <br>
 
 - Fitted line: `method = "lm"`
