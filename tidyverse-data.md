@@ -5,6 +5,7 @@ nav_order: 6
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
+
 5-Data Manipulation
 ================
 DSC Chloe Farr
@@ -68,9 +69,10 @@ function.
 
 Package name: tidyverse
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -79,8 +81,8 @@ install.packages("tidyverse")
 
 </details>
 
-*Hint:* wrap the package name in `""` quotations, because it is a string
-type.
+{::options parse_block_html='false'/} *Hint:* wrap the package name in
+`""` quotations, because it is a string type.
 
 </div>
 
@@ -150,7 +152,7 @@ library(tidyverse) #then, as always, type 'enter' or 'return' to submit the comm
 
 </details>
 
-<br>
+{::options parse_block_html='false'/} <br>
 
 ## 2. Getting data
 
@@ -214,9 +216,10 @@ the console, the results will wrap, as seen in the output of Task 3-1.
 
 **Look at the first 5 rows of our purchase data.**
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -227,7 +230,8 @@ head(purchaseData, 5)
 
 </details>
 
-*Hint:* `head(*data setName*, *numberOfRows*)`
+{::options parse_block_html='false'/} *Hint:*
+`head(*data setName*, *numberOfRows*)`
 
 </div>
 
@@ -268,9 +272,10 @@ purchase data, but how big is the data set?
 **Find out the dimensions of the data set**, i.e., number of rows and
 columns.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -281,6 +286,8 @@ dim(purchaseData)
     ## [1] 51290    24
 
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -344,9 +351,10 @@ data.
 
 - Name this object `purchaseDataColumnNames`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -354,6 +362,8 @@ purchaseDataColumnNames <- names(purchaseData)
 ```
 
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -377,9 +387,10 @@ that is sorted alphabetically.
 
 - Name this object `alphaPurchaseDataColumnNames`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -387,6 +398,8 @@ alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
 ```
 
 </details>
+
+{::options parse_block_html='false'/}
 
 *Hint:* You already created the vector containing the list of column
 names from our purchase data! <br>
@@ -424,9 +437,10 @@ vector of the column names.
 
 - Name this variable: `alphabeticalColumnNames` <br>
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -436,6 +450,8 @@ alphabeticalColumnNames <- sort(names(purchaseData))
 ```
 
 </details>
+
+{::options parse_block_html='false'/}
 
 <br> *Hints*: the parameter of `names()` is the `sort()` function, and
 the parameter of `sort()` is the data set.
@@ -473,9 +489,10 @@ column names.
 - Do not use objects you have created so far, except `purchaseData`
 - Name your new variable: `purchaseDataNamesPeek` <br>
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -494,6 +511,8 @@ purchaseDataNamesPeek
 
 </details>
 
+{::options parse_block_html='false'/}
+
 *Hint*: the parameter of `names()` is the `head()` function. <br>
 
 </div>
@@ -502,6 +521,7 @@ If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
 variable. <br>
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
 Show code for previewing with piping
@@ -515,6 +535,8 @@ names(purchaseData) %>% head(5)
     ## [1] "Row_ID"     "Order_ID"   "Order_Date" "Ship_Date"  "Ship_Mode"
 
 </details>
+
+{::options parse_block_html='false'/}
 
 ------------------------------------------------------------------------
 
@@ -585,9 +607,10 @@ Preview the values in the Row ID column.
 
 - Column name: `Row_ID`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -603,6 +626,8 @@ purchaseData %>% select(Row_ID) %>% head(5)
     ## 5  47221
 
 </details>
+
+{::options parse_block_html='false'/}
 
 *Hint:* Begin with the name of the data set, followed by your select
 function passing in the column name as the parameter.
@@ -625,9 +650,10 @@ specific text, we do the inverse,
 Select all the columns from your purchase data that do *not* start with
 “Postal_Code”.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -666,6 +692,8 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
     ## 5        903.04       Critical
 
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -708,9 +736,10 @@ Select all the columns from our cleaned purchase data that start with
 
 Write the one-line command to achieve this with piping
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -726,6 +755,8 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
     ## 5 TEC-CO-6011            Sharp Wireless Fax, High-Speed
 
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -758,9 +789,10 @@ To select items (rows, *not* columns), we use the `filter()` function.
 Filter all the rows from your purchase data where `Quantity` is greater
 than 10.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -806,6 +838,8 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 </details>
 
+{::options parse_block_html='false'/}
+
 *Hint:* `>` is the ‘greater than’ operator.
 
 </div>
@@ -818,9 +852,10 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 Filter all the rows from your purchase data where `City` is “Sydney”.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -860,6 +895,8 @@ purchaseData %>% filter(City == "Sydney") %>% head(5)
 
 </details>
 
+{::options parse_block_html='false'/}
+
 *Hint:* `==` is used for “equal to”
 
 </div>
@@ -878,9 +915,10 @@ Create a new data frame with all the rows from purchaseData where
 - :heavy_exclamation_mark: Do not add ” %\>% head(5)” to the command
   when <u>creating</u> a new data frame
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -923,9 +961,10 @@ discountedUSPurchases %>% head(5)
 
 </details>
 
-*Hint:* `&` is used for “and”, in cases where you want to manage
-multiple cases like filtering my two variables<br> - e.g., values of the
-`Sub_Category` and `Order_Priority` columns.
+{::options parse_block_html='false'/} *Hint:* `&` is used for “and”, in
+cases where you want to manage multiple cases like filtering my two
+variables<br> - e.g., values of the `Sub_Category` and `Order_Priority`
+columns.
 
 </div>
 
@@ -1012,9 +1051,10 @@ greater than 100 dollars.
 - Name the new column: `High_Shipping`
 - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1063,6 +1103,8 @@ purchaseData %>% head(5)
 
 </details>
 
+{::options parse_block_html='false'/}
+
 *Hint:* `Shipping_Cost > 100`
 
 </div>
@@ -1080,9 +1122,10 @@ in the United States and has been discounted
 - Filter for discounted orders by selecting all objects where the values
   in the `Discount` column are greater than 0.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1096,6 +1139,8 @@ summary(purchaseData$Discounted_US)
     ## logical   46094    5196
 
 </details>
+
+{::options parse_block_html='false'/}
 
 *Hint:* `logicalStatement & logicalStatement`
 
@@ -1134,9 +1179,10 @@ vector parameter, not a data frame.
 
 Update `purchaseData` to sort objects by price (low to high).
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1185,7 +1231,8 @@ purchaseData %>% head(5)
 
 </details>
 
-*Hint:* Do not wrap the column name in quotations.
+{::options parse_block_html='false'/} *Hint:* Do not wrap the column
+name in quotations.
 
 </div>
 
@@ -1209,9 +1256,10 @@ US purchases data using the `summarise()` function.
 - parameter 1: `columnName = mean(column)`
 - another parameter: `columnName2 = mean(another column)`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1226,6 +1274,8 @@ discountedUSPurchases %>%
 ```
 
 </details>
+
+{::options parse_block_html='false'/}
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 
@@ -1259,9 +1309,10 @@ Create a data frame of US Cities and their average profit for each.
 
 **Do not create a new variable using `head(5)`**
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1273,6 +1324,8 @@ USCityProfits <- discountedUSPurchases %>%
 
 </details>
 
+{::options parse_block_html='false'/}
+
 </div>
 
 The table will be sorted by city, alphabetically
@@ -1283,10 +1336,10 @@ frame.
 ⭐ **Sort the table by `Profit` using the `arrange()` function to order
 it by the lowest profitable city to the highest profitable city.**
 
-<br>
+<br> {::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1295,12 +1348,13 @@ USCityProfits <- USCityProfits %>% arrange(totalProfit)
 
 </details>
 
-<br>
+{::options parse_block_html='false'/} <br>
 
-⭐ **View the 5 least profitable cities.** <br>
+⭐ **View the 5 least profitable cities.** <br> {::options
+parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1321,13 +1375,16 @@ USCityProfits %>% head(5)
 
 </details>
 
+{::options parse_block_html='false'/}
+
 ⭐ **View the 5 most profitable cities.**
 
 Use `tail()` to get the last 5 rows of a data frame.
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code
+Check your code
 </summary>
 
 ``` r
@@ -1347,6 +1404,8 @@ USCityProfits %>% tail(5)
     ## 5 New York City      16994.
 
 </details>
+
+{::options parse_block_html='false'/}
 
 ------------------------------------------------------------------------
 
@@ -1381,5 +1440,5 @@ details {
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn
+[NEXT STEP: Tidyverse and Data Manipulation](ggplot2-data.html){: .btn
 .btn-blue }

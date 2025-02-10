@@ -85,12 +85,15 @@ function.
 
 | Package name: tidyverse
 
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r eval=FALSE}
 install.packages("tidyverse")
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* wrap the package name in `""` quotations, because it is a string type.
 </div>
 
@@ -151,8 +154,9 @@ After we install a package, we have to load it using the `library()` function.
 ```{r eval = FALSE}
 library(tidyverse) #then, as always, type 'enter' or 'return' to submit the command for execution
 ```
-</details>
-
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 <br>
 
 ## 2. Getting data
@@ -212,15 +216,17 @@ display the first number of rows.
 
 **Look at the first 5 rows of our purchase data.**
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r eval=FALSE}
 # name of data set name: "purchaseData"
 # number of rows to display: 5
 head(purchaseData, 5)
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* `head(*data setName*, *numberOfRows*)`
 </div>
 <br>
@@ -246,14 +252,16 @@ Now, we've imported our data and previewed the first 10 rows of our purchase dat
 
 **Find out the dimensions of the data set**, i.e., number of rows and columns.
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 ## name of data set name: "purchaseData"
 dim(purchaseData)
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 ------------------------------------------------------------------------
@@ -310,13 +318,15 @@ Create an object containing the list of column names from our purchase data.
 
   - Name this object `purchaseDataColumnNames`
     
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseDataColumnNames <- names(purchaseData)
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 <br>
@@ -336,13 +346,15 @@ Create an containing the list of column names from our purchase data that is sor
 
   - Name this object `alphaPurchaseDataColumnNames`
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* You already created the vector containing the list of column names from our purchase data! <br>
 </div>
@@ -377,15 +389,17 @@ In this task, use nesting to create 1 variable containing a sorted vector of the
   -  Name this variable: `alphabeticalColumnNames`
 <br>
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #names(purchaseData) creates a vector object of the column names from our purchase data
 # sort() Orders the items in the purchase data column names alphabetically
 alphabeticalColumnNames <- sort(names(purchaseData))
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 <br>
 *Hints*: the parameter of `names()` is the `sort()` function, and the parameter of `sort()` is the data set.
@@ -419,8 +433,9 @@ In this task, use piping to create 1 variable containing the first 5 column name
   - Name your new variable: `purchaseDataNamesPeek`
 <br>
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 # 'purchaseDataNamesPeek <-' creates a new variable
 # 'names(purchaseData)' retrieves the column names from our purcgase data as a vector
@@ -433,7 +448,9 @@ purchaseDataNamesPeek <- names(purchaseData) %>% head(5)
 purchaseDataNamesPeek
 ```
 
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 
 *Hint*: the parameter of `names()` is the `head()` function. <br>
@@ -442,14 +459,17 @@ purchaseDataNamesPeek
 If you want to simply view what the first five column names are, but don't need to reference them later, you don't need to create a new variable.
 <br>
 
-<details><summary>Show code for previewing with piping</summary>
 
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Show code for previewing with piping")
+```
 ```{r}
 # Do not begin the command with `newVariableName <-`
 names(purchaseData) %>% head(5)
 ```
-
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 ------------------------------------------------------------------------
 
@@ -514,12 +534,16 @@ Preview the values in the Row ID column.
 
 - Column name: `Row_ID`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #data set %>% select the column titled `Row ID` and view the first 5 items.
 purchaseData %>% select(Row_ID) %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* Begin with the name of the data set, followed by your select function passing in the column name as the parameter.
 </div>
@@ -537,11 +561,15 @@ To select all of the columns from our data set that do *not* start with specific
 
 Select all the columns from your purchase data that do *not* start with "Postal_Code".
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseData %>% select(-Postal_Code) %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 
@@ -577,12 +605,16 @@ Select all the columns from our cleaned purchase data that start with "Product".
 
 Write the one-line command to achieve this with piping
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 # Selects all columns (and their values) from purchaseData whose names begin with "Product"
 purchaseData %>% select(starts_with("Product")) %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 
@@ -609,11 +641,15 @@ To select items (rows, *not* columns), we use the `filter()` function.
 
 Filter all the rows from your purchase data where `Quantity` is greater than 10.
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseData %>% filter(Quantity > 10) %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* `>` is the ‘greater than’ operator.
 </div>
@@ -625,12 +661,15 @@ purchaseData %>% filter(Quantity > 10) %>% head(5)
 
 Filter all the rows from your purchase data where `City` is "Sydney".
 
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseData %>% filter(City == "Sydney") %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* `==` is used for "equal to"
 </div>
@@ -646,15 +685,18 @@ Create a new data frame with all the rows from purchaseData where `Country` is "
   
   - :heavy_exclamation_mark: Do not add " %>% head(5)" to the command when [creating]{.underline} a new data frame
   
-<details>
-<summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
 
 #view your data frame
 discountedUSPurchases %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* `&` is used for "and", in cases where you want to manage multiple cases like filtering my two variables<br>
   - e.g., values of the `Sub_Category` and `Order_Priority` columns.
 </div>
@@ -719,14 +761,18 @@ Now try it yourself. Add a new boolean (TRUE/FALSE) variable (column) to the pur
   - The value will be TRUE if the `Shipping_Cost` value is over (`>`) 100.
 
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
 
 #view your data frame
 purchaseData %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* `Shipping_Cost > 100`
 </div>
@@ -741,14 +787,18 @@ Add a new variable `Discounted_US` that is TRUE if the purchase is made in the U
   - Filter for United States orders using the `Country` column
   - Filter for discounted orders by selecting all objects where the values in the `Discount` column are greater than 0.
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r} 
 purchaseData <- purchaseData %>% mutate(Discounted_US = (Country == "United States" & Discount > 0))
 #We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Discounted_US' column)
 #request a summary of the values in the table $ column name
 summary(purchaseData$Discounted_US)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* `logicalStatement & logicalStatement`
 </div>
@@ -780,14 +830,18 @@ When using `arrange()`, you specify the column name that you wish to organize by
 
 Update `purchaseData` to sort objects by price (low to high).
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 purchaseData <- purchaseData %>% arrange(Sales)
 
 #view your data frame
 purchaseData %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 *Hint:* Do not wrap the column name in quotations.
 </div>
 
@@ -808,7 +862,9 @@ Preview the mean sales values and mean discount values in the discounted US purc
 - parameter 1: `columnName = mean(column)`
 - another parameter: `columnName2 = mean(another column)`
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #Only purchases made in the US with discounts
 discountedUSPurchases %>% 
@@ -819,7 +875,9 @@ discountedUSPurchases %>%
 
 #To retrieve this data later, assign this command to a new variable.
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 *Hint:* Both spellings, `summarize` or `summarise`, will work.
 </div>
@@ -847,14 +905,18 @@ Create a data frame of US Cities and their average profit for each.
   
 **Do not create a new variable using `head(5)`**
 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 #Only purchases made in the US with discounts
 USCityProfits <- discountedUSPurchases %>% 
       group_by(City) %>% # group by city purchase was made in
       summarise(totalProfit = sum(Profit)) # average profit for each city
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 The table will be sorted by city, alphabetically
@@ -864,45 +926,55 @@ You can use the functions you just learned to review this new data frame.
 &#11088; **Sort the table by `Profit` using the `arrange()` function to order it by the lowest profitable city to the highest profitable city.**
   
 <br>
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 USCityProfits <- USCityProfits %>% arrange(totalProfit)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 <br>
 
 &#11088; **View the 5 least profitable cities.**
 <br> 
-<details><summary>Check Your Code</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 USCityProfits <- USCityProfits %>% arrange(sum(totalProfit))
   
 # Least profitable are at the top of our data frame, since `arrange()` puts data in ascending order by default. 
 USCityProfits %>% head(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 
 &#11088; **View the 5 most profitable cities.**
 
 Use `tail()` to get the last 5 rows of a data frame.
 
-<details><summary>Check Your Code</summary>
-
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 USCityProfits <- USCityProfits %>% arrange(totalProfit)
   
 # Most profitable are at the end of our data frame
 USCityProfits %>% tail(5)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 
 ------------------------------------------------------------------------
 
 :round_pushpin: Reminder! Save your work
 
 ------------------------------------------------------------------------
-
 ```{=html}
 
 <script>  
@@ -936,4 +1008,4 @@ details {
 <!--https://gist.github.com/rxaviers/7360908-->
 ```
 
-[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn .btn-blue }
+[NEXT STEP: Tidyverse and Data Manipulation](ggplot2-data.html){: .btn .btn-blue }
