@@ -97,7 +97,6 @@ Check that you still have Tidyverse loaded.
 - Remove first (empty) row using `filter(ref != "REF")`
 <br>
 
-<details>
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
@@ -120,7 +119,10 @@ chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.cs
 #If you get a column specification error, add `, show_col_types = FALSE` as to a parameter read_csv()
 #e.g. chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.csv", show_col_types = FALSE)
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv file.
 </div>
 
@@ -207,12 +209,16 @@ Let's apply the ggplot command above to create a scatter plot.
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
-<details><summary>Check Your Code and Output</summary>
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
 ```{r}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
-</details>
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
 </div>
 
 <br>
@@ -238,7 +244,7 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 *Splines ("splines"):* provide a way to smoothly interpolate between fixed points, creating a piecewise polynomial function. They are useful for fitting complex, flexible models to data.
 
 *Robust Linear Model ("rlm"):* Similar to linear models but less sensitive to outliers. It's useful when your data contains outliers that might skew the results of a standard linear model.
-</details
+</details>
 <br> 
 
 - Fitted line: `method = "lm"`
@@ -590,3 +596,4 @@ details {
 </style>
 <!--https://gist.github.com/rxaviers/7360908-->
 ```
+[Earn a workshop badge](informal-credentials.html){: .btn .btn-blue }
