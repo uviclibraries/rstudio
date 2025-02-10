@@ -5,7 +5,6 @@ nav_order: 6
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
-
 5-Data Manipulation
 ================
 DSC Chloe Farr
@@ -1336,7 +1335,9 @@ frame.
 ⭐ **Sort the table by `Profit` using the `arrange()` function to order
 it by the lowest profitable city to the highest profitable city.**
 
-<br> {::options parse_block_html='true' /}
+<br>
+
+{::options parse_block_html='true' /}
 <details>
 <summary>
 Check your code
@@ -1348,10 +1349,13 @@ USCityProfits <- USCityProfits %>% arrange(totalProfit)
 
 </details>
 
-{::options parse_block_html='false'/} <br>
+{::options parse_block_html='false'/}
 
-⭐ **View the 5 least profitable cities.** <br> {::options
-parse_block_html='true' /}
+<br>
+
+⭐ **View the 5 least profitable cities.** <br>
+
+{::options parse_block_html='true' /}
 <details>
 <summary>
 Check your code

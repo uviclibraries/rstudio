@@ -926,6 +926,7 @@ You can use the functions you just learned to review this new data frame.
 &#11088; **Sort the table by `Profit` using the `arrange()` function to order it by the lowest profitable city to the highest profitable city.**
   
 <br>
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
@@ -935,10 +936,12 @@ USCityProfits <- USCityProfits %>% arrange(totalProfit)
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 <br>
 
 &#11088; **View the 5 least profitable cities.**
 <br> 
+
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
