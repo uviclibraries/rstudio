@@ -11,6 +11,11 @@ DSC Chloe Farr
 2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
+- [2. Creating Plots and Charts in
+  ggplot2](#2-creating-plots-and-charts-in-ggplot2)
+  - [2.1. Scatter Plots](#21-scatter-plots)
+  - [2.2. Bar Charts](#22-bar-charts)
+  - [2.3. Line Charts](#23-line-charts)
 
 If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
@@ -78,7 +83,6 @@ Check that you still have Tidyverse loaded.
   parameter is chocolateData (leave parentheses blank if piping)
 - Remove first (empty) row using `filter(ref != "REF")` <br>
 
-<details>
 {::options parse_block_html='true' /}
 <details>
 <summary>
@@ -114,6 +118,7 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
+
 </div>
 
 <div class="task-box" markdown="1">
@@ -693,5 +698,3 @@ details {
 <!--https://gist.github.com/rxaviers/7360908-->
 
 [Earn a workshop badge](informal-credentials.html){: .btn .btn-blue }
-
-</div>
