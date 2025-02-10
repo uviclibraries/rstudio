@@ -23,16 +23,6 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
   - [3.2 Running your code](#32-running-your-code)
   - [3.3 Deleting variables](#33-deleting-variables)
 
-``` markdown
-#move me to the top after pushing to github, and remove this comment
----
-layout: default
-title: Navigating the RStudio Interface
-nav_order: 6
-parent: Workshop Activities
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
----
-```
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
