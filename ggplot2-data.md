@@ -109,6 +109,9 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 </details>
+
+{::options parse_block_html='false'/}
+
 *Hint:* See Activity 3, Task 3.1 for instructions on importing a csv
 file.
 </div>
@@ -235,9 +238,10 @@ bar received.**
 - X-axis = Cocoa percentage: `cocoa_percent`
 - Y-axis = Rating a chocolate bar received: `rating`
 
+{::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code and Output
+Check your code
 </summary>
 
 ``` r
@@ -245,8 +249,10 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 </details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -325,7 +331,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -359,7 +365,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -458,7 +464,7 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -497,7 +503,7 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -604,7 +610,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-40-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -646,7 +652,7 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 <br> Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-41-1.png)<!-- -->
+![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -685,5 +691,7 @@ details {
   }
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
+
+[Earn a workshop badge](informal-credentials.html){: .btn .btn-blue }
 
 </div>

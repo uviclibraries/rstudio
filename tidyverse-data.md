@@ -1444,5 +1444,5 @@ details {
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Tidyverse and Data Manipulation](ggplot2-data.html){: .btn
+[NEXT STEP: Data Visualization with ggplot2](ggplot2-data.html){: .btn
 .btn-blue }
