@@ -70,6 +70,15 @@ Check that you still have Tidyverse loaded.
 
 <br>
 
+**Download and import data**
+
+From [this
+link](https://uviclibraries.github.io/rstudio/docs/flavors_of_cacao.csv){:target=“\_blank”}
+download the following data we have prepared for you to use in this
+activity.
+
+Save the file in the same folder as your R script.
+
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 1-2</u>
@@ -90,7 +99,9 @@ Check your code
 </summary>
 
 ``` r
-#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
+#in the file path below, replace 'Desktop' with the path to your file.
+#if you do not know the path to your file, import it instead by navigate to your file in the Files tab in the bottom right quadrant of your RStudio workspace.
+#right click on the filename and select 'import'.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
   clean_names() %>% #Clean the column header names
   filter(ref != "REF")
