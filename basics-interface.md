@@ -390,7 +390,7 @@ rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 
 </div>
 
-We’ll get to different types of variables in the next activity.
+We’ll get to different types of variables in the next activity. Good job!
 
 <br>
 
