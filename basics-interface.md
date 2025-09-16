@@ -177,10 +177,19 @@ your keyboard.
 
 **Try getting help!**
 
-To do this, you’ll run the `help()` function. - Try getting information
-on vectors.
+To do this, you’ll run the `help()` function. 
 
-<br>
+`help("mean")` will provide you with information about the mean function
+ in RStudio. The help information will be displayed in the
+Help pane following your command.
+
+<div id="gif1">
+
+<img src="images/rstudio-02.gif"/> <br>
+
+</div>
+
+<br> Now try getting information on vectors.
 
 {::options parse_block_html='true' /}
 <details>
@@ -197,23 +206,7 @@ help("vector") # then type 'enter' or 'return'
 
 {::options parse_block_html='false'/}
 
-<br> `help("vector")` will provide you with information about the mean
-function in RStudio. - The help information will be displayed in the
-Console following your command.
-
 </div>
-
-<br>
-
-<div id="gif1">
-
-<img src="images/rstudio-02.gif"/> <br>
-
-</div>
-
-</details>
-
-<br>
 
 > Note: You can get help on related content by selecting the dropdown
 > list at the top of the Help tab. <!--screenshot-->
