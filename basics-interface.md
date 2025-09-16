@@ -262,8 +262,6 @@ scripts, and share them with collaborators
   b.dim2 <- 5 # length of object 2
   ```
 
-  <br>
-
   ``` r
   # GOOD naming
   object1.length <- 10
