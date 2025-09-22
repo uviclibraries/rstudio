@@ -8,7 +8,7 @@ parent: Workshop Activities
 
 Please review the following links:
 
-- Read the [Introductory Slides](https://docs.google.com/presentation/d/1LhGJBwUS-ilsF9bIkcY0hm_F_VdvvR8uYVt1JOVZTI8/edit#slide=id.g4d830b67e2_0_4){:target="_blank"} 
+- If not attending a live (in-person or Zoom) session, read the [Introductory Slides](https://docs.google.com/presentation/d/1LhGJBwUS-ilsF9bIkcY0hm_F_VdvvR8uYVt1JOVZTI8/edit#slide=id.g4d830b67e2_0_4){:target="_blank"} 
 - Video: [Resize Your Laptop Screen for Workshop Handouts (2 min)](https://www.youtube.com/watch?v=Igk5hZUfzN0){:target="_blank"}
 
 [NEXT STEP: Activity 1: Basics Interface](basics-interface.html){: .btn .btn-blue }<br>
