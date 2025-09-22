@@ -45,6 +45,11 @@ The code editor is where you write and edit your R scripts. It includes
 syntax highlighting, code completion, and other helpful tools to make
 coding easier.
 
+The code you write in the editor is just text. RStudio will not execute
+the code unless you tell it to. To tell RStudio to execute the code, you 
+need to send the code to the console. We will see how to do that in 
+section 3.2.
+
 ### 1.2 Console:
 
 The console is where R code is executed.
@@ -52,8 +57,13 @@ The console is where R code is executed.
 You can type commands directly into the console, like a scratch pad. It
 also displays outputs, messages, and errors.
 
-You might prefer to use the console for immediate execution, or testing
-of small code snippets or commands.
+You might prefer to use the console for immediate execution or testing
+of small code snippets or commands. 
+
+When you close RStudio, nothing that was written in the console is saved.
+So if you want to be able to use your code in the future without needing to
+retype it, write it in the code editor, where it will be saved for future 
+use.
 
 ### 1.3 Files/Plots/Packages/Help Pane:
 
@@ -68,7 +78,7 @@ graphs.
 
 - Functions and packages
 - Example code
-- Information about datasets built in to R
+- Information about datasets built into R
 - Information about other general R-related topics.
 
 **Viewer:** Used to view local web content.
