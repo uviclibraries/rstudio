@@ -10,14 +10,12 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ================
 
 - [1. Creating and Manipulating Vectors and Basic
-  Variables](#1-creating-and-manipulating-vectors-and-basic-variables)
-  - [1.1 Variables and Basic Data
-    Types](#11-variables-and-basic-data-types)
+  Objects](#1-creating-and-manipulating-vectors-and-basic-variables)
+  - [1.1 Basic Data Types](#11-variables-and-basic-data-types)
   - [1.2 Vectors](#12-vectors)
 - [2. Descriptive Statistics](#2-descriptive-statistics)
   - [2.1 Basic statistical measures](#21-basic-statistical-measures)
-  - [2.2. Histogram Plot for Pig
-    Weights](#22-histogram-plot-for-pig-weights)
+  - [2.2. Histogram Plot for Pig Weights](#22-histogram-plot-for-pig-weights)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
