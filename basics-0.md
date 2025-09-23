@@ -22,26 +22,33 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-## 1. Creating and Manipulating Vectors and Basic Variables
+## 1. Creating and Manipulating Vectors and Basic Objects
 
-To create any data object:
+The key to understanding R is that you will be working with what we 
+call "objects". Anything in R can be an object: a number, a string of 
+characters, a data frame with data, and even plots. 
 
-- the command will begin with the a name for the new variable
+To create any object:
+
+- The command will begin with the name for the new object
 - followed by: - an assignment operator `<-`
 - and then the data or expression that defines the content of the
-  variable.
+  object.
 
 -This can include direct values, function calls, operations, or other
-variables. <br>
+objects.
 
-    variableName <- "word"
+``` r
+objectName <- "word"
+```
 
-<br> Variable names are never wrapped in quotes. String/character values
-being assigned to variable must be wrapped in quotes. Variable names
-cannot begin with anything other than an alphabetical character, but
-otherwise can contain special characters and numbers (\*\_13). Variable
-names cannot contain spaces, but string values can. <br> **Definition -
-“Function”:** A set of instructions defined to perform a specific task.
+**Attention:** Object names are never wrapped in quotes. String/character 
+values being assigned to an object must be wrapped in quotes. Object 
+names cannot begin with anything other than an alphabetical character, 
+but otherwise can contain special characters and numbers (\*\_13). Object
+names cannot contain spaces, but string values can. 
+<br> 
+**Definition - “Function”:** A set of instructions defined to perform a specific task.
 
 -E.g., help() : ‘help’ is a function to get information
 
@@ -55,9 +62,9 @@ specific arguments, if required, to produce a result. <br>
 
 <br>
 
-### 1.1 Variables and Basic Data Types
+### 1.1 Basic Data Types
 
-Let’s start by looking at types of variables.
+Let’s start by looking at types of data.
 
 <br>
 
@@ -68,33 +75,28 @@ simplest forms of data.
 
 - *Numeric*: Decimal or floating-point numbers (e.g., 4.5, -3.2).
 
-- *Integer*: Whole numbers (e.g., 1, -5, 20).
-
-- In R, integers are often just treated as numeric unless
-      explicitly specified.
-
-- *Character*: Text or strings (e.g., “hello”, “1234”).
+- *Integer*: Whole numbers (e.g., 1, -5, 20).In R, integers are often
+   just treated as numeric unless explicitly specified.
 
 - *Logical*: Boolean values, either TRUE or FALSE.
+  
+- *Character*: Text or strings (e.g., “hello”, “1234”).
 
-- *Factor*: Categorical data, or data as levels (e.g., “low”, “medium”,
-  “high”).
+- *Factor*: A special type of character data, includes levels
+  or an order (e.g., “low”, “medium”,  “high”).
 
-<br> Here we’ll look at basic operations with character variables.
+<br> Here we’ll look at basic operations with objects with character data.
 
-<br>
-
-Whenever you enter a string parameter, the string will more likely than
-not be wrapped in quotes. If it doesn’t work, add or remove quotes.
+Note: whenever you enter a string parameter, the string will more likely
+than not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 1.1-1</u>
 
-**Create a variable.**
+**Create an object.**
 
-Create a variable for a pig’s first name.
-`The first pig's first name is 'Bart'.`
+Create an object for a pig’s first name. The first pig's first name is "Bart".
 
 {::options parse_block_html='true' /}
 <details>
@@ -103,10 +105,14 @@ Check your code
 </summary>
 
 ``` r
-#assign the first name 'Bart' to the first pig (pig1)
+# Assign the first name 'Bart' to the first pig (pig1)
 pig1.first_name <- "Bart"
 ```
-
+**Note:** You might have created an object with a different name, which is 
+completely okay (as long as it is an understandable name; remember the best
+practices for naming objects from the previous section). However, we will 
+continue using the object `pig1.first_name` for this activity, so you might 
+want to use the same name to make it easier to follow.
 </details>
 
 {::options parse_block_html='false'/}
@@ -119,9 +125,9 @@ pig1.first_name <- "Bart"
 
 ⭐ <u>Task 1.1-2</u>
 
-**Create a variable.**
+**Create an object.**
 
-Create a variable for a Bart’s last name. `Bart's last name is 'Smith'.`
+Create an object for Bart’s last name. Bart's last name is "Smith".
 
 {::options parse_block_html='true' /}
 <details>
@@ -130,7 +136,7 @@ Check your code
 </summary>
 
 ``` r
-#assign the last name 'Smith' to the first pig (pig1)
+# Assign the last name 'Smith' to the first pig (pig1)
 pig1.last_name <- "Smith"
 ```
 
@@ -146,9 +152,9 @@ pig1.last_name <- "Smith"
 
 ⭐ <u>Task 1.1-3</u>
 
-**Create a variable.**
+**Create an object.**
 
-Create a variable that equals Bart’s first and last name, then display
+Create an object that equals Bart’s first and last name, then display
 the full name in the console <br>
 
 The `paste()` function combines two strings and inserts a space between
@@ -161,10 +167,10 @@ Check your code
 </summary>
 
 ``` r
-#concatenate the first pig's (pig1) first ('Bart') and last name ('Smith')
+# Concatenate the first pig's (pig1) first ('Bart') and last name ('Smith')
 pig1.full_name <- paste(pig1.first_name, pig1.last_name)
 
-#after pig1.full_name has been created, print (display) Bart’s full name...
+# After pig1.full_name has been created, print (display) Bart’s full name...
 pig1.full_name
 ```
 
@@ -179,7 +185,7 @@ pig1.full_name
 <br>
 
 Now we’ll look at basic operations with **numeric and integer
-variables**. First we’ll create height information for Bart and find out
+variables**. First, we’ll create height information for Bart and find out
 how much he’s grown in height.
 
 <br>
@@ -190,9 +196,9 @@ how much he’s grown in height.
 
 ⭐ <u>Task 1.1-4</u>
 
-**Create a variable.**
+**Create an object.**
 
-Create a variable for Bart’s height as a piglet: 10
+Create an object for Bart’s height as a piglet: 10
 
 {::options parse_block_html='true' /}
 <details>
@@ -201,7 +207,7 @@ Check your code
 </summary>
 
 ``` r
-#Assign the value of Bart’s piglet height
+# Assign the value of Bart’s piglet height
 pig1.heightA <- 10
 ```
 
@@ -217,9 +223,9 @@ pig1.heightA <- 10
 
 ⭐ <u>Task 1.1-5</u>
 
-**Create a variable.**
+**Create an object.**
 
-Create a variable for Bart’s height now: 22.3
+Create an object for Bart’s height now: 22.3
 
 {::options parse_block_html='true' /}
 <details>
@@ -228,7 +234,7 @@ Check your code
 </summary>
 
 ``` r
-#Assign the value of Bart's current height
+# Assign the value of Bart's current height
 pig1.heightB <- 22.3
 ```
 
@@ -244,9 +250,9 @@ pig1.heightB <- 22.3
 
 ⭐ <u>Task 1.1-6</u>
 
-**Create a variable.**
+**Create an object.**
 
-Now create a variable expressing the amount he’s grown.
+Now create an object expressing the amount he’s grown.
 
 {::options parse_block_html='true' /}
 <details>
@@ -259,7 +265,7 @@ Check your code
 # using the subtraction operator. 
 pig1.heightGain <- pig1.heightB - pig1.heightA
 
-#after pig1.heightGain has been created, print (display) the value of pig.heightGain...
+# after pig1.heightGain has been created, print (display) the value of pig.heightGain...
 
 pig1.heightGain
 ```
@@ -281,7 +287,7 @@ expression, in this case, a mathematical operation.
 
 `pig1.heightB` is a ‘numeric’ data type (decimal number)
 
-R can perform operations on different data types like getting the
+R can perform operations on different data types, like getting the
 difference of a value.
 
 ------------------------------------------------------------------------
@@ -291,14 +297,14 @@ regularly.
 
 ------------------------------------------------------------------------
 
-To remove data objects from your environment, execute the ‘remove’
+To remove objects from your environment, execute the ‘remove’
 function in the console: `rm()`, e.g. `rm(full_name)`.
 
 <br>
 
 **Time for logical or boolean values!**
 
-We can denote if Bart is small or large with a boolean value.
+We can denote whether Bart is small or large with a Boolean value.
 
 <br>
 
@@ -306,10 +312,10 @@ We can denote if Bart is small or large with a boolean value.
 
 ⭐ <u>Task 1.1-7</u>
 
-**Create two variables.**
+**Create two objects.**
 
-Create two variables (pig1.mini and pig1.large) which indicate that Bart
-is a large pig and not a mini pig.
+Create two objects (pig1.mini and pig1.large) containing Boolean values
+which indicate that Bart is a large pig and not a mini pig.
 
 {::options parse_block_html='true' /}
 <details>
@@ -336,7 +342,7 @@ pig1.large <- TRUE
 ### 1.2 Vectors
 
 A vector is a 1-dimensional list of items that are of the same data type
-(all text, all whole numbers, etc.)
+(all character, all numeric, etc.)
 
 To create a vector object, you will use the `c()` function. <br>
 
@@ -412,13 +418,13 @@ window)
 
 ⭐ <u>Task 1.2-2</u>
 
-**View variables.**
+**View objects.**
 
 Show the contents of the vector containing the goat weights.
 
-If at any point you want to view the value of a variable, use the
-`print()` function with the name of the variable name and type ‘enter’
-or ‘return’ to execute.
+If at any point you want to view the value of an object, you can
+just type the name of the object in the console and type ‘enter’ 
+or ‘return’ to execute. 
 
 {::options parse_block_html='true' /}
 <details>
@@ -427,7 +433,7 @@ Check your code
 </summary>
 
 ``` r
-print(goat.weights)
+goat.weights
 ```
 
     ## [1] 13.3 17.2 14.8 14.6 12.4
@@ -444,7 +450,7 @@ print(goat.weights)
 
 ⭐ <u>Task 1.2-3</u>
 
-**View variables.**
+**View objects.**
 
 Display the weight of the second goat in the vector.
 
@@ -470,7 +476,7 @@ goat.weights[2]
 
 <br>
 
-You have just worked with numeric vectors. Now let’s move to string
+You have just worked with numeric vectors. Now let’s move to character
 vectors.
 
 <img src="images/rstudio-basics-goats.png" alt="a row of goats" style="width:420px;"/>
@@ -481,7 +487,7 @@ vectors.
 
 ⭐ <u>Task 1.2-4</u>
 
-**Create a new R script.**
+**Create a new vector.**
 
 Make a vector for the following name values of miniature goats.
 
@@ -522,15 +528,9 @@ function.
 
 ⭐ <u>Task 1.2-5</u>
 
-**View information about variables.**
+**View information about vectors.**
 
-Print (display) the length of the vector of miniature goat names.
-
-*Note:* In a script (code editor), you often need to use the print()
-function explicitly to see the output, especially when running multiple
-lines of code or within functions. However, in the console, R
-automatically displays the output of expressions upon execution of the
-command.
+Display the length of the vector of miniature goat names.
 
 {::options parse_block_html='true' /}
 <details>
@@ -562,11 +562,14 @@ To make a list, we’ll use the `list()` function.
 **Hint:** Remember that all items in a vector must be the same type, but
 can be different types if in a list.
 
-If you want to create 2D lists, also known as a table, you will create a
-matrix using the `matrix()` function. <br> - For more on matrices,
+If you want to create 2D lists, also known as a table, you will create a 
+data.frame suing the `data.frame()` function or a matrix using the 
+`matrix()` function. 
+<br> - Instead of creating our own data.frames, we will be importing data
+- For more on matrices,
 [check me
 out](https://www.w3schools.com/r/r_matrices.asp){:target=“\_blank”}.
-<br>- Instead of creating our own matrices, we will be importing data
+<br>
 later on.
 
 ------------------------------------------------------------------------
@@ -582,11 +585,11 @@ regularly.
 
 Statistics is:
 
-- the science of collecting, analyzing, interpreting
+- the science of collecting, analyzing, and interpreting
 
 - data to uncover patterns and trends,
 
-- informed decisions based on this data.
+- and inform decisions based on this data.
 
 If you’re unfamiliar with statistics, you can learn more about it from
 the [w3school Statistics
@@ -609,17 +612,18 @@ It is just the name or abbreviation of the statistical measure, where
 the argument is the object containing the set of values we are
 analyzing.
 
-Each function takes the vector as its argument.
+Each function takes the vector containing the values of the variable as 
+its argument.
 
-These three functions are designed for sets of numerical and decimal
-values. If run on other types (string, aka text, and boolean, aka
+These three functions are designed for sets of numerical and integer
+data types. If run on other types (character, aka text, and boolean, aka
 true/false), result will be `NA`.
 
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 2.1-1</u>
 
-**View information about variables.**
+**Create a variable to be summarised.**
 
 For this task, we will use a new vector object containing weights for a
 set of pigs.
@@ -655,8 +659,8 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 
 **Mean:** the average value in a set.
 
-The `mean()` function calculates the sum of the in the set and divides
-the sum by the number of items in the set.
+The `mean()` function calculates the sum of the values in the set and 
+divides the sum by the number of items in the set.
 
 Write and execute a command that outputs the mean value of the pigs’
 weights.
@@ -721,9 +725,11 @@ lighter half and the heavier half of the pigs. <br>
 
 ⭐ <u>Task 2.1-4</u>
 
-**Get median value.**
+**Get standard deviation.**
 
-**Standard deviation:** Describes how spread out the data is. `sd()`
+**Standard deviation:** Describes how spread out the data is. 
+
+The function in R is `sd()`
 
 Write and execute a command that outputs the standard deviation of the
 pigs’ weights
