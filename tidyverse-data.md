@@ -96,11 +96,18 @@ To check if the package is installed, enter the following in the console
 
 ``` r
 # Paste both lines into the console, and then run. 
-installed <- installed.packages()
-"tidyverse" %in% rownames(installed)
+installed <- installed.packages() # this creates an object with names of installed packages
+"tidyverse" %in% rownames(installed) # this looks for tidyverse in that object
 ```
 
     ## [1] TRUE
+
+**Load the ‘tidyverse’ library.**
+
+After we install a package, we have to load it using the `library()`
+function.
+
+- Do not wrap the package name in quotes when using `library()`.
 
 <details>
 <summary>
@@ -127,16 +134,9 @@ an unquoted name that it interprets as a package name.
 
 <br>
 
-**Load the ‘tidyverse’ library.**
-
-After we install a package, we have to load it using the `library()`
-function.
-
-- Do not wrap the package name in quotes when using `library()`.
-
 - ❗ Put this command in your R script, not in the console. Why? The
   package only needs to be *installed* once, but it needs to be *loaded*
-  any time you open your script.
+  any time you are running your script.
 
   - Packages also need to be reloaded every time the project is ‘knit’,
     an action covered in the intermediate workshop.
@@ -147,7 +147,8 @@ Check Your Code
 </summary>
 
 ``` r
-library(tidyverse) #then, as always, type 'enter' or 'return' to submit the command for execution
+library(tidyverse) #then, as always, send the command to the console by
+# clicking Ctrl + Enter (Windows) or Cmd +  Enter (Mac)
 ```
 
 </details>
@@ -160,7 +161,7 @@ library(tidyverse) #then, as always, type 'enter' or 'return' to submit the comm
 
 ⭐ <u>Task 2-1</u>
 
-**Download and import data**
+**Download data**
 
 From [this
 link](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016.csv){:target=“\_blank”}
@@ -168,8 +169,6 @@ download the following data we have prepared for you to use in this
 activity.
 
 Save the file in the same folder as your R script.
-
-Import the data as you learned in the previous activity.
 
 </div>
 
@@ -185,15 +184,15 @@ Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyve
 ## 3. Preparing our Workspace
 
 In this activity, we will be working with a table containing information
-about shipping orders Each row represents one order, and each column
+about shipping orders. Each row represents one order, and each column
 represents a specific type of data pertaining to the orders <br>
 
-- Rename your data set to `purchaseData`
+- Load your data into an object called `purchaseData`
 
 ``` r
-#if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a. 
 # replace "docs/" with the folder that the file is in. Please do not save the file to your Downloads folder and leave it there.
-purchaseData <- read.csv("docs/Global_Superstore_Orders_2016.csv")
+# to check the path you most likely should use, enter `getwd()` into your console.
+purchaseData <- read.csv("path-to-folder/Global_Superstore_Orders_2016.csv")
 ```
 
 <br> ❗ For larger data sets, it’s better to *preview* than *view* our
@@ -204,7 +203,7 @@ columns) of the data set.
 We can preview the data set using the `head()` function. This will
 display the first number of rows.
 
-- Parameters (in order):
+- Parameters of the `head()` function (in order):
   - data set name
   - number of rows to display
 
@@ -255,16 +254,14 @@ continue to wrap below!):
     ## 4   KM-1637548
     ## 5   RH-9495111
 
-We can find out the dimensions (rows and columns) using the`dim()`
-function.
-
-- Parameter: data set name
-
 Now, we’ve imported our data and previewed the first 10 rows of our
 purchase data, but how big is the data set?
 
 - How many rows?
 - How many columns?
+
+We can find out the dimensions (rows and columns) using the`dim()`
+function. This function takes only one parameter, the data set name.
 
 <div class="task-box" markdown="1">
 
@@ -301,40 +298,50 @@ dim(purchaseData)
 ## 4. Introducing Piping
 
 `%>%` This symbol is known as a “pipe,” and it’s used for feeding the
-result of one function directly into the next function.
+result of one function directly into the next function. 
+
+Note: New versions of R also have the symbol `|>` as a pipe, which works 
+exactly like `%>%` in most cases. We will use the `%>%` symbol, which is
+more common in the tidyverse world, but know that if you see `|>`, you can 
+interpret in the same way as `%>%`.
 
 - e.g., To sort the column names alphabetically, you could either enter:
   - two separate commands creating two data objects
-  - utilize piping to create one data object for your target object.
+  - use a pipe to create one data object for your target object.
+ 
+This might be difficult to understand now, and that's why we will, in the next
+two sections, first try manipulating a dataframe without using pipe, and
+then do the same using pipe, so that you understand the difference and
+the power of using pipe.
 
 In pipes, you can choose to have a newline (shift+enter) after the %\>%
-symbol or leave it all on one line. <br>
+symbol or leave it all on one line. For a cleaner code, we recommend
+adding a new line. <br>
 
-### 4.1 Before Piping
+### 4.1 Manipulating dataframes without piping
 
-Piping allows us to perform multiple functions at once to achieve a
-single result. So far, we have looked at commands that perform single
+So far, we have looked at commands that perform single
 operations.
 
 - Create a variable whose value is a single word
   - `y <- "word"`
-- Create a variable whose value by mathematical expression
+- Create a variable whose value si defined by amathematical expression
   - `x <- 1-2`
-- viewing the dimensions of a data set
+- View the dimensions of a data set
   - `dim(purchaseData)`
 
-What if we want to get a list of column names in our data set, AND sort
-it alphabetically?
+Piping becomes powerful when we want to perform multiple functions at once to achieve a single result. For example, what if we want to get a list of column names in our data set, AND sort it alphabetically? Let's first see how to this
+without piping.
 
-- There are 2 ways that we can do this without the tidyverse package
-  based on what we’ve already learned.
+- There are 2 ways that we can do this without piping based on what we have
+- already learned.
 
-<br>
+**First option: separate commands**
 
-For the following activity, we’ll be using column names of our data
-frame.
+To get our list of column names sorted alphabetically, we first need to get
+the column names.
 
-- To get a list of our column names we can use the `names()` function.
+- To get a list of column names, we can use the `names()` function.
   - parameter: data frame
   - In this case, results appear in a vector rather than a list because
     the column names are all the same data type (strings).
@@ -370,12 +377,11 @@ purchaseDataColumnNames <- names(purchaseData)
 
 <br>
 
-We can sort vectors into ascending and descending order (low to high or
-high to low) using the `sort()` function.
+Then, after we have the list of column names, we can sort the vector
+into ascending and descending order (low to high or high to low) 
+using the `sort()` function.
 
-- Parameter: the vector of column names
-
-Let’s look at each of these functions on their own.
+- Parameter: the vector of values to be sorted
 
 <div class="task-box" markdown="1">
 
@@ -383,8 +389,8 @@ Let’s look at each of these functions on their own.
 
 **Create an object**
 
-Create an containing the list of column names from our purchase data
-that is sorted alphabetically.
+Create an object containing the alphabetically-sorted list of column
+names from our purchase data.
 
 - Name this object `alphaPurchaseDataColumnNames`
 
@@ -403,22 +409,22 @@ alphaPurchaseDataColumnNames <- sort(purchaseDataColumnNames)
 {::options parse_block_html='false'/}
 
 *Hint:* You already created the vector containing the list of column
-names from our purchase data! <br>
+names from our purchase data in the previous task! <br>
 
 </div>
 
-<br> In Tasks 4.1-1 and 4.1-2, we ran two commands resulting in two
+**Second option: nesting**
+
+<br> In Tasks 4.1-1 and 4.1-2, we ran two commands, resulting in two
 separate variables containing the column names:
 
 - `purchaseDataColumnNames`: Ordered as they would be if the file were
   opened in excel
 - `alphaPurchaseDataColumnNames`: Ordered alphabetically (sorted)
 
-<br> However, if we only care about the list of column names if they are
-sorted alphabetically:
+<br> However, we only care about the list of alphabetically column names.
 
-- We can achieve that using only 1 command,
-  - creating only 1 variable with “nesting”.
+- We can achieve that using only 1 command, creating only 1 object with “nesting”.
 
 <br> **Definition - Nesting:** Use one function as a parameter of
 another function.
@@ -433,8 +439,8 @@ another function.
 
 **Create a variable through nested functions**
 
-In this task, use nesting to create 1 variable containing a sorted
-vector of the column names.
+In this task, use nesting to create one object containing the sorted
+vector of column names with a single line of code.
 
 - Name this variable: `alphabeticalColumnNames` <br>
 
@@ -454,27 +460,47 @@ alphabeticalColumnNames <- sort(names(purchaseData))
 
 {::options parse_block_html='false'/}
 
-<br> *Hints*: the parameter of `names()` is the `sort()` function, and
-the parameter of `sort()` is the data set.
+<br> *Hints*: the parameter of `sort()` is the `names()` function, and
+the parameter of `names()` is the data set.
 
 </div>
 
 <br> As you might imagine, nesting could result in very long commands
 that would be hard to interpret.
 
-There is a cleaner way to do this than nesting: Piping!
+There is a cleaner way to do this than nesting: (you guessed it correctly) piping!
 
 ------------------------------------------------------------------------
 
 ### 4.2 Piping
-
+ 
 To pipe a command instead of nesting, we will enter the commands
 sequentially, separated by the pipe symbol `%>%`.
 
-- Creating a new variable with 2 criteria (functions or expressions):
-  newVariable \<- criteria1() %\>% criteria2()
+For example, to get the list of alphabetically-sorted column names, you would
+use the following code:
+``` r
+alphabeticalColumnNames <- purchaseData %>% # this line gets the purchaseData object and pipes into ...
+                           names() %>% # the names function, which will get the column names of the purchaseData dataframe, and then pipe into ...
+                           sort() # the sort function, which will sort the names
+# All of those commands will be saved in the alphabeticalColumnNames objects that
+# you created in the first line
+```
 
-- Previewing our data with 2 criteria: criteria1() %\>% criteria2()
+- Creating a new object with 2 commands (functions or expressions):
+``` r
+newObject <- startingObject %>%
+             command1() %>%
+             command2()
+```
+
+- If you don't want to save the result of your pipe and just want to preview it,
+  you don't need to assign it to an object:
+``` r
+startingObject %>%
+  command1() %>%
+  command2()
+```
 
 <br>
 
@@ -482,9 +508,9 @@ sequentially, separated by the pipe symbol `%>%`.
 
 ⭐ <u>Task 4.2-1</u>
 
-**Create a variable through piping**
+**Create an object through piping**
 
-In this task, use piping to create 1 variable containing the first 5
+In this task, use piping to create one object containing the first 5
 column names.
 
 - Do not use objects you have created so far, except `purchaseData`
@@ -498,11 +524,14 @@ Check your code
 
 ``` r
 # 'purchaseDataNamesPeek <-' creates a new variable
-# 'names(purchaseData)' retrieves the column names from our purcgase data as a vector
+# purchaseData gets the dataframe to staet
+# The pipe '%>%' passes the dataframe to the 'names()' function, resulting in a vector of the column names
 # The pipe '%>%' passes the names vector to the 'head()' function
-# 'head(5)' then extracts the first five elements (columns) of this vector
+# 'head(5)' then extracts the first five elements (column names) of this vector
 # The result is a 5-item vector of column names assigned to 'purchaseDataNamesPeek'
-purchaseDataNamesPeek <- names(purchaseData) %>% head(5)
+purchaseDataNamesPeek <- purchaseData %>%
+                         names() %>%
+                         head(5)
 
 #remember, you can view the value assigned to a variable by entering just that variable name
 purchaseDataNamesPeek
@@ -514,7 +543,7 @@ purchaseDataNamesPeek
 
 {::options parse_block_html='false'/}
 
-*Hint*: the parameter of `names()` is the `head()` function. <br>
+*Hint*: you can use the functions `names()` and `head()` to do this. <br>
 
 </div>
 
@@ -530,7 +559,9 @@ Show code for previewing with piping
 
 ``` r
 # Do not begin the command with `newVariableName <-`
-names(purchaseData) %>% head(5)
+purchaseData %>%
+  names() %>%
+  head(5)
 ```
 
     ## [1] "Row_ID"     "Order_ID"   "Order_Date" "Ship_Date"  "Ship_Mode"
