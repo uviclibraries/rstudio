@@ -323,9 +323,9 @@ adding a new line. <br>
 So far, we have looked at commands that perform single
 operations.
 
-- Create a variable whose value is a single word
+- Create an object whose value is a single word
   - `y <- "word"`
-- Create a variable whose value si defined by amathematical expression
+- Create an object whose value is defined by a mathematical expression
   - `x <- 1-2`
 - View the dimensions of a data set
   - `dim(purchaseData)`
@@ -333,8 +333,7 @@ operations.
 Piping becomes powerful when we want to perform multiple functions at once to achieve a single result. For example, what if we want to get a list of column names in our data set, AND sort it alphabetically? Let's first see how to this
 without piping.
 
-- There are 2 ways that we can do this without piping based on what we have
-- already learned.
+- There are 2 ways that we can do this without piping based on what we have already learned.
 
 **First option: separate commands**
 
@@ -413,9 +412,10 @@ names from our purchase data in the previous task! <br>
 
 </div>
 
+
 **Second option: nesting**
 
-<br> In Tasks 4.1-1 and 4.1-2, we ran two commands, resulting in two
+In Tasks 4.1-1 and 4.1-2, we ran two commands, resulting in two
 separate variables containing the column names:
 
 - `purchaseDataColumnNames`: Ordered as they would be if the file were
@@ -483,8 +483,7 @@ use the following code:
 alphabeticalColumnNames <- purchaseData %>% # this line gets the purchaseData object and pipes into ...
                            names() %>% # the names function, which will get the column names of the purchaseData dataframe, and then pipe into ...
                            sort() # the sort function, which will sort the names
-# All of those commands will be saved in the alphabeticalColumnNames objects that
-# you created in the first line
+# All of those commands will be saved in the alphabeticalColumnNames objects that you created in the first line
 ```
 
 - Creating a new object with 2 commands (functions or expressions):
@@ -498,8 +497,8 @@ newObject <- startingObject %>%
   you don't need to assign it to an object:
 ``` r
 startingObject %>%
-  command1() %>%
-  command2()
+    command1() %>%
+    command2()
 ```
 
 <br>
@@ -524,16 +523,17 @@ Check your code
 
 ``` r
 # 'purchaseDataNamesPeek <-' creates a new variable
-# purchaseData gets the dataframe to staet
-# The pipe '%>%' passes the dataframe to the 'names()' function, resulting in a vector of the column names
-# The pipe '%>%' passes the names vector to the 'head()' function
+# purchaseData gets the dataframe to start
+# The first pipe '%>%' passes the dataframe to the 'names()' function,
+# the names() function then returns a vector of the column names
+# The second pipe '%>%' passes the names vector to the 'head()' function
 # 'head(5)' then extracts the first five elements (column names) of this vector
 # The result is a 5-item vector of column names assigned to 'purchaseDataNamesPeek'
 purchaseDataNamesPeek <- purchaseData %>%
                          names() %>%
                          head(5)
 
-#remember, you can view the value assigned to a variable by entering just that variable name
+#remember, you can view the value assigned to an object by entering just that object name
 purchaseDataNamesPeek
 ```
 
@@ -549,7 +549,7 @@ purchaseDataNamesPeek
 
 If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
-variable. <br>
+object. <br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -569,6 +569,9 @@ purchaseData %>%
 </details>
 
 {::options parse_block_html='false'/}
+
+If you want to know more about pipe, and how it is more intuitive than 
+other ways to write code, check out [this](https://r4ds.had.co.nz/pipes.html#pipes){target="_blank"}.
 
 ------------------------------------------------------------------------
 
