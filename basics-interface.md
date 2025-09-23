@@ -161,10 +161,10 @@ your keyboard.
 
 - If you don’t see the prompt symbol, one of two things is happening:
 
-- 1. R is still processing your previous command, and you must wait for it
+- 1 - R is still processing your previous command, and you must wait for it
   to finish.
 
-- 2. You might instead see the plus `+` symbol, which indicates that you
+- 2 - You might instead see the plus `+` symbol, which indicates that you
   have entered an incomplete command.
 
 - If you see the `+` symbol, you must enter the remainder of the command
