@@ -47,8 +47,8 @@ coding easier.
 
 The code you write in the editor is just text. RStudio will not execute
 the code unless you tell it to. To tell RStudio to execute the code, you 
-need to send the code to the console. We will see how to do that in 
-section 3.2.
+need to send the code to the console (i.e., "source" the code). We will 
+see how to do that in section 3.2.
 
 ### 1.2 Console:
 
@@ -61,9 +61,9 @@ You might prefer to use the console for immediate execution or testing
 of small code snippets or commands. 
 
 When you close RStudio, nothing that was written in the console is saved.
-So if you want to be able to use your code in the future without needing to
+If you want to be able to use your code in the future without needing to
 retype it, write it in the code editor, where it will be saved for future 
-use.
+use (that is, provided you remember to save the file of your script).
 
 ### 1.3 Files/Plots/Packages/Help Pane:
 
@@ -91,15 +91,14 @@ graphs.
   Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}
 
 *Presentation:* You can use RStudio to create presentations (see more
-[here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}.
+[here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}).
 
 ### 1.4 Environment/History Pane:
 
 **Environment:** Shows your current workspace, including:
 
-- Defined variables
-- Data frames
-- Function objects.
+- Created objects (i.e. vectors, data frames, etc.)
+- Functions you created or loaded
 
 **History:** Records all the commands you’ve run in the current and
 previous sessions.
@@ -162,10 +161,10 @@ your keyboard.
 
 - If you don’t see the prompt symbol, one of two things is happening:
 
-- R is still processing your previous command, and you must wait for it
+- 1. R is still processing your previous command, and you must wait for it
   to finish.
 
-- You might instead see the plus `+` symbol, which indicates that you
+- 2. You might instead see the plus `+` symbol, which indicates that you
   have entered an incomplete command.
 
 - If you see the `+` symbol, you must enter the remainder of the command
@@ -174,11 +173,9 @@ your keyboard.
 - An error will occur if you write the `+` symbol into your command.
 
 - Sometimes the output can be extensive and show more information than
-  you expected
-
-- E.g., when you load in a package (we will discuss packages more in
-  Activity 3). <br>
-
+  you expect (e.g., when you load in a package (we will discuss packages
+  more in  Activity 3).
+  
 <br>
 
 <div class="task-box" markdown="1">
@@ -189,9 +186,9 @@ your keyboard.
 
 To do this, you’ll run the `help()` function. 
 
-`help("mean")` will provide you with information about the mean function
- in RStudio. The help information will be displayed in the
-Help pane following your command.
+For example, `help("mean")` will provide you with information about 
+the mean function in RStudio. The help information will be displayed
+in the Help pane following your command.
 
 <div id="gif1">
 
@@ -199,7 +196,7 @@ Help pane following your command.
 
 </div>
 
-<br> Now try getting information on vectors.
+**Task:** Now try getting information on vectors.
 
 {::options parse_block_html='true' /}
 <details>
@@ -208,7 +205,7 @@ Check Your Code
 </summary>
 
 ``` r
-#Get additional information about "vectors" (a data type), 
+# Get additional information about "vectors" (a data type), 
 help("vector") # then type 'enter' or 'return'
 ```
 
@@ -237,8 +234,6 @@ scripts, and share them with collaborators
 
 **Create a new R script.**
 
-<br>
-
 1.  Click File \> New File \> R Script.
 2.  Save your script: A blank script opens in the code editor. Save it
     by clicking `File` \> `Save` (choose a name and location).
@@ -253,7 +248,9 @@ scripts, and share them with collaborators
 
 ### 3.1 Tips for writing code in an R script:
 
-- To add comments, begin your note with a `hash`
+- To add comments, begin your note with a hash `#`. R will execute each line
+  until it encounters a hash, so nothing after a hash will be executed, making
+  it great for adding comments. 
 
   ``` r
   # this is a comment
@@ -274,8 +271,8 @@ scripts, and share them with collaborators
 
   ``` r
   # GOOD naming
-  object1.length <- 10
-  object2.width <- 5
+  obj1.length <- 10
+  obj2.width <- 5
   ```
 
 - Order your code logically.
@@ -285,19 +282,23 @@ scripts, and share them with collaborators
 
 ### 3.2 Running your code
 
-Run a single line of code:
+Run (or source) a single line of code:
 
 1.  Click anywhere on the line you want to run.
 
 2.  Press Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac).
+    Alternatively, you can click the "Run" button at the top
+    right corner of the script editor pane.
 
 <br>
 
-Run multiple lines of code:
+Run (or source) multiple lines of code:
 
 1.  Highlight the lines you want to run.
 
 2.  Press Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac).
+    Alternatively, you can click the "Run" button at the top
+    right corner of the script editor pane.
 
 - Say you have created two separate variables for different words, as
   well as a third variable that concatenates (combines) those two
@@ -312,7 +313,7 @@ Run multiple lines of code:
   rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
   ```
 
-- You then you edit `rectangle1.length` to `15` and `rectangle1.width`
+- You then edit `rectangle1.length` to `15` and `rectangle1.width`
   to `8`, but you don’t run each line as you edit it.
 
   ``` r
@@ -331,7 +332,7 @@ Run multiple lines of code:
 
 <br>
 
-Run the entire script:
+Run (or source) the entire script:
 
 1.  Save the script (optional but recommended).
 
@@ -361,7 +362,7 @@ rectangle1.area <- paste(rectangle1.length, rectangle1.width) # Line 3
 
 **WARNING:** If you remove a variable that another variable depends on,
 you will see the following error:
-`Error: object 'varaible name' not found`.
+`Error: object 'variable name' not found`.
 
 Carefully consider the consequences of removing variables before doing
 so.
@@ -398,10 +399,8 @@ We’ll get to different types of variables in the next activity. Good job!
 ------------------------------------------------------------------------
 
 📍 As you work through these activities, remember to save your script(s)
-regularly.
-
-- File
-- Save (or cmd+s on Mac, ctrl+s on Windows)
+regularly. To do that, click on File > Save (or hit cmd+s on Mac, or 
+ctrl+s on Windows)
 
 ------------------------------------------------------------------------
 
