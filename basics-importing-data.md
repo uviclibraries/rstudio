@@ -16,7 +16,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-So far, we’ve create our own objects by manually entering all of the
+So far, we’ve created our own objects by manually entering all of the
 data in the console. In this section, we’ll learn how to create objects
 by importing (aka ‘reading’) data (compiled outside of R) into R and
 visualise it with a histogram.
@@ -25,9 +25,9 @@ visualise it with a histogram.
 
 R can handle multiple file types:
 
-- .csv (comma separated values)
+- .csv (comma-separated values)
 - excel (.xls, .xlsx)
-- .txt (and .tsv - tab separated values)
+- .txt (and .tsv - tab-separated values)
 - .json (used for nested data structures)
   - These would likely be arrays of more than 2 dimensions.
 - SPSS (another specialized statistics software)
@@ -154,7 +154,7 @@ We can see now that our data frame `income` contains 10 objects (rows),
 and 4 variables (columns)
 
 - It can be inferred that this data relates to 10 people
-- The values with each person are:
+- The variables measured with each person are:
   - id (in lieu of a name) (dbl)
   - gender (char)
   - income (dbl)
@@ -202,7 +202,7 @@ is a vector.
 
 To extract a vector (column) from our data frame, we will pass in
 `dataframeName$columnName`, where the name of our data is separated by
-the name identifying a single set of values within that data frame.
+the name identifying a single column within that data frame.
 
 - Replace *dataframeName* with the name of your imported data
 - Replace *columnName* with the column name representing the information
@@ -239,7 +239,8 @@ hist(income$experience, main='Histogram of Experience',xlab='Experience')
 
 The following will be the output:
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+<img src="images/rstudio-20.png" alt="Histogram of experience" style="width:600px;"/>
+
 
 We can see in the histogram that there are 7 intervals with equally
 spaced breaks. In this case, the height of a cell is equal to the number
