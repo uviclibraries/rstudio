@@ -362,7 +362,7 @@ Check your code
 </summary>
 
 ``` r
-#you can use the following labels or make your own.
+# you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
   geom_smooth(method = "lm") + 
@@ -371,7 +371,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+<img src="images/unnamed-chunk-22-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
@@ -385,14 +385,16 @@ charts. Copy and paste the following code into your console, and
 execute. <br>
 
 ``` r
-chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
-
-chocolateData$bean_type_simplified <- gsub('[[:punct:]]', '', chocolateData$bean_type_simplified)
-chocolateData$bean_type_simplified <- trimws(chocolateData$bean_type_simplified)
-
 chocolateData <- chocolateData %>%
-filter(str_detect(bean_type_simplified, "\\S")) # This ensures the string contains at least one non-whitespace character
+# A few steps to clean the bean type variable
+  mutate(
+    bean_type_simplified = word(bean_type, 1), # get just the first word
+    bean_type_simplified = gsub('[[:punct:]]', '', bean_type_simplified), # reove punctuations
+    bean_type_simplified = trimws(bean_type_simplified) # remove white spaces
+  ) %>%
+  filter(str_detect(bean_type_simplified, "\\S")) # This ensures the string contains at least one non-whitespace character
 
+# Get the most common bean types
 commonBeanTypes <- chocolateData %>%
   select(bean_type_simplified) %>%
   group_by(bean_type_simplified) %>%
