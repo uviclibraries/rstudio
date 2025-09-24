@@ -265,7 +265,7 @@ Check your code
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
-<img src="ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png" alt="ggplot1" style="width:420px;"/>
+<img src="ggplot2-data-B_files/figure-gfm/unnamed-chunk-15-1.png" alt="ggplot1" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
