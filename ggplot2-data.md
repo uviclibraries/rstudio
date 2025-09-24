@@ -411,14 +411,14 @@ chocolateData_commonBeans <- chocolateData %>%
 
 <br>
 
-A bar chart illustrates *categories* along the x axis and the count of
-observations from each category on the y axis.
+A bar chart illustrates *categories* along the x-axis and the count of
+observations from each category on the y-axis.
 
-To make a bar chart, you need the data (categories, and values relevate
+To make a bar chart, you need the data (categories, and values relevant
 to those categories), and the categories the data will be separated by
 (each representing one bar).
 
-The first 5 rows of the bars made of common beans:
+The first 5 rows of the dataframe filtered for the common bean types:
 
     ## # A tibble: 5 × 10
     ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
@@ -446,8 +446,13 @@ With the code above, you now have:
 
 - A dataset `chocolateData_commonBeans`: containing the chocolate bars
   made with the most common beans
-- A vector `commonBeanTypes` list of the common bean types, which will
+- A variable `bean_type_simplified`, which lists the types of beans to
   be used as the categories for the x-axis.
+
+The call for bar charts in ggplot2 `geom_bar` makes the height of the bar 
+proportional to the number of observations in each group of a categorical
+variable, so you only need to tell ggplot2 the variable you want to use for
+the bar chart, and it makes the calculations in the background.
 
 <div class="task-box" markdown="1">
 
@@ -455,10 +460,8 @@ With the code above, you now have:
 
 **Create a basic bar chart.**
 
-Your chart will illustrate the frequency that chocolate bars are being
-made in different countries.
-
-- Country bar was made in: `broad_bean_origin`
+Your chart will illustrate the numbers of bars of different types of the most
+common bean types that are being made.
 
 {::options parse_block_html='true' /}
 <details>
@@ -467,12 +470,13 @@ Check Your Code and Output
 </summary>
 
 ``` r
-ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
+ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified))+
+  geom_bar()
 ```
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+<img src="images/unnamed-chunk-29-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
