@@ -183,9 +183,10 @@ function and a geometry function. `ggplot()` parameters are:
   - `aes(x = columnForXAxis, y = columnForYAxis)`
 
 The geometry function is attached to the ggplot() function with
-`+ geom_` and is completed by the type of plot or chart. - scatter plot
-or point plots: `+ geom_point()` - bar charts: `geom_bar()` - line
-charts: `geom_line()`
+`+ geom_` and is completed by the type of plot or chart:
+- scatter plot or point plots: `+ geom_point()`
+- bar charts: `geom_bar()`
+- line charts: `geom_line()`
 
 Plots will appear in the “Plot” tab (probably in the bottom right hand
 quadrant of your workspace).
