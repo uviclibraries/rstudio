@@ -317,12 +317,11 @@ chocolate bar received**, with the following:
 
 - A “line of best fit”
 
-- A title
-
-  - Using chocolate data: `chocolateData`
-  - X-axis = Cocoa percentage: `cocoa_percent`
-  - Y-axis = Rating a chocolate bar received: `rating`
-  - Line of best fit: `geom_smooth(method = "lm")`
+Remember:
+- Using chocolate data: `chocolateData`
+- X-axis = Cocoa percentage: `cocoa_percent`
+- Y-axis = Rating a chocolate bar received: `rating`
+- Line of best fit: `geom_smooth(method = "lm")`
 
 {::options parse_block_html='true' /}
 <details>
@@ -338,7 +337,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+<img src="images/unnamed-chunk-17-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
