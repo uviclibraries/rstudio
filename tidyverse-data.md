@@ -617,26 +617,28 @@ statements. <br>
 
 ### 4.3 Selecting specific columns
 
-The commands in this section (4.3) will not create data objects as we
+The commands in this section (4.3) will not create new objects as we
 won’t be using them later on.
 
-**- End each command in this section with `%>% head(5)`**
+**Note: End each command in this section with `%>% head(5)`**
 
-- Not ending functions that extract full columns of data will display a
+- Not using that to end commands that extract full columns of data will display a
   LOT.
 
 - This will make things easier for you.
+  
+- If you were working with your own data, you would not need to add the `%>% head(5)`
 
-- To get a specific column, use piping and the `select()` function on
+To get a specific column, use piping and the `select()` function on
   your data set.
 
-  - The parameter is the name of the column you want to access.
+  - The parameter of `select()` is the name of the column you want to access.
 
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 4.3-1</u>
 
-**View a vector**
+**View a column**
 
 Preview the values in the Row ID column.
 
@@ -650,7 +652,9 @@ Check your code
 
 ``` r
 #data set %>% select the column titled `Row ID` and view the first 5 items.
-purchaseData %>% select(Row_ID) %>% head(5)
+purchaseData %>%
+  select(Row_ID) %>%
+  head(5)
 ```
 
     ##   Row_ID
@@ -680,10 +684,10 @@ specific text, we do the inverse,
 
 ⭐ <u>Task 4.3-2</u>
 
-**Get a set of vectors from data frame**
+**Get a set of columns from data frame**
 
-Select all the columns from your purchase data that do *not* start with
-“Postal_Code”.
+Select all the columns from your purchase data that are *not* the 
+“Postal_Code” column.
 
 {::options parse_block_html='true' /}
 <details>
@@ -692,7 +696,9 @@ Check your code
 </summary>
 
 ``` r
-purchaseData %>% select(-Postal_Code) %>% head(5)
+purchaseData %>%
+  select(-Postal_Code) %>%
+  head(5)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
@@ -736,9 +742,6 @@ purchaseData %>% select(-Postal_Code) %>% head(5)
 
 - e.g., columns whose names begin with a common string of characters.
 
-- This will return a subset of our table, not necessarily a single
-  vector
-
 In our data set, multiple column names begin with “Product”. We want to
 see only the data of columns whose names begin with “Product.” The
 following explains the process.
@@ -749,13 +752,14 @@ following explains the process.
 
 - Use the `select()` function to select the columns
 
-- Use the `starts_with()` function as the parameter for `select()`
+- Use the `starts_with()` function as the parameter for `select()`. In this
+  case, you won't pipe the results of `select()` into `starts_with()`, as you
+  want the select to work on the `start_with()` parameter. That is, they are
+  working simulteanously, and therefore, a pipe won't work.
 
   - notes that you’re selecting all columns that start with a specific
-    name
-
-    - rather one column that is exactly equal or not equal to a specific
-      value
+    name, rather than one column that is exactly equal to or not equal
+    to a specific value
 
 - The parameter for `starts_with()` is the value of the beginning of all
   columns you want to select.
@@ -764,12 +768,13 @@ following explains the process.
 
 ⭐ <u>Task 4.3-3</u>
 
-**Get a set of vectors from data frame**
+**Get a set of columns from a data frame**
 
 Select all the columns from our cleaned purchase data that start with
 “Product”.
 
-Write the one-line command to achieve this with piping
+Write the one-line command to achieve this with piping and the `starts_with()`
+function
 
 {::options parse_block_html='true' /}
 <details>
@@ -779,7 +784,9 @@ Check your code
 
 ``` r
 # Selects all columns (and their values) from purchaseData whose names begin with "Product"
-purchaseData %>% select(starts_with("Product")) %>% head(5)
+purchaseData %>%
+  select(starts_with("Product")) %>%
+  head(5) # again, remember that this is just for easier visibility, you don't need to have the head() function to select columns
 ```
 
     ##    Product_ID                              Product_Name
@@ -797,7 +804,7 @@ purchaseData %>% select(starts_with("Product")) %>% head(5)
 
 ### 4.4 Select specific rows based on a condition
 
-While we may only want to handle certain items (rows) in our data set
+We may also want to handle certain items (rows) in our data set
 based on certain criteria.
 
 - This is called “filtering”
@@ -808,12 +815,11 @@ based on certain criteria.
 - We can even create new data objects, which can make future analyses
   easier.
 
-<br>
-
 To select items (rows, *not* columns), we use the `filter()` function.
 
-- The parameter for `filter()` is the name of the column holding the
-  values that are being filtered.
+- The parameter for `filter()` is logical expression based on a column of 
+  the dataset. This expression will return TRUE or FALSE for each row, and
+  the function will return the rows that were TRUE.
 
 <div class="task-box" markdown="1">
 
@@ -831,7 +837,9 @@ Check your code
 </summary>
 
 ``` r
-purchaseData %>% filter(Quantity > 10) %>% head(5)
+purchaseData %>%
+  filter(Quantity > 10) %>%
+  head(5) # again, this is just for easier viewing now, but without this, you would see ALL rows that have Quantity greater than 10
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date      Ship_Mode
@@ -894,7 +902,9 @@ Check your code
 </summary>
 
 ``` r
-purchaseData %>% filter(City == "Sydney") %>% head(5)
+purchaseData %>%
+  filter(City == "Sydney") %>%
+  head(5) # again, this is just for easier viewing now, but without this, you would see ALL rows that have Sidney listed as City
 ```
 
     ##   Row_ID               Order_ID Order_Date  Ship_Date      Ship_Mode
@@ -947,8 +957,8 @@ Create a new data frame with all the rows from purchaseData where
 
 - Name this data frame: `discountedUSPurchases`
 
-- :heavy_exclamation_mark: Do not add ” %\>% head(5)” to the command
-  when <u>creating</u> a new data frame
+- Do not add ” %\>% head(5)” to the command when <u>creating</u> a new
+  data frame. We were just using this to <u>view</u> subsets of the data.
 
 {::options parse_block_html='true' /}
 <details>
@@ -957,10 +967,13 @@ Check your code
 </summary>
 
 ``` r
-discountedUSPurchases <- purchaseData %>% filter(Country == "United States" & Discount > 0)
+# Create the dataframe
+discountedUSPurchases <- purchaseData %>%
+                          filter(Country == "United States" & Discount > 0)
 
-#view your data frame
-discountedUSPurchases %>% head(5)
+# View your data frame
+discountedUSPurchases %>%
+  head(5)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date      Ship_Mode
@@ -998,7 +1011,7 @@ discountedUSPurchases %>% head(5)
 
 {::options parse_block_html='false'/} *Hint:* `&` is used for “and”, in
 cases where you want to manage multiple cases like filtering my two
-variables<br> - e.g., values of the `Sub_Category` and `Order_Priority`
+variables<br> - e.g., values of the `Country` and `Discount`
 columns.
 
 </div>
@@ -1022,14 +1035,15 @@ columns.
 
 <br> <u>Here’s how we’ll do it:</u>
 
-- Assign the mutation (modification) to an existing variable
-  - `existing_data frame_name <-`
-- Identify the existing variable name of the object you want to mutate
-  - `purchaseData`
+- Assign the mutation (modification) to the existing dataframe (or new object
+  if you want to create a new one rather than adding a new column to an existing one)
+  - `existing_dataframe_name <-`
+- Identify the existing name of the object you want to mutate
+  - `existing_dataframe_name`
 - Use a pipe to identify the action being performed on our existing
-  variable
+  object
   - `%>%`
-- Identify that the action being performed on the existing variable is
+- Identify that the action being performed on the existing object is
   the mutation
   - using the `mutate()` function
 - Pass the condition in as the parameter for the `mutate` function
@@ -1037,19 +1051,25 @@ columns.
     `mutate()` with `new_column_name =`
     - `=` means the values assigned to each item in that column is
       generated by the following condition
-    - The new column name is `Low_Priority` and is followed by
-      `= (condition)`
+    - The new column name is and is followed by the expression to create the
+      new variable
   - Say we want to add a column that has a TRUE/FALSE variable (aka
     boolean) for whether the order priority is low.
-    - The condition will be `Order_Priority == "Low"`
+    - The expression will be `Order_Priority == "Low"`
       - `==` means “the left value is equal to the right value”
-        - aka. The result will be everything in the data that is “Low”
+        - The result will be a vector with TRUE or FALSE, with TRUE for every
+          row in the data is “Low” in the "Order_Priority" column, and FALSE
+          otherwise
 
 ``` r
-purchaseData <- purchaseData %>% mutate(Low_Priority = (Order_Priority == "Low"))
+purchaseData <- purchaseData %>%
+      mutate(Low_Priority = (Order_Priority == "Low"))
 
 #view first 3 rows of your data frame
-purchaseData %>% head(3)
+purchaseData %>%
+    head(3)
+# Note how there is a new column at the end called "Low_Priority". It starts with
+# 3 values of FALSE as the first 3 rows were not low priority (see the Order_Priority column)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
@@ -1093,10 +1113,12 @@ Check your code
 </summary>
 
 ``` r
-purchaseData <- purchaseData %>% mutate(High_Shipping = (Shipping_Cost > 100))
+purchaseData <- purchaseData %>%
+  mutate(High_Shipping = (Shipping_Cost > 100))
 
 #view your data frame
-purchaseData %>% head(5)
+purchaseData %>%
+  head(5)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
@@ -1164,9 +1186,11 @@ Check your code
 </summary>
 
 ``` r
-purchaseData <- purchaseData %>% mutate(Discounted_US = (Country == "United States" & Discount > 0))
-#We can then get summary of our new variable values (i.e., the number or True values and number of False values in the new 'Discounted_US' column)
-#request a summary of the values in the table $ column name
+purchaseData <- purchaseData %>%
+  mutate(Discounted_US = (Country == "United States" & Discount > 0))
+
+# We can then get summary of our new variable values (i.e., the number of True values and the number of False values in the new 'Discounted_US' column)
+# request a summary of the values in the table $ column name
 summary(purchaseData$Discounted_US)
 ```
 
@@ -1192,16 +1216,13 @@ measurements recorded the highest or lowest values.
 The `arrange()` function enables you to order your data frame according
 to the values of a specific variable.
 
-- Parameter of `arrange()` is `Sales`
+- Parameter of `arrange()` is the column you want to use to sort your data frame
 
 - This is particularly handy for swiftly identifying which measurements
   recorded the highest or lowest values.
 
 When using `arrange()`, you specify the column name that you wish to
 organize by.
-
-- In this case, it will arrange the data based on the sales value
-  - a new variable that we recently formulated using `mutate()`
 
 *hint*: You can also use the `sort()` function but it only takes a
 vector parameter, not a data frame.
@@ -1212,7 +1233,7 @@ vector parameter, not a data frame.
 
 **Sort data frame**
 
-Update `purchaseData` to sort objects by price (low to high).
+Update `purchaseData` to sort objects by price (column `Sales`).
 
 {::options parse_block_html='true' /}
 <details>
@@ -1221,10 +1242,12 @@ Check your code
 </summary>
 
 ``` r
-purchaseData <- purchaseData %>% arrange(Sales)
+purchaseData <- purchaseData %>%
+                    arrange(Sales)
 
-#view your data frame
-purchaseData %>% head(5)
+# View your data frame
+purchaseData %>%
+  head(5)
 ```
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date      Ship_Mode
@@ -1274,7 +1297,9 @@ name in quotations.
 ### 4.7 Summarizing variables with `summarise()`
 
 The `summarise()` function synthesizes information into a data frame
-with information like totals, averages, medians, and so on.
+with information like totals, averages, medians, and so on. It reduces 
+the number of rows in the dataframe by summarizing information from 
+multiple rows into one value (e.g., mean value)
 
 - `summarise()` takes an unlimited number of parameters, where each
   parameter will appear as a column. <br>
@@ -1298,12 +1323,12 @@ Check your code
 </summary>
 
 ``` r
-#Only purchases made in the US with discounts
+# Only purchases made in the US with discounts (we created this object before)
 discountedUSPurchases %>% 
-   #average sale price and average discount
-   summarise(meanSales = mean(Sales), meanDiscount = mean(Discount))%>%
-      #finish the command with view() to preview this
-      view() 
+   summarise( # call the summarise() function. It is helpful to break the parameters into different lines to see the new columns you are creating
+        meanSales = mean(Sales),    #average sale price 
+        meanDiscount = mean(Discount) # and average discount
+              )
 
 #To retrieve this data later, assign this command to a new variable.
 ```
@@ -1320,10 +1345,14 @@ discountedUSPurchases %>%
 
 Let’s say we wanted to know how profitable each US city is.
 
-We can get the average profit, but grouped by US city.
+That means we want to get the average profit, but grouped by US city.
 
-From this, we can sort by profit to see what the most and least
-profitable cities are.
+As you recall, we can use summarise to get an average, but in this case,
+we want to calculate the average within groups. That's where the `group_by`
+function comes in handy.
+
+- The parameter of the `group_by()` function is the name of the column you
+  want to group by. No need to use quotation marks.
 
 <div class="task-box" markdown="1">
 
@@ -1331,7 +1360,7 @@ profitable cities are.
 
 **Create a data frame**
 
-Create a data frame of US Cities and their average profit for each.
+Create a data frame of US Cities and the profit on discounted values for each.
 
 - You will use the `discountedUSPurchases` data frame to create this
   *new* data frame.
@@ -1339,10 +1368,8 @@ Create a data frame of US Cities and their average profit for each.
 - You will use `group_by()` with `City`, where each row will be a city.
 - You will use `summarise()` function to get the summary statistics for
   each city.
-- The statistic you will be summarizing total `Profit` values on
+- The statistic you will be summarizing is the total `Profit` values on
   purchases made in the US where the items have been discounted.
-
-**Do not create a new variable using `head(5)`**
 
 {::options parse_block_html='true' /}
 <details>
@@ -1351,10 +1378,13 @@ Check your code
 </summary>
 
 ``` r
-#Only purchases made in the US with discounts
+# Only purchases made in the US with discounts
 USCityProfits <- discountedUSPurchases %>% 
       group_by(City) %>% # group by city purchase was made in
-      summarise(totalProfit = sum(Profit)) # average profit for each city
+      summarise(totalProfit = sum(Profit)) # total profit for each city
+
+# Now view your results
+USCityProfits
 ```
 
 </details>
@@ -1380,7 +1410,8 @@ Check your code
 </summary>
 
 ``` r
-USCityProfits <- USCityProfits %>% arrange(totalProfit)
+USCityProfits <- USCityProfits %>%
+                        arrange(totalProfit)
 ```
 
 </details>
@@ -1398,10 +1429,9 @@ Check your code
 </summary>
 
 ``` r
-USCityProfits <- USCityProfits %>% arrange(sum(totalProfit))
-  
 # Least profitable are at the top of our data frame, since `arrange()` puts data in ascending order by default. 
-USCityProfits %>% head(5)
+USCityProfits %>%
+    head(5)
 ```
 
     ## # A tibble: 5 × 2
@@ -1428,10 +1458,9 @@ Check your code
 </summary>
 
 ``` r
-USCityProfits <- USCityProfits %>% arrange(totalProfit)
-  
 # Most profitable are at the end of our data frame
-USCityProfits %>% tail(5)
+USCityProfits %>%
+        tail(5)
 ```
 
     ## # A tibble: 5 × 2
@@ -1449,7 +1478,7 @@ USCityProfits %>% tail(5)
 
 ------------------------------------------------------------------------
 
-📍 Reminder! Save your work. Good job!
+📍 Reminder! Save your work.
 
 ------------------------------------------------------------------------
 
