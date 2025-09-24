@@ -61,7 +61,8 @@ the library() parameter in `""` quotations
 
 </div>
 
-Check that you still have Tidyverse loaded.
+Check that you still have Tidyverse loaded. Load tidyverse using `library(tidyverse)` if
+needed.
 
 > More about ggthemes
 > [here](https://exts.ggplot2.tidyverse.org/ggthemes.html){:target=“\_blank”}.
@@ -87,7 +88,7 @@ Save the file in the same folder as your R script.
 
 - Data set file name: `flavors_of_cacao.csv` (unless you changed the
   filename after downloading)
-- Name your variable: `chocolateData`
+- Name your dataframe: `chocolateData`
 - Clean the column header names using `clean_names()` where the
   parameter is chocolateData (leave parentheses blank if piping)
 - Remove first (empty) row using `filter(ref != "REF")` <br>
@@ -127,7 +128,7 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
 
 {::options parse_block_html='false'/}
 
-*Hint:* See Activity 5 for instructions on importing a csv file.
+*Hint:* See Section 4 for instructions on importing a csv file.
 
 </div>
 
@@ -145,7 +146,8 @@ Check your code
 
 ``` r
 #preview first 5 lines of chocolateData
-chocolateData %>% head(5)
+chocolateData %>%
+    head(5)
 ```
 
     ## # A tibble: 5 × 9
@@ -263,8 +265,7 @@ Check your code
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
 ```
-
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+<img src="ggplot2-data-B_files/figure-gfm/unnamed-chunk-13-1.png" alt="ggplot1" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
@@ -287,26 +288,26 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 Expand for more geom_smooth method types
 </summary>
 
-</br> *Linear Model (“lm”):* fits a linear regression model, suitable
+- *Linear Model (“lm”):* fits a linear regression model, suitable
 for linear relationships.
 
-*Locally Estimated Scatterplot Smoothing (“loess” or “lowess”)*: creates
+- *Locally Estimated Scatterplot Smoothing (“loess” or “lowess”)*: creates
 a smooth line through the plot by fitting simple models in a localized
 manner, which can handle non-linear relationships well. Ideal for
 smaller datasets
 
-*Generalized Additive Models (“gam”):* model complex, nonlinear trends
+- *Generalized Additive Models (“gam”):* model complex, nonlinear trends
 in data.Ideal for larger datasets.
 
-*Moving Average (“ma”):* smooths data by creating an average of
+- *Moving Average (“ma”):* smooths data by creating an average of
 different subsets of the full dataset. It’s useful for highlighting
 trends in noisy data.
 
-*Splines (“splines”):* provide a way to smoothly interpolate between
+- *Splines (“splines”):* provide a way to smoothly interpolate between
 fixed points, creating a piecewise polynomial function. They are useful
 for fitting complex, flexible models to data.
 
-*Robust Linear Model (“rlm”):* Similar to linear models but less
+- *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
 </details>
@@ -324,11 +325,9 @@ chocolate bar received**, with the following:
 
 - A “line of best fit”
 
-- Informative x and y axis labels
-
 - A title
 
-  - Using chocolate data : `chocolateData`
+  - Using chocolate data: `chocolateData`
   - X-axis = Cocoa percentage: `cocoa_percent`
   - Y-axis = Rating a chocolate bar received: `rating`
   - Line of best fit: `geom_smooth(method = "lm")`
