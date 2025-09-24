@@ -553,13 +553,17 @@ ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_si
 
 ### 2.3. Line Charts
 
+To create a line chart, let's start first by creating a new variable that we
+might want to plot in a line chart. In this case, let's assume we are interested
+in seeing how the average chocolate rating varies through the years.
+
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 2.3-1</u>
 
-**Create a variable with the mean chocolate rating by year.**
+**Create an object with the mean chocolate rating by year.**
 
-Using piping, create a new variable, `meanRatingByYear`
+Using piping, create a new object, `meanRatingByYear`
 
 - base data: `chocolateData`
 - group_by: `review_date`
@@ -573,10 +577,31 @@ Check Your Code
 </summary>
 
 ``` r
-meanRatingByYear <- chocolateData %>% group_by(review_date)%>%summarise(rating=mean(rating))
+meanRatingByYear <- chocolateData %>%
+                        group_by(review_date) %>%
+                        summarise(rating = mean(rating))
+
+# Now see the object created
+meanRatingByYear 
 ```
 
 Your output will be:
+
+    ## # A tibble: 12 × 2
+    ##    review_date rating
+    ##          <dbl>  <dbl>
+    ##  1        2006   3.28
+    ##  2        2007   3.30
+    ##  3        2008   3.05
+    ##  4        2009   3.13
+    ##  5        2010   3.20
+    ##  6        2011   3.27
+    ##  7        2012   3.21
+    ##  8        2013   3.28
+    ##  9        2014   3.24
+    ## 10        2015   3.28
+    ## 11        2016   3.26
+    ## 12        2017   3.5 
 
 </details>
 
