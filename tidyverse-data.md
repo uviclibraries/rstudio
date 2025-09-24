@@ -571,7 +571,7 @@ purchaseData %>%
 {::options parse_block_html='false'/}
 
 If you want to know more about pipe, and how it is more intuitive than 
-other ways to write code, check out [this](https://r4ds.had.co.nz/pipes.html#pipes){target="_blank"}.
+other ways to write code, check out [this](https://r4ds.had.co.nz/pipes.html#pipes){:target=“\_blank”}.
 
 ------------------------------------------------------------------------
 
