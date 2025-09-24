@@ -112,12 +112,8 @@ chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
     ## Rows: 1795 Columns: 9
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr (6): Company 
-    ## (Maker-if known), Specific Bean Origin
-    ## or Bar Name, Cocoa
-    ## ...
-    ## dbl (3): REF, Review
-    ## Date, Rating
+    ## chr (6): Company, SpecificBeanOrigin_BarName, Cocoa_Percent, Company_Location, Bean_Type, Broad Bean_...
+    ## dbl (3): REF, Review_Date, Rating
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
