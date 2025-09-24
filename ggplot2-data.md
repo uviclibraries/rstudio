@@ -283,7 +283,7 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 <summary>
 Expand for more geom_smooth method types
 </summary>
-
+<br>
 - *Linear Model (“lm”):* fits a linear regression model, suitable
 for linear relationships.
 
