@@ -283,29 +283,25 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 <summary>
 Expand for more geom_smooth method types
 </summary>
-<br>
+
 - *Linear Model (“lm”):* fits a linear regression model, suitable
 for linear relationships.
-
 - *Locally Estimated Scatterplot Smoothing (“loess” or “lowess”)*: creates
 a smooth line through the plot by fitting simple models in a localized
 manner, which can handle non-linear relationships well. Ideal for
 smaller datasets
-
 - *Generalized Additive Models (“gam”):* model complex, nonlinear trends
 in data.Ideal for larger datasets.
-
 - *Moving Average (“ma”):* smooths data by creating an average of
 different subsets of the full dataset. It’s useful for highlighting
 trends in noisy data.
-
 - *Splines (“splines”):* provide a way to smoothly interpolate between
 fixed points, creating a piecewise polynomial function. They are useful
 for fitting complex, flexible models to data.
-
 - *Robust Linear Model (“rlm”):* Similar to linear models but less
 sensitive to outliers. It’s useful when your data contains outliers that
 might skew the results of a standard linear model.
+
 </details>
 
 <br>
