@@ -90,8 +90,7 @@ Save the file in the same folder as your R script.
   filename after downloading)
 - Name your dataframe: `chocolateData`
 - Clean the column header names using `clean_names()` where the
-  parameter is chocolateData (leave parentheses blank if piping)
-- Remove first (empty) row using `filter(ref != "REF")` <br>
+  parameter is chocolateData (leave parentheses blank if piping) <br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -104,8 +103,7 @@ Check your code
 #if you do not know the path to your file, import it instead by navigate to your file in the Files tab in the bottom right quadrant of your RStudio workspace.
 #right click on the filename and select 'import'.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
-  clean_names() %>% #Clean the column header names
-  filter(ref != "REF")
+  clean_names() #Clean the column header names
 
 #If you get a column specification error, add `, show_col_types = FALSE` as to a parameter read_csv()
 #e.g. chocolateData <- read_csv("Desktop/flavors_of_cacao.csv", show_col_types = FALSE)
