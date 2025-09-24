@@ -279,7 +279,7 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 
 - method type specifies the type of smoothing to be used
 
-<details>
+<details markdown ="1">
 <summary>
 Expand for more geom_smooth method types
 </summary>
