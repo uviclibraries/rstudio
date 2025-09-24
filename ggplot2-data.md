@@ -517,7 +517,7 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 ```
 
 Output:
-<img src="images/unnamed-chunk-24-1.png" alt="ggplot2" style="width:420px;"/>
+<img src="images/unnamed-chunk-34-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
