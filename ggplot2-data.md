@@ -498,9 +498,12 @@ which represent a second variable.
 To add a second dimension,
 
 - following the same command as the bar chart above, modify it by:
-  - adding the parameter `fill=~factor2name` to `aes()`, where
+  - adding the parameter `fill = factor2name` to `aes()`, where
     ‘factor2name’ is the second variable’s column name.
   - setting the parameter of `geom_bar()` to `position="stack"`
+ 
+For this task, use `company_location` as the second variable that will
+chop the bars into sections.
 
 {::options parse_block_html='true' /}
 <details>
@@ -514,8 +517,7 @@ ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_l
 ```
 
 Output:
-
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+<img src="images/unnamed-chunk-24-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
