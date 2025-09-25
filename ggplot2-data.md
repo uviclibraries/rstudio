@@ -615,6 +615,8 @@ meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
 
 </div>
 
+Now we are ready to make our line chart!
+
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 2.3-2</u>
@@ -625,13 +627,14 @@ Here we’ll make a line chart to show how the mean rating of chocolate
 has changed by year.
 
 - Your base data will be the mean rating table you just created
-- the x axis value will be the review date
-- the y axis will be the rating
+- the x-axis value will be the review date
+- the y-axis will be the rating
 - the geom type is `line`, with no parameter
 
-After the geom type, add:
-
-`ggplot(meanRatingByYear, aes(x = review_date, y = rating)) + geom_line()+  scale_x_continuous(breaks = meanRatingByYear$review_date,  labels = as.character(meanRatingByYear$review_date))`
+After the geom type, you might want to add a line of code to make sure the
+x-axis label contains the actual years. For that, you can use the `scale_x_continuous` function, which take as the parameter `breaks` the
+vector of points to create axis breaks. To use the function, you have to use 
+`+ scale_x_continuous(breaks = vectorofbreaks)` at the end of your plot code.
 
 {::options parse_block_html='true' /}
 <details>
@@ -641,15 +644,15 @@ Check Your Code
 
 ``` r
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
-  geom_line()+  scale_x_continuous(
-    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
-    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+  geom_line()+
+  scale_x_continuous(
+    breaks = meanRatingByYear$review_date  # Use actual review dates for breaks
   )
 ```
 
 Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-40-1.png)<!-- -->
+<img src="images/unnamed-chunk-44-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
@@ -667,7 +670,7 @@ modifications.
 
 - rename the x label to “Review Date”
 - rename the y label to “Rating”
-- Add a title using `ggtitle()` : “Change in Rating Over Time
+- Add a title using `ggtitle()` : “Change in Rating Over Time"
 
 {::options parse_block_html='true' /}
 <details>
@@ -679,8 +682,7 @@ Check Your Code
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
   geom_line() +
   scale_x_continuous(
-    breaks = meanRatingByYear$review_date,  # Use actual review dates for breaks
-    labels = as.character(meanRatingByYear$review_date)  # Convert to character to avoid decimals
+    breaks = meanRatingByYear$review_date  # Use actual review dates for breaks
   ) +
   labs(
     x = "Review Date", 
@@ -691,7 +693,8 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 
 <br> Output:
 
-![](ggplot2-data-B_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
+
+<img src="images/unnamed-chunk-48-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
