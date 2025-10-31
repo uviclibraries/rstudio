@@ -23,6 +23,8 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
+**Note**: This section is being reorganized. We thank you for your patience as we restructure the order of the content in this workshop.
+
 # 1. Objects
 
 The key to understanding R is that you will be working with what we 
