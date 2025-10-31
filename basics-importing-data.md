@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 4-Importing Data
+title: 4-Basic Data Analysis
 nav_order: 5
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 
-4-Importing Data
+4 - Basic Data Analysis
 ================
 
 - [1. Importing Excel data into R](#1-importing-excel-data-into-r)
@@ -16,12 +16,17 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
+**Note**: This section is being reorganized. We thank you for your patience as we restructure the order of the content in this workshop.
+
+<!-- This section needs updating, currently it has pasted content moved from section 3, but it still has not been reorganized well!  -->
+
+
 So far, we’ve created our own objects by manually entering all of the
 data in the console. In this section, we’ll learn how to create objects
 by importing (aka ‘reading’) data (compiled outside of R) into R and
 visualise it with a histogram.
 
-## 1. Importing Excel data into R
+## 1. Importing tabular data into R
 
 R can handle multiple file types:
 
@@ -85,6 +90,8 @@ Browse and import menu and buttons <br>
 
 What you just imported is now stored as a ‘data frame’ object whose name
 is `income`.
+
+## 2. Data frames
 
 **Definition - Data frame:** essentially a table. It is 2-dimensional
 object that can hold different types of data types.
@@ -164,7 +171,219 @@ and 4 variables (columns)
 
 ⭐ <u>Task 1-3</u>
 
-**Display summary statistics.**
+## 3. Summary statistics.
+
+## 2. Descriptive Statistics
+
+Statistics is:
+
+- the science of collecting, analyzing, and interpreting
+
+- data to uncover patterns and trends,
+
+- and inform decisions based on this data.
+
+If you’re unfamiliar with statistics, you can learn more about it from
+the [w3school Statistics
+Tutorial](https://www.w3schools.com/statistics/index.php){:target=“\_blank”}
+
+In this section, we’ll be focusing on
+
+- Basic statistical measures
+- Presenting data in a histogram
+- More on presenting data will be covered in [Activity 4-Data
+  Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target=“\_blank”}
+- Importing data
+
+### 2.1 Basic statistical measures
+
+The function names for the following three statistical measures (mean,
+median, standard deviation) are quite intuitive.
+
+It is just the name or abbreviation of the statistical measure, where
+the argument is the object containing the set of values we are
+analyzing.
+
+Each function takes the vector containing the values of the variable as 
+its argument.
+
+These three functions are designed for sets of numerical and integer
+data types. If run on other types (character, aka text, and boolean, aka
+true/false), result will be `NA`.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-1</u>
+
+**Create a variable to be summarised.**
+
+For this task, we will use a new vector object containing weights for a
+set of pigs.
+
+Create a vector object with the weights of a set of pigs. Name your
+variable ‘pigs.weight’
+
+`Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-2</u>
+
+**Get the mean (average) value.**
+
+**Mean:** the average value in a set.
+
+The `mean()` function calculates the sum of the values in the set and 
+divides the sum by the number of items in the set.
+
+Write and execute a command that outputs the mean value of the pigs’
+weights.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+# output the average weight of all of the pigs
+mean(pigs.weight)
+```
+
+    ## [1] 20.71429
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-3</u>
+
+**Get median value.**
+
+Write and execute a command that outputs the median value of the pigs’
+weights
+
+**Median:** The middle value in a sorted set (e.g. lowest - highest).
+`median()`
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+median(pigs.weight)
+```
+
+    ## [1] 22
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br> The output tells you the weight of the pig that falls between the
+lighter half and the heavier half of the pigs. <br>
+
+<br>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-4</u>
+
+**Get standard deviation.**
+
+**Standard deviation:** Describes how spread out the data is. 
+
+The function in R is `sd()`
+
+Write and execute a command that outputs the standard deviation of the
+pigs’ weights
+
+The output tells you how much the weights of the pigs vary from the
+average weight.
+
+- A small standard deviation means that most pigs’ weights are close to
+  the average, indicating uniformity in size.
+- A large standard deviation suggests a wide range of weights. <br>
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+sd(pigs.weight)
+```
+
+    ## [1] 4.956958
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.1-5</u>
+
+**Get summary of value statistics.**
+
+Display a summary of values pertaining to the pigs’ weights
+
+We can execute a **‘summary’** to generate several descriptive
+statistics at the same time. `summary()`
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+summary(pigs.weight)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   12.00   18.50   22.00   20.71   23.50   27.00
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
 
 Display a summary of statistics for the `income` data.
 
@@ -194,7 +413,123 @@ summary(income)
 
 <br>
 
-## 2 Visualize Income with a Histogram plot
+## 4. Histograms
+
+**Histogram:** A graph used for understanding and analysing the
+distribution of values in a vector.
+
+A histogram illustrates:
+
+- Where data points tend to cluster
+- The variability of data
+- The shape of variability
+
+The histogram will appear in the Plots tab (bottom right quadrant if you
+haven’t modified your RStudio layout).
+
+<br>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.2-1</u>
+
+**Create a histogram.**
+
+Create a histogram for the pigs’ weights using the histogram function
+`hist()`
+
+- Parameter: vector of pig weights
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code and see the histogram
+</summary>
+
+``` r
+hist(pigs.weight)
+```
+
+![](basics-0_files/figure-gfm/unnamed-chunk-53-1.png)<!-- -->
+
+``` r
+# The histogram will appear in the Plot tab.
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
+
+We can also pass in additional parameters to control the way our plot
+looks.
+
+Some of the frequently used parameters are:
+
+- `main` : The title of the plot
+  - e.g., `main = "This is the Plot Title"` <br>
+- `xlab` : The x-axis label
+  - e.g., `xlab = "The X Label"` <br>
+- `ylab` : The y-axis label
+  - e.g., ylab = “The Y Label”
+
+Multiple parameters are given to a function by putting them in
+parentheses separated by commas, `function_name(parameter1, parameter2)`
+
+- E.g.,
+  `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.2-2</u>
+
+**Create a histogram.**
+
+Create a histogram for the pigs’ weights, with axes labels.
+
+In your histogram for the pigs’ weights, use:
+
+- X-label: “Weight”
+- Y-label: “Frequency”
+  - This is a default value.
+  - You don’t have to specify it unless you would like a different
+    label.
+- Graph title: “Histogram of Pigs’ Weights”
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+# The first parameter is the name of the data (vector) object
+# 'main' is the graph title 
+# 'xlab' is the label of the x-axis
+# label parameters can be in any order, but following the data object
+# y-label on a histogram defaults to "frequency". You can add 'ylab=""' if you'd like.
+
+hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
+```
+
+![](basics-0_files/figure-gfm/unnamed-chunk-56-1.png)<!-- -->
+
+``` r
+# The histogram will appear in the Plot tab.
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+<br>
+
+Visualize Income with a Histogram plot
 
 In 3.2 we made a histogram to visualize the distribution of the pig
 weights. Remember that the parameter that the histogram function takes
