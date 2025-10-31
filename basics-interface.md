@@ -47,7 +47,7 @@ coding easier.
 
 The code you write in the editor is just text. RStudio will not execute
 the code unless you tell it to. To tell RStudio to execute the code, you 
-need to send the code to the console (i.e., "source" the code). We will 
+need to send the code to the console (i.e., "source" or "run" the code). We will 
 see how to do that in section 3.2.
 
 ### 1.2 Console:
@@ -57,13 +57,14 @@ The console is where R code is executed.
 You can type commands directly into the console, like a scratch pad. It
 also displays outputs, messages, and errors.
 
-You might prefer to use the console for immediate execution or testing
-of small code snippets or commands. 
-
 When you close RStudio, nothing that was written in the console is saved.
 If you want to be able to use your code in the future without needing to
 retype it, write it in the code editor, where it will be saved for future 
 use (that is, provided you remember to save the file of your script).
+
+Therefore, you will not want to write your code directly in the console,
+unless you are just testing small code snippets and commands, or asking to
+see the results of commands already executed.
 
 ### 1.3 Files/Plots/Packages/Help Pane:
 
@@ -103,8 +104,8 @@ graphs.
 **History:** Records all the commands you’ve run in the current and
 previous sessions.
 
-**Connections:** Used to manage and configure the integration of data
-sources with your projects.
+**Connections:** For more advanced users, used to manage and configure
+the integration of data sources with your projects.
 
 - E.g., Oracle, SQL, Salesforce
 
@@ -140,7 +141,7 @@ through the console, and loaded through the code editor.
 Each new line of code (aka. command line) begins with the angle bracket
 `>` also known as the ‘prompt’ symbol. <br>
 
-You will type the commands into the Console after the most recent angle
+Commands will be written or run into the Console after the most recent angle
 bracket `>`.
 
 **command line:** lines of code in your console.
@@ -152,20 +153,20 @@ your keyboard.
 
 - When you are ready to execute (‘run’) the command, type ‘enter’ or
   ‘return’ key on your keyboard.
-- The output to the command will appear below your command.
+- The output of the command will appear below your command.
 
 **Things to be mindful of:**
 
 - You cannot execute a command until the previous command has been
   completely executed.
 
-- If you don’t see the prompt symbol, one of two things is happening:
+- If you don’t see the prompt symbol `>`, one of two things is happening:
 
 - 1 - R is still processing your previous command, and you must wait for it
   to finish.
 
 - 2 - You might instead see the plus `+` symbol, which indicates that you
-  have entered an incomplete command.
+  have entered an incomplete command (e.g., you are missing a closing bracket).
 
 - If you see the `+` symbol, you must enter the remainder of the command
   before entering a new one.
@@ -239,7 +240,7 @@ scripts, and share them with collaborators
     by clicking `File` \> `Save` (choose a name and location).
 
 - It is useful to store all related files in one folder, such as this
-  script and any data you import/export here.
+  script and any data you import/export here (see more on working directories in Section 4.1)
 
 3.  A blank script opens in the code editor. Start typing your code as
     you would in the console.
@@ -260,19 +261,20 @@ scripts, and share them with collaborators
   this is not a comment, and will cause an error
   ```
 
-- Use meaningful names (we will learn more about creating variables in
-  the following activity page.)
+- Use meaningful names. Note: We will learn more about creating R objects in
+  the following section (in R, we create and store information in what are called virtual "objects"
+  that are stored in the R environment, or workspace)
 
   ``` r
   # BAD naming
-  a.dim1 <- 10 # height of object 1
-  b.dim2 <- 5 # length of object 2
+  a.dim1 <- 10 # height of plant 1
+  b.dim1 <- 5 # height of plant 2
   ```
 
   ``` r
   # GOOD naming
-  obj1.length <- 10
-  obj2.width <- 5
+  pl1.height <- 10
+  pl2.height <- 5
   ```
 
 - Order your code logically.
@@ -300,11 +302,8 @@ Run (or source) multiple lines of code:
     Alternatively, you can click the "Run" button at the top
     right corner of the script editor pane.
 
-- Say you have created two separate variables for different words, as
-  well as a third variable that concatenates (combines) those two
-  variables. You have also run all of the code line by line as you
-  created each variable (Ctrl + Enter (Windows/Linux) or Cmd + Enter
-  (Mac)).
+- Say you have created two separate R objects for different dimensions of a rectangle, as
+  well as a third object that multiplies those two dimensions to calculate area. You have also run all of the code line by line as you created each object (Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac)).
 
   ``` r
   rectangle1.length <- 10 # Line 1
@@ -314,7 +313,7 @@ Run (or source) multiple lines of code:
   ```
 
 - You then edit `rectangle1.length` to `15` and `rectangle1.width`
-  to `8`, but you don’t run each line as you edit it.
+  to `8`, but you don’t run each line as you edit it. Your code editor will look like this:
 
   ``` r
   rectangle1.length <- 15 # Line 1
@@ -322,6 +321,9 @@ Run (or source) multiple lines of code:
   rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
   ```
 
+  - However, if you do not run these lines of code (i.e., send them to the console to execute),
+    R won't know that you updated the values. You can check the Environment panel on the upper
+    right to see the current value R associates with each object. <br>
   - If you run only Line 1, the value of `rectangle1.length` will
     change, but `rectangle1.width` and `rectangle1.area` will not
     change. <br>
@@ -343,29 +345,30 @@ Run (or source) the entire script:
 
 ### 3.3 Deleting variables
 
-Deleting the line of code that created a variable will not cause the
-variable to be removed.
+Deleting the line of code from the script in the Code editor that created an object
+will not cause the object to be removed.
 
-To delete a variable, delete the line of code in the Code Editor, then
-`rm()` function in the console.
+To delete an object, use the `rm()` function in the console. Then, if you do not want 
+to create the object again in the future, delete the line of code in the Code Editor.
 
 ``` r
 # Line 1 is deleted
 rectangle1.width <- 5 # Line 2
-#`paste()` concatenates (combines) the values associated with each variable
-rectangle1.area <- paste(rectangle1.length, rectangle1.width) # Line 3
+  # `*` is for multiplication
+  rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 ```
 
 ``` r
-> rm(rectangle1.length) # Run in the code editor to remove the variable from your entire environment
+> rm(rectangle1.length) # Run in the code editor to remove the object from your entire environment
 ```
 
-**WARNING:** If you remove a variable that another variable depends on,
+**WARNING:** If you remove an object that another object depends on,
 you will see the following error:
-`Error: object 'variable name' not found`.
+`Error: object 'object name' not found`.
 
-Carefully consider the consequences of removing variables before doing
-so.
+For example, after removing `rectangle1.length` as above, try running line 3 of the code.
+
+Carefully consider the consequences of removing variables before doing so.
 
 <br><br>
 
@@ -392,9 +395,23 @@ rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 
 </div>
 
-We’ll get to different types of variables in the next activity. Good job!
+We’ll get to different types of objects in the next activity.
 
 <br>
+
+### 3.4 A final note
+
+Understanding the differences between writing code in the Code Editor and in the Console takes time, but it’s essential for using R efficiently and effectively. To support that learning process, we recommend a small but important change to RStudio’s default settings.
+
+By default, RStudio often saves your entire workspace when you close the program and reloads it when you reopen it. Although this might seem convenient, we strongly discourage it for two main reasons:
+1. **It wastes memory**. For large or complex analyses, saving your whole workspace can take up significant storage. A well-written script should let you recreate all your objects simply by rerunning the code, so you only need to save your script—a lightweight text file.
+2. **It slows your learning**. Automatically reloading objects can make you less deliberate about what your script actually produces. Starting each session with a clean workspace encourages you to think clearly about which objects should be created, saved, or discarded
+
+To turn off this setting, you should:
+- Click on "Tools" in the toolbar, and select "Global Options..."
+- Under **Workspace**, uncheck "Restore .RData intro workspace at startup"
+- In the "Save workspace to .RData on exit", select "Never"
+- Click on "OK". Done!
 
 ------------------------------------------------------------------------
 
