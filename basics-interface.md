@@ -405,7 +405,7 @@ By default, RStudio often saves your entire workspace when you close the program
 
 To turn off this setting, you should:
 - Click on "Tools" in the toolbar, and select "Global Options..."
-- Under **Workspace**, uncheck "Restore .RData intro workspace at startup"
+- Under **Workspace**, uncheck "Restore .RData into workspace at startup"
 - In the "Save workspace to .RData on exit", select "Never"
 - Click on "OK". Done!
 
