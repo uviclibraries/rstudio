@@ -21,7 +21,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
   - [3.1 Tips for writing code in an R
     script:](#31-tips-for-writing-code-in-an-r-script)
   - [3.2 Running your code](#32-running-your-code)
-  - [3.3 Deleting variables](#33-deleting-variables)
+  - [3.3 Deleting objects](#33-deleting-objects)
   - [3.4 A Final note](#34-a-final-note)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
@@ -341,7 +341,7 @@ Run (or source) the entire script:
 
 <br>
 
-### 3.3 Deleting variables
+### 3.3 Deleting objects
 
 Deleting the line of code from the script in the Code editor that created an object
 will not cause the object to be removed.
@@ -366,7 +366,7 @@ you will see the following error:
 
 For example, after removing `rectangle1.length` as above, try running line 3 of the code.
 
-Carefully consider the consequences of removing variables before doing so.
+Carefully consider the consequences of removing objects before doing so.
 
 <br>
 
@@ -374,7 +374,7 @@ Carefully consider the consequences of removing variables before doing so.
 
 ⭐ <u>Task 3.3-1</u>
 
-**Test editing variables.**
+**Test editing objects.**
 
 Copy and paste the following code into your new R script (in the code
 editor).
@@ -382,7 +382,7 @@ editor).
 1.  Edit the values for `rectangle1.length` and `rectangle1.width`, and
     run each line(s) of code in different orders to see what happens.
 
-2.  Then try deleting different variables through the code editor and
+2.  Then try deleting different objects through the code editor and
     the console.
 
 ``` r
