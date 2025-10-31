@@ -22,12 +22,13 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
     script:](#31-tips-for-writing-code-in-an-r-script)
   - [3.2 Running your code](#32-running-your-code)
   - [3.3 Deleting variables](#33-deleting-variables)
-
+  - [3.4 A Final note](#34-a-final-note)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
 ## 1 Getting familiar with the RStudio Interface
+
 
 ![Code Editor, R console, Workplace and Plots](images/rstudio-01.png)
 <br> The RStudio interface is divided into several key areas, each
@@ -115,8 +116,6 @@ the R programming language.
 - See more at the RStudio [Tutorial
   Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
 
-<br>
-
 <div class="task-box" markdown="1">
 
 ⭐ <u>Task 1-1</u>
@@ -177,7 +176,6 @@ your keyboard.
   you expect (e.g., when you load in a package (we will discuss packages
   more in  Activity 3).
   
-<br>
 
 <div class="task-box" markdown="1">
 
@@ -303,7 +301,7 @@ Run (or source) multiple lines of code:
     right corner of the script editor pane.
 
 - Say you have created two separate R objects for different dimensions of a rectangle, as
-  well as a third object that multiplies those two dimensions to calculate area. You have also run all of the code line by line as you created each object (Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac)).
+  well as a third object that multiplies those two dimensions to calculate the area. You have also run all of the code line by line as you created each object (Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac)).
 
   ``` r
   rectangle1.length <- 10 # Line 1
@@ -354,8 +352,8 @@ to create the object again in the future, delete the line of code in the Code Ed
 ``` r
 # Line 1 is deleted
 rectangle1.width <- 5 # Line 2
-  # `*` is for multiplication
-  rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
+# `*` is for multiplication
+rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 ```
 
 ``` r
@@ -370,7 +368,7 @@ For example, after removing `rectangle1.length` as above, try running line 3 of 
 
 Carefully consider the consequences of removing variables before doing so.
 
-<br><br>
+<br>
 
 <div class="task-box" markdown="1">
 
@@ -396,8 +394,6 @@ rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 </div>
 
 We’ll get to different types of objects in the next activity.
-
-<br>
 
 ### 3.4 A final note
 
