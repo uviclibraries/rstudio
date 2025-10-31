@@ -1,18 +1,21 @@
 ---
 layout: default
-title: 3-Data Types, Basic Commands and Charting
+title: 3-Data Types and Basic Commands
 nav_order: 4
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 
-3-Data Types, Basic Commands and Charting
+3 - Data Types and Basic Commands
 ================
 
-- [1. Creating and Manipulating Vectors and Basic
-  Objects](#1-creating-and-manipulating-vectors-and-basic-variables)
-  - [1.1 Basic Data Types](#11-variables-and-basic-data-types)
-  - [1.2 Vectors](#12-vectors)
+- [1. Objects](#1-objects)
+- [2. Data Types](#2-data-types)
+- [3. Data Structure](#3-data-structure)
+  - [3.1. Vectors](#31-vectors)
+  - [3.2. Data frames](#32-data-frames)
+  - [3.3. Matrices](#33-matrics)
+  - [3.4. Lists](#34-lists)
 - [2. Descriptive Statistics](#2-descriptive-statistics)
   - [2.1 Basic statistical measures](#21-basic-statistical-measures)
   - [2.2. Histogram Plot for Pig Weights](#22-histogram-plot-for-pig-weights)
@@ -20,7 +23,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-## 1. Creating and Manipulating Vectors and Basic Objects
+# 1. Objects
 
 The key to understanding R is that you will be working with what we 
 call "objects". Anything in R can be an object: a number, a string of 
@@ -28,7 +31,7 @@ characters, a data frame with data, and even plots.
 
 To create any object:
 
-- The command will begin with the name for the new object
+- The command will begin with the name of the new object
 - followed by: - an assignment operator `<-`
 - and then the data or expression that defines the content of the
   object.
@@ -46,44 +49,48 @@ names cannot begin with anything other than an alphabetical character,
 but otherwise can contain special characters and numbers (\*\_13). Object
 names cannot contain spaces, but string values can. 
 <br> 
+
+When we create objects, R keeps track of them, and you check all objects that you have created and that R is keeping track of in your Workspace panel.
+
+To change the information stored in an object, simply reassign the value to the object. For example, to change the value assigned to the object created above to the number 100:
+
+``` r
+objectName <- 100
+```
+Therefore, as you see, you have to pay attention to not give a new object the same name as a previous object, otherwise R will simply overwrite the older object.
+
+You can also use objects in function calls, for example, you type in `log(objectName)` to ask R calculate the log of the number stored in your object (100 in this case).
+
 **Definition - “Function”:** A set of instructions defined to perform a specific task.
 
 -E.g., help() : ‘help’ is a function to get information
 
-**Definition - “Function Call”:** The act of executing a function with
+**Definition - “Function call”:** The act of executing a function with
 specific arguments, if required, to produce a result. <br>
 
 - e.g., help(“integer”)
 - This calls the ‘help’ function with the argument (aka parameter)
   “integer”
 - It will return information about an ‘integer’ object type.
+- You can use objects as arguments in functions.
 
-<br>
+# 2. Data Types
 
-### 1.1 Basic Data Types
-
-Let’s start by looking at types of data.
-
-<br>
-
-**Definition - “Basic Data Types”:** Types of data representing the
-simplest forms of data.
-
-**Basic Data Types**:
+While R objects can take many forms, when they store data (rather than, for example, a plot call), R primarily uses six basic data types. Let’s start by looking at the main types of data that you will be using for 99.99% of the time:
 
 - *Numeric*: Decimal or floating-point numbers (e.g., 4.5, -3.2).
 
-- *Integer*: Whole numbers (e.g., 1, -5, 20).In R, integers are often
+- *Integer*: Whole numbers (e.g., 1, -5, 20). In R, integers are often
    just treated as numeric unless explicitly specified.
 
 - *Logical*: Boolean values, either TRUE or FALSE.
   
-- *Character*: Text or strings (e.g., “hello”, “1234”).
+- *Character*: Text or strings (e.g., “hello”, “1234”). Note: "1234" is treated as character because it is between quotes. If you want it to be numeric, you don't need the quotes.
 
 - *Factor*: A special type of character data, includes levels
   or an order (e.g., “low”, “medium”,  “high”).
 
-<br> Here we’ll look at basic operations with objects with character data.
+In the exercises below, you will get used to working with these different types  of data. First, let's look at basic operations with objects with **character data**.
 
 Note: whenever you enter a string parameter, the string will more likely
 than not be wrapped in quotes. If it doesn’t work, add or remove quotes.
@@ -183,7 +190,7 @@ pig1.full_name
 <br>
 
 Now we’ll look at basic operations with **numeric and integer
-variables**. First, we’ll create height information for Bart and find out
+data**. First, we’ll create height information for Bart and find out
 how much he’s grown in height.
 
 <br>
@@ -313,7 +320,7 @@ We can denote whether Bart is small or large with a Boolean value.
 **Create two objects.**
 
 Create two objects (pig1.mini and pig1.large) containing Boolean values
-which indicate that Bart is a large pig and not a mini pig.
+which indicates that Bart is a large pig and not a mini pig.
 
 {::options parse_block_html='true' /}
 <details>
@@ -337,7 +344,9 @@ pig1.large <- TRUE
 
 <br>
 
-### 1.2 Vectors
+# 3. Data structure
+<!-- Diana stopped the updating here -->
+## 3.1 Vectors
 
 A vector is a 1-dimensional list of items that are of the same data type
 (all character, all numeric, etc.)
@@ -550,7 +559,21 @@ length(goat.name)
 
 <br>
 
-#### Lists (Additional Information)
+## 3.2. Dataframes
+
+If you want to create 2D lists, also known as a table, you will create a 
+data.frame suing the `data.frame()` function or a matrix using the 
+`matrix()` function. 
+<br> - Instead of creating our own data.frames, we will be importing data
+
+## 3.3. Matrices
+- For more on matrices,
+[check me
+out](https://www.w3schools.com/r/r_matrices.asp){:target=“\_blank”}.
+<br>
+later on.
+
+## 3.4. Lists
 
 A ‘list’ can hold items of different types (even vectors), while items
 in a ‘vector’ must all be the same type. <br>
@@ -560,358 +583,11 @@ To make a list, we’ll use the `list()` function.
 **Hint:** Remember that all items in a vector must be the same type, but
 can be different types if in a list.
 
-If you want to create 2D lists, also known as a table, you will create a 
-data.frame suing the `data.frame()` function or a matrix using the 
-`matrix()` function. 
-<br> - Instead of creating our own data.frames, we will be importing data
-- For more on matrices,
-[check me
-out](https://www.w3schools.com/r/r_matrices.asp){:target=“\_blank”}.
-<br>
-later on.
 
 ------------------------------------------------------------------------
 
 📍 As you work through these activities, remember to save your script(s)
 regularly.
-
-------------------------------------------------------------------------
-
-<br>
-
-## 2. Descriptive Statistics
-
-Statistics is:
-
-- the science of collecting, analyzing, and interpreting
-
-- data to uncover patterns and trends,
-
-- and inform decisions based on this data.
-
-If you’re unfamiliar with statistics, you can learn more about it from
-the [w3school Statistics
-Tutorial](https://www.w3schools.com/statistics/index.php){:target=“\_blank”}
-
-In this section, we’ll be focusing on
-
-- Basic statistical measures
-- Presenting data in a histogram
-- More on presenting data will be covered in [Activity 4-Data
-  Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target=“\_blank”}
-- Importing data
-
-### 2.1 Basic statistical measures
-
-The function names for the following three statistical measures (mean,
-median, standard deviation) are quite intuitive.
-
-It is just the name or abbreviation of the statistical measure, where
-the argument is the object containing the set of values we are
-analyzing.
-
-Each function takes the vector containing the values of the variable as 
-its argument.
-
-These three functions are designed for sets of numerical and integer
-data types. If run on other types (character, aka text, and boolean, aka
-true/false), result will be `NA`.
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-1</u>
-
-**Create a variable to be summarised.**
-
-For this task, we will use a new vector object containing weights for a
-set of pigs.
-
-Create a vector object with the weights of a set of pigs. Name your
-variable ‘pigs.weight’
-
-`Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-2</u>
-
-**Get the mean (average) value.**
-
-**Mean:** the average value in a set.
-
-The `mean()` function calculates the sum of the values in the set and 
-divides the sum by the number of items in the set.
-
-Write and execute a command that outputs the mean value of the pigs’
-weights.
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-# output the average weight of all of the pigs
-mean(pigs.weight)
-```
-
-    ## [1] 20.71429
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-3</u>
-
-**Get median value.**
-
-Write and execute a command that outputs the median value of the pigs’
-weights
-
-**Median:** The middle value in a sorted set (e.g. lowest - highest).
-`median()`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-median(pigs.weight)
-```
-
-    ## [1] 22
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br> The output tells you the weight of the pig that falls between the
-lighter half and the heavier half of the pigs. <br>
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-4</u>
-
-**Get standard deviation.**
-
-**Standard deviation:** Describes how spread out the data is. 
-
-The function in R is `sd()`
-
-Write and execute a command that outputs the standard deviation of the
-pigs’ weights
-
-The output tells you how much the weights of the pigs vary from the
-average weight.
-
-- A small standard deviation means that most pigs’ weights are close to
-  the average, indicating uniformity in size.
-- A large standard deviation suggests a wide range of weights. <br>
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-sd(pigs.weight)
-```
-
-    ## [1] 4.956958
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-5</u>
-
-**Get summary of value statistics.**
-
-Display a summary of values pertaining to the pigs’ weights
-
-We can execute a **‘summary’** to generate several descriptive
-statistics at the same time. `summary()`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-summary(pigs.weight)
-```
-
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   12.00   18.50   22.00   20.71   23.50   27.00
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-### 2.2. Histogram Plot for Pig Weights
-
-**Histogram:** A graph used for understanding and analysing the
-distribution of values in a vector.
-
-A histogram illustrates:
-
-- Where data points tend to cluster
-- The variability of data
-- The shape of variability
-
-The histogram will appear in the Plots tab (bottom right quadrant if you
-haven’t modified your RStudio layout).
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.2-1</u>
-
-**Create a histogram.**
-
-Create a histogram for the pigs’ weights using the histogram function
-`hist()`
-
-- Parameter: vector of pig weights
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code and see the histogram
-</summary>
-
-``` r
-hist(pigs.weight)
-```
-
-![](basics-0_files/figure-gfm/unnamed-chunk-53-1.png)<!-- -->
-
-``` r
-# The histogram will appear in the Plot tab.
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-We can also pass in additional parameters to control the way our plot
-looks.
-
-Some of the frequently used parameters are:
-
-- `main` : The title of the plot
-  - e.g., `main = "This is the Plot Title"` <br>
-- `xlab` : The x-axis label
-  - e.g., `xlab = "The X Label"` <br>
-- `ylab` : The y-axis label
-  - e.g., ylab = “The Y Label”
-
-Multiple parameters are given to a function by putting them in
-parentheses separated by commas, `function_name(parameter1, parameter2)`
-
-- E.g.,
-  `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.2-2</u>
-
-**Create a histogram.**
-
-Create a histogram for the pigs’ weights, with axes labels.
-
-In your histogram for the pigs’ weights, use:
-
-- X-label: “Weight”
-- Y-label: “Frequency”
-  - This is a default value.
-  - You don’t have to specify it unless you would like a different
-    label.
-- Graph title: “Histogram of Pigs’ Weights”
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-# The first parameter is the name of the data (vector) object
-# 'main' is the graph title 
-# 'xlab' is the label of the x-axis
-# label parameters can be in any order, but following the data object
-# y-label on a histogram defaults to "frequency". You can add 'ylab=""' if you'd like.
-
-hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
-```
-
-![](basics-0_files/figure-gfm/unnamed-chunk-56-1.png)<!-- -->
-
-``` r
-# The histogram will appear in the Plot tab.
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-------------------------------------------------------------------------
-
-📍 As you work through these activities, remember to save your script(s)
-regularly.
-
 - File
 - Save (or cmd+s on Mac, ctrl+s on Windows)
 
