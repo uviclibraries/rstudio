@@ -22,7 +22,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
     script:](#31-tips-for-writing-code-in-an-r-script)
   - [3.2 Running your code](#32-running-your-code)
   - [3.3 Deleting objects](#33-deleting-objects)
-  - [3.4 A Final note](#34-a-final-note)
+- [4. A Final note](#4-a-final-note)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
@@ -395,7 +395,7 @@ rectangle1.area <- rectangle1.length * rectangle1.width # Line 3
 
 We’ll get to different types of objects in the next activity.
 
-### 3.4 A final note
+## 4. A final note
 
 Understanding the differences between writing code in the Code Editor and in the Console takes time, but it’s essential for using R efficiently and effectively. To support that learning process, we recommend a small but important change to RStudio’s default settings.
 
