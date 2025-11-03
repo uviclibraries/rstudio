@@ -12,10 +12,10 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 - [1 Objects](#1-objects)
 - [2 Data Types](#2-data-types)
 - [3 Data Structure](#3-data-structure)
-  - [3.1 Vectors](##31-vectors)
-  - [3.2 Matrices and arrays](##32-matrices-and-arrays)
-  - [3.3 Lists](##33-lists)
-  - [3.4 Data frames](##34-data-frames)
+  - [3.1 Vectors](#31-vectors)
+  - [3.2 Matrices and arrays](#32-matrices-and-arrays)
+  - [3.3 Lists](#33-lists)
+  - [3.4 Data frames](#34-data-frames)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
@@ -592,7 +592,7 @@ my.list <- list(pig1.full_name, pig1.heightGain, goat.name, goat.weights)
 
 </div>
 
-In the same way that you can use [i] to capture a value in a vector, you can use [[i]] to capture something in a list (with i being the number of the location you want to capture)
+In the same way that you can use `[i]` to capture a value in a vector, you can use `[[i]]` to capture something in a list (with i being the number of the location you want to capture)
 
 <div class="task-box" markdown="1">
 
@@ -631,7 +631,9 @@ If you want to create data frames, you can use the `data.frame()` function. In t
 
 Now you know all the basic data structures that exist in R. For a summary of how they look, here's a good image:
 
-<img src="images/rstudio-basics-data-structures.png" alt="Data structures in R" style="width:420px;"/>
+<img src="images/rstudio-basics-data-structures.png" alt="Data structures in R" style="width:500px;"/>
+
+
 ------------------------------------------------------------------------
 
 📍 As you work through these activities, remember to save your script(s)
@@ -670,5 +672,5 @@ details {
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Importing Data](basics-importing-data.html){: .btn .btn-blue
+[NEXT STEP: Analyzing Data](basics-importing-data.html){: .btn .btn-blue
 }
