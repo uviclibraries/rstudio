@@ -9,23 +9,18 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 3 - Data Types and Basic Commands
 ================
 
-- [1. Objects](#1-objects)
-- [2. Data Types](#2-data-types)
-- [3. Data Structure](#3-data-structure)
-  - [3.1. Vectors](#31-vectors)
-  - [3.2. Data frames](#32-data-frames)
-  - [3.3. Matrices](#33-matrics)
-  - [3.4. Lists](#34-lists)
-- [2. Descriptive Statistics](#2-descriptive-statistics)
-  - [2.1 Basic statistical measures](#21-basic-statistical-measures)
-  - [2.2. Histogram Plot for Pig Weights](#22-histogram-plot-for-pig-weights)
+- [1 Objects](#1-objects)
+- [2 Data Types](#2-data-types)
+- [3 Data Structure](#3-data-structure)
+  - [3.1 Vectors](##31-vectors)
+  - [3.2 Matrices and arrays](##32-matrices-and-arrays)
+  - [3.3 Lists](##33-lists)
+  - [3.4 Data frames](##34-data-frames)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-**Note**: This section is being reorganized. We thank you for your patience as we restructure the order of the content in this workshop.
-
-# 1. Objects
+## 1. Objects
 
 The key to understanding R is that you will be working with what we 
 call "objects". Anything in R can be an object: a number, a string of 
@@ -61,7 +56,7 @@ objectName <- 100
 ```
 Therefore, as you see, you have to pay attention to not give a new object the same name as a previous object, otherwise R will simply overwrite the older object.
 
-You can also use objects in function calls, for example, you type in `log(objectName)` to ask R calculate the log of the number stored in your object (100 in this case).
+You can also use objects in function calls, for example, you can type `log(objectName)` to ask R to calculate the log of the number stored in your object (100 in this case).
 
 **Definition - “Function”:** A set of instructions defined to perform a specific task.
 
@@ -76,30 +71,30 @@ specific arguments, if required, to produce a result. <br>
 - It will return information about an ‘integer’ object type.
 - You can use objects as arguments in functions.
 
-# 2. Data Types
+## 2. Data Types
 
-While R objects can take many forms, when they store data (rather than, for example, a plot call), R primarily uses six basic data types. Let’s start by looking at the main types of data that you will be using for 99.99% of the time:
+While R objects can take many forms, when they store data (rather than, for example, a plot call), R primarily uses five basic data types:
 
 - *Numeric*: Decimal or floating-point numbers (e.g., 4.5, -3.2).
 
 - *Integer*: Whole numbers (e.g., 1, -5, 20). In R, integers are often
    just treated as numeric unless explicitly specified.
 
-- *Logical*: Boolean values, either TRUE or FALSE.
+- *Logical*: Boolean values, either TRUE or FALSE. Another type of logical data is `NA`, which indicates missing values.
   
-- *Character*: Text or strings (e.g., “hello”, “1234”). Note: "1234" is treated as character because it is between quotes. If you want it to be numeric, you don't need the quotes.
+- *Character*: Text or strings (e.g., “hello”, “1234”). Note: "1234" is treated as a character because it is between quotes. If you want it to be numeric, you don't need the quotes.
 
 - *Factor*: A special type of character data, includes levels
   or an order (e.g., “low”, “medium”,  “high”).
 
-In the exercises below, you will get used to working with these different types  of data. First, let's look at basic operations with objects with **character data**.
+In the exercises below, you will get used to working with these different types of data. First, let's look at basic operations with objects with **character data**.
 
 Note: whenever you enter a string parameter, the string will more likely
 than not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-1</u>
+⭐ <u>Task 3.2-1</u>
 
 **Create an object.**
 
@@ -130,7 +125,7 @@ want to use the same name to make it easier to follow.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-2</u>
+⭐ <u>Task 3.2-2</u>
 
 **Create an object.**
 
@@ -157,7 +152,7 @@ pig1.last_name <- "Smith"
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-3</u>
+⭐ <u>Task 3.2-3</u>
 
 **Create an object.**
 
@@ -201,7 +196,7 @@ how much he’s grown in height.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-4</u>
+⭐ <u>Task 3.2-4</u>
 
 **Create an object.**
 
@@ -228,7 +223,7 @@ pig1.heightA <- 10
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-5</u>
+⭐ <u>Task 3.2-5</u>
 
 **Create an object.**
 
@@ -255,7 +250,7 @@ pig1.heightB <- 22.3
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-6</u>
+⭐ <u>Task 3.2-6</u>
 
 **Create an object.**
 
@@ -317,7 +312,7 @@ We can denote whether Bart is small or large with a Boolean value.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.1-7</u>
+⭐ <u>Task 3.2-7</u>
 
 **Create two objects.**
 
@@ -346,9 +341,11 @@ pig1.large <- TRUE
 
 <br>
 
-# 3. Data structure
-<!-- Diana stopped the updating here -->
-## 3.1 Vectors
+## 3. Data structure
+
+Now that you know which types of data R uses, let's look at the different ways data can be structured in R. R uses these different structures to store data in objects.
+
+### 3.1 Vectors
 
 A vector is a 1-dimensional list of items that are of the same data type
 (all character, all numeric, etc.)
@@ -367,24 +364,22 @@ To create a vector object, you will use the `c()` function. <br>
     ‘vector1’ containing the elements ‘value1’ and ‘value2’ as separate
     items in a sequence, not as a single merged item.
 
-  - A value in a vector can be accessed by using square brackets and its
-    index (the value’s place in the vector), where **1** is the first
+  - A value in a vector can be accessed by using square brackets and its index
+    (the value’s place in the vector), where **1** is the first
     index.
 
     - `vector1[1]` will output: ‘value1’
 
 <br>
 
-As you might have seen if you tested the help() function by looking up
-information on vectors, you will know that <!--check its output--> many
-functions and operations in R are designed to work naturally with
+Many functions and operations in R are designed to work naturally with
 vectors.
 
 <br>
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.2-1</u>
+⭐ <u>Task 3.3-1</u>
 
 **Create a vector.**
 
@@ -415,17 +410,14 @@ goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 
 <br>
 
-The command you just ran has now appeared in your console (bottom left
-window)
-
-- the goat.weight vector is now listed in the Environment tab (top right
+As a reminder of how R and RStudio work, the command you just ran should have appeared in your console (bottom left window). The `goat.weight` vector should also now be listed in the Environment tab (top right
   window) under <u>Values</u>.<br>
 
 <br>
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.2-2</u>
+⭐ <u>Task 3.3-2</u>
 
 **View objects.**
 
@@ -457,9 +449,9 @@ goat.weights
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.2-3</u>
+⭐ <u>Task 3.3-3</u>
 
-**View objects.**
+**Index vectors**
 
 Display the weight of the second goat in the vector.
 
@@ -479,7 +471,7 @@ goat.weights[2]
 
 {::options parse_block_html='false'/}
 
-*Hint:* `data_object_name[indexNumber]`
+*Hint:* `vector_name[indexNumber]`
 
 </div>
 
@@ -494,7 +486,7 @@ vectors.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.2-4</u>
+⭐ <u>Task 3.3-4</u>
 
 **Create a new vector.**
 
@@ -535,9 +527,9 @@ function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1.2-5</u>
+⭐ <u>Task 3.3-5</u>
 
-**View information about vectors.**
+**Get vector length**
 
 Display the length of the vector of miniature goat names.
 
@@ -561,31 +553,85 @@ length(goat.name)
 
 <br>
 
-## 3.2. Dataframes
+### 3.2. Matrices and arrays
 
-If you want to create 2D lists, also known as a table, you will create a 
-data.frame suing the `data.frame()` function or a matrix using the 
-`matrix()` function. 
-<br> - Instead of creating our own data.frames, we will be importing data
+A matrix is similar to a vector, but it has an additional dimension. That means, matrices are objects made of multiple elements of the same data type (i.e., all characters, or all numeric) that are organized in rows and columns. Arrays are matrices with multiple dimensions. Matrices and arrays are used for more advanced calculations in disciplines such as population ecology and applied statistics, but for basic uses of R, you will not need to use matrices or arrays.
 
-## 3.3. Matrices
-- For more on matrices,
-[check me
+If you are interested, however, on learning more about matrices and arrays, [check me
 out](https://www.w3schools.com/r/r_matrices.asp){:target=“\_blank”}.
 <br>
-later on.
 
-## 3.4. Lists
 
-A ‘list’ can hold items of different types (even vectors), while items
-in a ‘vector’ must all be the same type. <br>
+### 3.3. Lists
+
+Differently from vectors, matrices or arrays, a list can hold items of different types. In fact, lists can also hold other data structures in them, like vectors and matrices. You can think of a list as a clothesline where you can hang different types of data. For example, you can add a value at the first position, a vector at the second position, and a matrix at the third position.
 
 To make a list, we’ll use the `list()` function.
 
-**Hint:** Remember that all items in a vector must be the same type, but
-can be different types if in a list.
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3.3-6</u>
+
+**Create a list**
+
+Create a list with information about Bart's full name, Bart's height gain, the goats' names and weights.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+my.list <- list(pig1.full_name, pig1.heightGain, goat.name, goat.weights)
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+In the same way that you can use [i] to capture a value in a vector, you can use [[i]] to capture something in a list (with i being the number of the location you want to capture)
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3.3-7</u>
+
+**Show an element of a list**
+
+Display the goats' names by indexing the object `my.list`. 
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+my.list[[3]]
+```
+
+  ## [1] "baby"    "pickes"  "cookie"  "sparkle" "gabbie"
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
 
 
+### 3.4. Dataframes
+
+Data frames are one of the most used and useful data structure types in R. We will go over data frames in more detail in section 4.2, but here you need to know that they are two-dimensional objects made up of rows and columns, very similar to data tables that you are used to seeing in Microsoft Excel.
+
+While that might seem similar to what a matrix is, data frames can contain data of different types, as long as all values in a column are of the same type. For example, you can have a column of numeric data and a column of character data.
+
+If you want to create data frames, you can use the `data.frame()` function. In the next section, instead of creating our own data frames, we will be importing data.
+
+Now you know all the basic data structures that exist in R. For a summary of how they look, here's a good image:
+
+<img src="images/rstudio-basics-data-structures.png" alt="Data structures in R" style="width:420px;"/>
 ------------------------------------------------------------------------
 
 📍 As you work through these activities, remember to save your script(s)
