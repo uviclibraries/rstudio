@@ -9,9 +9,10 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 4 - Basic Data Analysis
 ================
 
-- [1. Importing Excel data into R](#1-importing-excel-data-into-r)
-- [2 Visualize Income with a Histogram
-  plot](#2-visualize-income-with-a-histogram-plot)
+- [1 Importing tabular data into R](#1-importing-tabular-data-into-r)
+- [2 Data frames](#2-data-frames)
+- [3 Summary statistics](#3-summary-statistics)
+- [4 Histograms](#4-histograms)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
@@ -20,11 +21,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 
 <!-- This section needs updating, currently it has pasted content moved from section 3, but it still has not been reorganized well!  -->
 
-
-So far, we’ve created our own objects by manually entering all of the
-data in the console. In this section, we’ll learn how to create objects
-by importing (aka ‘reading’) data (compiled outside of R) into R and
-visualise it with a histogram.
+So far, we have created our own objects by manually entering all of the data in the console. In this section, we will learn how to create objects by importing (aka ‘reading’) data (compiled outside of R) into R, perform basic statistics on it, and visualize it with a histogram.
 
 ## 1. Importing tabular data into R
 
@@ -173,8 +170,6 @@ and 4 variables (columns)
 
 ## 3. Summary statistics.
 
-## 2. Descriptive Statistics
-
 Statistics is:
 
 - the science of collecting, analyzing, and interpreting
@@ -195,7 +190,7 @@ In this section, we’ll be focusing on
   Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target=“\_blank”}
 - Importing data
 
-### 2.1 Basic statistical measures
+### 3.1 Basic statistical measures
 
 The function names for the following three statistical measures (mean,
 median, standard deviation) are quite intuitive.
@@ -213,7 +208,7 @@ true/false), result will be `NA`.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-1</u>
+⭐ <u>Task 4.3-1</u>
 
 **Create a variable to be summarised.**
 
