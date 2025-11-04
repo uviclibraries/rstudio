@@ -500,6 +500,7 @@ can set that using the `breaks` parameter.
 **Create a histogram with a different number of intervals.**
 
 Use the argument `breaks` inside the function `hist()` to create a histogram of experience that has only 3 intervals.
+
 {::options parse_block_html='true' /}
 <details>
 <summary>
@@ -517,7 +518,7 @@ hist(income$experience, main = "Histogram of Experience", xlab = "Experience", b
 
 {::options parse_block_html='false'/}
 
-<br>
+</div>
 
 <script>  
 function toggle(input) {
