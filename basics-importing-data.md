@@ -105,7 +105,7 @@ For tabular data, you will most likely be importing .csv or .xlsx files. In this
 
 **Download data.**
 
-Download and save [this spreadsheet of Income data](docs/income.csv){:target=“\_blank”}.
+Download and save [this spreadsheet of Income data](docs/income.csv){:target="\_blank"}.
 
 - *Note:* Please save the file in your working directory, specified in the task above.
 
@@ -113,10 +113,10 @@ Download and save [this spreadsheet of Income data](docs/income.csv){:target=“
 
 To import a .csv file in R, you can use the `read.csv()` function. This function takes as its main argument the name of the file you want to import. This should be in quotes and include the file type.
 
-If you want R to import your file and save it in an object, you need to specify the name of the object, and use the `<-` symbol to assign the imported file to the object:
+If you want R to import your file and save it in an object, you need to specify the name of the object and use the `<-` symbol to assign the imported file to the object:
 
 ```
-# This code will create an object called object.name with the data from the .csv file specified
+# This code will create an object called object.name with the data from the .csv file
 object.name <- read.csv("path-to-file.csv")
 ```
 
@@ -128,7 +128,7 @@ Attention: if you do not assign an object to the imported file, R will simply pr
 
 **Import data.**
 
-Use the function `read.csv()` to import the dataset of Income data to an object called "income"
+Use the function `read.csv()` to import the dataset of Income data to an object called "income". 
 
 {::options parse_block_html='true' /}
 <details>
@@ -141,40 +141,39 @@ income <- read.csv("income.csv")
 ```
 After running this code, you should see the object "income" in your environment panel in the top right.
 
+If you get an error message that says "No such file or directory", it's probably because you did not save the .csv file in your working directory, or because there is a typo in the file name.
+
 </details>
 
 {::options parse_block_html='false'/}
 
 </div>
 
-There are other functions in R to import other types of tabular data, and a generic function called `read.table()`, which is really useful if you need to specify some details when importing data, for example, which values to consider `NA`. To learn more about it, check [this](https://intro2r.com/importing-data.html){:target=“\_blank”}.
+There are other functions in R to import other types of tabular data, and a generic function called `read.table()`, which is really useful if you need to specify some details when importing data, for example, which values to consider `NA`. To learn more about it, check [this](https://intro2r.com/importing-data.html){:target="\_blank"}.
 
 ## 2. Data frames
 
-**Definition - Data frame:** essentially a table. It is 2-dimensional
-object that can hold different types of data types.
+Now that you imported your file into R, we can take a closer look at it. The file you just imported is an object of the type data frame.
 
-<details>
-<summary>
-More about Data frames
-</summary>
-Data frames contain information about a set of objects (e.g.,
-cats).<br> - The data frame will contain one or more columns and one or
-more rows.<br> - One column contains related values (column 1 = age,
-column 2 = eye color).<br> - Because the column contains the same type
-of information, it is equivalent to a vector. <br> - i.e., the ‘eye
-color’ column will contain characters, not numbers.<br> - One row
-denotes one object from the set. In a data frame of information about a
-set of cats, each row is information about one specific cats.
-</details>
+To check that, you can run the code:
+```
+# The function class() tells you the type of object. It is good for checking if you imported your files correctly
+class(income)
+```
+  ## [1] "data.frame"
 
-A row can contain many different bits of information, like age
-(numerical), eye color (character), breed (character), whether or not
-it’s spayed/neutered (boolean). Because rows may contain values of
-different types, one row would most likely not be a vector. It would
-likely be a list, which can contain values of different types.
+**Definition - Data frame:** essentially a table. It is a two-dimensional object that can hold different types of data. 
 
-To see the data in our data frame, simply enter the name of the data
+- Usually, data frames are used to store values of variables (i.e. the columns) recorded for different observations (i.e. the rows). For example, different observations made for different cats.
+- Data frames can contain one or more columns and one or more rows.
+- All values in a column are related (e.g., column 1 = age, column 2 = eye color)
+- Because the column contains the same type of information, it is equivalent to a vector (i.e., the ‘eye
+color’ column will contain characters, not numbers).
+- One row denotes one object from the set. For example, in the data frame of information about a
+set of cats, each row contains information about one specific cat.
+- A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it’s spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
+
+To see the data in your data frame, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
 
 {::options parse_block_html='true' /}
@@ -187,47 +186,51 @@ Check your code
 income
 ```
 
+The following will be the output:
+
+    ##    id gender income experience
+    ## 1   1      M  23000          3
+    ## 2   2      M  55000          7
+    ## 3   3      M  43000          5
+    ## 4   4      F  37000          5
+    ## 5   5      M  75000          9
+    ## 6   6      M  72000         10
+    ## 7   7      F 121000         13
+    ## 8   8      F  27000          1
+    ## 9   9      F  57000          8
+    ## 10 10      F  91000         10
+
 </details>
 
 {::options parse_block_html='false'/}
 
-<br>
+Another useful way to inspect your data frama is to use the `str()` function:
 
-The following will be the output:
+```
+str(income)
+```
+    ## 'data.frame':	10 obs. of  4 variables:
+    ##  $ id        : int  1 2 3 4 5 6 7 8 9 10
+    ##  $ gender    : chr  "M" "M" "M" "F" ...
+    ##  $ income    : int  23000 55000 43000 37000 75000 72000 121000 27000 57000 91000
+    ##  $ experience: int  3 7 5 5 9 10 13 1 8 10
 
-    ## # A tibble: 10 × 4
-    ##       id gender income experience
-    ##    <dbl> <chr>   <dbl>      <dbl>
-    ##  1     1 M       23000          3
-    ##  2     2 M       55000          7
-    ##  3     3 M       43000          5
-    ##  4     4 F       37000          5
-    ##  5     5 M       75000          9
-    ##  6     6 M       72000         10
-    ##  7     7 F      121000         13
-    ##  8     8 F       27000          1
-    ##  9     9 F       57000          8
-    ## 10    10 F       91000         10
+This tells you that your data frame is made of 10 observations of 4 variables. It can be inferred that this data relates to 10 people. It then tells you the name of each variable (id, gender, income, experience), the data type of each variable (int = integer, chr = character), and the first few values of each column.
 
-We will explore other ways to view and preview content of our data
-frames in Activity 3.
+You can use de `$` symbol to refer R to specific columns inside your dataframe. For example, if you want to check the individual values for gender, you can type:
+```
+income$gender
+```
+    ## [1] "M" "M" "M" "F" "M" "M" "F" "F" "F" "F"
 
-**Note:** `<char>` stands for “character” data type and `<dbl>` stands
-for “double-precision floating point numbers data” type. <br>
+These columns are treated as vectors in R, so if you wanted to get the 4th value of the cokum gender, you can use the indexing inside `[]` that you learned in the previous section:
+```
+income$gender[4]
+```
+    ## [1] "F"
 
-We can see now that our data frame `income` contains 10 objects (rows),
-and 4 variables (columns)
+We will explore other ways to view and preview the content of our data frames in Activity 5. You can also go [here](https://intro2r.com/data-structures.html#df){:target="\_blank"} for more information about data frames.
 
-- It can be inferred that this data relates to 10 people
-- The variables measured with each person are:
-  - id (in lieu of a name) (dbl)
-  - gender (char)
-  - income (dbl)
-  - experience (dbl) <br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 1-3</u>
 
 ## 3. Summary statistics.
 
