@@ -9,7 +9,9 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 4 - Basic Data Analysis
 ================
 
-- [1 Importing tabular data into R](#1-importing-tabular-data-into-r)
+- [1 Importing data into R](#1-importing-data-into-r)
+  - [1.1 Working directory](#11-working-directory)
+  - [1.2 Importing tabular data](#12-importing-tabular-data)
 - [2 Data frames](#2-data-frames)
 - [3 Summary statistics](#3-summary-statistics)
 - [4 Histograms](#4-histograms)
@@ -17,18 +19,79 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 <br>
 
-**Note**: This section is being reorganized. We thank you for your patience as we restructure the order of the content in this workshop.
-
-<!-- This section needs updating, currently it has pasted content moved from section 3, but it still has not been reorganized well!  -->
-
 So far, we have created our own objects by manually entering all of the data in the console. In this section, we will learn how to create objects by importing (aka ‘reading’) data (compiled outside of R) into R, perform basic statistics on it, and visualize it with a histogram.
 
-## 1. Importing tabular data into R
+## 1. Importing data into R
+
+### 1.1. Working directory
+
+Before importing your data into R, it is important to understand what the working directory is. The **working directory** is the location on your computer (i.e., the folder) where R looks for files when importing data and where it saves files. You typically want to have all the files related to a single project in the same folder, so that R can easily find them, and you know where they are saved.
+
+You can check the path of your working directory by running the function `getwd()` in the console.
+
+<div class="task-box" markdown="1">
+  
+⭐ <u>Task 4-1</u>
+
+**Check your working directory.**
+
+Type in `getwd()` in the console and hit enter.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+getwd()
+```
+  ## [1] "A Path to a Folder"
+
+You will get a path to a folder on your computer. This is your current working directory.
+  
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+More often than not, you will want to change your working directory to a specific folder rather than the default folder. To do that, you can use the `setwd()` function. Inside the parentheses (i.e. as the function parameter), you should type the path to the folder between quotes. For example, let's assume you want your working directory to be a folder called "my_project" that is in the main Documents folder. You would type:
+
+```
+setwd("C:\Documents\my_project")
+```
+<div class="task-box" markdown="1">
+  
+⭐ <u>Task 4-2</u>
+
+**Change your working directory.**
+
+Change your working directory to a folder where you will keep all the files related to this workshop. Note: You should use forward slashes to denote the path to your folder. This should work on both Mac and Windows.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+setwd("Path to Folder")
+```  
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/work-d.html){:target="\blank"}
+
+### 1.2. Importing tabular data
 
 R can handle multiple file types:
 
 - .csv (comma-separated values)
-- excel (.xls, .xlsx)
+- Excel (.xls, .xlsx)
 - .txt (and .tsv - tab-separated values)
 - .json (used for nested data structures)
   - These would likely be arrays of more than 2 dimensions.
