@@ -507,7 +507,7 @@ Use the argument `breaks` inside the function `hist()` to create a histogram of 
 Check your code
 </summary>
 
-```
+``` r
 # breaks is equal to the number of intervals
 # You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
 hist(income$experience, main = "Histogram of Experience", xlab = "Experience", breaks = 3)
@@ -519,6 +519,7 @@ hist(income$experience, main = "Histogram of Experience", xlab = "Experience", b
 {::options parse_block_html='false'/}
 
 </div>
+
 
 <script>  
 function toggle(input) {
