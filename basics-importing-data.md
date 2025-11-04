@@ -160,7 +160,7 @@ To check that, you can run the code:
 # The function class() tells you the type of object. It is good for checking if you imported your files correctly
 class(income)
 ```
-  ## [1] "data.frame"
+    ## [1] "data.frame"
 
 **Definition - Data frame:** essentially a table. It is a two-dimensional object that can hold different types of data. 
 
@@ -223,7 +223,7 @@ income$gender
 ```
     ## [1] "M" "M" "M" "F" "M" "M" "F" "F" "F" "F"
 
-These columns are treated as vectors in R, so if you wanted to get the 4th value of the cokum gender, you can use the indexing inside `[]` that you learned in the previous section:
+These columns are treated as vectors in R, so if you wanted to get the 4th value of the column gender, you can use the indexing inside `[]` that you learned in the previous section:
 ```
 income$gender[4]
 ```
@@ -237,22 +237,17 @@ We will explore other ways to view and preview the content of our data frames in
 Statistics is:
 
 - the science of collecting, analyzing, and interpreting
-
 - data to uncover patterns and trends,
-
 - and inform decisions based on this data.
 
 If you’re unfamiliar with statistics, you can learn more about it from
-the [w3school Statistics
-Tutorial](https://www.w3schools.com/statistics/index.php){:target=“\_blank”}
+the [w3school Statistics Tutorial](https://www.w3schools.com/statistics/index.php){:target=“\_blank”}
 
 In this section, we’ll be focusing on
 
 - Basic statistical measures
 - Presenting data in a histogram
-- More on presenting data will be covered in [Activity 4-Data
-  Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target=“\_blank”}
-- Importing data
+- More on presenting data will be covered in [Activity 6-Data Visualization](https://uviclibraries.github.io/rstudio/ggplot2-data.html){:target=“\_blank”}
 
 ### 3.1 Basic statistical measures
 
@@ -268,53 +263,20 @@ its argument.
 
 These three functions are designed for sets of numerical and integer
 data types. If run on other types (character, aka text, and boolean, aka
-true/false), result will be `NA`.
+true/false), the result will be `NA`.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.3-1</u>
+⭐ <u>Task 4-5</u>
 
-**Create a variable to be summarised.**
-
-For this task, we will use a new vector object containing weights for a
-set of pigs.
-
-Create a vector object with the weights of a set of pigs. Name your
-variable ‘pigs.weight’
-
-`Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.1-2</u>
-
-**Get the mean (average) value.**
+**Get the mean (average) income.**
 
 **Mean:** the average value in a set.
 
 The `mean()` function calculates the sum of the values in the set and 
 divides the sum by the number of items in the set.
 
-Write and execute a command that outputs the mean value of the pigs’
-weights.
+Write and execute a command that outputs the mean income across the 10 people in our dataset. Remember: you can use the `$` symbol to extract one column (i.e., one vector) from your data frame.
 
 {::options parse_block_html='true' /}
 <details>
@@ -323,11 +285,11 @@ Check your code
 </summary>
 
 ``` r
-# output the average weight of all of the pigs
-mean(pigs.weight)
+# output the average income
+mean(income$income)
 ```
 
-    ## [1] 20.71429
+    ## [1] 60100
 
 </details>
 
@@ -339,12 +301,11 @@ mean(pigs.weight)
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-3</u>
+⭐ <u>Task 4-6</u>
 
 **Get median value.**
 
-Write and execute a command that outputs the median value of the pigs’
-weights
+Write and execute a command that outputs the median value of income
 
 **Median:** The middle value in a sorted set (e.g. lowest - highest).
 `median()`
@@ -356,10 +317,10 @@ Check your code
 </summary>
 
 ``` r
-median(pigs.weight)
+median(income$income)
 ```
 
-    ## [1] 22
+    ## [1] 56000
 
 </details>
 
@@ -367,14 +328,14 @@ median(pigs.weight)
 
 </div>
 
-<br> The output tells you the weight of the pig that falls between the
-lighter half and the heavier half of the pigs. <br>
+<br> The output tells you the income value that falls between the
+higher income half and the lower income half of the people in your dataset. <br>
 
 <br>
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-4</u>
+⭐ <u>Task 4-7</u>
 
 **Get standard deviation.**
 
@@ -383,14 +344,14 @@ lighter half and the heavier half of the pigs. <br>
 The function in R is `sd()`
 
 Write and execute a command that outputs the standard deviation of the
-pigs’ weights
+income.
 
-The output tells you how much the weights of the pigs vary from the
-average weight.
+The output tells you how much the individual incomes vary from the
+average income.
 
-- A small standard deviation means that most pigs’ weights are close to
-  the average, indicating uniformity in size.
-- A large standard deviation suggests a wide range of weights. <br>
+- A small standard deviation means that most people have an income that is close to
+  the average, indicating uniformity in income.
+- A large standard deviation suggests a wide range of incomes. <br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -399,10 +360,10 @@ Check your code
 </summary>
 
 ``` r
-sd(pigs.weight)
+sd(income$income)
 ```
 
-    ## [1] 4.956958
+    ## [1] 30479.32
 
 </details>
 
@@ -414,35 +375,13 @@ sd(pigs.weight)
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-5</u>
+Up until now, you were calculating mean, median and standard deviation for one single variable in your data frame. However, often you will want to calculate that for the entire dataframe. For this, a useful function is `summary()`, which takes a data frame as input and returns a summary of each variable as the output.
 
-**Get summary of value statistics.**
+<div class="task-box" markdown="1">
 
-Display a summary of values pertaining to the pigs’ weights
+⭐ <u>Task 4.8</u>
 
-We can execute a **‘summary’** to generate several descriptive
-statistics at the same time. `summary()`
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-summary(pigs.weight)
-```
-
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   12.00   18.50   22.00   20.71   23.50   27.00
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
+**Get summary of statistics.**
 
 Display a summary of statistics for the `income` data.
 
@@ -469,8 +408,6 @@ summary(income)
 {::options parse_block_html='false'/}
 
 </div>
-
-<br>
 
 ## 4. Histograms
 
