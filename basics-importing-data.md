@@ -84,12 +84,11 @@ setwd("Path to Folder")
 
 </div>
 
-If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/work-d.html){:target="\blank"}.
+If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/rsprojs.html){:target="\blank"}.
 
 ### 1.2. Importing tabular data
 
-R can handle multiple file types:
-
+Now that you have your working directory set up, you can import your data into R. R can handle multiple file types:
 - .csv (comma-separated values)
 - Excel (.xls, .xlsx)
 - .txt (and .tsv - tab-separated values)
@@ -98,58 +97,57 @@ R can handle multiple file types:
 - SPSS (another specialized statistics software)
 - Data scraped from the web or via an API.
 
+For tabular data, you will most likely be importing .csv or .xlsx files. In this workshop, we will work with .csv files because you can import them with base R. If you have your data in Excel, you can save it as .csv by clicking on File > Save as. If you want to import .xslx files directly, you will need to install a specific package (see [here](https://readxl.tidyverse.org/){:target="\blank"}).
+
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-1</u>
+⭐ <u>Task 4-3</u>
 
 **Download data.**
 
-Download and save [this Excel spreadsheet of Income
-data](docs/income.xlsx){:target=“\_blank”}
+Download and save [this spreadsheet of Income data](docs/income.csv){:target=“\_blank”}.
 
-- *Note:* Please remember where the income.xlsx file is saved (usually
-  in a “downloads” or “desktop” folder).
+- *Note:* Please save the file in your working directory, specified in the task above.
 
 </div>
+
+To import a .csv file in R, you can use the `read.csv()` function. This function takes as its main argument the name of the file you want to import. This should be in quotes and include the file type.
+
+If you want R to import your file and save it in an object, you need to specify the name of the object, and use the `<-` symbol to assign the imported file to the object:
+
+```
+# This code will create an object called object.name with the data from the .csv file specified
+object.name <- read.csv("path-to-file.csv")
+```
+
+Attention: if you do not assign an object to the imported file, R will simply print the imported data in the console and not save it in an object for future use. Always import data by assigning it to an object.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-2</u>
+⭐ <u>Task 4-4</u>
 
 **Import data.**
 
-Import the dataset of Income data
+Use the function `read.csv()` to import the dataset of Income data to an object called "income"
 
-- From the top menu bar, select…
-- File
-- Import dataset
-- From Excel
-- In the ‘Import Excel Data’ window select your file by:
-- Entering the file path to the income.xlsx file you just downloaded.
-- Selecting “Browse” on the right side of the path bar and locating it
-  in the browser.
-- Under ‘Import Options,’ make sure ‘Name’ is the same text as you wish
-  for the variable to be named. Ours will be ‘income’.
-- Click “Import”
-- If asked to install the `readxl` package, click **Yes**.
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+income <- read.csv("income.csv")
+```
+After running this code, you should see the object "income" in your environment panel in the top right.
+
+</details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
-Don’t worry about making a mistake importing this data. You can always
-remove it using the `rm()` function.
-
-Browse and import menu and buttons <br>
-
-<img src="images/rstudio-15.png" alt="Browse and import menu and buttons" style="width:600px;"/>
-
-<br> Import excel data window
-
-<img src="images/rstudio-17.png" alt="Import excel data window" style="width:600px;"/>
-
-<br>
-
-What you just imported is now stored as a ‘data frame’ object whose name
-is `income`.
+There are other functions in R to import other types of tabular data, and a generic function called `read.table()`, which is really useful if you need to specify some details when importing data, for example, which values to consider `NA`. To learn more about it, check [this](https://intro2r.com/importing-data.html){:target=“\_blank”}.
 
 ## 2. Data frames
 
