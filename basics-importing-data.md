@@ -373,8 +373,6 @@ sd(income$income)
 
 <br>
 
-<div class="task-box" markdown="1">
-
 Up until now, you were calculating mean, median and standard deviation for one single variable in your data frame. However, often you will want to calculate that for the entire dataframe. For this, a useful function is `summary()`, which takes a data frame as input and returns a summary of each variable as the output.
 
 <div class="task-box" markdown="1">
