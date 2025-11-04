@@ -421,18 +421,47 @@ A histogram illustrates:
 The histogram will appear in the Plots tab (bottom right quadrant if you
 haven’t modified your RStudio layout).
 
-<br>
+To create a histogram, you can use the function `hist()`. For example, for a histogram of the income data:
+```
+# Remember that income$income grabs the variable "income" in the data frame "income"
+hist(income$income)
+```
+<img src="images/hist-income.png" alt="Histogram of income" style="width:600px"/>
+
+We can also pass in additional parameters to control the way our plot looks.
+
+Some of the frequently used parameters are:
+
+- `main`: The title of the plot
+  - e.g., `main = "This is the Plot Title"` <br>
+- `xlab`: The x-axis label
+  - e.g., `xlab = "The X Label"` <br>
+- `ylab`: The y-axis label.  “Frequency” is the default value, and you don’t have to specify it unless you would like a different label.
+  - e.g., ylab = “The Y Label”
+
+Multiple parameters are given to a function by putting them in parentheses separated by commas, `function_name(parameter1, parameter2)`: 
+
+```
+# The first parameter is the name of the data (vector) object
+# 'main' is the graph title 
+# 'xlab' is the label of the x-axis
+# label parameters can be in any order, but following the data object
+# y-label on a histogram defaults to "frequency". You can add 'ylab=""' if you'd like.
+hist(income$income, xlab="Income", main = "Histogram of Income")
+```
+
+<img src="images/hist-income2.png" alt="Histogram of income" style="width:600px"/>
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.2-1</u>
+⭐ <u>Task 4-9</u>
 
 **Create a histogram.**
 
-Create a histogram for the pigs’ weights using the histogram function
-`hist()`
+Create a histogram for the experience data using the histogram function
+`hist()`. Remember to add an informative title and labels.
 
-- Parameter: vector of pig weights
+- Parameter: vector of values to plot
 
 {::options parse_block_html='true' /}
 <details>
@@ -441,135 +470,18 @@ Check your code and see the histogram
 </summary>
 
 ``` r
-hist(pigs.weight)
+hist(income$experience, main = "Histogram of Experience", xlab = "Experience")
 ```
-
-![](basics-0_files/figure-gfm/unnamed-chunk-53-1.png)<!-- -->
-
-``` r
-# The histogram will appear in the Plot tab.
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-We can also pass in additional parameters to control the way our plot
-looks.
-
-Some of the frequently used parameters are:
-
-- `main` : The title of the plot
-  - e.g., `main = "This is the Plot Title"` <br>
-- `xlab` : The x-axis label
-  - e.g., `xlab = "The X Label"` <br>
-- `ylab` : The y-axis label
-  - e.g., ylab = “The Y Label”
-
-Multiple parameters are given to a function by putting them in
-parentheses separated by commas, `function_name(parameter1, parameter2)`
-
-- E.g.,
-  `hist(dataset, xlab="x-label", ylab = "y-label", main = "main title")`
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2.2-2</u>
-
-**Create a histogram.**
-
-Create a histogram for the pigs’ weights, with axes labels.
-
-In your histogram for the pigs’ weights, use:
-
-- X-label: “Weight”
-- Y-label: “Frequency”
-  - This is a default value.
-  - You don’t have to specify it unless you would like a different
-    label.
-- Graph title: “Histogram of Pigs’ Weights”
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-# The first parameter is the name of the data (vector) object
-# 'main' is the graph title 
-# 'xlab' is the label of the x-axis
-# label parameters can be in any order, but following the data object
-# y-label on a histogram defaults to "frequency". You can add 'ylab=""' if you'd like.
-
-hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
-```
-
-![](basics-0_files/figure-gfm/unnamed-chunk-56-1.png)<!-- -->
-
-``` r
-# The histogram will appear in the Plot tab.
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
-
-<br>
-
-Visualize Income with a Histogram plot
-
-In 3.2 we made a histogram to visualize the distribution of the pig
-weights. Remember that the parameter that the histogram function takes
-is a vector.
-
-To extract a vector (column) from our data frame, we will pass in
-`dataframeName$columnName`, where the name of our data is separated by
-the name identifying a single column within that data frame.
-
-- Replace *dataframeName* with the name of your imported data
-- Replace *columnName* with the column name representing the information
-  you would like to analyse.
-- e.g. ‘eyeColour’ might be the column name in a dataframe named ‘cats’.
-
-<div class="task-box" markdown="1">
-
-⭐ <u>Task 2</u>
-
-**Create a histogram.**
-
-Display the vector of data relating to ‘experience’ as a histogram.
-
-- X-label: ‘Experience’
-- Title: ‘Histogram of Experience’ <br>
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
-``` r
-#Remember, the generated histogram will appear in the Plot tab.
-hist(income$experience, main='Histogram of Experience',xlab='Experience')
-```
-
-</details>
-
-{::options parse_block_html='false'/}
-
-</div>
 
 The following will be the output:
 
-<img src="images/rstudio-20.png" alt="Histogram of experience" style="width:600px;"/>
+<img src="images/hist-experience.png" alt="Histogram of income" style="width:600px"/>
 
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
 
 We can see in the histogram that there are 7 intervals with equally
 spaced breaks. In this case, the height of a cell is equal to the number
@@ -578,22 +490,29 @@ of observations falling in that cell.
 - Why are there 7 intervals? R automatically chooses the number of
   intervals for you.
 
-*Additional:* If you preferred having 4 intervals (i.e., ‘bins’), use
-can set that using the `breaks=''` parameter.
+*Additional:* If you preferred having fewer or more intervals (i.e., ‘bins’), use
+can set that using the `breaks` parameter.
 
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 4-10</u>
+
+**Create a histogram with a different number of intervals.**
+
+Use the argument `breaks` inside the function `hist()` to create a histogram of experience that has only 3 intervals.
 {::options parse_block_html='true' /}
 <details>
 <summary>
-Check Your Code for custom number of intervals
+Check your code
 </summary>
 
-``` r
-#breaks is equal to the number of intervals
-#You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
-hist(income$experience, breaks=3)
 ```
+# breaks is equal to the number of intervals
+# You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
+hist(income$experience, main = "Histogram of Experience", xlab = "Experience", breaks = 3)
+```
+<img src="images/hist-experience2.png" alt="Histogram of income" style="width:600px"/>
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
