@@ -59,7 +59,7 @@ You will get a path to a folder on your computer. This is your current working d
 More often than not, you will want to change your working directory to a specific folder rather than the default folder. To do that, you can use the `setwd()` function. Inside the parentheses (i.e. as the function parameter), you should type the path to the folder between quotes. For example, let's assume you want your working directory to be a folder called "my_project" that is in the main Documents folder. You would type:
 
 ```
-setwd("C:\Documents\my_project")
+setwd("C:/Documents/my_project")
 ```
 <div class="task-box" markdown="1">
   
@@ -84,7 +84,7 @@ setwd("Path to Folder")
 
 </div>
 
-If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/work-d.html){:target="\blank"}
+If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/work-d.html){:target="\blank"}.
 
 ### 1.2. Importing tabular data
 
