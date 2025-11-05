@@ -56,7 +56,7 @@ Before you start this activity, let's give your RStudio session a fresh start. F
 - Save your previous scripts by clicking on File > Save, or on the save icon on the top left. If needed, choose a folder to save it (probably the working directory you were working on in the previous activity) and give it a meaningful name.
 - Close the script by clicking on File > Close or on the x next to the file name on the top left.
 - Clean your R environment (i.e., remove all the objects) by clicking on the broom icon ![Broom Icon](images/broom.png) on the top right and clicking yes on the pop-up window that appears.
--  Create a new script by clicking on File > New File > R Script, or on the New Script icon ![New file Icon](images/newfile.png) on the top left.
+-  Create a new script by clicking on File > New File > R Script, or on the New Script icon ![New Script Icon](images/newscript.png) on the top left.
 
 ## 1. Getting Ready for Tidyverse: Installing Packages
 
@@ -186,11 +186,11 @@ line up with the instructions in the activity.* <br>
 the
 Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse/notebook){:target=“\_blank”}.
 
-## 3. Preparing our Workspace
+## 3. Preparing our workspace
 
 ### 3.1 Working directory
 
-First, let's set our working directory so that R know which folder to look for data.
+First, let's set our working directory so that R knows which folder to look for data.
 
 <div class="task-box" markdown="1">
 
@@ -220,7 +220,7 @@ setwd("path-to-folder") # the path will be different for each person
 
 ### 3.2 Read data
 
-After loading the package and setting your working directory, you should be ready to load the data into R. In this activity, we will be working with a table containing information about shipping orders. Each row represents one order, and each column represents a specific type of data about the orders
+After loading the package and setting your working directory, you should be ready to load the data into R. In this activity, we will be working with a table containing information about shipping orders. Each row represents one order, and each column represents a specific type of data about the orders.
 
 <div class="task-box" markdown="1">
 
@@ -291,8 +291,6 @@ head(purchaseData, 5)
 
 </div>
 
-<br>
-
 The following will be the output (For the purpose of readability, this
 only shows 6 columns. Your output will be much wider, and the columns will
 continue to wrap below!):
@@ -348,13 +346,13 @@ dim(purchaseData)
 
 You can use the `dim()` function to check if the correct number of rows and columns has been imported. In this case, the table imported has 51290 observations (i.e., rows) for 24 variables (i.e., columns). If you know the size of your dataset, you can check if everything was imported here.
 
-At this point, you have gone through the four major steps that it is recomended at the start of your script to set the stage for your analysis:
+At this point, you have gone through the four major steps that are recommended at the start of your script to set the stage for your analysis:
 - Load any packages
 - Set working directory
 - Load data
-- Inspect and check data was correctly imported.
+- Inspect and check if data was correctly imported.
 
-This is how your script should look like so far:
+This is how your script should look so far:
 ``` r
 # Organizing the workspace
 
@@ -380,31 +378,33 @@ dim(purchaseData)
 
 ## 4. Introducing Piping
 
-`%>%` This symbol is known as a “pipe,” and it’s used for feeding the
+Before we start with how to manipulate and visualize our data, we want to introduce you to the `%>%` symbol, which is very powerful to use in conjunction with the tidyverse package to easily manipulate and visualize data.
+
+This symbol is known as a “pipe,” and it’s used for feeding the
 result of one function directly into the next function. 
 
 Note: New versions of R also have the symbol `|>` as a pipe, which works 
 exactly like `%>%` in most cases. We will use the `%>%` symbol, which is
 more common in the tidyverse world, but know that if you see `|>`, you can 
-interpret in the same way as `%>%`.
+interpret it in the same way as `%>%`.
 
-- e.g., To sort the column names alphabetically, you could either enter:
-  - two separate commands creating two data objects
-  - use a pipe to create one data object for your target object.
+- e.g., Imagine you wanted to sort the column of your dataset in alphabetical order, you could either enter:
+  - Two separate commands creating two data objects
+  - Use a pipe to create one data object for your target object.
  
 This might be difficult to understand now, and that's why we will, in the next
 two sections, first try manipulating a dataframe without using pipe, and
 then do the same using pipe, so that you understand the difference and
 the power of using pipe.
 
-In pipes, you can choose to have a newline (shift+enter) after the %\>%
+In pipes, you can choose to have a newline (shift+enter) after the `%>%`
 symbol or leave it all on one line. For a cleaner code, we recommend
 adding a new line. <br>
 
 ### 4.1 Manipulating dataframes without piping
 
 So far, we have looked at commands that perform single
-operations.
+operations:
 
 - Create an object whose value is a single word
   - `y <- "word"`
@@ -413,10 +413,9 @@ operations.
 - View the dimensions of a data set
   - `dim(purchaseData)`
 
-Piping becomes powerful when we want to perform multiple functions at once to achieve a single result. For example, what if we want to get a list of column names in our data set, AND sort it alphabetically? Let's first see how to this
-without piping.
+Piping becomes powerful when we want to perform multiple functions at once to achieve a single result. For example, what if we want to get a list of column names in our data set, AND sort it alphabetically? Let's first see how to this without piping.
 
-- There are 2 ways that we can do this without piping based on what we have already learned.
+- There are 2 ways that we can do this without piping, based on what we have already learned.
 
 **First option: separate commands**
 
@@ -432,7 +431,7 @@ the column names.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.1-1</u>
+⭐ <u>Task 5-7</u>
 
 **Create an object**
 
@@ -467,7 +466,7 @@ using the `sort()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.1-2</u>
+⭐ <u>Task 5-8</u>
 
 **Create an object**
 
@@ -498,11 +497,11 @@ names from our purchase data in the previous task! <br>
 
 **Second option: nesting**
 
-In Tasks 4.1-1 and 4.1-2, we ran two commands, resulting in two
-separate variables containing the column names:
+In Tasks 5-7 and 5-8, we ran two commands, resulting in two
+separate objects containing the column names:
 
 - `purchaseDataColumnNames`: Ordered as they would be if the file were
-  opened in excel
+  opened in Excel
 - `alphaPurchaseDataColumnNames`: Ordered alphabetically (sorted)
 
 <br> However, we only care about the list of alphabetically column names.
@@ -518,14 +517,14 @@ another function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.1-3</u>
+⭐ <u>Task 5-9</u>
 
-**Create a variable through nested functions**
+**Create an object through nested functions**
 
 In this task, use nesting to create one object containing the sorted
 vector of column names with a single line of code.
 
-- Name this variable: `alphabeticalColumnNames` <br>
+- Name this object: `alphabeticalColumnNames` <br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -534,7 +533,7 @@ Check your code
 </summary>
 
 ``` r
-#names(purchaseData) creates a vector object of the column names from our purchase data
+# names(purchaseData) creates a vector object of the column names from our purchase data
 # sort() Orders the items in the purchase data column names alphabetically
 alphabeticalColumnNames <- sort(names(purchaseData))
 ```
@@ -569,7 +568,7 @@ alphabeticalColumnNames <- purchaseData %>% # this line gets the purchaseData ob
 # All of those commands will be saved in the alphabeticalColumnNames objects that you created in the first line
 ```
 
-- Creating a new object with 2 commands (functions or expressions):
+- As a general code, here is how you would create a new object with 2 commands (functions or expressions):
 ``` r
 newObject <- startingObject %>%
              command1() %>%
@@ -588,7 +587,7 @@ startingObject %>%
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.2-1</u>
+⭐ <u>Task 5-10</u>
 
 **Create an object through piping**
 
@@ -616,7 +615,7 @@ purchaseDataNamesPeek <- purchaseData %>%
                          names() %>%
                          head(5)
 
-#remember, you can view the value assigned to an object by entering just that object name
+# remember, you can view the value assigned to an object by entering just that object name
 purchaseDataNamesPeek
 ```
 
@@ -661,7 +660,7 @@ other ways to write code, check out [this](https://r4ds.had.co.nz/pipes.html#pip
 When we work with data, it can be useful to work with smaller sections
 of data.
 
-In the remainder of activity 4, we will look at ways to select subsets
+In the remainder of activity 5, we will look at ways to select subsets
 of our data to make it easier to work with.
 
 - We will use piping to filter productData based on different
@@ -719,7 +718,7 @@ To get a specific column, use piping and the `select()` function on
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.3-1</u>
+⭐ <u>Task 5-11</u>
 
 **View a column**
 
@@ -765,7 +764,7 @@ specific text, we do the inverse,
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.3-2</u>
+⭐ <u>Task 5-12</u>
 
 **Get a set of columns from data frame**
 
@@ -840,7 +839,7 @@ following explains the process.
   want the select to work on the `start_with()` parameter. That is, they are
   working simulteanously, and therefore, a pipe won't work.
 
-  - notes that you’re selecting all columns that start with a specific
+  - note that you’re selecting all columns that start with a specific
     name, rather than one column that is exactly equal to or not equal
     to a specific value
 
@@ -849,7 +848,7 @@ following explains the process.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.3-3</u>
+⭐ <u>Task 5-13</u>
 
 **Get a set of columns from a data frame**
 
@@ -906,7 +905,7 @@ To select items (rows, *not* columns), we use the `filter()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.4-1</u>
+⭐ <u>Task 5-14</u>
 
 **Filter conditionally**
 
@@ -972,7 +971,7 @@ purchaseData %>%
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.4-2</u>
+⭐ <u>Task 5-15</u>
 
 **Filter conditionally**
 
@@ -1031,7 +1030,7 @@ purchaseData %>%
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.4-3</u>
+⭐ <u>Task 5-16</u>
 
 **Create a data frame**
 
@@ -1178,7 +1177,7 @@ purchaseData %>%
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.5-1</u>
+⭐ <u>Task 5-17</u>
 
 **Add a column to your dataframe**
 
@@ -1249,52 +1248,66 @@ purchaseData %>%
 
 </div>
 
-<div class="task-box" markdown="1">
+The `mutate()` function also allows you to change the data type for each variable by substituting with a new variable or to create a new variable based on calculations between two variables. For example, let's imagine you wanted to know how long it takes to ship a product after it is ordered to see if the process can be streamlined or improved. To do that, you would need to:
+- Transform your data variables into a date data type (a specific type of data that allows for calculating differences between dates);
+- Calculate the difference in days between the two date variables (`Order_date` and `Ship_date`) and save it in a new variable.
 
-⭐ <u>Task 4.5-2</u>
-
-**Add a new column based on TWO conditions**
-
-Add a new variable `Discounted_US` that is TRUE if the purchase is made
-in the United States and has been discounted
-
-- Filter for United States orders using the `Country` column
-- Filter for discounted orders by selecting all objects where the values
-  in the `Discount` column are greater than 0.
-
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
+Here's how you can do that using the `mutate()` function
 
 ``` r
-purchaseData <- purchaseData %>%
-  mutate(Discounted_US = (Country == "United States" & Discount > 0))
+purchaseData <- purchaseData %>% # Get the purchaseData object
+  mutate( # identify that you want to mutate variables
+    # Different variables that are being mutated inside the mutate function
+    # should be separated by comma
+    Order_Date = as.Date(Order_Date), # create a variable that is the same as the Order_Date
+    # variable but transformed to date type, and overwrite Order_Date with that new variable
+    Ship_Date = as.Date(Ship_Date), # repeat for the Ship_Date variable
+    days_to_ship = Ship_Date - Order_Date # calculate the difference in days between both dates variables
+  )
 
-# We can then get summary of our new variable values (i.e., the number of True values and the number of False values in the new 'Discounted_US' column)
-# request a summary of the values in the table $ column name
-summary(purchaseData$Discounted_US)
+# View the dataset
+purchaseData %>%
+  head(5)
 ```
+    ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode  Customer_ID
+    ## 1  40098 CA-2014-AB10015140-41954 2014-11-11 2014-11-13  First Class AB-100151402
+    ## 2  26341   IN-2014-JR162107-41675 2014-02-05 2014-02-07 Second Class    JR-162107
+    ## 3  25330   IN-2014-CR127307-41929 2014-10-17 2014-10-18  First Class    CR-127307
+    ## 4  13524  ES-2014-KM1637548-41667 2014-01-28 2014-01-30  First Class   KM-1637548
+    ## 5  47221  SG-2014-RH9495111-41948 2014-11-05 2014-11-06     Same Day   RH-9495111
+    ##      Customer_Name     Segment Postal_Code          City           State       Country
+    ## 1    Aaron Bergman    Consumer       73120 Oklahoma City        Oklahoma United States
+    ## 2    Justin Ritter   Corporate          NA    Wollongong New South Wales     Australia
+    ## 3     Craig Reiter    Consumer          NA      Brisbane      Queensland     Australia
+    ## 4 Katherine Murray Home Office          NA        Berlin          Berlin       Germany
+    ## 5      Rick Hansen    Consumer          NA         Dakar           Dakar       Senegal
+    ##           Region       Market  Product_ID   Category Sub_Category
+    ## 1     Central US         USCA TEC-PH-5816 Technology       Phones
+    ## 2        Oceania Asia Pacific FUR-CH-5379  Furniture       Chairs
+    ## 3        Oceania Asia Pacific TEC-PH-5356 Technology       Phones
+    ## 4 Western Europe       Europe TEC-PH-5267 Technology       Phones
+    ## 5 Western Africa       Africa TEC-CO-6011 Technology      Copiers
+    ##                                Product_Name   Sales Quantity Discount  Profit Shipping_Cost
+    ## 1                          Samsung Convoy 3  221.98        2      0.0   62.15         40.77
+    ## 2 Novimex Executive Leather Armchair, Black 3709.40        9      0.1 -288.77        923.63
+    ## 3         Nokia Smart Phone, with Caller ID 5175.17        9      0.1  919.97        915.49
+    ## 4            Motorola Smart Phone, Cordless 2892.51        5      0.1  -96.54        910.16
+    ## 5            Sharp Wireless Fax, High-Speed 2832.96        8      0.0  311.52        903.04
+    ##   Order_Priority Low_Priority High_Shipping days_to_ship
+    ## 1           High        FALSE         FALSE       2 days
+    ## 2       Critical        FALSE          TRUE       2 days
+    ## 3         Medium        FALSE          TRUE       1 days
+    ## 4         Medium        FALSE          TRUE       2 days
+    ## 5       Critical        FALSE          TRUE       1 days
 
-    ##    Mode   FALSE    TRUE 
-    ## logical   46094    5196
 
-</details>
 
-{::options parse_block_html='false'/}
-
-*Hint:* `logicalStatement & logicalStatement`
-
-</div>
 
 ### 4.6 Sorting data with `arrange()`
 
 Being able to arrange data by ordering values numerically or
 alphabetically is particularly handy for swiftly identifying which
 measurements recorded the highest or lowest values.
-
-<!--**CHLOE: ADD SOME SORT OF GRAPHIC**-->
 
 The `arrange()` function enables you to order your data frame according
 to the values of a specific variable.
@@ -1312,7 +1325,7 @@ vector parameter, not a data frame.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.6-1</u>
+⭐ <u>Task 5-18</u>
 
 **Sort data frame**
 
@@ -1363,12 +1376,12 @@ purchaseData %>%
     ## 3  0.84        1      0.8  -1.34          1.06         Medium        FALSE
     ## 4  0.85        1      0.7  -0.60          1.10           High        FALSE
     ## 5  0.88        1      0.8  -1.40          1.09           High        FALSE
-    ##   High_Shipping Discounted_US
-    ## 1         FALSE          TRUE
-    ## 2         FALSE          TRUE
-    ## 3         FALSE          TRUE
-    ## 4         FALSE          TRUE
-    ## 5         FALSE          TRUE
+    ##    High_Shipping days_to_ship
+    ## 1          FALSE       4 days
+    ## 2          FALSE       0 days
+    ## 3          FALSE       4 days
+    ## 4          FALSE       0 days
+    ## 5          FALSE       0 days
 
 </details>
 
@@ -1389,7 +1402,7 @@ multiple rows into one value (e.g., mean value)
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 4.7-1</u>
+⭐ <u>Task 5-19</u>
 
 **Preview statistics**
 
@@ -1415,6 +1428,8 @@ discountedUSPurchases %>%
 
 #To retrieve this data later, assign this command to a new variable.
 ```
+    ##   meanSales meanDiscount
+    ## 1  232.7353    0.3004407
 
 </details>
 
@@ -1469,7 +1484,24 @@ USCityProfits <- discountedUSPurchases %>%
 # Now view your results
 USCityProfits
 ```
+    ## # A tibble: 348 × 2
+    ##    City        totalProfit
+    ##    <chr>             <dbl>
+    ##  1 Abilene           -3.76
+    ##  2 Akron           -187.  
+    ##  3 Albuquerque       96.2 
+    ##  4 Allen            -39.9 
+    ##  5 Allentown       -226.  
+    ##  6 Altoona           -1.19
+    ##  7 Amarillo        -388.  
+    ##  8 Anaheim          448.  
+    ##  9 Ann Arbor          5.23
+    ## 10 Apopka            54.4 
+    ## # ℹ 338 more rows
+    ## # ℹ Use `print(n = ...)` to see more rows
 
+    *Note:* You might have noticed that the resulting data frame is displayed a bit differently than before. This is because in the tidyverse package, data frames take this new format called `tibbles`, that are previewed in this way you are seeing above. Using the `group_by()` and `summarise()` functions together has automatically transformed your results into a `tibble`. They are the same as data frames, but are just printed differently in the console as an ouput.
+    
 </details>
 
 {::options parse_block_html='false'/}
@@ -1478,7 +1510,7 @@ USCityProfits
 
 The table will be sorted by city, alphabetically
 
-You can use the functions you just learned to review this new data
+Optional activities: You can now use the functions you just learned to review this new data
 frame.
 
 ⭐ **Sort the table by `Profit` using the `arrange()` function to order
