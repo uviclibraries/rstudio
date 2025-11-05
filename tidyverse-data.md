@@ -49,11 +49,11 @@ If you and your group have any questions or get stuck as you work
 through this in-class exercise, please ask the instructor for
 assistance. Have fun!
 
-Before you start going through this activity, let's give your R Studio session a fresh start. For that:
+Before you start this activity, let's give your RStudio session a fresh start. For that:
 - Save your previous scripts by clicking on File > Save, or on the save icon on the top left. If needed, choose a folder to save it (probably the working directory you were working on in the previous activity) and give it a meaningful name.
 - Close the script by clicking on File > Close or on the x next to the file name on the top left.
 - Clean your R environment (i.e., remove all the objects) by clicking on the broom icon ![Broom Icon](images/broom.png) on the top right and clicking yes on the pop-up window that appears.
--  Create a new script by clicking on File > New File > R Script. 
+-  Create a new script by clicking on File > New File > R Script, or on the New Script icon ![New file Icon](images/newfile.png) on the top left.
 
 ## 1. Getting Ready for Tidyverse: Installing Packages
 
