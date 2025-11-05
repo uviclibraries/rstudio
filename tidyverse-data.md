@@ -12,10 +12,13 @@ DSC Chloe Farr
 2024-01-18
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
-  - [1. Getting Ready for Tidyverse : Installing
+  - [1. Getting Ready for Tidyverse: Installing
     Packages](#1-getting-ready-for-tidyverse--installing-packages)
   - [2. Getting data](#2-getting-data)
   - [3. Preparing our Workspace](#3-preparing-our-workspace)
+    - [3.1 Working directory](#31-working-directory)
+    - [3.2 Read data](#32-read-data)
+    - [3.3 Preview data](#33-preview-data)
   - [4. Introducing Piping](#4-introducing-piping)
     - [4.1 Before Piping](#41-before-piping)
     - [4.2 Piping](#42-piping)
@@ -63,13 +66,11 @@ A package is a compilation of functions (data sets, code, documentations
 and tests) external to R that provide it with additional capabilities.
 
 We can install packages in the console using the `install.packages()`
-function.
-
-<br>
+function. You should use the console and **not** the code editor to run this code because you only need to install the package once.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-1</u>
+⭐ <u>Task 5-1</u>
 
 **Install the tidyverse package in the Console window.**
 
@@ -111,7 +112,7 @@ installed <- installed.packages() # this creates an object with names of install
 **Load the ‘tidyverse’ library.**
 
 After we install a package, we have to load it using the `library()`
-function.
+function. 
 
 - Do not wrap the package name in quotes when using `library()`.
 
@@ -140,12 +141,9 @@ an unquoted name that it interprets as a package name.
 
 <br>
 
-- ❗ Put this command in your R script, not in the console. Why? The
+-  ❗ Put this command in your R script, not in the console. Why? The
   package only needs to be *installed* once, but it needs to be *loaded*
   any time you are running your script.
-
-  - Packages also need to be reloaded every time the project is ‘knit’,
-    an action covered in the intermediate workshop.
 
 <details>
 <summary>
@@ -153,6 +151,7 @@ Check Your Code
 </summary>
 
 ``` r
+# Load the package
 library(tidyverse) #then, as always, send the command to the console by
 # clicking Ctrl + Enter (Windows) or Cmd +  Enter (Mac)
 ```
@@ -165,7 +164,7 @@ library(tidyverse) #then, as always, send the command to the console by
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-1</u>
+⭐ <u>Task 5-2</u>
 
 **Download data**
 
@@ -174,7 +173,7 @@ link](https://uviclibraries.github.io/rstudio/docs/Global_Superstore_Orders_2016
 download the following data we have prepared for you to use in this
 activity.
 
-Save the file in the same folder as your R script.
+Save the file in the same folder as your R script. This folder will be your working directory.
 
 </div>
 
@@ -189,19 +188,70 @@ Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyve
 
 ## 3. Preparing our Workspace
 
-In this activity, we will be working with a table containing information
-about shipping orders. Each row represents one order, and each column
-represents a specific type of data pertaining to the orders <br>
+### 3.1 Working directory
 
-- Load your data into an object called `purchaseData`
+First, let's set our working directory so that R know which folder to look for data.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 5-3</u>
+
+**Set your working directory**
+
+If needed, go back to the previous activity to remember how to set your working directory
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
 
 ``` r
-# replace "docs/" with the folder that the file is in. Please do not save the file to your Downloads folder and leave it there.
-# to check the path you most likely should use, enter `getwd()` into your console.
-purchaseData <- read.csv("path-to-folder/Global_Superstore_Orders_2016.csv")
+# Set working directory
+setwd("path-to-folder") # the path will be different for each person
+```
+*Note:* remember that you should use forward brackets to define your working directory, for example: `setwd("C:/Users/Name/Documents")`.
+
+</details>
+
+{::options parse_block_html='false'/} 
+
+</div>
+
+### 3.2 Read data
+
+After loading the package and setting your working directory, you should be ready to load the data into R. In this activity, we will be working with a table containing information about shipping orders. Each row represents one order, and each column represents a specific type of data about the orders
+
+<div class="task-box" markdown="1">
+
+  ⭐ <u>Task 5-4</u>
+
+**Load data**
+
+Load your data into an object called `purchaseData`. *Hint:* go back to the last section to check which function to use to import .csv files.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+# Load data
+purchaseData <- read.csv("Global_Superstore_Orders_2016.csv")
 ```
 
-<br> ❗ For larger data sets, it’s better to *preview* than *view* our
+</details>
+
+{::options parse_block_html='false'/} 
+
+</div>
+
+### 3.3 Preview data
+
+After loading your data into R, it is good practice to check your data to make sure it loaded correctly.
+
+❗ For larger data sets, it’s better to *preview* than *view* our
 data. Purchase Data has quite a few columns and rows! Let’s take a look
 at the first few rows and get the dimensions (number of rows and
 columns) of the data set.
@@ -214,11 +264,11 @@ display the first number of rows.
   - number of rows to display
 
 *Note:* In cases where there are more columns that fit horizontally in
-the console, the results will wrap, as seen in the output of Task 3-1.
+the console, the results will wrap, as seen in the output of Task 5-5.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3-1</u>
+⭐ <u>Task 5-5</u>
 
 **Look at the first 5 rows of our purchase data.**
 
@@ -236,15 +286,15 @@ head(purchaseData, 5)
 
 </details>
 
-{::options parse_block_html='false'/} *Hint:*
-`head(*data setName*, *numberOfRows*)`
+{::options parse_block_html='false'/} 
+*Hint:*`head(datasetName, numberOfRows)`
 
 </div>
 
 <br>
 
 The following will be the output (For the purpose of readability, this
-only shows 6 columns. Your output will be much wider, and columns will
+only shows 6 columns. Your output will be much wider, and the columns will
 continue to wrap below!):
 
     ##   Row_ID                 Order_ID Order_Date  Ship_Date    Ship_Mode
@@ -260,7 +310,8 @@ continue to wrap below!):
     ## 4   KM-1637548
     ## 5   RH-9495111
 
-Now, we’ve imported our data and previewed the first 10 rows of our
+You can use this to check if the correct columns have been imported.
+Now, we’ve imported our data and previewed the first 5 rows of our
 purchase data, but how big is the data set?
 
 - How many rows?
@@ -271,7 +322,7 @@ function. This function takes only one parameter, the data set name.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3-2</u>
+⭐ <u>Task 5-6</u>
 
 **Find out the dimensions of the data set**, i.e., number of rows and
 columns.
@@ -294,6 +345,32 @@ dim(purchaseData)
 {::options parse_block_html='false'/}
 
 </div>
+
+You can use the `dim()` function to check if the correct number of rows and columns has been imported. In this case, the table imported has 51290 observations (i.e., rows) for 24 variables (i.e., columns). If you know the size of your dataset, you can check if everything was imported here.
+
+At this point, you have gone through the four major steps that it is recomended at the start of your script to set the stage for your analysis:
+- Load any packages
+- Set working directory
+- Load data
+- Inspect and check data was correctly imported.
+
+This is how your script should look like so far:
+``` r
+# Organizing the workspace
+
+## load packages
+library(tidyverse)
+
+## Set working directory
+setwd("path-to-folder") # the path will be different for each person
+
+## load data
+purchaseData <- read.csv("Global_Superstore_Orders_2016.csv")
+
+## check data
+head(purchaseData, 5)
+dim(purchaseData)
+```
 
 ------------------------------------------------------------------------
 
