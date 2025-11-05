@@ -8,8 +8,6 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 
 5-Data Manipulation
 ================
-DSC Chloe Farr
-2024-01-18
 
 - [Data Manipulation with Tidyverse](#data-manipulation-with-tidyverse)
   - [1. Getting Ready for Tidyverse: Installing
