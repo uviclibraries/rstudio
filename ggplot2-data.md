@@ -184,6 +184,8 @@ In the above example, you can see that variable names do not have a standardized
 
 After checking your dataset, you might encounter some errors that you want to correct in your data. Cleaning your data and making sure that it is in good shape for data visualization and analysis is an important step. Here we will go through some basic data cleaning steps.
 
+<div class="task-box" markdown="1">
+
 ⭐ <u>Task 6-4</u>
 
 **Standardize column names**
@@ -220,6 +222,10 @@ str(chocolateData)
 {::options parse_block_html='false'/}
 
 </div>
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 6-6</u>
 
 **Fix percent values**
 
