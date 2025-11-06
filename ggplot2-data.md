@@ -7,8 +7,6 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ---
 6-Data Visualization with ggplot2
 ================
-DSC Chloe Farr
-2024-01-18
 
 - [1. Getting Ready](#1-getting-ready)
 - [2. Creating Plots and Charts in
@@ -27,17 +25,29 @@ visualizations like plots, charts, graphs, etc.
 In this activity, you will make a scatter plot, bar chart, and a line
 chart.
 
+Before you start this activity, let's give your RStudio session a fresh start. For that:
+- Save your previous scripts by clicking on File > Save, or on the save icon on the top left. If needed, choose a folder to save it (probably the working directory you were working on in the previous activity) and give it a meaningful name.
+- Close the script by clicking on File > Close or on the x next to the file name on the top left.
+- Clean your R environment (i.e., remove all the objects) by clicking on the broom icon ![Broom Icon](images/broom.png) on the top right and clicking yes on the pop-up window that appears.
+-  Create a new script by clicking on File > New File > R Script, or on the New Script icon ![New Script Icon](images/newscript.png) on the top left.
+
 ## 1. Getting Ready
+
+### 1.1 Prepare your working environment
+
+You will use both the `tidyverse` and the `janitor` package in this activity. You should already have the `tidyverse` package installed on your computer for previous activities, but not the `janitor` package. So before you continue, make sure to install the `janitor` package by running the following code in your console:
+
+``` r
+install.packages("janitor")
+``` 
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-1</u>
+⭐ <u>Task 6-1</u>
 
-**Install and load the ‘ggthemes’ and ‘janitor’ packages.**
+**Prepare your working environment.**
 
-- Package names:
-  - ggthemes
-  - janitor
+Prepare your working environment by loading the `tidyverse` and `janitor` packages (the `ggplot2` package is part of the tidyverse package) and setting your working directory.
 
 {::options parse_block_html='true' /}
 <details>
@@ -46,51 +56,34 @@ Check your code
 </summary>
 
 ``` r
-install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
-install.packages("janitor")
-library(ggthemes) #Do not wrap library() parameter string in quotes
+# load packages
+library(tidyverse)
 library(janitor)
-```
 
+# set working directory
+setwd("path-to-folder")
+```
 </details>
 
 {::options parse_block_html='false'/}
 
-<br> *Hint:* wrap the package name in `""` quotations<br> - Do not wrap
-the library() parameter in `""` quotations
-
 </div>
 
-Check that you still have Tidyverse loaded. Load tidyverse using `library(tidyverse)` if
-needed.
-
-> More about ggthemes
-> [here](https://exts.ggplot2.tidyverse.org/ggthemes.html){:target=“\_blank”}.
-> More about janitor
-> [here](https://www.rdocumentation.org/packages/janitor/versions/2.2.0){:target=“\_blank”}.
-
-<br>
-
-**Download and import data**
+### 1.2 Load your data
 
 From [this
 link](https://uviclibraries.github.io/rstudio/docs/flavors_of_cacao.csv){:target=“\_blank”}
 download the following data we have prepared for you to use in this
-activity.
-
-Save the file in the same folder as your R script.
+activity. Save the file in your working directory.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-2</u>
+⭐ <u>Task 6-2</u>
 
-**Read and clean your data set.**
+**Read your data set.**
 
-- Data set file name: `flavors_of_cacao.csv` (unless you changed the
-  filename after downloading)
+- Data set file name: `flavors_of_cacao.csv`
 - Name your dataframe: `chocolateData`
-- Clean the column header names using `clean_names()` where the
-  parameter is chocolateData (leave parentheses blank if piping) <br>
 
 {::options parse_block_html='true' /}
 <details>
@@ -99,36 +92,22 @@ Check your code
 </summary>
 
 ``` r
-#in the file path below, replace 'Desktop' with the path to your file.
-#if you do not know the path to your file, import it instead by navigate to your file in the Files tab in the bottom right quadrant of your RStudio workspace.
-#right click on the filename and select 'import'.
-chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
-  clean_names() #Clean the column header names
-
-#If you get a column specification error, add `, show_col_types = FALSE` as to a parameter read_csv()
-#e.g. chocolateData <- read_csv("Desktop/flavors_of_cacao.csv", show_col_types = FALSE)
+# read data
+chocolateData <- read.csv("flavors_of_cacao.csv")
 ```
-
-    ## Rows: 1795 Columns: 9
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## Delimiter: ","
-    ## chr (6): Company, SpecificBeanOrigin_BarName, Cocoa_Percent, Company_Location, Bean_Type, Broad Bean_...
-    ## dbl (3): REF, Review_Date, Rating
-    ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
 </details>
 
 {::options parse_block_html='false'/}
 
-*Hint:* See Section 4 for instructions on importing a csv file.
+*Hint:* See Section 4 for instructions on importing a .csv file.
 
 </div>
 
+### 1.3 Check your data
+
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 1-3</u>
+⭐ <u>Task 6-3</u>
 
 **Preview the first 5 rows of your chocolate data.**
 
@@ -139,22 +118,142 @@ Check your code
 </summary>
 
 ``` r
-#preview first 5 lines of chocolateData
-chocolateData %>%
-    head(5)
+# Check data
+chocolateData %>% head(5) # Preview first 5 lines of chocolateData
 ```
 
-    ## # A tibble: 5 × 9
-    ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
-    ##   <chr>                  <chr>                   <dbl>       <dbl> <chr>        
-    ## 1 A. Morin               Agua Grande              1876        2016 63%          
-    ## 2 A. Morin               Kpime                    1676        2015 70%          
-    ## 3 A. Morin               Atsane                   1676        2015 70%          
-    ## 4 A. Morin               Akata                    1680        2015 70%          
-    ## 5 A. Morin               Quilla                   1704        2015 70%          
-    ## # ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
-    ## # ℹ 4 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
-    ## #   broad_bean_origin <chr>
+    ##    Company SpecificBeanOrigin_BarName  REF Review_Date Cocoa_Percent Company_Location Rating
+    ## 1 A. Morin                Agua Grande 1876        2016           63%           France   3.75
+    ## 2 A. Morin                      Kpime 1676        2015           70%           France   2.75
+    ## 3 A. Morin                     Atsane 1676        2015           70%           France   3.00
+    ## 4 A. Morin                      Akata 1680        2015           70%           France   3.50
+    ## 5 A. Morin                     Quilla 1704        2015           70%           France   3.50
+    ##   Bean_Type Broad.Bean_Origin
+    ## 1                    Sao Tome
+    ## 2                        Togo
+    ## 3                        Togo
+    ## 4                        Togo
+    ## 5                        Peru
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+Another way to inspect your data is to use the `str()` function presented in section 4.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 6-4</u>
+
+**See the structure of your data.**
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+# Check data
+str(chocolateData)
+```
+    ## 'data.frame':	1795 obs. of  9 variables:
+    ##  $ Company                   : chr  "A. Morin" "A. Morin" "A. Morin" "A. Morin" ...
+    ##  $ SpecificBeanOrigin_BarName: chr  "Agua Grande" "Kpime" "Atsane" "Akata" ...
+    ##  $ REF                       : int  1876 1676 1676 1680 1704 1315 1315 1315 1319 1319 ...
+    ##  $ Review_Date               : int  2016 2015 2015 2015 2015 2014 2014 2014 2014 2014 ...
+    ##  $ Cocoa_Percent             : chr  "63%" "70%" "70%" "70%" ...
+    ##  $ Company_Location          : chr  "France" "France" "France" "France" ...
+    ##  $ Rating                    : num  3.75 2.75 3 3.5 3.5 2.75 3.5 3.5 3.75 4 ...
+    ##  $ Bean_Type                 : chr  " " " " " " " " ...
+    ##  $ Broad.Bean_Origin         : chr  "Sao Tome" "Togo" "Togo" "Togo" ...
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+We can see that the dataset is composed of 1795 observations of chocolates, where 9 variables have been measured. The result also shows you the names of the variables and the type of each variable. With this type of result, you can identify certain elements of your dataset that you might want to clean before starting with data visualization and analysis.
+
+In the above example, you can see that variable names do not have a standardized format such as all lower caps, or using "." or "_" instead of spaces. Moreover, you can see that the percent of cocoa in each chocolate was read as a character because it contains the % sign, but you might want to make this into numeric values for data analysis. Next, we will see simple ways to clean your data.
+
+### 1.4 Clean your data
+
+After checking your dataset, you might encounter some errors that you want to correct in your data. Cleaning your data and making sure that it is in good shape for data visualization and analysis is an important step. Here we will go through some basic data cleaning steps.
+
+⭐ <u>Task 6-4</u>
+
+**Standardize column names**
+
+Use the `clean_names()` function from the janitor package to automatically standardize column names formatting. The `clean_names()` function requires only one parameter: the dataframe name.
+
+*Hint:* Remember to overwrite `chocolateData` with the object with the new column names, otherwise R will not save the new column names.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+## standardize column names
+chocolateData <- clean_names(chocolateData)
+## view column names after standardization
+str(chocolateData)
+```
+    ## 'data.frame':	1795 obs. of  9 variables:
+    ##  $ company                      : chr  "A. Morin" "A. Morin" "A. Morin" "A. Morin" ...
+    ##  $ specific_bean_origin_bar_name: chr  "Agua Grande" "Kpime" "Atsane" "Akata" ...
+    ##  $ ref                          : int  1876 1676 1676 1680 1704 1315 1315 1315 1319 1319 ...
+    ##  $ review_date                  : int  2016 2015 2015 2015 2015 2014 2014 2014 2014 2014 ...
+    ##  $ cocoa_percent                : chr  "63%" "70%" "70%" "70%" ...
+    ##  $ company_location             : chr  "France" "France" "France" "France" ...
+    ##  $ rating                       : num  3.75 2.75 3 3.5 3.5 2.75 3.5 3.5 3.75 4 ...
+    ##  $ bean_type                    : chr  " " " " " " " " ...
+    ##  $ broad_bean_origin            : chr  "Sao Tome" "Togo" "Togo" "Togo" ...
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+**Fix percent values**
+
+Remove the percentage signs from the column cocoa_percent by converting the values to numbers using the functions `mutate()` and `parse_number()`. The `parse_number()` function takes in as a parameter a vector and drops all the non-numeric characters, transforming it in a numeric vector.
+
+Use the `clean_names()` function from the janitor package to automatically standardize column names formatting. The `clean_names()` function requires only one parameter: the dataframe name.
+
+*Hint:* Remember to overwrite `chocolateData` with the object with the new column names, otherwise R will not save the new column names.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check your code
+</summary>
+
+``` r
+# cleans % from cocoa_percent
+chocolateData <- chocolateData %>% # get the dataframe
+  mutate( # identified that you want to "mutate" a variable
+    cocoa_percent = parse_number(cocoa_percent) # overwrite cocoa_percent variable after having used the parsed_number function
+  )
+## view data frame after cleaning. Note how the cocoa_percent variable is now nueric
+str(chocolateData)
+```
+    ## 'data.frame':	1795 obs. of  9 variables:
+    ##  $ company                      : chr  "A. Morin" "A. Morin" "A. Morin" "A. Morin" ...
+    ##  $ specific_bean_origin_bar_name: chr  "Agua Grande" "Kpime" "Atsane" "Akata" ...
+    ##  $ ref                          : int  1876 1676 1676 1680 1704 1315 1315 1315 1319 1319 ...
+    ##  $ review_date                  : int  2016 2015 2015 2015 2015 2014 2014 2014 2014 2014 ...
+    ##  $ cocoa_percent                : num  63 70 70 70 70 70 70 70 70 70 ...
+    ##  $ company_location             : chr  "France" "France" "France" "France" ...
+    ##  $ rating                       : num  3.75 2.75 3 3.5 3.5 2.75 3.5 3.5 3.75 4 ...
+    ##  $ bean_type                    : chr  " " " " " " " " ...
+    ##  $ broad_bean_origin            : chr  "Sao Tome" "Togo" "Togo" "Togo" ...
 
 </details>
 
@@ -192,37 +291,6 @@ Plots will appear in the “Plot” tab (probably in the bottom right hand
 quadrant of your workspace).
 
 ### 2.1. Scatter Plots
-
-First things first, we need to quickly clean up our data frame for
-scatter plots.
-
-**Copy and paste the following code into your console and execute it.**
-
-<br>
-
-``` r
-#remove the percentage signs from the column cocoa_percent by converting the values to numbers
-chocolateData$cocoa_percent <- parse_number(chocolateData$cocoa_percent)
-
-#make sure the data type of each column is correct.
-chocolateData <- type_convert(chocolateData)
-```
-
-    ## 
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## cols(
-    ##   company_maker_if_known = col_character(),
-    ##   specific_bean_origin_or_bar_name = col_character(),
-    ##   company_location = col_character(),
-    ##   bean_type = col_character(),
-    ##   broad_bean_origin = col_character()
-    ## )
-
-``` r
-#You can ignore the Column Specification comment in the output. It indicates the column specification, which describes the data types of various columns after conversion, and shows that several columns have been confirmed as character columns.
-```
-
-<br>
 
 Let’s apply the ggplot command above to create a scatter plot. <br>
 
