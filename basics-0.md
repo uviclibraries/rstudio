@@ -94,7 +94,7 @@ than not be wrapped in quotes. If it doesn’t work, add or remove quotes.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-1</u>
+⭐ <u>Task 3-1</u>
 
 **Create an object.**
 
@@ -125,7 +125,7 @@ want to use the same name to make it easier to follow.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-2</u>
+⭐ <u>Task 3-2</u>
 
 **Create an object.**
 
@@ -152,7 +152,7 @@ pig1.last_name <- "Smith"
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-3</u>
+⭐ <u>Task 3-3</u>
 
 **Create an object.**
 
@@ -196,7 +196,7 @@ how much he’s grown in height.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-4</u>
+⭐ <u>Task 3-4</u>
 
 **Create an object.**
 
@@ -223,7 +223,7 @@ pig1.heightA <- 10
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-5</u>
+⭐ <u>Task 3-5</u>
 
 **Create an object.**
 
@@ -250,7 +250,7 @@ pig1.heightB <- 22.3
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-6</u>
+⭐ <u>Task 3-6</u>
 
 **Create an object.**
 
@@ -312,7 +312,7 @@ We can denote whether Bart is small or large with a Boolean value.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-7</u>
+⭐ <u>Task 3-7</u>
 
 **Create two objects.**
 
@@ -379,7 +379,7 @@ vectors.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-8</u>
+⭐ <u>Task 3-8</u>
 
 **Create a vector.**
 
@@ -417,7 +417,7 @@ As a reminder of how R and RStudio work, the command you just ran should have ap
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-9</u>
+⭐ <u>Task 3-9</u>
 
 **View objects.**
 
@@ -486,7 +486,7 @@ vectors.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-10</u>
+⭐ <u>Task 3-10</u>
 
 **Create a new vector.**
 
@@ -527,7 +527,7 @@ function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-11</u>
+⭐ <u>Task 3-11</u>
 
 **Get vector length**
 
@@ -570,7 +570,7 @@ To make a list, we’ll use the `list()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-12</u>
+⭐ <u>Task 3-12</u>
 
 **Create a list**
 
@@ -596,7 +596,7 @@ In the same way that you can use `[i]` to capture a value in a vector, you can u
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-13</u>
+⭐ <u>Task 3-13</u>
 
 **Show an element of a list**
 
@@ -672,5 +672,5 @@ details {
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Analyzing Data](basics-importing-data.html){: .btn .btn-blue
+[NEXT STEP: Basic Data Analysis](basics-importing-data.html){: .btn .btn-blue
 }
