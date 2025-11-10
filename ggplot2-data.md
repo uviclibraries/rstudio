@@ -11,7 +11,7 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 - [1. Getting Ready](#1-getting-ready)
   - [1.1 Prepare your working environment](#11-prepare-your-working-environment)
   - [1.2 Load your data](#12-load-your-data)
-  - [1.3 1.3 Check your data](#13-check-your-data)
+  - [1.3 Check your data](#13-check-your-data)
   - [1.4 Clean your data](#14-clean-your-data)
 - [2. Creating Plots and Charts in
   ggplot2](#2-creating-plots-and-charts-in-ggplot2)
@@ -190,7 +190,7 @@ After checking your dataset, you might encounter some errors that you want to co
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 6-4</u>
+⭐ <u>Task 6-5</u>
 
 **Standardize column names**
 
@@ -285,14 +285,14 @@ at the commonalities. For all of them, we will use the `ggplot()`
 function and a geometry function. `ggplot()` parameters are:
 
 - The dataset used for the plot `data = datasetName`
-- The aesthetic mappings. This specifies which column values is assigned
-  to the x axis, and which is assigned to the y axis.
+- The aesthetic mappings. This specifies which column values are assigned
+  to the *x-axis*, and which are assigned to the *y-axis*.
   - `aes(x = columnForXAxis, y = columnForYAxis)`
 
 The geometry function is attached to the ggplot() function with
 `+ geom_` and is completed by the type of plot or chart:
 - scatter plot or point plots: `+ geom_point()`
-- bar charts: `geom_bar()`
+- bar charts: `geom_bar()` or `geom_col()`
 - line charts: `geom_line()`
 
 Plots will appear in the “Plot” tab (probably in the bottom right hand
@@ -307,7 +307,7 @@ different variable. Each individual observation is shown using a
 single point. The position of the point is determined by the value of
 the variables assigned to the x and y axes for that observation.
 
-<img src="images/scatter-example.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
+<img src="images/scatter-example.png" alt="An example scatter plot" style="width:420px;"/>
 
 ------------------------------------------------------------------------
 
@@ -317,7 +317,7 @@ the variables assigned to the x and y axes for that observation.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-1</u>
+⭐ <u>Task 6-7</u>
 
 **Make a scatter plot of the cocoa percentage and the rating a chocolate
 bar received.**
@@ -386,7 +386,7 @@ might skew the results of a standard linear model.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-2</u>
+⭐ <u>Task 6-8</u>
 
 **Make another scatter plot of the cocoa percentage and the rating a
 chocolate bar received**, with the following:
@@ -422,7 +422,7 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.1-3</u>
+⭐ <u>Task 6-9</u>
 
 **Add descriptive axis labels and a title to your scatter plot.**
 
@@ -458,15 +458,15 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 A bar chart shows the relationship between a categorical variable (on the *x-axis*) and a numerical variable (on the *y-axis*). 
 
-A common type of bar plot is one that illustrates *categories* along the x-axis and the count of observations from each category on the y-axis.
+A common type of bar plot is one that illustrates *categories* along the x-axis and the count of observations from each category on the *y-axis*.
 
-For this type of data, the call for bar charts in ggplot2 `geom_bar` makes the height of the bar proportional to the number of observations in each group of a categorical variable, so you only need to tell ggplot2 the variable you want to use on the *x-axis* of your bar chart, and it makes the calculations for the *y-axis* in the background.
+For this type of data, the call for bar charts in ggplot2 `geom_bar()` makes the height of the bar proportional to the number of observations in each group of a categorical variable, so you only need to tell ggplot2 the variable you want to use on the *x-axis* of your bar chart, and it makes the calculations for the *y-axis* in the background.
 
 For example, let's make a bar chart that shows the number of chocolate bars that are made for different types of cacao beans.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.2-1</u>
+⭐ <u>Task 6-10</u>
 
 **Create a basic bar chart.**
 
@@ -494,7 +494,7 @@ Output:
 
 {::options parse_block_html='false'/}
 
-*Hint:* you do not need to specify anything for the y-axis in this case
+*Hint:* you do not need to specify anything for the *y-axis* in this case
 
 </div>
 
@@ -549,11 +549,11 @@ chocolateData_commonBeans <- chocolateData %>% # Get the data
 ```
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.2-1</u>
+⭐ <u>Task 6-11</u>
 
 **Create a basic bar chart.**
 
-Now remake your bar chart, but now only for the most common bean types.
+Now remake your bar chart, but only for the most common bean types.
 
 {::options parse_block_html='true' /}
 <details>
@@ -581,7 +581,7 @@ Another type of bar chart is the stacked bar chart. A stacked bar chart shows tw
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.2-2</u>
+⭐ <u>Task 6-12</u>
 
 **Create a stacked bar chart.**
 
@@ -604,8 +604,6 @@ Check Your Code and Output
 ggplot(chocolateData_commonBeans, aes(x = bean_type, fill = company_location)) +
   geom_bar(position = "stack")
 ```
-
-Output:
 <img src="images/unnamed-chunk-34-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
@@ -638,9 +636,9 @@ Then, you can use this new dataset to plot your bar chart.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.2-2</u>
+⭐ <u>Task 6-13</u>
 
-**Create a bar chart using geom_col().**
+**Create a bar chart using `geom_col()`.**
 
 Use the object `chocolateData_commonBeans_rating` and the function `geom_col()` to plot a bar chart showing the average rating per bean type.
 
@@ -655,13 +653,12 @@ ggplot(chocolateData_commonBeans_rating, aes(x = bean_type, y = mean_rating)) +
   geom_col()
 ```
 
-Output:
 <img src="images/geom_col.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
 {::options parse_block_html='false'/}
 
-- *Hint*: you need to specify a variable for the *y-axis* when suing `geom_col()`
+- *Hint*: you need to specify a variable for the *y-axis* when using `geom_col()`
 
 </div>
 
@@ -672,7 +669,7 @@ might want to plot in a line chart. In this case, let's assume we are interested
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.3-1</u>
+⭐ <u>Task 6-14</u>
 
 **Create an object with the mean chocolate rating by year.**
 
@@ -680,8 +677,7 @@ Using piping, create a new object, `meanRatingByYear`
 
 - base data: `chocolateData`
 - group_by: `review_date`
-- use `summarise()`
-  - the parameter is `rating=mean(rating)`
+- use `summarise()` and calculate the mean of the rating variables inside the summarise
 
 {::options parse_block_html='true' /}
 <details>
@@ -720,7 +716,7 @@ Your output will be:
 
 {::options parse_block_html='false'/}
 
-- *Hint*: this will be a very similar structure to when you calculated the mean rating by bean type above.
+- *Hint*: this will be very similar to when you calculated the mean rating by bean type above.
 
 </div>
 
@@ -728,7 +724,7 @@ Now we are ready to make our line chart!
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.3-2</u>
+⭐ <u>Task 6-15</u>
 
 **Create a line chart using the mean chocolate rating by year.**
 
@@ -736,14 +732,13 @@ Here we’ll make a line chart to show how the mean rating of chocolate
 has changed by year.
 
 - Your base data will be the mean rating table you just created
-- the x-axis value will be the review date
-- the y-axis will be the rating
-- the geom type is `line`, with no parameter
+- the *x-axis* value will be the review date
+- the *y-axis* will be the rating
+- the geom type is `geom_line()`, with no parameter
 
 After the geom type, you might want to add a line of code to make sure the
 x-axis label contains the actual years. For that, you can use the `scale_x_continuous` function, which take as the parameter `breaks` the
-vector of points to create axis breaks. To use the function, you have to use 
-`+ scale_x_continuous(breaks = vectorofbreaks)` at the end of your plot code.
+vector of points to create axis breaks. To use the function, you have to use `+ scale_x_continuous(breaks = vectorofbreaks)` at the end of your plot code.
 
 {::options parse_block_html='true' /}
 <details>
@@ -753,14 +748,11 @@ Check Your Code
 
 ``` r
 ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
-  geom_line()+
+  geom_line() +
   scale_x_continuous(
     breaks = meanRatingByYear$review_date  # Use actual review dates for breaks
   )
 ```
-
-Output:
-
 <img src="images/unnamed-chunk-44-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
 
@@ -770,7 +762,7 @@ Output:
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2.3-3</u>
+⭐ <u>Task 6-16</u>
 
 **Style your line chart.**
 
@@ -799,9 +791,6 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
     title = "Change in Rating Over Time"
   ) 
 ```
-
-<br> Output:
-
 
 <img src="images/unnamed-chunk-48-1.png" alt="ggplot2" style="width:420px;"/>
 </details>
