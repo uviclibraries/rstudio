@@ -180,7 +180,7 @@ Save the file in the same folder as your R script. This folder will be your work
 *If you have your own data, you may use that as well although it may not
 line up with the instructions in the activity.* <br>
 
-*Note:* Activities 3 and 4 draw from Kaggle’s [Manipulating Data with
+*Note:* The following activities were drawn from Kaggle’s [Manipulating Data with
 the
 Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse/notebook){:target=“\_blank”}.
 
