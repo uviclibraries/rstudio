@@ -9,6 +9,10 @@ customjs: http://code.jquery.com/jquery-1.4.2.min.js
 ================
 
 - [1. Getting Ready](#1-getting-ready)
+  - [1.1 Prepare your working environment](#11-prepare-your-working-environment)
+  - [1.2 Load your data](#12-load-your-data)
+  - [1.3 1.3 Check your data](#13-check-your-data)
+  - [1.4 Clean your data](#14-clean-your-data)
 - [2. Creating Plots and Charts in
   ggplot2](#2-creating-plots-and-charts-in-ggplot2)
   - [2.1. Scatter Plots](#21-scatter-plots)
@@ -61,7 +65,7 @@ library(tidyverse)
 library(janitor)
 
 # set working directory
-setwd("path-to-folder")
+setwd("path-to-folder") # Remeber to substitute "path-to-folder" by the actual path to your folder
 ```
 </details>
 
@@ -178,7 +182,7 @@ str(chocolateData)
 
 We can see that the dataset is composed of 1795 observations of chocolates, where 9 variables have been measured. The result also shows you the names of the variables and the type of each variable. With this type of result, you can identify certain elements of your dataset that you might want to clean before starting with data visualization and analysis.
 
-In the above example, you can see that variable names do not have a standardized format such as all lower caps, or using "." or "_" instead of spaces. Moreover, you can see that the percent of cocoa in each chocolate was read as a character because it contains the % sign, but you might want to make this into numeric values for data analysis. Next, we will see simple ways to clean your data.
+In the above example, you can see that variable names do not have a standardized format such as all lower caps, or using only "." or "_" instead of spaces. Moreover, you can see that the percent of cocoa in each chocolate was read as a character because it contains the % sign, but you might want to make this into numeric values for data analysis. Next, we will see simple ways to clean your data.
 
 ### 1.4 Clean your data
 
@@ -190,7 +194,7 @@ After checking your dataset, you might encounter some errors that you want to co
 
 **Standardize column names**
 
-Use the `clean_names()` function from the janitor package to automatically standardize column names formatting. The `clean_names()` function requires only one parameter: the dataframe name.
+Use the `clean_names()` function from the `janitor` package to automatically standardize column names formatting. The `clean_names()` function requires only one parameter: the dataframe name.
 
 *Hint:* Remember to overwrite `chocolateData` with the object with the new column names, otherwise R will not save the new column names.
 
@@ -229,9 +233,7 @@ str(chocolateData)
 
 **Fix percent values**
 
-Remove the percentage signs from the column cocoa_percent by converting the values to numbers using the functions `mutate()` and `parse_number()`. The `parse_number()` function takes in as a parameter a vector and drops all the non-numeric characters, transforming it in a numeric vector.
-
-Use the `clean_names()` function from the janitor package to automatically standardize column names formatting. The `clean_names()` function requires only one parameter: the dataframe name.
+Remove the percentage signs from the column cocoa_percent by converting the values to numbers using the functions `mutate()` and `parse_number()`. The `parse_number()` function takes in as a parameter a vector and drops all the non-numeric characters, transforming it into a numeric vector.
 
 *Hint:* Remember to overwrite `chocolateData` with the object with the new column names, otherwise R will not save the new column names.
 
@@ -273,7 +275,7 @@ str(chocolateData)
 
 ------------------------------------------------------------------------
 
-## 2. Creating Plots and Charts in ggplot2
+## 2. Creating plots and charts in ggplot2
 
 Here is some information about creating and formatting plots, common to
 all types we will look at in this activity. Don’t do anything yet!
@@ -301,11 +303,11 @@ quadrant of your workspace).
 Let’s apply the ggplot command above to create a scatter plot. <br>
 
 **Definition - Scatter plot:** A plot with two axes, each representing a
-different variable. Each individual observation is showing using a
+different variable. Each individual observation is shown using a
 single point. The position of the point is determined by the value of
 the variables assigned to the x and y axes for that observation.
 
-<img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
+<img src="images/scatter-example.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
 
 ------------------------------------------------------------------------
 
@@ -365,7 +367,7 @@ a smooth line through the plot by fitting simple models in a localized
 manner, which can handle non-linear relationships well. Ideal for
 smaller datasets
 - *Generalized Additive Models (“gam”):* model complex, nonlinear trends
-in data.Ideal for larger datasets.
+in data. Ideal for larger datasets.
 - *Moving Average (“ma”):* smooths data by creating an average of
 different subsets of the full dataset. It’s useful for highlighting
 trends in noisy data.
@@ -454,79 +456,13 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 
 ### 2.2. Bar Charts
 
-First things first, we need to quickly clean up our dataframe for bar
-charts. Copy and paste the following code into your console, and
-execute. <br>
+A bar chart shows the relationship between a categorical variable (on the *x-axis*) and a numerical variable (on the *y-axis*). 
 
-``` r
-chocolateData <- chocolateData %>%
-# A few steps to clean the bean type variable
-  mutate(
-    bean_type_simplified = word(bean_type, 1), # get just the first word
-    bean_type_simplified = gsub('[[:punct:]]', '', bean_type_simplified), # reove punctuations
-    bean_type_simplified = trimws(bean_type_simplified) # remove white spaces
-  ) %>%
-  filter(str_detect(bean_type_simplified, "\\S")) # This ensures the string contains at least one non-whitespace character
+A common type of bar plot is one that illustrates *categories* along the x-axis and the count of observations from each category on the y-axis.
 
-# Get the most common bean types
-commonBeanTypes <- chocolateData %>%
-  select(bean_type_simplified) %>%
-  group_by(bean_type_simplified) %>%
-  count() %>%
-  filter(n > 20) %>%
-  ungroup() %>%
-  mutate(bean_type_simplified = as.factor(bean_type_simplified))
+For this type of data, the call for bar charts in ggplot2 `geom_bar` makes the height of the bar proportional to the number of observations in each group of a categorical variable, so you only need to tell ggplot2 the variable you want to use on the *x-axis* of your bar chart, and it makes the calculations for the *y-axis* in the background.
 
-
-# Filter chocolateData to only include common beans
-chocolateData_commonBeans <- chocolateData %>%
-  filter(bean_type_simplified %in% commonBeanTypes$bean_type_simplified)
-```
-
-<br>
-
-A bar chart illustrates *categories* along the x-axis and the count of
-observations from each category on the y-axis.
-
-To make a bar chart, you need the data (categories, and values relevant
-to those categories), and the categories the data will be separated by
-(each representing one bar).
-
-The first 5 rows of the dataframe filtered for the common bean types:
-
-    ## # A tibble: 5 × 10
-    ##   company_maker_if_known specific_bean_origin_…¹   ref review_date cocoa_percent
-    ##   <chr>                  <chr>                   <dbl>       <dbl>         <dbl>
-    ## 1 A. Morin               Carenero                 1315        2014            70
-    ## 2 A. Morin               Sur del Lago             1315        2014            70
-    ## 3 A. Morin               Puerto Cabello           1319        2014            70
-    ## 4 A. Morin               Madagascar               1011        2013            70
-    ## 5 A. Morin               Chuao                    1015        2013            70
-    ## # ℹ abbreviated name: ¹​specific_bean_origin_or_bar_name
-    ## # ℹ 5 more variables: company_location <chr>, rating <dbl>, bean_type <chr>,
-    ## #   broad_bean_origin <chr>, bean_type_simplified <chr>
-
-The bars will represent the following categories:
-
-    ## # A tibble: 4 × 2
-    ##   bean_type_simplified     n
-    ##   <fct>                <int>
-    ## 1 Blend                   41
-    ## 2 Criollo                213
-    ## 3 Forastero              195
-    ## 4 Trinitario             436
-
-With the code above, you now have:
-
-- A dataset `chocolateData_commonBeans`: containing the chocolate bars
-  made with the most common beans
-- A variable `bean_type_simplified`, which lists the types of beans to
-  be used as the categories for the x-axis.
-
-The call for bar charts in ggplot2 `geom_bar` makes the height of the bar 
-proportional to the number of observations in each group of a categorical
-variable, so you only need to tell ggplot2 the variable you want to use for
-the bar chart, and it makes the calculations in the background.
+For example, let's make a bar chart that shows the number of chocolate bars that are made for different types of cacao beans.
 
 <div class="task-box" markdown="1">
 
@@ -534,8 +470,11 @@ the bar chart, and it makes the calculations in the background.
 
 **Create a basic bar chart.**
 
-Your chart will illustrate the numbers of bars of different types of the most
-common bean types that are being made.
+Your chart will illustrate the number of bars of different types of beans that are being made.
+
+- Use the `chocolateData` object inside the ggplot call
+- Specify the variable `bean_type` for the x-axis
+- Use `+ geom_bar()` to plot a bar chart
 
 {::options parse_block_html='true' /}
 <details>
@@ -544,7 +483,86 @@ Check Your Code and Output
 </summary>
 
 ``` r
-ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified))+
+ggplot(chocolateData, aes(x = bean_type))+
+  geom_bar()
+```
+
+Output:
+
+<img src="images/bar-chart1.png" alt="ggplot2" style="width:420px;"/>
+</details>
+
+{::options parse_block_html='false'/}
+
+*Hint:* you do not need to specify anything for the y-axis in this case
+
+</div>
+
+You can see that the plot is hard to interpret, as there are many bean types that are not commonly made. In this case, it would be best to plot only the most common bean types. For that, we first need to create a new dataset that contains only the most common bean types.
+
+To do that, we need to calculate the number of bars of each type that are being made. We can use the `group_by()` function that you learned in the previous section:
+```r
+# Get the most common bean types
+bars_per_type <- chocolateData %>% # get the dataframe
+  group_by(bean_type) %>% # group by bean type
+  count() # count the number of bars per bean_type
+
+# check the new data frame
+bars_per_type
+```
+    ## # A tibble: 12 × 2
+    ## # Groups:   bean_type [12]
+    ##    bean_type                 n
+    ##    <chr>                 <int>
+    ##  1 Amazon                    5
+    ##  2 Beniano                   3
+    ##  3 Blend                    41
+    ##  4 BlendForasteroCriollo     1
+    ##  5 CCN51                     1
+    ##  6 Criollo                 213
+    ##  7 EET                       3
+    ##  8 Forastero               195
+    ##  9 ForasteroArriba           1
+    ## 10 Matina                    3
+    ## 11 Nacional                  5
+    ## 12 Trinitario              436
+
+Now, we want to get the list of the most common bean types. Looking at the data above, you could decide to use 10 as a threshold of a sufficient number of bars being produced.
+
+```r
+# Get most common bean types
+common_bean_types <- bars_per_type %>% # get the data
+  filter(n > 10) %>% # filters for rows where the variable n is larger than 10
+  pull(bean_type) # gets the column with bean type names
+# check common bean types
+common_bean_types
+```
+    ## [1] "Blend"      "Criollo"    "Forastero"  "Trinitario"
+
+There are four types of beans with more than 10 chocolate bears being produced. Finally, we can then filter the original dataset only for the rows with these bean types.
+
+```r
+# Filter chocolateData to only include common beans
+chocolateData_commonBeans <- chocolateData %>% # Get the data
+  filter(bean_type %in% common_bean_types) # Filter for rows where the value in
+  # variable bean_type is present in the vector common_bean_types
+```
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 2.2-1</u>
+
+**Create a basic bar chart.**
+
+Now remake your bar chart, but now only for the most common bean types.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code and Output
+</summary>
+
+``` r
+ggplot(chocolateData_commonBeans, aes(x = bean_type))+
   geom_bar()
 ```
 
@@ -555,13 +573,11 @@ Output:
 
 {::options parse_block_html='false'/}
 
-*Hint:* geom type = “bar”
+*Hint:* use the newly created object `chocolateData_commonBeans`.
 
 </div>
 
-A stacked bar chart shows two dimensions (variables) of data. Each bar
-will represent one variable, and each bar will be chopped into sections
-which represent a second variable.
+Another type of bar chart is the stacked bar chart. A stacked bar chart shows two dimensions (i.e., categorical variables) of data. Each bar will represent one category type, and each bar will be chopped into sections which represent a second category type.
 
 <div class="task-box" markdown="1">
 
@@ -576,8 +592,7 @@ To add a second dimension,
     ‘factor2name’ is the second variable’s column name.
   - setting the parameter of `geom_bar()` to `position="stack"`
  
-For this task, use `company_location` as the second variable that will
-chop the bars into sections.
+For this task, use `company_location` as the second variable that will chop the bars of the most common bean types into sections.
 
 {::options parse_block_html='true' /}
 <details>
@@ -586,7 +601,7 @@ Check Your Code and Output
 </summary>
 
 ``` r
-ggplot(chocolateData_commonBeans, aes(x = bean_type_simplified, fill = company_location)) +
+ggplot(chocolateData_commonBeans, aes(x = bean_type, fill = company_location)) +
   geom_bar(position = "stack")
 ```
 
@@ -598,38 +613,62 @@ Output:
 
 </div>
 
-<br> **Definition - facets:** A way of breaking apart a plot of a
-specific data frame so that each level of a the target factor is shown
-in a separate, smaller chart. <br> A faceted bar chart is like a grid of
-mini bar charts, each showing a different slice of the data side by side
-for comparison.
+So far, we have looked at bar charts that plot the count of observations in different categories in the *y-axis*. But if we want the *y-axis*  to show the values of actual variables in your data? For that situation, you can use the `geom_col()` function.
 
-We can facet a bar chart in a few different ways.
+For example, imagine you want to plot the average rating for the different types of beans. First, you would need to calculate the average rating per bean type. To do this, you can use the `group_by()` and `summarise()` functions your learned in the previous section:
+```r
+chocolateData_commonBeans_rating <- chocolateData_commonBeans %>% # get the dataset
+  group_by(bean_type) %>% # group by bean type
+  summarise( # summarise a variable for each bean type
+    mean_rating = mean(rating) # the summary is the mean rating
+  )
 
-- Where the previous bar chart has one piece of information in each bar,
-  we will now add two.
+# see the results
+chocolateData_commonBeans_rating
+```
+    ## # A tibble: 4 × 2
+    ##   bean_type  mean_rating
+    ##   <chr>            <dbl>
+    ## 1 Blend             3.35
+    ## 2 Criollo           3.27
+    ## 3 Forastero         3.11
+    ## 4 Trinitario        3.25
 
-  - Instead of `aes(x=)` representing just the categories that each bar
-    will represent, we will add a `fill=` parameter for the subgroups of
-    each column.
-  - `ggplot(data, aes(x = category, fill = subgroup))`
+Then, you can use this new dataset to plot your bar chart.
 
-- We will then add
-  `+ geom_bar(position = "fill") + facet_wrap(~facet_variable)`
+<div class="task-box" markdown="1">
 
-- `geom_bar()` creates a stacked bar chart with proportions
+⭐ <u>Task 2.2-2</u>
 
-  - ‘fill’ means that each proportion of the bar will total to 100%
+**Create a bar chart using geom_col().**
+
+Use the object `chocolateData_commonBeans_rating` and the function `geom_col()` to plot a bar chart showing the average rating per bean type.
+
+{::options parse_block_html='true' /}
+<details>
+<summary>
+Check Your Code and Output
+</summary>
 
 ``` r
-ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar(position = "fill") + facet_wrap(~facet_variable)
+ggplot(chocolateData_commonBeans_rating, aes(x = bean_type, y = mean_rating)) +
+  geom_col()
 ```
+
+Output:
+<img src="images/geom_col.png" alt="ggplot2" style="width:420px;"/>
+</details>
+
+{::options parse_block_html='false'/}
+
+- *Hint*: you need to specify a variable for the *y-axis* when suing `geom_col()`
+
+</div>
 
 ### 2.3. Line Charts
 
 To create a line chart, let's start first by creating a new variable that we
-might want to plot in a line chart. In this case, let's assume we are interested
-in seeing how the average chocolate rating varies through the years.
+might want to plot in a line chart. In this case, let's assume we are interested in seeing how the average chocolate rating varies through the years.
 
 <div class="task-box" markdown="1">
 
@@ -681,11 +720,7 @@ Your output will be:
 
 {::options parse_block_html='false'/}
 
-Then convert “review_date” to Date class by entering
-
-``` r
-meanRatingByYear$review_date <- as.integer(meanRatingByYear$review_date)
-```
+- *Hint*: this will be a very similar structure to when you calculated the mean rating by bean type above.
 
 </div>
 
@@ -774,6 +809,8 @@ ggplot(meanRatingByYear, aes(x = review_date, y = rating)) +
 {::options parse_block_html='false'/}
 
 </div>
+
+Congratulations! Now you know how to use ggplot2 to plot scatter plots, bar charts and line charts!
 
 ------------------------------------------------------------------------
 
