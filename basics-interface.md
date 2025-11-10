@@ -179,7 +179,7 @@ your keyboard.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-1</u>
+⭐ <u>Task 1-2</u>
 
 **Try getting help!**
 
@@ -229,7 +229,7 @@ scripts, and share them with collaborators
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3-1</u>
+⭐ <u>Task 1-3</u>
 
 **Create a new R script.**
 
@@ -372,7 +372,7 @@ Carefully consider the consequences of removing objects before doing so.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3.3-1</u>
+⭐ <u>Task 1-4</u>
 
 **Test editing objects.**
 
