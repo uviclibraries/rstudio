@@ -176,12 +176,6 @@ set of cats, each row contains information about one specific cat.
 To see the data in your data frame, simply enter the name of the data
 frame in the console and type ‘enter’ or ‘return’.
 
-{::options parse_block_html='true' /}
-<details>
-<summary>
-Check your code
-</summary>
-
 ``` r
 income
 ```
@@ -200,11 +194,8 @@ The following will be the output:
     ## 9   9      F  57000          8
     ## 10 10      F  91000         10
 
-</details>
 
-{::options parse_block_html='false'/}
-
-Another useful way to inspect your data frama is to use the `str()` function:
+Another useful way to inspect your data frame is to use the `str()` function:
 
 ```
 str(income)
