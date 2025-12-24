@@ -77,11 +77,11 @@ Here, the error message might seem a bit daunting, but if you read with
 care, you can identify that R is telling you that it can not use the
 function `distinct` to an object of the type `double` or `numeric`
 (which your vector `values` is). This might prompt you to open the help
-of the function (see item 3 below), where you will see that the
-`distinct()` function takes a `data.frame` as its first argument, and
-not a vector. This is why this code is failing. You might then remember
-that the function `unique()` is the one you wanted to use, which does
-the same but for vectors:
+of the function (see [sectio](#read-function-and-package-help) below),
+where you will see that the `distinct()` function takes a `data.frame`
+as its first argument, and not a vector. This is why this code is
+failing. You might then remember that the function `unique()` is the one
+you wanted to use, which does the same but for vectors:
 
 ``` r
 # Load lpackage
@@ -105,7 +105,7 @@ helpful to identify what the error is.
 After reading the error message and identifying what the mistake likely
 is, double-check your code with attention. Most errors are usually
 caused by simple typos or forgotten closing brackets in the code (see
-list of common mistakes below).
+list of [common mistakes](#common-mistakes) below).
 
 ### Read function and package help
 
