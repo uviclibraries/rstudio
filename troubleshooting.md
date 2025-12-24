@@ -11,6 +11,31 @@ output:
 
 # Troubleshooting in R
 
+- [Common strategies to
+  troubleshoot](#common-strategies-to-troubleshoot)
+  - [Keep calm and read the error
+    message](#keep-calm-and-read-the-error-message)
+  - [Double-check your code](#double-check-your-code)
+  - [Read function and package help](#read-function-and-package-help)
+  - [Run one line at a time](#run-one-line-at-a-time)
+  - [Restart R session](#restart-r-session)
+  - [Look for similar errors online](#look-for-similar-errors-online)
+  - [Take a break](#take-a-break)
+  - [Ask someone for help](#ask-someone-for-help)
+- [Common mistakes](#common-mistakes)
+  - [Capitalization](#capitalization)
+  - [Misspelling](#misspelling)
+  - [Closing punctuation](#closing-punctuation)
+  - [Continuing punctuation](#continuing-punctuation)
+  - [Open pipe](#open-pipe)
+  - [Overwritting objects](#overwritting-objects)
+  - [Not assigning objects](#not-assigning-objects)
+  - [Wrong working directory](#wrong-working-directory)
+  - [Package not loaded](#package-not-loaded)
+  - [Function masked by other
+    packages](#function-masked-by-other-packages)
+  - [Wrong package version](#wrong-package-version)
+
 Every one who uses R, beginner or advanced, faces errors in their code.
 In fact, learning how to read errors messages and troubleshoot them is
 one of the most important aspects of learning R. This page goes over
