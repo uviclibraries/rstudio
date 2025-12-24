@@ -77,7 +77,7 @@ Here, the error message might seem a bit daunting, but if you read with
 care, you can identify that R is telling you that it can not use the
 function `distinct` to an object of the type `double` or `numeric`
 (which your vector `values` is). This might prompt you to open the help
-of the function (see [sectio](#read-function-and-package-help) below),
+of the function (see [section](#read-function-and-package-help) below),
 where you will see that the `distinct()` function takes a `data.frame`
 as its first argument, and not a vector. This is why this code is
 failing. You might then remember that the function `unique()` is the one
@@ -96,8 +96,8 @@ unique(values)
 
     ## [1] 1 2 3
 
-There are numerous potential error mssages and the point there is not to
-go throught them all, but to show you that errors messages can be very
+There are numerous potential error messages and the point there is not
+to go through them all, but to show you that errors messages can be very
 helpful to identify what the error is.
 
 ### Double-check your code
@@ -110,10 +110,10 @@ list of [common mistakes](#common-mistakes) below).
 ### Read function and package help
 
 If you are facing an error when using a particular function, it is
-always helpful to open the documentation for the that function. To do
-that, you can run `help(function_name)` or `?function_name` in the
-console. Depending on the configurations of your RStudio, you can also
-open the help function by typing its name (in the code editor or
+always helpful to open the documentation for that function. To do that,
+you can run `help(function_name)` or `?function_name` in the console.
+Depending on the configurations of your RStudio, you can also open the
+help documentation by typing the function name (in the code editor or
 console), and then hitting the button F1.
 
 Once you do that, the documentation for the function will open on the
@@ -127,17 +127,21 @@ that we attempted to use above:
 ?distinct
 ```
 
-The help page will contain all or some of the following sections: -
-\*\*Description\*: a brief description of what the function does -
-**Usage**: the code to use the function, showing arguments and their
-default values - **Arguments**: a detailed description of each argument,
-including what type of object is expected - **Details**: any important
-details about the function - **Value**: a description of the object
-returned by the function - **Methods**: specific methods for different
-object types, if applicable - **See Also**: related functions that might
-be useful - **Examples**: examples of how to use the function
+The help page will contain all or some of the following sections:
 
-In the `distinct()` function help, you can see under “Arguments” that
+- \*\*Description\*: a brief description of what the function does
+- **Usage**: the code to use the function, showing arguments and their
+  default values
+- **Arguments**: a detailed description of each argument, including what
+  type of object is expected
+- **Details**: any important details about the function
+- **Value**: a description of the object returned by the function
+- **Methods**: specific methods for different object types, if
+  applicable
+- **See Also**: related functions that might be useful
+- **Examples**: examples of how to use the function
+
+In the `distinct()` function help, you can see under **Arguments** that
 the argument `.data` expects “A data frame, data frame extension (e.g. a
 tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).”. That is
 why we could not use the function on a vector.
@@ -153,7 +157,7 @@ in the console.
 
 We often run multiple lines of code together to perform an operation,
 but when an error message appear, we might not know in which line the
-error is. It it thus good rpactice to run each line at a time to find an
+error is. It it thus good practice to run each line at a time to find an
 error.
 
 For example, this code results in an error:
@@ -317,7 +321,7 @@ To clear the working environment, you can run `rm(list =ls())` in your
 console, or click the “Clear objects from workspace” button in the top
 right. This will remove all objects.
 
-<img src="images/clear-button.png" alt="Clear button" />
+<img src="images/clear-button.png" alt="Clear button"/>
 
 To restart your R session, click on Session at the top, and then on
 Restart R. This will remove any loaded packages. When rerunning your
@@ -359,7 +363,7 @@ find those mistakes.
 ### Ask someone for help
 
 As has been said, the best way to learn is to try to troubleshoot the
-error by yourself. However, if that does nto work, you can always ask
+error by yourself. However, if that does not work, you can always ask
 for help, both in forums in the internet, or to someone you know who
 might be a more advanced R user. If you are posting on a particular
 forum such as StackOverflow, don’t forget to read [their
@@ -368,7 +372,7 @@ a question.
 
 ## Common mistakes
 
-Here is a list of common mistakes all R users do. IF you are facing a
+Here is a list of common mistakes all R users do. If you are facing a
 problem in your code, going through these is probably a good start to
 try to figure out what can be happening in your code.
 
@@ -379,7 +383,7 @@ vice-versa. R is case-sensitive so this will result in an error for
 functions and objects. For example, calling `Mean()` won’t run and
 result in an error code as the name of the function is `mean()`, all
 lower caps. Or you named the object `MyData` when you first created it
-but then later is calling the object `mydata`.
+but then later you are calling the object `mydata`.
 
 ### Misspelling
 
@@ -491,15 +495,15 @@ written in the code editor, or you might have done that in your console
 without noticing it. A good way to check is to always preview the
 objects you are using to make sure they are what you want them to be.
 For example, you can use `head()` to preview the first rows of a
-dataframe to amke sure they look like how they should, or even ask R
+dataframe to make sure they look like how they should, or even ask R
 what type of object it is with `class()`.
 
 ### Not assigning objects
 
 You did not save an object that you wanted to save. This is very common
-at the beginning, when you are still not used that you need to assign
-data to an object using `<-` so that R can save the object in the
-workspace and use it later.
+at the beginning, when you are still not used to assigning data to
+objects using `<-` so that R can save the object in the workspace and
+use it later.
 
 For example, imagine you had this piece of code
 
@@ -551,7 +555,7 @@ mean(newdiamonds$price100)
 You are using the wrong working directory. The working directory is the
 folder R is looking at to search for files you want to upload. However,
 if you forgot to specify the working directory (or specified a wrong
-one), R will not be able to find the files you are trying to upload. a
+one), R will not be able to find the files you are trying to upload. A
 quick way to check your working directory is to run `getwd()` in your
 console. If the directory is wrong, you can use `setwd()` to set the
 correct directory or click on Session \> Set Working Directory \> Choose
