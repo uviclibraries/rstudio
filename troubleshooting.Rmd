@@ -92,14 +92,14 @@ For example, let's try opening the help for the `distinct()` function that we at
 
 The help page will contain all or some of the following sections:
 
--   **Description*: a brief description of what the function does
--   **Usage**: the code to use the function, showing arguments and their default values
--   **Arguments**: a detailed description of each argument, including what type of object is expected
--   **Details**: any important details about the function
--   **Value**: a description of the object returned by the function
--   **Methods**: specific methods for different object types, if applicable
--   **See Also**: related functions that might be useful
--   **Examples**: examples of how to use the function
+- **Description**: a brief description of what the function does
+- **Usage**: the code to use the function, showing arguments and their default values
+- **Arguments**: a detailed description of each argument, including what type of object is expected
+- **Details**: any important details about the function
+- **Value**: a description of the object returned by the function
+- **Methods**: specific methods for different object types, if applicable
+- **See Also**: related functions that might be useful
+- **Examples**: examples of how to use the function
 
 In the `distinct()` function help, you can see under **Arguments** that the argument `.data` expects "A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).". That is why we could not use the function on a vector.
 

@@ -129,7 +129,7 @@ that we attempted to use above:
 
 The help page will contain all or some of the following sections:
 
-- \*\*Description\*: a brief description of what the function does
+- **Description**: a brief description of what the function does
 - **Usage**: the code to use the function, showing arguments and their
   default values
 - **Arguments**: a detailed description of each argument, including what
