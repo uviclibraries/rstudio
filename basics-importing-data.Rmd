@@ -1,27 +1,14 @@
 ---
-title: "4-Importing Data"
-#author: DSC / Chloë Farr
-#date: '2024-01-18'
-output:
-  github_document:
-    toc: true
-    toc_depth: 3
-  pdf_document: default
-  html_document:
-    toc: true
-    toc_depth: '3'
-    df_print: paged
-customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
-nav_order: 3
+title: 3-Basic Data Analysis
+nav_order: 5
 parent: Workshop Activities
-editor_options: 
-  markdown: 
-    wrap: 72
-keep_md: true  # Retain YAML front matter in output Markdown
+customjs: http://code.jquery.com/jquery-1.4.2.min.js
+output: 
+  md_document:
+    variant: gfm        # GitHub-friendly markdown
+    preserve_yaml: TRUE # keep Jekyll front-matter
 ---
-
-
 
 ```{r setup, include=FALSE}
 #this code block is to the benefit of anyone working with the rmd file and running it straight in R, rather than participating in the work
@@ -44,223 +31,412 @@ endCodeDetailsBlock <- function() {
 }
 ```
 
+# Basic Data Analysis
+
+- [1 Importing data into R](#1-importing-data-into-r)
+  - [1.1 Working directory](#11-working-directory)
+  - [1.2 Importing tabular data](#12-importing-tabular-data)
+- [2 Data frames](#2-data-frames)
+- [3 Summary statistics](#3-summary-statistics)
+- [4 Histograms](#4-histograms)
+
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
-<br>
 
+So far, we have created our own objects by manually entering all of the data in the console. In this section, we will learn how to create objects by importing (aka ‘reading’) data (compiled outside of R) into R, perform basic statistics on it, and visualize it with a histogram.
 
-So far, we've create our own objects by manually entering all of the
-data in the console. In this section, we'll learn how to create objects
-by importing (aka 'reading') data (compiled outside of R) into R and
-visualise it with a histogram.
+## 1. Importing data into R
 
-## 1. Importing Excel data into R
+### 1.1. Working directory
 
-R can handle multiple file types:
+Before importing your data into R, it is important to understand what the working directory is. The **working directory** is the location on your computer (i.e., the folder) where R looks for files when importing data and where it saves files. You typically want to have all the files related to a single project in the same folder, so that R can easily find them, and you know where they are saved.
 
--   .csv (comma separated values)
--   excel (.xls, .xlsx)
--   .txt (and .tsv - tab separated values)
--   .json (used for nested data structures)
-    -   These would likely be arrays of more than 2 dimensions.
--   SPSS (another specialized statistics software)
--   Data scraped from the web or via an API.
+You can check the path of your working directory by running the function `getwd()` in the console.
 
 <div class="task-box" markdown="1">
-&#11088; [Task 1-1]{.underline} 
+  
+⭐ <u>Task 3-1</u>
 
-**Download data.**
+**Check your working directory.**
 
-Download and save [this Excel spreadsheet of Income
-data](docs/income.xlsx){:target="\_blank"}
-
--   *Note:* Please remember where the income.xlsx file is saved (usually
-    in a “downloads” or “desktop” folder).
-</div>
-
-<div class="task-box" markdown="1">
-&#11088; [Task 1-2]{.underline} 
-
-**Import data.**
-
-Import the dataset of Income data
-
--   From the top menu bar, select...
-  - File
-  - Import dataset
-  - From Excel
--   In the 'Import Excel Data' window select your file by:
-  - Entering the file path to the income.xlsx file you just
-      downloaded.
-  - Selecting "Browse" on the right side of the path bar and
-      locating it in the browser.
-  - Under 'Import Options,' make sure 'Name' is the same text as you
-      wish for the variable to be named. Ours will be 'income'.
-  - Click "Import"
--   If asked to install the `readxl` package, click **Yes**.
-
-</div>
-
-Don't worry about making a mistake importing this data. You can always remove it using the `rm()` function.
-
-Browse and import menu and buttons
-<br>
-
-<img src="images/rstudio-15.png" alt="Browse and import menu and buttons" style="width:600px;"/>
-
-<br>
-Import excel data window
-
-<img src="images/rstudio-17.png" alt="Import excel data window" style="width:600px;"/>
-
-<br>
-
-What you just imported is now stored as a 'data frame' object whose name
-is `income`.
-
-**Definition - Data frame:** essentially a table. It is 2-dimensional
-object that can hold different types of data types.
-
-<details><summary>More about Data frames</summary>     
-Data frames contain information about a set of objects (e.g., cats).<br>
-- The data frame will contain one or more columns and one or more rows.<br>
-  - One column contains related values (column 1 = age, column 2 = eye color).<br>
-  - Because the column contains the same type of information, it is equivalent to a vector. <br>
-  - i.e., the 'eye color' column will contain characters, not numbers.<br>
-  - One row denotes one object from the set. In a data frame of information about a set of cats, each row is information about one specific cats.
-</details>
-
-A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it's spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
-
-
-```{r  load-data, echo=FALSE, results='hide'}
-income <- read_excel("docs/income.xlsx")
-```
-
-To see the data in our data frame, simply enter the name of the data
-frame in the console and type 'enter' or 'return'.
+Type in `getwd()` in the console and hit enter.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
-```{r eval=FALSE}
+
+```{r, eval = FALSE}
+getwd()
+```
+  ## [1] "A Path to a Folder"
+
+You will get a path to a folder on your computer. This is your current working directory.
+  
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
+</div>
+
+More often than not, you will want to change your working directory to a specific folder rather than the default folder. To do that, you can use the `setwd()` function. Inside the parentheses (i.e. as the function parameter), you should type the path to the folder between quotes. For example, let's assume you want your working directory to be a folder called "my_project" that is in the main Documents folder. You would type:
+
+```{r, eval = FALSE}
+setwd("C:/Documents/my_project")
+```
+
+<div class="task-box" markdown="1">
+  
+⭐ <u>Task 3-2</u>
+
+**Change your working directory.**
+
+Change your working directory to a folder where you will keep all the files related to this workshop. Note: You should use forward slashes to denote the path to your folder. This should work on both Mac and Windows.
+
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
+
+```{r, eval = FALSE}
+setwd("Path to Folder")
+``` 
+
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
+</div>
+
+If you are working alone on your scripts, always on the same computer, it is good practice to start every script by setting the working directory using `setwd()`. However, once you start collaborating with others, the path to the folders can be different between computers. At that point, you might want to learn about R Projects, which makes all paths relative to a pre-specified project working directory. You can read more about it [here](https://intro2r.com/rsprojs.html){:target="\blank"}.
+
+### 1.2. Importing tabular data
+
+Now that you have your working directory set up, you can import your data into R. R can handle multiple file types:
+
+- .csv (comma-separated values)
+- Excel (.xls, .xlsx)
+- .txt (and .tsv - tab-separated values)
+- .json (used for nested data structures)
+  - These would likely be arrays of more than 2 dimensions.
+- SPSS (another specialized statistics software)
+- Data scraped from the web or via an API.
+
+For tabular data, you will most likely be importing .csv or .xlsx files. In this workshop, we will work with .csv files because you can import them with base R. If you have your data in Excel, you can save it as .csv by clicking on File > Save as. If you want to import .xslx files directly, you will need to install a specific package (see [here](https://readxl.tidyverse.org/){:target="\blank"}).
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-3</u>
+
+**Download data.**
+
+Download and save [this spreadsheet of Income data](docs/income.csv){:target="\_blank"}.
+
+- *Note:* Please save the file in your working directory, specified in the task above.
+
+</div>
+
+To import a .csv file in R, you can use the `read.csv()` function. This function takes as its main argument the name of the file you want to import. This should be in quotes and include the file type.
+
+If you want R to import your file and save it in an object, you need to specify the name of the object and use the `<-` symbol to assign the imported file to the object:
+
+```{r, eval = FALSE}
+# This code will create an object called object.name with the data from the .csv file
+object.name <- read.csv("path-to-file.csv")
+```
+
+Attention: if you do not assign an object to the imported file, R will simply print the imported data in the console and not save it in an object for future use. Always import data by assigning it to an object.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-4</u>
+
+**Import data.**
+
+Use the function `read.csv()` to import the dataset of Income data to an object called "income". 
+
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
+
+```{r, eval = FALSE}
+income <- read.csv("income.csv")
+```
+
+```{r, echo = FALSE}
+income <- read.csv("docs/income.csv")
+```
+After running this code, you should see the object "income" in your environment panel in the top right.
+
+If you get an error message that says "No such file or directory", it's probably because you did not save the .csv file in your working directory, or because there is a typo in the file name.
+
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
+</div>
+
+There are other functions in R to import other types of tabular data, and a generic function called `read.table()`, which is really useful if you need to specify some details when importing data, for example, which values to consider `NA`. To learn more about it, check [this](https://intro2r.com/importing-data.html){:target="\_blank"}.
+
+## 2. Data frames
+
+Now that you imported your file into R, we can take a closer look at it. The file you just imported is an object of the type data frame.
+
+To check that, you can run the code:
+```{r}
+# The function class() tells you the type of object. It is good for checking if you imported your files correctly
+class(income)
+```
+**Definition - Data frame:** essentially a table. It is a two-dimensional object that can hold different types of data. 
+
+- Usually, data frames are used to store values of variables (i.e. the columns) recorded for different observations (i.e. the rows). For example, different observations made for different cats.
+- Data frames can contain one or more columns and one or more rows.
+- All values in a column are related (e.g., column 1 = age, column 2 = eye color)
+- Because the column contains the same type of information, it is equivalent to a vector (i.e., the ‘eye color’ column will contain characters, not numbers).
+- One row denotes one object from the set. For example, in the data frame of information about a set of cats, each row contains information about one specific cat.
+- A row can contain many different bits of information, like age (numerical), eye color (character), breed (character), whether or not it’s spayed/neutered (boolean). Because rows may contain values of different types, one row would most likely not be a vector. It would likely be a list, which can contain values of different types.
+
+To see the data in your data frame, simply enter the name of the data frame in the console and type ‘enter’ or ‘return’.
+
+```{r}
 income
+```
+
+Another useful way to inspect your data frame is to use the `str()` function:
+
+```{r}
+str(income)
+```
+This tells you that your data frame is made of 10 observations of 4 variables. It can be inferred that this data relates to 10 people. It then tells you the name of each variable (id, gender, income, experience), the data type of each variable (int = integer, chr = character), and the first few values of each column.
+
+You can use de `$` symbol to refer R to specific columns inside your dataframe. For example, if you want to check the individual values for gender, you can type:
+```{r}
+income$gender
+```
+These columns are treated as vectors in R, so if you wanted to get the 4th value of the column gender, you can use the indexing inside `[]` that you learned in the previous section:
+```{r}
+income$gender[4]
+```
+
+If you want to explore more ways to view and preview the content of our data frames, check out the [Data Analysis with RStudio - Data cleaning and manipulation and visualization](https://uviclibraries.github.io/rstudio-vis/) workshop. You can also go [here](https://intro2r.com/data-structures.html#df){:target="\_blank"} for more information about data frames.
+
+## 3. Summary statistics.
+
+Statistics is:
+
+- the science of collecting, analyzing, and interpreting
+- data to uncover patterns and trends,
+- and inform decisions based on this data.
+
+If you’re unfamiliar with statistics, you can learn more about it from the [w3school Statistics Tutorial](https://www.w3schools.com/statistics/index.php){:target=“\_blank”}
+
+In this section, we’ll be focusing on
+
+- Basic statistical measures
+- Presenting data in a histogram
+
+More on data visualization is covered in the [Data Analysis with RStudio - Data cleaning and manipulation and visualization](https://uviclibraries.github.io/rstudio-vis/) workshop, and more on data analysis, such as statistical tests, is covered in the [Data Analysis with RStudio - Intermediate data analysis](https://uviclibraries.github.io/rstudio-intermediate/) workshop.
+
+### 3.1 Basic statistical measures
+
+The function names for the following three statistical measures (mean, median, standard deviation) are quite intuitive.
+
+It is just the name or abbreviation of the statistical measure, where the argument is the object containing the set of values we are analyzing.
+
+Each function takes the vector containing the values of the variable as its argument.
+
+These three functions are designed for sets of numerical and integer data types. If run on other types (character, aka text, and boolean, aka true/false), the result will be `NA`.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-5</u>
+
+**Get the mean (average) income.**
+
+**Mean:** the average value in a set.
+
+The `mean()` function calculates the sum of the values in the set and divides the sum by the number of items in the set.
+
+Write and execute a command that outputs the mean income across the 10 people in our dataset. Remember: you can use the `$` symbol to extract one column (i.e., one vector) from your data frame.
+
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
+
+```{r}
+# output the average income
+mean(income$income)
 ```
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
 
-<br>
-
-The following will be the output:
-
-```{r echo=FALSE}
-income
-```
-
-We will explore other ways to view and preview content of our data frames in Activity 3.
-
-**Note:** `<char>` stands for "character" data type and `<dbl>` stands for "double-precision floating point numbers data" type. <br>
-
-
-We can see now that our data frame `income` contains 10 objects (rows),
-and 4 variables (columns) 
-
-- It can be inferred that this data relates to 10 people 
-- The values with each person are: 
-  - id (in lieu of a name) (dbl) 
-  - gender (char) 
-  - income (dbl) 
-  - experience (dbl) <br>
+</div>
 
 <div class="task-box" markdown="1">
-&#11088; [Task 1-3]{.underline} 
 
-**Display summary statistics.**
+⭐ <u>Task 3-6</u>
+
+**Get median value.**
+
+Write and execute a command that outputs the median value of income
+
+**Median:** The middle value in a sorted set (e.g. lowest - highest). `median()`
+
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
+
+```{r}
+median(income$income)
+```
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
+</div>
+
+The output tells you the income value that falls between the higher income half and the lower income half of the people in your dataset.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-7</u>
+
+**Get standard deviation.**
+
+**Standard deviation:** Describes how spread out the data is. 
+
+The function in R is `sd()`
+
+Write and execute a command that outputs the standard deviation of the income.
+
+The output tells you how much the individual incomes vary from the average income.
+
+- A small standard deviation means that most people have an income that is close to the average, indicating uniformity in income.
+- A large standard deviation suggests a wide range of incomes.
+
+```{r echo = F, results='asis'}
+startCodeDetailsBlock(summaryText = "Check your code")
+```
+
+```{r}
+sd(income$income)
+```
+```{r echo = F, results='asis'}
+endCodeDetailsBlock()
+```
+
+</div>
+
+Up until now, you were calculating mean, median and standard deviation for one single variable in your data frame. However, often you will want to calculate that for the entire data frame. For this, a useful function is `summary()`, which takes a data frame as input and returns a summary of each variable as the output.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 4.8</u>
+
+**Get summary of statistics.**
 
 Display a summary of statistics for the `income` data.
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
+
 ```{r}
 summary(income)
 ```
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 </div>
 
-<br>
+## 4. Histograms
 
-## 2 Visualize Income with a Histogram plot
+**Histogram:** A graph used for understanding and analysing the distribution of values in a vector.
 
-In 3.2 we made a histogram to visualize the distribution of the pig
-weights. Remember that the parameter that the histogram function takes
-is a vector.
+A histogram illustrates:
 
-To extract a vector (column) from our data frame, we will pass in
-`dataframeName$columnName`, where the name of our data is separated by
-the name identifying a single set of values within that data frame.
+- Where data points tend to cluster
+- The variability of data
+- The shape of variability
 
--   Replace *dataframeName* with the name of your imported data
--   Replace *columnName* with the column name representing the
-    information you would like to analyse.
-  - e.g. 'eyeColour' might be the column name in a dataframe named
-        'cats'.
+The histogram will appear in the Plots tab (bottom right quadrant if you haven’t modified your RStudio layout).
 
+To create a histogram, you can use the function `hist()`. For example, for a histogram of the income data:
+```{r}
+# Remember that income$income grabs the variable "income" in the data frame "income"
+hist(income$income)
+```
+We can also pass in additional parameters to control the way our plot looks.
+
+Some of the frequently used parameters are:
+
+- `main`: The title of the plot
+  - e.g., `main = "This is the Plot Title"`
+- `xlab`: The x-axis label
+  - e.g., `xlab = "The X Label"`
+- `ylab`: The y-axis label.  “Frequency” is the default value, and you don’t have to specify it unless you would like a different label.
+  - e.g., ylab = “The Y Label”
+
+Multiple parameters are given to a function by putting them in parentheses separated by commas, `function_name(parameter1, parameter2)`: 
+
+```{r}
+# The first parameter is the name of the data (vector) object
+# 'main' is the graph title 
+# 'xlab' is the label of the x-axis
+# label parameters can be in any order, but following the data object
+# y-label on a histogram defaults to "frequency". You can add 'ylab=""' if you'd like.
+hist(income$income, xlab="Income", main = "Histogram of Income")
+```
 
 <div class="task-box" markdown="1">
-&#11088; [Task 2]{.underline} 
+
+⭐ <u>Task 3-9</u>
 
 **Create a histogram.**
 
-Display the vector of data relating to 'experience' as a histogram. 
+Create a histogram for the experience data using the histogram function `hist()`. Remember to add an informative title and labels.
 
-- X-label: 'Experience' 
-- Title: 'Histogram of Experience' <br>
+- Parameter: vector of values to plot
 
 ```{r echo = F, results='asis'}
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
-```{r eval=FALSE}
-#Remember, the generated histogram will appear in the Plot tab.
-hist(income$experience, main='Histogram of Experience',xlab='Experience')
+```{r}
+hist(income$experience, main = "Histogram of Experience", xlab = "Experience")
 ```
+
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
+
 </div>
 
-The following will be the output:
+We can see in the histogram that there are 7 intervals with equally spaced breaks. In this case, the height of a cell is equal to the number of observations falling in that cell.
 
-```{r echo=FALSE}
-hist(income$experience, main='Histogram of Experience',xlab='Experience')
-```
+- Why are there 7 intervals? R automatically chooses the number of   intervals for you.
 
-We can see in the histogram that there are 7 intervals with equally
-spaced breaks. In this case, the height of a cell is equal to the number
-of observations falling in that cell. 
+*Additional:* If you preferred having fewer or more intervals (i.e., ‘bins’), use can set that using the `breaks` parameter.
 
-- Why are there 7 intervals? R automatically chooses the number of intervals for you.
+<div class="task-box" markdown="1">
 
-*Additional:* If you preferred having 4 intervals (i.e., 'bins'), use can set that using the `breaks=''` parameter.
+⭐ <u>Task 3-10</u>
 
+**Create a histogram with a different number of intervals.**
+
+Use the argument `breaks` inside the function `hist()` to create a histogram of experience that has only 3 intervals.
 
 ```{r echo = F, results='asis'}
-startCodeDetailsBlock(summaryText = "Check Your Code for custom number of intervals")
+startCodeDetailsBlock(summaryText = "Check your code")
 ```
 ```{r}
-#breaks is equal to the number of intervals
-#You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
-hist(income$experience, breaks=3)
+# breaks is equal to the number of intervals
+# You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
+hist(income$experience, main = "Histogram of Experience", xlab = "Experience", breaks = 3)
 ```
 ```{r echo = F, results='asis'}
 endCodeDetailsBlock()
 ```
 
-<br>
-
-```{=html}
+</div>
 
 <script>  
 function toggle(input) {
@@ -272,8 +448,6 @@ function toggle(input) {
     }
 }
 </script>
-```
-```{=html}
 <style>
 details {
     background-color: lightgray; 
@@ -288,9 +462,7 @@ details {
       border-radius: 5px;
       background-color: #f5f2f6;
   }
-  
-</style>
+  &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
-```
 
 [NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn .btn-blue }
