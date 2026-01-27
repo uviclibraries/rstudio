@@ -183,8 +183,8 @@ diamonds %>%
     ## Caused by error in `UseMethod()`:
     ## ! no applicable method for 'count' applied to an object of class "NULL"
 
-The error message already suggest that the error was in the
-`summarize()` function, but lets run each line of code to check:
+The error message already suggests that the error was in the
+`summarize()` function, but let's run each line of code to check:
 
 ``` r
 diamonds
@@ -205,7 +205,7 @@ diamonds
     ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
     ## # ℹ 53,930 more rows
 
-This executes correctly, that is, the obejct exists!
+This executes correctly, that is, the object exists!
 
 ``` r
 diamonds %>% 
@@ -229,7 +229,7 @@ diamonds %>%
     ## # ℹ 53,930 more rows
     ## # ℹ 1 more variable: price20perc <dbl>
 
-The use of the mutate function to calculate to new variables also seems
+The use of the mutate function to calculate new variables also seems
 to be working
 
 ``` r
@@ -313,7 +313,7 @@ When we are actively writing code, it is common to test out
 possibilities, which often require creating test objects, reordering
 lines of code, and loading new packages. In this process, sometimes we
 accidentally overwrite an object and load a package that masks a
-function we are using. An easy to make sure you didn’t do this is to
+function we are using. An easy way to make sure you didn’t do this is to
 clear your working environment of all objects, restart your R session,
 and then rerun the entire script.
 
@@ -336,8 +336,8 @@ Chances are, someone already ran into an error similar to yours. A quick
 online search often redirects you to a forum such as StackOverflow where
 someone already posted a question similar to yours and probably got an
 answer. When doing this online search, it is often helpful to search
-using specific terminology such as : the action you want to perform, the
-language you are using, and the specific style/tecnique you are using.
+using specific terminology such as: the action you want to perform, the
+language you are using, and the specific style/technique you are using.
 For example, you could search: how to rename a column (i.e. the action)
 in R (i.e. the language) using the tidyverse (i.e. the style/technique
 of coding).
