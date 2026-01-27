@@ -15,7 +15,7 @@ DSC badges are awarded at the request of workshop participants after a DSC staff
 
 ### Earn an Informal Credential or Badge for RStudio
 
-If you’d like to earn a DSC badge for this workshop, please complete activities **3**, **4** & **6** and then email pictures of the charts at the end of each activity to: [dscommons@uvic.ca](mailto:dscommons@uvic.ca){:target="_blank"}
+If you’d like to earn a DSC badge for this workshop, please complete activities **1**, **2** & **3** and then email the scripts to: [dscommons@uvic.ca](mailto:dscommons@uvic.ca){:target="_blank"}
 
 
 ### Learn how you can share your DSC Badge
