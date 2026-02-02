@@ -1,4 +1,4 @@
-# Data Analysis with RStudio
+# Data Analysis with R Studio - Introduction to R and summary statistics
 ### UVic Libraries Digital Scholarship Commmons
 
 Link to workshop: https://uviclibraries.github.io/rstudio/
