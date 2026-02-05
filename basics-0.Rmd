@@ -375,7 +375,7 @@ endCodeDetailsBlock()
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3.3-3</u>
+⭐ <u>Task 2-10</u>
 
 **Index vectors**
 
@@ -402,7 +402,7 @@ You have just worked with numeric vectors. Now let’s move to character vectors
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-10</u>
+⭐ <u>Task 2-11</u>
 
 **Create a new vector.**
 
@@ -436,7 +436,7 @@ To get the length of a vector, we can use the `length()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-11</u>
+⭐ <u>Task 2-12</u>
 
 **Get vector length**
 
@@ -470,7 +470,7 @@ To make a list, we’ll use the `list()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-12</u>
+⭐ <u>Task 2-13</u>
 
 **Create a list**
 
@@ -494,7 +494,7 @@ In the same way that you can use `[i]` to capture a value in a vector, you can u
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-13</u>
+⭐ <u>Task 2-14</u>
 
 **Show an element of a list**
 
