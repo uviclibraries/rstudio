@@ -12,7 +12,7 @@ output:
 
 ```{r setup, include=FALSE}
 #this code block is to the benefit of anyone working with the rmd file and running it straight in R, rather than participating in the work
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
 startCodeDetailsBlock <- function(summaryText = "Check Your Code") {
   # Use cat to directly output the string without quotes and avoid unintended newlines
@@ -450,3 +450,29 @@ If you need to update R, you can simply just re-install R from the CRAN website.
 If you need to update the package, the easiest thing is to re-install the package using `install.packages()`.
 
 [NEXT STEP: Earn a workshop badge](informal-credentials.html){: .btn .btn-blue }
+
+<script>  
+function toggle(input) {
+    var x = document.getElementById(input);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+<style>
+details {
+    background-color: lightgray; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.task-box {
+      border: 1.5px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f5f2f6;
+  }
+  &#10;</style>

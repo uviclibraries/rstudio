@@ -14,31 +14,31 @@ output:
 
 - [1 - Common strategies to
   troubleshoot](#1-common-strategies-to-troubleshoot)
-- [1.1 Keep calm and read the error
-  message](#11-keep-calm-and-read-the-error-message)
-- [1.2 Double-check your code](#12-double-check-your-code)  
-- [1.3 Read function and package
-  help](#13-read-function-and-package-help)
-- [1.4 Run one line at a time](#14-run-one-line-at-a-time)
-- [1.5 Restart R session](#15-restart-r-session)
-- [1.6 Look for similar errors
-  online](#16-look-for-similar-errors-online)
-- [1.7 Take a break](#17-take-a-break)
-- [1.8 Ask someone for help](#18-ask-someone-for-help)
-- [1.9 A note about using AI](#19-a-note-about-using-ai)
-- [1.10 Troubleshooting challenge](#18-troubleshooting-challenge)
+  - [1.1 Keep calm and read the error
+    message](#11-keep-calm-and-read-the-error-message)
+  - [1.2 Double-check your code](#12-double-check-your-code)  
+  - [1.3 Read function and package
+    help](#13-read-function-and-package-help)
+  - [1.4 Run one line at a time](#14-run-one-line-at-a-time)
+  - [1.5 Restart R session](#15-restart-r-session)
+  - [1.6 Look for similar errors
+    online](#16-look-for-similar-errors-online)
+  - [1.7 Take a break](#17-take-a-break)
+  - [1.8 Ask someone for help](#18-ask-someone-for-help)
+  - [1.9 A note about using AI](#19-a-note-about-using-ai)
+  - [1.10 Troubleshooting challenge](#110-troubleshooting-challenge)
 - [2 - Common mistakes](#2-common-mistakes)
-- [2.1 Capitalization](#21-capitalization)
-- [2.2 Misspelling](#22-mispelling)  
-- [2.3 Closing punctuation](#23-closing-punctuation)
-- [2.4 Continuing punctuation](#24-continuing-punctuation)
-- [2.5 Overwritting objects](#25-overwritting-objects)
-- [2.6 Not assigning objects](#26-not-assigning-objects)
-- [2.7 Wrong working directory](#27-wrong-working-directory)
-- [2.8 Package not loaded](#28-package-not-loaded)
-- [2.9 Function masked by other
-  packages](#29-function-masked-by-other-packages)
-- [2.10 Wrong package version](#29-wrong-package-version)
+  - [2.1 Capitalization](#21-capitalization)
+  - [2.2 Misspelling](#22-misspelling)  
+  - [2.3 Closing punctuation](#23-closing-punctuation)
+  - [2.4 Continuing punctuation](#24-continuing-punctuation)
+  - [2.5 Overwritting objects](#25-overwritting-objects)
+  - [2.6 Not assigning objects](#26-not-assigning-objects)
+  - [2.7 Wrong working directory](#27-wrong-working-directory)
+  - [2.8 Package not loaded](#28-package-not-loaded)
+  - [2.9 Function masked by other
+    packages](#29-function-masked-by-other-packages)
+  - [2.10 Wrong package version](#210-wrong-package-version)
 
 Every one who uses R, beginner or advanced, faces errors in their code.
 In fact, learning how to read errors messages and troubleshoot them is
@@ -401,7 +401,13 @@ subset(diamonds cut == "Ideal")
 mean(diamondsIdeal$price_per_carat)
 ```
 
-    ## Error in startCodeDetailsBlock(summaryText = "View the corrected code"): could not find function "startCodeDetailsBlock"
+{::options parse_block_html='true' /}
+<details>
+
+<summary>
+
+View the corrected code
+</summary>
 
 ``` r
 # Load the tidyverse package (which contains the diamonds dataset)
@@ -432,7 +438,9 @@ diamondsIdeal <- subset(diamonds, cut == "Ideal") ## added missing comma, and sa
 mean(diamondsIdeal$price_per_carat) # nothing to correct
 ```
 
-    ## Error in endCodeDetailsBlock(): could not find function "endCodeDetailsBlock"
+</details>
+
+{::options parse_block_html='false'/}
 
 </div>
 
@@ -668,3 +676,30 @@ the package using `install.packages()`.
 
 [NEXT STEP: Earn a workshop badge](informal-credentials.html){: .btn
 .btn-blue }
+
+<script>  
+function toggle(input) {
+    var x = document.getElementById(input);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+<style>
+details {
+    background-color: lightgray; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.task-box {
+      border: 1.5px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f5f2f6;
+  }
+  &#10;</style>
