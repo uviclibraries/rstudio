@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Troubleshooting in R (Optional)
+title: 4 - Troubleshooting in R (Optional)
 nav_order: 5
 parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
