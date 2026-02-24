@@ -14,31 +14,9 @@ output:
 
 - [1 - Common strategies to
   troubleshoot](#1-common-strategies-to-troubleshoot)
-  - [1.1 Keep calm and read the error
-    message](#11-keep-calm-and-read-the-error-message)
-  - [1.2 Double-check your code](#12-double-check-your-code)  
-  - [1.3 Read function and package
-    help](#13-read-function-and-package-help)
-  - [1.4 Run one line at a time](#14-run-one-line-at-a-time)
-  - [1.5 Restart R session](#15-restart-r-session)
-  - [1.6 Look for similar errors
-    online](#16-look-for-similar-errors-online)
-  - [1.7 Take a break](#17-take-a-break)
-  - [1.8 Ask someone for help](#18-ask-someone-for-help)
-  - [1.9 A note about using AI](#19-a-note-about-using-ai)
+  - [1.1 - 1.9 Strategies](#11-keep-calm-and-read-the-error-message)
   - [1.10 Troubleshooting challenge](#110-troubleshooting-challenge)
 - [2 - Common mistakes](#2-common-mistakes)
-  - [2.1 Capitalization](#21-capitalization)
-  - [2.2 Misspelling](#22-misspelling)  
-  - [2.3 Closing punctuation](#23-closing-punctuation)
-  - [2.4 Continuing punctuation](#24-continuing-punctuation)
-  - [2.5 Overwritting objects](#25-overwritting-objects)
-  - [2.6 Not assigning objects](#26-not-assigning-objects)
-  - [2.7 Wrong working directory](#27-wrong-working-directory)
-  - [2.8 Package not loaded](#28-package-not-loaded)
-  - [2.9 Function masked by other
-    packages](#29-function-masked-by-other-packages)
-  - [2.10 Wrong package version](#210-wrong-package-version)
 
 Every one who uses R, beginner or advanced, faces errors in their code.
 In fact, learning how to read errors messages and troubleshoot them is
@@ -370,33 +348,26 @@ section](#2-common-mistakes) below for a list of the most common errors
 you might encounter.
 
 ``` r
-# This is not part of the challenge, but please run this line of code in your console to start a new and clean R Session
+# This is not part of the challenge, but please run this line of code 
+# in your console to start a new and clean R Session
 .rs.restartR()
 
 # Load the tidyverse package (which contains the diamonds dataset)
 library(tidyver)
-
 # Load dataset
 data(diamonds)
-
 # View the first rows of the dataset
 head(diamond)
-
 # View the column names
 namesdiamonds)
-      
 # Get the mean price of diamonds
 mean(diamonds$Price)
-
 # Calculate price per carat
 diamonds$price / diamonds$carat
-
 # Get mean price per carat
 mean(diamond$price_per_carat)
-
 # filter the dataset for the diamonds with Ideal cut quality
 subset(diamonds cut == "Ideal")
-
 # Get the average price per carat of diamonds with Ideal cut quality
 mean(diamondsIdeal$price_per_carat)
 ```
@@ -412,28 +383,20 @@ View the corrected code
 ``` r
 # Load the tidyverse package (which contains the diamonds dataset)
 library(tidyverse) # correct spelling for the tidyverse package
-
 # Load dataset
 data(diamonds)
-
 # View the first rows of the dataset
 head(diamonds) # correct spelling for the diamonds objects
-
 # View the column names
 names(diamonds) # added a missing parenthesis
-      
 # Get the mean price of diamonds
 mean(diamonds$price) # corrected capitalization for the column price
-
 # Calculate price per carat
 diamonds$price_per_carat <- diamonds$price / diamonds$carat # assigned the result to a new column in the dataset
-
 # Get mean price per carat
 mean(diamonds$price_per_carat) # corrected spelling in dataset name
-
 # filter the dataset for the diamonds with Ideal cut quality
 diamondsIdeal <- subset(diamonds, cut == "Ideal") ## added missing comma, and saved in a new object
-
 # Get the average price per carat of diamonds with Ideal cut quality
 mean(diamondsIdeal$price_per_carat) # nothing to correct
 ```
