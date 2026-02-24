@@ -654,5 +654,5 @@ details {
 
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Tidyverse and Data Manipulation](tidyverse-data.html){: .btn
-.btn-blue }
+[NEXT STEP: Troubleshooting in R (Optional)](troubleshooting.html){:
+.btn .btn-blue }

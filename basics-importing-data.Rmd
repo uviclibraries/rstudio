@@ -465,4 +465,4 @@ details {
   &#10;</style>
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Earn a workshop badge](informal-credentials.html){: .btn .btn-blue }
+[NEXT STEP: Troubleshooting in R (Optional)](troubleshooting.html){: .btn .btn-blue }

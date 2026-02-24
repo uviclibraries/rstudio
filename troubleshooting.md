@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Troubleshooting in R
-nav_order: 10
+title: Troubleshooting in R (Optional)
+nav_order: 5
+parent: Workshop Activities
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 output: 
   md_document:
@@ -11,20 +12,45 @@ output:
 
 # Troubleshooting in R
 
-- [Common strategies to
-  troubleshoot](#common-strategies-to-troubleshoot)
-- [Common mistakes](#common-mistakes)
+- [1 - Common strategies to
+  troubleshoot](#1-common-strategies-to-troubleshoot)
+- [1.1 Keep calm and read the error
+  message](#11-keep-calm-and-read-the-error-message)
+- [1.2 Double-check your code](#12-double-check-your-code)  
+- [1.3 Read function and package
+  help](#13-read-function-and-package-help)
+- [1.4 Run one line at a time](#14-run-one-line-at-a-time)
+- [1.5 Restart R session](#15-restart-r-session)
+- [1.6 Look for similar errors
+  online](#16-look-for-similar-errors-online)
+- [1.7 Take a break](#17-take-a-break)
+- [1.8 Ask someone for help](#18-ask-someone-for-help)
+- [1.9 A note about using AI](#19-a-note-about-using-ai)
+- [1.10 Troubleshooting challenge](#18-troubleshooting-challenge)
+- [2 - Common mistakes](#2-common-mistakes)
+- [2.1 Capitalization](#21-capitalization)
+- [2.2 Misspelling](#22-mispelling)  
+- [2.3 Closing punctuation](#23-closing-punctuation)
+- [2.4 Continuing punctuation](#24-continuing-punctuation)
+- [2.5 Overwritting objects](#25-overwritting-objects)
+- [2.6 Not assigning objects](#26-not-assigning-objects)
+- [2.7 Wrong working directory](#27-wrong-working-directory)
+- [2.8 Package not loaded](#28-package-not-loaded)
+- [2.9 Function masked by other
+  packages](#29-function-masked-by-other-packages)
+- [2.10 Wrong package version](#29-wrong-package-version)
 
 Every one who uses R, beginner or advanced, faces errors in their code.
 In fact, learning how to read errors messages and troubleshoot them is
-one of the most important aspects of learning R. This page goes over
-some good strategies to troubleshoot and some of the most common
-mistakes. You can refer back to this page whenever you face a problem to
-help you troubleshoot it.
+one of the most important aspects of learning R. The first half of this
+page goes over some good strategies to troubleshoot and will give you a
+troubleshooting challenge. The second half of the page lists some of the
+most common mistakes people do. You can refer back to this page whenever
+you face a problem to help you troubleshoot it.
 
-## Common strategies to troubleshoot
+## 1 - Common strategies to troubleshoot
 
-### Keep calm and read the error message
+### 1.1. Keep calm and read the error message
 
 The first thing to do when your code is not working is to read the error
 message. As frustrating as it can be to see an error message, they are
@@ -77,14 +103,14 @@ Here, the error message might seem a bit daunting, but if you read with
 care, you can identify that R is telling you that it can not use the
 function `distinct` to an object of the type `double` or `numeric`
 (which your vector `values` is). This might prompt you to open the help
-of the function (see [section](#read-function-and-package-help) below),
-where you will see that the `distinct()` function takes a `data.frame`
-as its first argument, and not a vector. This is why this code is
-failing. You might then remember that the function `unique()` is the one
-you wanted to use, which does the same but for vectors:
+of the function (see [section](#13-read-function-and-package-help)
+below), where you will see that the `distinct()` function takes a
+`data.frame` as its first argument, and not a vector. This is why this
+code is failing. You might then remember that the function `unique()` is
+the one you wanted to use, which does the same but for vectors:
 
 ``` r
-# Load lpackage
+# Load package
 library(tidyverse)
 
 # Create vector of values
@@ -100,14 +126,14 @@ There are numerous potential error messages and the point there is not
 to go through them all, but to show you that errors messages can be very
 helpful to identify what the error is.
 
-### Double-check your code
+### 1.2. Double-check your code
 
 After reading the error message and identifying what the mistake likely
 is, double-check your code with attention. Most errors are usually
 caused by simple typos or forgotten closing brackets in the code (see
-list of [common mistakes](#common-mistakes) below).
+list of [common mistakes](#2-common-mistakes) below).
 
-### Read function and package help
+### 1.3. Read function and package help
 
 If you are facing an error when using a particular function, it is
 always helpful to open the documentation for that function. To do that,
@@ -153,7 +179,7 @@ to use the functions in the package. You can assess the `vignette` by
 searching for the package webpage or typing `vignette("vignette-name")`
 in the console.
 
-### Run one line at a time
+### 1.4. Run one line at a time
 
 We often run multiple lines of code together to perform an operation,
 but when an error message appear, we might not know in which line the
@@ -165,155 +191,101 @@ For example, this code results in an error:
 ``` r
 # This loads the built-in dataframe diamonds
 data(diamonds)
-
-diamonds %>% 
-  mutate(price200 = price - 200, 
-         price20perc = price * .80) %>%
-  group_by(cut, color) %>% 
-  summarize(total = count(), 
-            m1 = mean(price), 
-            m2 = mean(price200), 
-            m3 = mean(price20perc)) %>% 
-  ungroup()
+# Create a derived column: price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat
+# Filter to a single cut
+ideal <- subset(diamonds, cut == "Ideal")
+# Filter to one type of clarity
+ideal_vs2 <- subset(ideal, claritty == "VS2")
 ```
 
-    ## Error in `summarize()`:
-    ## ℹ In argument: `total = count()`.
-    ## ℹ In group 1: `cut = Fair` `color = D`.
-    ## Caused by error in `UseMethod()`:
-    ## ! no applicable method for 'count' applied to an object of class "NULL"
-
-The error message already suggests that the error was in the
-`summarize()` function, but let's run each line of code to check:
+    ## Error in eval(e, x, parent.frame()): object 'claritty' not found
 
 ``` r
-diamonds
+# Get the mean price per carat of the subset
+mean_ppc <- mean(ideal_vs2$price_per_carat)
 ```
 
-    ## # A tibble: 53,940 × 10
-    ##    carat cut       color clarity depth table price     x     y     z
-    ##    <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>
-    ##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
-    ##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
-    ##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
-    ##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
-    ##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
-    ##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
-    ##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
-    ##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
-    ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
-    ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
-    ## # ℹ 53,930 more rows
-
-This executes correctly, that is, the object exists!
+    ## Error: object 'ideal_vs2' not found
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200, 
-         price20perc = price * .80)
+# check result
+mean_ppc
 ```
 
-    ## # A tibble: 53,940 × 12
-    ##    carat cut       color clarity depth table price     x     y     z price200
-    ##    <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>    <dbl>
-    ##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43      126
-    ##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31      126
-    ##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31      127
-    ##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63      134
-    ##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75      135
-    ##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48      136
-    ##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47      136
-    ##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53      137
-    ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49      137
-    ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39      138
-    ## # ℹ 53,930 more rows
-    ## # ℹ 1 more variable: price20perc <dbl>
+    ## Error: object 'mean_ppc' not found
 
-The use of the mutate function to calculate new variables also seems
-to be working
+The error message already suggest that the error was where we calling
+clarity, but lets run each line of code to check:
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200, 
-         price20perc = price * .80) %>%
-  group_by(cut, color)
+data(diamonds)
 ```
 
-    ## # A tibble: 53,940 × 12
-    ## # Groups:   cut, color [35]
-    ##    carat cut       color clarity depth table price     x     y     z price200
-    ##    <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>    <dbl>
-    ##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43      126
-    ##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31      126
-    ##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31      127
-    ##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63      134
-    ##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75      135
-    ##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48      136
-    ##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47      136
-    ##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53      137
-    ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49      137
-    ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39      138
-    ## # ℹ 53,930 more rows
-    ## # ℹ 1 more variable: price20perc <dbl>
-
-The grouping function also seems to be working
+This executes correctly, that is, the object is correclt loaded!
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200, 
-         price20perc = price * .80) %>%
-  group_by(cut, color) %>% 
-  summarize(total = count(), 
-            m1 = mean(price), 
-            m2 = mean(price200), 
-            m3 = mean(price20perc))
+# This loads the built-in dataframe diamonds
+data(diamonds)
+# Create a derived column: price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat
 ```
 
-    ## Error in `summarize()`:
-    ## ℹ In argument: `total = count()`.
-    ## ℹ In group 1: `cut = Fair` `color = D`.
-    ## Caused by error in `UseMethod()`:
-    ## ! no applicable method for 'count' applied to an object of class "NULL"
+The calculation of price per carat also seems to be working
+
+``` r
+# This loads the built-in dataframe diamonds
+data(diamonds)
+# Create a derived column: price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat
+# Filter to a single cut
+ideal <- subset(diamonds, cut == "Ideal")
+```
+
+The first subset also seems to work.
+
+``` r
+# This loads the built-in dataframe diamonds
+data(diamonds)
+# Create a derived column: price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat
+# Filter to a single cut
+ideal <- subset(diamonds, cut == "Ideal")
+# Filter to one type of clarity
+ideal_vs2 <- subset(ideal, claritty == "VS2")
+```
+
+    ## Error in eval(e, x, parent.frame()): object 'claritty' not found
 
 A-ha, there seems to be an error here! Once you know where the errors
 is, you can then more easily troubleshoot it. In this case, the problem
-is that the function `count()` cannot be used inside `summarize()`, but
-the function `n()` will work:
+is that there is a type in the name of the variable, it should be
+`clarity` not `claritty`:
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200, 
-         price20perc = price * .80) %>%
-  group_by(cut, color) %>% 
-  summarize(total = n(), 
-            m1 = mean(price), 
-            m2 = mean(price200), 
-            m3 = mean(price20perc)) %>%
-  ungroup()
+# This loads the built-in dataframe diamonds
+data(diamonds)
+# Create a derived column: price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat
+# Filter to a single cut
+ideal <- subset(diamonds, cut == "Ideal")
+# Filter to one type of clarity
+ideal_vs2 <- subset(ideal, clarity == "VS2") # Fixed typo
+# Get the mean price per carat of the subset
+mean_ppc <- mean(ideal_vs2$price_per_carat)
+# check result
+mean_ppc
 ```
 
-    ## # A tibble: 35 × 6
-    ##    cut   color total    m1    m2    m3
-    ##    <ord> <ord> <int> <dbl> <dbl> <dbl>
-    ##  1 Fair  D       163 4291. 4091. 3433.
-    ##  2 Fair  E       224 3682. 3482. 2946.
-    ##  3 Fair  F       312 3827. 3627. 3062.
-    ##  4 Fair  G       314 4239. 4039. 3391.
-    ##  5 Fair  H       303 5136. 4936. 4109.
-    ##  6 Fair  I       175 4685. 4485. 3748.
-    ##  7 Fair  J       119 4976. 4776. 3981.
-    ##  8 Good  D       662 3405. 3205. 2724.
-    ##  9 Good  E       933 3424. 3224. 2739.
-    ## 10 Good  F       909 3496. 3296. 2797.
-    ## # ℹ 25 more rows
+    ## [1] 3814.12
 
-### Restart R session
+### 1.5. Restart R session
 
 When we are actively writing code, it is common to test out
 possibilities, which often require creating test objects, reordering
 lines of code, and loading new packages. In this process, sometimes we
 accidentally overwrite an object and load a package that masks a
-function we are using. An easy way to make sure you didn’t do this is to
+function we are using. An easy to make sure you didn’t do this is to
 clear your working environment of all objects, restart your R session,
 and then rerun the entire script.
 
@@ -330,7 +302,7 @@ script, so make sure your script loads any packages you need.
 
 <img src="images/new-session.png" alt="New session" style="width:300px"/>
 
-### Look for similar errors online
+### 1.6. Look for similar errors online
 
 Chances are, someone already ran into an error similar to yours. A quick
 online search often redirects you to a forum such as StackOverflow where
@@ -339,8 +311,28 @@ answer. When doing this online search, it is often helpful to search
 using specific terminology such as: the action you want to perform, the
 language you are using, and the specific style/technique you are using.
 For example, you could search: how to rename a column (i.e. the action)
-in R (i.e. the language) using the tidyverse (i.e. the style/technique
-of coding).
+in R (i.e. the language) using base R (i.e. the style/technique of
+coding).
+
+### 1.7. Take a break
+
+Sometimes, the best way to troubleshoot an issue in R is just to take a
+break and come back later with a fresh mindset. Errors can be
+frustrating and the frustation and anger can prevent you from finding
+simple mistakes. Taking a break and coming back later usually works to
+find those mistakes.
+
+### 1.8. Ask someone for help
+
+As has been said, the best way to learn is to try to troubleshoot the
+error by yourself. However, if that does not work, you can always ask
+for help, both in forums in the internet, or to someone you know who
+might be a more advanced R user. If you are posting on a particular
+forum such as StackOverflow, don’t forget to read [their
+guidelines](https://stackoverflow.com/help/how-to-ask) about how to post
+a question.
+
+### 1.9. A note about using AI
 
 You might have noticed that, up until now, there was no mention of AI.
 That is because we encourage you to try to troubleshoot your errors by
@@ -352,31 +344,105 @@ understanding what went wrong, you could ask AI what an error message is
 referring to, or ask it to find typos in your code without editing your
 code.
 
-### Take a break
+Moreover, remember that AI models can also hallucinate and produce
+incorrect code, so you need to understand enough about R to be able to
+evaluate their output. If AI is doing all your coding for you and you
+don’t learn the underlying logic and syntax of R, it will be harder for
+you to verify their output. That being said, AI can definitely be a
+helpful tool, especially if you use it with the right attitude and know
+what and how to ask for the most useful responses. While this workshop
+doesn’t cover best practices for using AI in coding, you can find some
+useful tips
+<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011319" target="_blank" rel="noopener noreferrer">here</a>
+and
+<a href="https://tidyverse.org/blog/2025/04/learn-tidyverse-ai/" target="_blank" rel="noopener noreferrer">here</a>.
 
-Sometimes, the best way to troubleshoot an issue in R is just to take a
-break and come back later with a fresh mindset. Errors can be
-frustrating and the frustation and anger can prevent you from finding
-simple mistakes. Taking a break and coming back later usually works to
-find those mistakes.
+### 1.10 Troubleshooting challenge
 
-### Ask someone for help
+<div class="task-box" markdown="1">
 
-As has been said, the best way to learn is to try to troubleshoot the
-error by yourself. However, if that does not work, you can always ask
-for help, both in forums in the internet, or to someone you know who
-might be a more advanced R user. If you are posting on a particular
-forum such as StackOverflow, don’t forget to read [their
-guidelines](https://stackoverflow.com/help/how-to-ask) about how to post
-a question.
+⭐ <u>Troubleshoot the code below</u>
 
-## Common mistakes
+Now that we have gone over some of the best strategies to troubleshoot
+your code, see if you can find and correct the errors in the code below.
+If you want, you can also scroll down the [Common mistakes
+section](#2-common-mistakes) below for a list of the most common errors
+you might encounter.
+
+``` r
+# This is not part of the challenge, but please run this line of code in your console to start a new and clean R Session
+.rs.restartR()
+
+# Load the tidyverse package (which contains the diamonds dataset)
+library(tidyver)
+
+# Load dataset
+data(diamonds)
+
+# View the first rows of the dataset
+head(diamond)
+
+# View the column names
+namesdiamonds)
+      
+# Get the mean price of diamonds
+mean(diamonds$Price)
+
+# Calculate price per carat
+diamonds$price / diamonds$carat
+
+# Get mean price per carat
+mean(diamond$price_per_carat)
+
+# filter the dataset for the diamonds with Ideal cut quality
+subset(diamonds cut == "Ideal")
+
+# Get the average price per carat of diamonds with Ideal cut quality
+mean(diamondsIdeal$price_per_carat)
+```
+
+    ## Error in startCodeDetailsBlock(summaryText = "View the corrected code"): could not find function "startCodeDetailsBlock"
+
+``` r
+# Load the tidyverse package (which contains the diamonds dataset)
+library(tidyverse) # correct spelling for the tidyverse package
+
+# Load dataset
+data(diamonds)
+
+# View the first rows of the dataset
+head(diamonds) # correct spelling for the diamonds objects
+
+# View the column names
+names(diamonds) # added a missing parenthesis
+      
+# Get the mean price of diamonds
+mean(diamonds$price) # corrected capitalization for the column price
+
+# Calculate price per carat
+diamonds$price_per_carat <- diamonds$price / diamonds$carat # assigned the result to a new column in the dataset
+
+# Get mean price per carat
+mean(diamonds$price_per_carat) # corrected spelling in dataset name
+
+# filter the dataset for the diamonds with Ideal cut quality
+diamondsIdeal <- subset(diamonds, cut == "Ideal") ## added missing comma, and saved in a new object
+
+# Get the average price per carat of diamonds with Ideal cut quality
+mean(diamondsIdeal$price_per_carat) # nothing to correct
+```
+
+    ## Error in endCodeDetailsBlock(): could not find function "endCodeDetailsBlock"
+
+</div>
+
+## 2 - Common mistakes
 
 Here is a list of common mistakes all R users do. If you are facing a
 problem in your code, going through these is probably a good start to
 try to figure out what can be happening in your code.
 
-### Capitalization
+### 2.1. Capitalization
 
 You typed a lower-case when it should have been an upper-case, or
 vice-versa. R is case-sensitive so this will result in an error for
@@ -385,7 +451,7 @@ result in an error code as the name of the function is `mean()`, all
 lower caps. Or you named the object `MyData` when you first created it
 but then later you are calling the object `mydata`.
 
-### Misspelling
+### 2.2. Misspelling
 
 You misspelled a function name or an object name. R Studio does not
 highlight spelling errors in code like in Microsoft Word, so you have to
@@ -393,7 +459,7 @@ pay attention to this when typing. For functions and arguments that have
 both British and American spelling (e.g. colour/color), R accepts both
 versions.
 
-### Closing punctuation
+### 2.3. Closing punctuation
 
 Your forgot to close a parenthesis, curly bracy, square bracket, or
 quotation mark. You will know that this is happening because R will
@@ -410,76 +476,61 @@ you would write `mean(seq(1, 100, by = 5))`. However, if you write:
 `by` argument instead of after), the code will run, but the result is
 wrong.
 
-### Continuing punctuation
+### 2.4. Continuing punctuation
 
-You forgot to add a comma or a pipe before moving on to the next
-indented line. Indenting lines makes the code easier to read, but it can
-be easy to forget a comma or a pipe. For example:
+You forgot to add a comma before moving on to the next indented line.
+Indenting lines makes the code easier to read, but it can be easy to
+forget a comma or other punctuation. For example:
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200 # missing comma
-         price300 = price - 300) # missing pipe
-  select(cut, price) %>%
-  arrange(price)
+# Average of a list of numbers going from 1 to 100
+mean(seq(1, 100 # missing comma 
+         by = 5))
 ```
 
     ## Error in parse(text = input): <text>:3:10: unexpected symbol
-    ## 2:   mutate(price200 = price - 200 # missing comma
-    ## 3:          price300
+    ## 2: mean(seq(1, 100 # missing comma 
+    ## 3:          by
     ##             ^
 
 ``` r
-diamonds %>% 
-  mutate(price200 = price - 200, ## added comma
-         price300 = price - 300) %>% # added pipe
-  select(cut, price) %>%
-  arrange(price)
+# Average of a list of numbers going from 1 to 100
+mean(seq(1, 100, # added comma
+         by = 5))
 ```
 
-    ## # A tibble: 53,940 × 2
-    ##    cut       price
-    ##    <ord>     <int>
-    ##  1 Ideal       326
-    ##  2 Premium     326
-    ##  3 Good        327
-    ##  4 Premium     334
-    ##  5 Good        335
-    ##  6 Very Good   336
-    ##  7 Very Good   336
-    ##  8 Very Good   337
-    ##  9 Fair        337
-    ## 10 Very Good   338
-    ## # ℹ 53,930 more rows
+    ## [1] 48.5
 
-### Open pipe
-
-You accidentally left an open pipe at the end of a line. If there are no
-lines of code after, you will note this because the console will show a
-`+` instead of `>`. However, if you have other code after, R will
-continue to run the code and it will shown an error, for example:
+If you are familiar with tidyverse (if not, check out the [Data
+manipulation and visualization
+workshop](https://uviclibraries.github.io/rstudio-vis/), this error
+might also mean that you forgot to add a pipe, or left a pipe open. Ifa
+pipe is left open and there are no lines of code after, you will note
+this because the console will show a `+` instead of `>`. However, if you
+have other code after, R will continue to run the code and it will shown
+an error, for example:
 
 ``` r
 # Calculate and get new variables
-diamonds2 <- diamonds %>% 
+diamonds2 <- diamonds |>
   mutate(price200 = price - 200,
-         price300 = price - 300) %>% 
-  select(cut, price200, price300) %>% # forgotten open pipe
+         price300 = price - 300) |> 
+  select(cut, price200, price300) |> # forgotten open pipe
 
 # another piece of code after
 mean(diamonds2$price200)
 ```
 
-    ## Warning in mean.default(., diamonds2$price200): argument is not numeric or
-    ## logical: returning NA
+    ## Warning in mean.default(select(mutate(diamonds, price200 = price - 200, :
+    ## argument is not numeric or logical: returning NA
 
 To correct:
 
 ``` r
 # Calculate and get new variables
-diamonds2 <- diamonds %>% 
+diamonds2 <- diamonds |> 
   mutate(price200 = price - 200,
-         price300 = price - 300) %>% 
+         price300 = price - 300) |> 
   select(cut, price200, price300) # removed pipe
 
 # another piece of code after
@@ -488,7 +539,7 @@ mean(diamonds2$price200)
 
     ## [1] 3732.8
 
-### Overwritting objects
+### 2.5. Overwritting objects
 
 You accidentally overwrote an object that you needed. This might be
 written in the code editor, or you might have done that in your console
@@ -498,7 +549,7 @@ For example, you can use `head()` to preview the first rows of a
 dataframe to make sure they look like how they should, or even ask R
 what type of object it is with `class()`.
 
-### Not assigning objects
+### 2.6. Not assigning objects
 
 You did not save an object that you wanted to save. This is very common
 at the beginning, when you are still not used to assigning data to
@@ -508,49 +559,43 @@ use it later.
 For example, imagine you had this piece of code
 
 ``` r
-# Calculate and get new variable about price
-diamonds %>% 
-  mutate(price100 = price - 100)
-```
+# Calculate a new variable about price
+diamonds$price - 100
 
-    ## # A tibble: 53,940 × 11
-    ##    carat cut       color clarity depth table price     x     y     z price100
-    ##    <dbl> <ord>     <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>    <dbl>
-    ##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43      226
-    ##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31      226
-    ##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31      227
-    ##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63      234
-    ##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75      235
-    ##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48      236
-    ##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47      236
-    ##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53      237
-    ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49      237
-    ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39      238
-    ## # ℹ 53,930 more rows
-
-``` r
 # another piece of code after
-mean(newdiamonds$price100)
+mean(diamonds$price100)
 ```
 
-    ## Error: object 'newdiamonds' not found
+    ##   [1]  226  226  227  234  235  236  236  237  237  238  239  240  242  244  245
+    ##  [16]  245  248  251  251  251  251  252  253  253  253  254  255  257  257  257
+    ##  [31]  302  302  302  302  302  302  302  302  303  303  303  303  303  303  303
+    ##  [46]  303  303  303  304  304  304  304  304  304  304  305  305  305  305  305
+    ##  [61]  452  452  452  452  452  453  453  453  453  453  453  454  454  454  454
+    ##  [76]  454  454  454  454  454  454  454  454  454  454  454  454  454  454  454
+    ##  [91] 2657 2657 2657 2659 2659 2659 2659 2659 2660 2660
 
-Because you never saved the calculation of the new variable into a new
-object, R cannot find it to calculate the mean. This is the corrected
-piece of code:
+    ## Warning: Unknown or uninitialised column: `price100`.
+
+    ## Warning in mean.default(diamonds$price100): argument is not numeric or logical:
+    ## returning NA
+
+    ## [1] NA
+
+Because you never saved the calculation of the new variable into the
+diamonds object, R cannot find it to calculate the mean. This is the
+corrected piece of code:
 
 ``` r
-# Calculate new variable about price, and assign to new object using <-
-newdiamonds <- diamonds %>% 
-  mutate(price100 = price - 100)
+# Calculate new variable about price, and assign to the diamond object using <-
+diamonds$price100 <- diamonds$price - 100
 
 # another piece of code after, using the new object
-mean(newdiamonds$price100)
+mean(diamonds$price100)
 ```
 
     ## [1] 3832.8
 
-### Wrong working directory
+### 2.7. Wrong working directory
 
 You are using the wrong working directory. The working directory is the
 folder R is looking at to search for files you want to upload. However,
@@ -563,7 +608,7 @@ Directory.
 
 <img src="images/set-directory.png" alt="New session" style="width:350px"/>
 
-### Package not loaded
+### 2.8. Package not loaded
 
 The package you want is not loaded. It is important to make sure all the
 relevant packages are loaded. Whenever you close R, the packages are
@@ -571,7 +616,7 @@ unloaded, so you need to load your packages every time you open R. A
 typical sign that this is an mistake is if the error message reads that
 a certain function could not be found.
 
-### Function masked by other packages
+### 2.9. Function masked by other packages
 
 You are using a function that is masked by another a package. What does
 this mean? Sometimes, different packages have functions with the same
@@ -600,7 +645,7 @@ specify that by using `package::function()`. For example, the
 the same name from the base `stats` package. If you want to use the
 package from the `stats` package, you can specify: `stats::filter()`.
 
-### Wrong package version
+### 2.10. Wrong package version
 
 You package version does not work with your R version. From time to
 time, both base R and packages are updated. If you haven’t worked in
@@ -621,5 +666,5 @@ website.
 If you need to update the package, the easiest thing is to re-install
 the package using `install.packages()`.
 
-[NEXT STEP: Additional Resources](additional-resources.html){: .btn
+[NEXT STEP: Earn a workshop badge](informal-credentials.html){: .btn
 .btn-blue }
