@@ -5,7 +5,7 @@ nav_order: 1
 ---
 <img src="images/rstudio-22.png" style="float:right;width:220px;" alt="rstudio logo"> 
 
-# Data Analysis with R Studio - Introduction to R and summary statistics
+# RStudio Summary Statistics Introduction
 
 - Pre-workshop activities: 15 min 
 - Introductory presentation: 10 min
