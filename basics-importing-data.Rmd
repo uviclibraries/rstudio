@@ -447,7 +447,7 @@ endCodeDetailsBlock()
 
 ## 5. Packages and additional functions
 
-One of the most fascinating things about R is that it has an active community developing a lot of packages everyday, which makes R very powerful. A package is a compilation of functions (data sets, code, documentations and tests) external to R that provide it with additional capabilities. For example, if you want to calculate the skewness and kurtosis of a distribution, you will to install an additional package called "moments"that has those functions, as they are not available in base R.
+One of the most fascinating things about R is that it has an active community developing a lot of packages everyday, which makes R very powerful. A package is a compilation of functions (data sets, code, documentations and tests) external to R that provide it with additional capabilities. For example, if you want to calculate the skewness and kurtosis of a variable or distribution, you will need to install an additional package called "moments" that has those functions, as they are not available in base R.
 
 We can install packages in the console using the `install.packages()` function. You should use the console and **not** the code editor to run this code because you only need to install the package once.
 
@@ -509,16 +509,16 @@ endCodeDetailsBlock()
   package only needs to be *installed* once, but it needs to be *loaded*
   any time you are running your script.
 
-```{r, message=FALSE, warning=TRUE}
+```{r message = FALSE, warning = FALSE}
 # Load the packages
 library(moments) 
 ```
 
 Now that you have loaded the package `moments`, you can use it to calculate the kurtosis and skewness.
 
-- Kurtosis characterizes the relative peakedness or flatness of a distribution compared with the normal distribution. Relatively peaked distribution are called "positive kurtosis" and indicated by values larger than 3 in the kurtosis estimator. Relatively flat distributions are called "negative kurtosis" and are indicated by values smaller than 3 in the kurtosis estimator.
+- **Kurtosis** characterizes the relative peakedness or flatness of a distribution compared with the normal distribution. Relatively peaked distribution are called "positive kurtosis" and indicated by values larger than 3 in the kurtosis estimator. Relatively flat distributions are called "negative kurtosis" and are indicated by values smaller than 3 in the kurtosis estimator.
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 5}
+```{r echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 # Load the package
 library(PearsonDS)
 library(tidyverse)
@@ -536,12 +536,12 @@ df <- data.frame(
 
 # Plot
 ggplot(df) +
-  geom_density(aes(x = normal2), colour = "darkgreen", linewidth = 2) +
-  geom_density(aes(x = poskur), colour = "darkblue", linewidth = 2) +
-  geom_density(aes(x = negkur), colour = "darkred", linewidth = 2) +
-  geom_text(label = "Normal", x = 1, y = 0.28, hjust = 0, colour = "darkgreen", size = 8) +
-  geom_text(label = "Positive kurtosis", x = 2.3, y = 0.4, hjust = 0.5, colour = "darkblue", size = 8) +
-  geom_text(label = "Negative kurtosis", x = -3.9, y = 0.15, hjust = 0.5, colour = "darkred", size = 8) +
+  geom_density(aes(x = normal2), colour = "darkgreen", linewidth = 1.5) +
+  geom_density(aes(x = poskur), colour = "darkblue", linewidth = 1.5) +
+  geom_density(aes(x = negkur), colour = "darkred", linewidth = 1.5) +
+  geom_text(label = "Normal", x = 1, y = 0.28, hjust = 0, colour = "darkgreen", size = 6) +
+  geom_text(label = "Positive kurtosis", x = 2.3, y = 0.4, hjust = 0.5, colour = "darkblue", size = 6) +
+  geom_text(label = "Negative kurtosis", x = -3.9, y = 0.15, hjust = 0.5, colour = "darkred", size = 6) +
   theme_classic() +
   theme(
     axis.title = element_blank(),
@@ -556,17 +556,17 @@ To calculate the kurtosis of income, we use the function `kurtosis()` from the `
 ```{r}
 kurtosis(income$income)
 ```
-- Skewness characterizes the degree of asymmetry of a distribution around its mean. Positive skewness indicates a distribution with an asymmetric tail extending toward more positive values. Negative skewness indicates a distribution with an asymmetric tail extending toward more negative values.
+- **Skewness** characterizes the degree of asymmetry of a distribution around its mean. Positive skewness indicates a distribution with an asymmetric tail extending toward more positive values. Negative skewness indicates a distribution with an asymmetric tail extending toward more negative values.
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 5}
+```{r, echo = FALSE, fig.width = 6, fig.height = 4}
 # Plot
 ggplot(df) +
-  geom_density(aes(x = normal), colour = "darkgreen", linewidth = 2) +
-  geom_density(aes(x = poskew), colour = "darkblue", linewidth = 2) +
-  geom_density(aes(x = negkew), colour = "darkred", linewidth = 2) +
-  geom_text(label = "Symmetric", x = 0, y = 0.45, hjust = 0.5, , colour = "darkgreen", size = 8) +
-  geom_text(label = "Positive\nskew", x = -3.5, y = 0.45, hjust = 0.5, , colour = "darkblue", size = 8) +
-  geom_text(label = "Negative\nskew", x = 3.5, y = 0.45, hjust = 0.5, , colour = "darkred", size = 8) +
+  geom_density(aes(x = normal), colour = "darkgreen", linewidth = 1.5) +
+  geom_density(aes(x = poskew), colour = "darkblue", linewidth = 1.5) +
+  geom_density(aes(x = negkew), colour = "darkred", linewidth = 1.5) +
+  geom_text(label = "Symmetric", x = 0, y = 0.45, hjust = 0.5, , colour = "darkgreen", size = 6) +
+  geom_text(label = "Positive\nskew", x = -3.5, y = 0.45, hjust = 0.5, , colour = "darkblue", size = 6) +
+  geom_text(label = "Negative\nskew", x = 3.5, y = 0.45, hjust = 0.5, , colour = "darkred", size = 6) +
   theme_classic() +
   theme(
     axis.title = element_blank(),
@@ -586,7 +586,7 @@ Use the function `skewness()` to calculate the skewness of the income data
 startCodeDetailsBlock(summaryText = "Check your code")
 ```
 
-```{r, eval = FALSE}
+```{r}
 skewness(income$income)
 ```
 
@@ -596,7 +596,7 @@ endCodeDetailsBlock()
 
 </div>
 
-Great job! Now you know how to use the basic syntax of R in Rstudio to calculate basic statistical measures! This is the official end of this workshop, but if you want, we have an optional activity for you about how to troubleshoot erros in R.
+Great job! Now you know how to use the basic syntax of R in R Studio to calculate basic statistical measures! This is the official end of this workshop, but if you want, we have an optional activity for you about how to troubleshoot errors in R.
 
 <script>  
 function toggle(input) {

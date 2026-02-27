@@ -648,9 +648,9 @@ community developing a lot of packages everyday, which makes R very
 powerful. A package is a compilation of functions (data sets, code,
 documentations and tests) external to R that provide it with additional
 capabilities. For example, if you want to calculate the skewness and
-kurtosis of a distribution, you will to install an additional package
-called “moments”that has those functions, as they are not available in
-base R.
+kurtosis of a variable or distribution, you will need to install an
+additional package called “moments” that has those functions, as they
+are not available in base R.
 
 We can install packages in the console using the `install.packages()`
 function. You should use the console and **not** the code editor to run
@@ -743,34 +743,15 @@ an unquoted name that it interprets as a package name.
 library(moments) 
 ```
 
-    ## Warning: package 'moments' was built under R version 4.5.2
-
 Now that you have loaded the package `moments`, you can use it to
 calculate the kurtosis and skewness.
 
-- Kurtosis characterizes the relative peakedness or flatness of a
+- **Kurtosis** characterizes the relative peakedness or flatness of a
   distribution compared with the normal distribution. Relatively peaked
   distribution are called “positive kurtosis” and indicated by values
   larger than 3 in the kurtosis estimator. Relatively flat distributions
   are called “negative kurtosis” and are indicated by values smaller
   than 3 in the kurtosis estimator.
-
-<!-- -->
-
-    ## Warning: package 'PearsonDS' was built under R version 4.5.2
-
-    ## Warning: package 'tidyverse' was built under R version 4.5.2
-
-    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-    ## ✔ forcats   1.0.1     ✔ stringr   1.5.2
-    ## ✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-    ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-    ## ✔ purrr     1.1.0     
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 ![](basics-importing-data_files/figure-gfm/unnamed-chunk-46-1.png)<!-- -->
 
@@ -784,7 +765,7 @@ kurtosis(income$income)
 
     ## [1] 2.603855
 
-- Skewness characterizes the degree of asymmetry of a distribution
+- **Skewness** characterizes the degree of asymmetry of a distribution
   around its mean. Positive skewness indicates a distribution with an
   asymmetric tail extending toward more positive values. Negative
   skewness indicates a distribution with an asymmetric tail extending
@@ -813,16 +794,18 @@ Check your code
 skewness(income$income)
 ```
 
+    ## [1] 0.6433921
+
 </details>
 
 {::options parse_block_html='false'/}
 
 </div>
 
-Great job! Now you know how to use the basic syntax of R in Rstudio to
+Great job! Now you know how to use the basic syntax of R in R Studio to
 calculate basic statistical measures! This is the official end of this
 workshop, but if you want, we have an optional activity for you about
-how to troubleshoot erros in R.
+how to troubleshoot errors in R.
 
 <script>  
 function toggle(input) {
