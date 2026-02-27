@@ -474,5 +474,5 @@ details {
 
 <!--https://gist.github.com/rxaviers/7360908-->
 
-[NEXT STEP: Data Types, Basic Commands and
-Charting](basics-0.html){:.btn .btn-blue }
+[NEXT STEP: Data Types and Basic Commands](basics-data-types.html){:.btn
+.btn-blue }

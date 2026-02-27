@@ -460,7 +460,7 @@ goat.weights
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 3.3-3</u>
+⭐ <u>Task 2-10</u>
 
 **Index vectors**
 
@@ -495,7 +495,7 @@ vectors.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-10</u>
+⭐ <u>Task 2-11</u>
 
 **Create a new vector.**
 
@@ -534,7 +534,7 @@ To get the length of a vector, we can use the `length()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-11</u>
+⭐ <u>Task 2-12</u>
 
 **Get vector length**
 
@@ -587,7 +587,7 @@ To make a list, we’ll use the `list()` function.
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-12</u>
+⭐ <u>Task 2-13</u>
 
 **Create a list**
 
@@ -618,7 +618,7 @@ number of the location you want to capture)
 
 <div class="task-box" markdown="1">
 
-⭐ <u>Task 2-13</u>
+⭐ <u>Task 2-14</u>
 
 **Show an element of a list**
 
@@ -700,5 +700,4 @@ details {
   }
   &#10;</style>
 
-[NEXT STEP: Basic Data Analysis](basics-importing-data.html){: .btn
-.btn-blue}
+[NEXT STEP: Basic Data Analysis](basics-analysis.html){: .btn .btn-blue}

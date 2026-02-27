@@ -104,7 +104,7 @@ Check your code
 </summary>
 
 ``` r
-setwd("Path to Folder")
+setwd("Path to Folder") # NOTE: you should change this to the path to the folder in your computer!
 ```
 
 </details>
@@ -541,8 +541,8 @@ for a histogram of the income data:
 hist(income$income)
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
-We can also pass in additional parameters to control the way our plot
+![](basics-analysis_files/figure-gfm/unnamed-chunk-31-1.png)<!-- --> We
+can also pass in additional parameters to control the way our plot
 looks.
 
 Some of the frequently used parameters are:
@@ -568,7 +568,7 @@ parentheses separated by commas,
 hist(income$income, xlab="Income", main = "Histogram of Income")
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](basics-analysis_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 <div class="task-box" markdown="1">
 
@@ -593,7 +593,7 @@ Check your code
 hist(income$experience, main = "Histogram of Experience", xlab = "Experience")
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
+![](basics-analysis_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
 
 </details>
 
@@ -634,7 +634,7 @@ Check your code
 hist(income$experience, main = "Histogram of Experience", xlab = "Experience", breaks = 3)
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
+![](basics-analysis_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
@@ -753,7 +753,7 @@ calculate the kurtosis and skewness.
   are called “negative kurtosis” and are indicated by values smaller
   than 3 in the kurtosis estimator.
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-46-1.png)<!-- -->
+![](basics-analysis_files/figure-gfm/unnamed-chunk-46-1.png)<!-- -->
 
 To calculate the kurtosis of income, we use the function `kurtosis()`
 from the `moments` package. This function takes in as an argument a
@@ -771,7 +771,7 @@ kurtosis(income$income)
   skewness indicates a distribution with an asymmetric tail extending
   toward more negative values.
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-48-1.png)<!-- -->
+![](basics-analysis_files/figure-gfm/unnamed-chunk-48-1.png)<!-- -->
 
 <div class="task-box" markdown="1">
 

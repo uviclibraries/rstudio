@@ -97,7 +97,7 @@ startCodeDetailsBlock(summaryText = "Check your code")
 ```
 
 ```{r, eval = FALSE}
-setwd("Path to Folder")
+setwd("Path to Folder") # NOTE: you should change this to the path to the folder in your computer!
 ``` 
 
 ```{r echo = F, results='asis'}
