@@ -521,6 +521,7 @@ Now that you have loaded the package `moments`, you can use it to calculate the 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 5}
 # Load the package
 library(PearsonDS)
+library(tidyverse)
 
 # Simulate the distributions
 set.seed(2222)

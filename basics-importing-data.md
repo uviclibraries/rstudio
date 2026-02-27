@@ -18,6 +18,7 @@ output:
 - [2 Data frames](#2-data-frames)
 - [3 Summary statistics](#3-summary-statistics)
 - [4 Histograms](#4-histograms)
+- [5 Packages and additional functions](#4-histograms)
 
 <img src="images/rstudio-22.png" alt="rstudio logo" style="float:right;width:220px;"/>
 
@@ -265,6 +266,21 @@ income
     ## 9   9      F  57000          8
     ## 10 10      F  91000         10
 
+If you data frame is too long, you might want to just check the top
+rows. You can do that with the function `head()`:
+
+``` r
+head(income)
+```
+
+    ##   id gender income experience
+    ## 1  1      M  23000          3
+    ## 2  2      M  55000          7
+    ## 3  3      M  43000          5
+    ## 4  4      F  37000          5
+    ## 5  5      M  75000          9
+    ## 6  6      M  72000         10
+
 Another useful way to inspect your data frame is to use the `str()`
 function:
 
@@ -337,7 +353,7 @@ and more on data analysis, such as statistical tests, is covered in the
 analysis](https://uviclibraries.github.io/rstudio-intermediate/)
 workshop.
 
-### 3.1 Basic statistical measures
+### Basic statistical measures
 
 The function names for the following three statistical measures (mean,
 median, standard deviation) are quite intuitive.
@@ -525,7 +541,7 @@ for a histogram of the income data:
 hist(income$income)
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
 We can also pass in additional parameters to control the way our plot
 looks.
 
@@ -552,7 +568,7 @@ parentheses separated by commas,
 hist(income$income, xlab="Income", main = "Histogram of Income")
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 <div class="task-box" markdown="1">
 
@@ -577,7 +593,7 @@ Check your code
 hist(income$experience, main = "Histogram of Experience", xlab = "Experience")
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
 
 </details>
 
@@ -618,12 +634,195 @@ Check your code
 hist(income$experience, main = "Histogram of Experience", xlab = "Experience", breaks = 3)
 ```
 
-![](basics-importing-data_files/figure-gfm/unnamed-chunk-36-1.png)<!-- -->
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
 </details>
 
 {::options parse_block_html='false'/}
 
 </div>
+
+## 5. Packages and additional functions
+
+One of the most fascinating things about R is that it has an active
+community developing a lot of packages everyday, which makes R very
+powerful. A package is a compilation of functions (data sets, code,
+documentations and tests) external to R that provide it with additional
+capabilities. For example, if you want to calculate the skewness and
+kurtosis of a distribution, you will to install an additional package
+called “moments”that has those functions, as they are not available in
+base R.
+
+We can install packages in the console using the `install.packages()`
+function. You should use the console and **not** the code editor to run
+this code because you only need to install the package once.
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-11</u>
+
+**Install the `moments` packages in the Console window.**
+
+Package names: `moments`.
+
+{::options parse_block_html='true' /}
+<details>
+
+<summary>
+
+Check your code
+</summary>
+
+``` r
+install.packages("moments") # Install the moments package
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+*Hint:* wrap the package name in `""` quotations, because it is a string
+type.
+
+</div>
+
+*Note:* The installation may take a while. When it’s complete, the right
+angle bracket `>` will appear at the last line of your console.
+
+**Confirm installation**
+
+To check if the package is installed, enter the following in the console
+
+``` r
+# Paste these lines into the console, and then run. 
+installed <- installed.packages() # this creates an object with names of installed packages
+"moments" %in% rownames(installed) # this looks for moments in that object
+## [1] TRUE
+```
+
+**Load the libraries.**
+
+After we install a package, we have to load it using the `library()`
+function.
+
+- Do not wrap the package name in quotes when using `library()`.
+
+{::options parse_block_html='true' /}
+<details>
+
+<summary>
+
+Why no quotations for library()?
+</summary>
+
+When you install a package in R using **`install.packages()`**, the
+package name must be a character string, hence the quotes. This is
+because **`install.packages()`** is a function that takes a character
+vector as its argument, representing the names of the packages to be
+installed.
+
+However, when you load a package using **`library()`** or
+**`require()`**, you’re not passing a character string; instead, you’re
+using a non-evaluated expression that refers to the package name. Here,
+the package name is an object of mode “name” which **`library()`**
+interprets as the name of a package to load.
+
+In summary, the quotes are needed for **`install.packages()`** because
+it expects a character string, while **`library()`** is designed to take
+an unquoted name that it interprets as a package name.
+
+</details>
+
+{::options parse_block_html='false'/}
+
+- ❗ Put this command in your R script, not in the console. Why? The
+  package only needs to be *installed* once, but it needs to be *loaded*
+  any time you are running your script.
+
+``` r
+# Load the packages
+library(moments) 
+```
+
+    ## Warning: package 'moments' was built under R version 4.5.2
+
+Now that you have loaded the package `moments`, you can use it to
+calculate the kurtosis and skewness.
+
+- Kurtosis characterizes the relative peakedness or flatness of a
+  distribution compared with the normal distribution. Relatively peaked
+  distribution are called “positive kurtosis” and indicated by values
+  larger than 3 in the kurtosis estimator. Relatively flat distributions
+  are called “negative kurtosis” and are indicated by values smaller
+  than 3 in the kurtosis estimator.
+
+<!-- -->
+
+    ## Warning: package 'PearsonDS' was built under R version 4.5.2
+
+    ## Warning: package 'tidyverse' was built under R version 4.5.2
+
+    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+    ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+    ## ✔ forcats   1.0.1     ✔ stringr   1.5.2
+    ## ✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+    ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+    ## ✔ purrr     1.1.0     
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ✖ dplyr::filter() masks stats::filter()
+    ## ✖ dplyr::lag()    masks stats::lag()
+    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-46-1.png)<!-- -->
+
+To calculate the kurtosis of income, we use the function `kurtosis()`
+from the `moments` package. This function takes in as an argument a
+numeric vector:
+
+``` r
+kurtosis(income$income)
+```
+
+    ## [1] 2.603855
+
+- Skewness characterizes the degree of asymmetry of a distribution
+  around its mean. Positive skewness indicates a distribution with an
+  asymmetric tail extending toward more positive values. Negative
+  skewness indicates a distribution with an asymmetric tail extending
+  toward more negative values.
+
+![](basics-importing-data_files/figure-gfm/unnamed-chunk-48-1.png)<!-- -->
+
+<div class="task-box" markdown="1">
+
+⭐ <u>Task 3-12</u>
+
+**Calculate the skewness of the income data**
+
+Use the function `skewness()` to calculate the skewness of the income
+data
+
+{::options parse_block_html='true' /}
+<details>
+
+<summary>
+
+Check your code
+</summary>
+
+``` r
+skewness(income$income)
+```
+
+</details>
+
+{::options parse_block_html='false'/}
+
+</div>
+
+Great job! Now you know how to use the basic syntax of R in Rstudio to
+calculate basic statistical measures! This is the official end of this
+workshop, but if you want, we have an optional activity for you about
+how to troubleshoot erros in R.
 
 <script>  
 function toggle(input) {
