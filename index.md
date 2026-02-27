@@ -29,6 +29,7 @@ Participants will be able to do the following by the end of this workshop:
 3. Describe the basic data types and data structures in R
 4. Create and use vectors in R
 5. Import and use data frames in R
-6. Generate descriptive statistics for a data set using R
+6. Install and load packages in R
+7. Generate descriptive statistics for a data set using R
 
 [NEXT STEP: Pre-Workshop Activities](pre-workshop.html){: .btn .btn-blue }
