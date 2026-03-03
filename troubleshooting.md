@@ -323,14 +323,26 @@ referring to, or ask it to find typos in your code without editing your
 code.
 
 Moreover, remember that AI models can also hallucinate and produce
-incorrect code, so you need to understand enough about R to be able to
-evaluate their output. If AI is doing all your coding for you and you
+incorrect code. You don’t want to find yourself in a situation like the
+[reddit
+user](https://www.reddit.com/r/ClaudeAI/comments/1pgxckk/claude_cli_deleted_my_entire_home_directory_wiped/)
+below, who didn’t check their code and ended up to get their entire home
+directory wiped out…
+
+<figure>
+<img src="images/claude-ai.png" alt="Claude AI gone wrong" />
+<figcaption aria-hidden="true">Claude AI gone wrong</figcaption>
+</figure>
+
+The lesson here is that you need to understand enough about R to be able
+to evaluate their output. If AI is doing all your coding for you and you
 don’t learn the underlying logic and syntax of R, it will be harder for
-you to verify their output. That being said, AI can definitely be a
-helpful tool, especially if you use it with the right attitude and know
-what and how to ask for the most useful responses. While this workshop
-doesn’t cover best practices for using AI in coding, you can find some
-useful tips
+you to verify their output. Remember, you should think of AI as your
+research assistant, and you are still responsible for any code produced
+by AI. That being said, AI can definitely be a helpful tool, especially
+if you use it with the right attitude and know what and how to ask for
+the most useful responses. While this workshop doesn’t cover best
+practices for using AI in coding, you can find some useful tips
 <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011319" target="_blank" rel="noopener noreferrer">here</a>
 and
 <a href="https://tidyverse.org/blog/2025/04/learn-tidyverse-ai/" target="_blank" rel="noopener noreferrer">here</a>.
