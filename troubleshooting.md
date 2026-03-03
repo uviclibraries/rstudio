@@ -329,10 +329,7 @@ user](https://www.reddit.com/r/ClaudeAI/comments/1pgxckk/claude_cli_deleted_my_e
 below, who didn’t check their code and ended up to get their entire home
 directory wiped out…
 
-<figure>
-<img src="images/claude-ai.png" alt="Claude AI gone wrong" />
-<figcaption aria-hidden="true">Claude AI gone wrong</figcaption>
-</figure>
+![](images/claude-ai.png)
 
 The lesson here is that you need to understand enough about R to be able
 to evaluate their output. If AI is doing all your coding for you and you
