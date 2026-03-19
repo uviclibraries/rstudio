@@ -7,7 +7,7 @@ nav_order: 9
 
 # Informal Credentials or Digital Badges
 
-The Digital Scholarship Commons (DSC) awards digital badges, or informal credentialing, for the successful completion of this workshop. We award badges as an informal credential in order to help workshop participants, who wish to, make public the fact that they have developed qualitative data analysis skills using RStudio. 
+The Digital Scholarship Commons (DSC) awards digital badges, or informal credentialing, for the successful completion of this workshop. We award badges as an informal credential in order to help workshop participants, who wish to, make public the fact that they have developed quantitative data analysis skills using RStudio. 
 
 DSC electronic badges are cryptographically signed and have the recipient's email address embedded in the signing so that it cannot be used by anyone else. Also embedded in the badge is a link to the learning objectives for the workshop so that employers or anyone who sees the badge can determine what was done to earn the badge. 
 
