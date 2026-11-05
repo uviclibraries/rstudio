@@ -3,7 +3,7 @@ layout: default
 title: Earn a Workshop Badge
 nav_order: 9
 ---
-<img rstudiointro.png" style="float:right;width:180px;"> 
+<img rstudiointro" style="float:right;width:180px;"> 
 
 # Informal Credentials or Digital Badges
 
